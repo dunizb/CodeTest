@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	height: 100px;
+}
+
+/*我会被编译*/
+
+//我不会被编译
+
+//Less中的变量
+
+//1.声明变量
+//Less中声明变量一定要用@开头，比如：@变量名:值
+@test_width:300px;
+.box{
+	//2.使用变量
+	width: @test_width;
+	height: @test_width;
+	background-color: yellow;
+
+	.border;
+}
+
+//混合
+.border{
+	border: 5px solid pink;
+}
+
+//混合 - 可带参数的
+.border_02(@border_width){
+	border: solid yellow @border_width;
+}
+
+.test_hunhe{
+	.border_02(30px);
+}
+
+//混合 - 带默认值
+.border_03(@border_width:10px){
+	border: solid green @border_width;
+}
+.text_hunhe_03{
+	.border_03();
+}
+
+//三角符号
+// .sanjiao{
+// 	width: 0;
+// 	height: 0;
+// 	overflow: hidden;
+// 	border-width: 10px;
+// 	border-color: transparent transparent red transparent;
+// 	border-style: dashed dashed solid dashed;
+// }
+//模式匹配
+.triangle(top,@width:5px,@color:#ccc){
+	border-width: @width;
+	border-color: transparent transparent @color transparent;
+	border-style: dashed dashed solid dashed;
+}
+.triangle(bottom,@width:5px,@color:#ccc){
+	border-width: @width;
+	border-color: @color transparent transparent transparent;
+	border-style: dashed dashed solid dashed;
+}
+.triangle(left,@width:5px,@color:#ccc){
+	border-width: @width;
+	border-color: transparent @color transparent transparent;
+	border-style: dashed solid dashed dashed;
+}
+.triangle(right,@width:5px,@color:#ccc){
+	border-width: @width;
+	border-color: transparent transparent transparent @color;
+	border-style: dashed dashed dashed solid;
+}
+.triangle(@_,@width:5px,@color:#ccc){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+.sanjiao{
+	.triangle(right,100px);
+}
+
+//匹配模式 - 定位
+.post(r){
+	position: relative;
+}
+.post(a){
+	position: absolute;
+}
+.post(f){
+	position: fixed;
+}
+
+.pipei{
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	.post(r);
+}
+
+@test_01:300px;
+
+.box_02{
+	width: (@test_01 + 20) * 5;
+}
+
+//嵌套
+.list{
+	width: 600px;
+	margin: 30px auto;
+	padding: 0;
+	list-style: none;
+	
+	li{
+		height: 30px;
+		line-height: 30px;
+		background-color: pink;
+		margin-bottom: 5px;
+		padding: 0 10px;
+	}
+	a{
+		float: left;
+		//& 代表它的上一层选择器
+		&:hover{
+			color: red;
+		}
+	}
+	span{
+		float: right;
+	}
+}
+
+.border_arg(@w:30px,@c:red,@xx:solid){
+	border: @arguments;
+}
+.test_arguments{
+	.border_arg();
+}
+
+//避免编译
+.test_03{
+	width: ~'calc(200px - 30px)';
+}

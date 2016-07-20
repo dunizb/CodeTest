@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计算器|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        body {padding: 0;margin: 0}
+        #calc {
+            width: 300px;
+            height: 420px;
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            transition: all .5s;
+            box-shadow: 0px 0px 10px #000;
+        }
+        #top {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex: 1;
+            height: 102px;
+        }
+        #win-tool {
+            background-color: #999;
+            border-radius: 5px 5px 0 0;
+            padding: 8px 0 5px 10px;
+            height: 18px;
+        }
+        #win-tool span {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            line-height: 18px;
+            margin-right: 3px;
+            text-align: center;
+            display: inline-block;
+            font-size: 12px;
+            color: #fff;
+            font-weight: bold;
+            cursor: default;
+            box-shadow: 0px 0px 8px #D8D6D6;
+        }
+        #close {
+            background-color: #FC5652;
+        }
+        #max {
+            background-color: #FDBC40;
+        }
+        #mini {
+            background-color: #34C749;
+        }
+        #result {
+            height: 100%;
+            background-color: #999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            /*font-size: 60px;*/
+            font-family:"Helvetica Neue Light";
+            padding:0 15px 0 15px;
+            color: #FFF;
+            overflow: hidden;
+        }
+        #res {
+
+        }
+        #bottom {
+            flex: 3;
+        }
+        #bottom .row {
+            height: 63px;
+            display: flex;
+            flex-direction: row;
+        }
+        #bottom .row span:first-child {
+            border-left: 0;
+        }
+        #bottom .row:last-child span {
+            border-bottom: 0;
+        }
+        #bottom .row span{
+            height: 62px;
+            background-color: #E0E0E0;
+            border: 1px solid #999;
+            border-right: 0;
+            text-align: center;
+            flex: 1;
+            color: #000;
+            font:400 25px/62px "Microsoft YaHei";
+            cursor: default;
+            -webkit-user-select: none;
+        }
+        #bottom .row span:hover,
+        #bottom .row span.tool:hover {
+            box-shadow: 0px 0px 15px #F44336;
+            background-color: #F44336;
+            color: #fff;
+            position: relative;
+        }
+        #bottom .row span.tool {
+            background-color: #F5923E;
+            color: #fff;
+        }
+        #bottom .row span.chu {
+            font-size: 35px;
+            font-weight: normal;
+        }
+        #bottom .row span.add {
+            font-size: 35px;
+            font-weight: normal;
+        }
+        #bottom .row span.jiang {
+            font-size: 20px;
+        }
+        #bottom .row span.eq {
+            font-size: 35px;
+            font-weight: normal;
+            border-radius: 0 0 5px 0;
+         }
+
+        #bottom .row span.zero {
+            flex: 2;
+            box-sizing: border-box;
+            height: 63px;
+            border-radius: 0 0 0 5px;
+            padding-right: 1px;
+        }
+    </style>
+</head>
+<body>
+<div id="calc">
+    <div id="top">
+        <div id="win-tool">
+            <span id="close" title="关闭" data-ico="×">&nbsp;</span>
+            <span id="max" title="最大化" data-ico="□">&nbsp;</span>
+            <span id="mini" title="最小化" data-ico="_">&nbsp;</span>
+        </div>
+        <div id="result">
+            <div id="res" style="font-size: 60px;">0</div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div class="row">
+            <span data-number="C">CE</span>
+            <span data-number="←">←</span>
+            <span data-number="%">%</span>
+            <span data-number="/" class="tool chu">÷</span>
+        </div>
+        <div class="row">
+            <span data-number="7">7</span>
+            <span data-number="8">8</span>
+            <span data-number="9">9</span>
+            <span data-number="*" class="tool cheng">✖</span>
+        </div>
+        <div class="row">
+            <span data-number="4">4</span>
+            <span data-number="5">5</span>
+            <span data-number="6">6</span>
+            <span data-number="-" class="tool jiang">—</span>
+        </div>
+        <div class="row">
+            <span data-number="1">1</span>
+            <span data-number="2">2</span>
+            <span data-number="3">3</span>
+            <span data-number="+" class="tool add">＋</span>
+        </div>
+        <div class="row">
+            <span data-number="0" class="zero">0</span>
+            <span data-number="." class="dian">.</span>
+            <span data-number="=" class="tool eq">＝</span>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var calc = document.getElementById("calc"),
+        spans = document.getElementById("win-tool").getElementsByTagName("span");
+
+    var close = document.getElementById("close"),
+        max = document.getElementById("max"),
+        mini = document.getElementById("mini");
+
+    //1 鼠标划过三个小按钮显示功能图标，绑定相应事件
+    for(var i=0; i<spans.length; i++){
+        //1.1 鼠标划过三个小按钮显示功能图标
+        spans[i].onmouseover = function(){
+            this.innerText = this.dataset.ico;
+        };
+        spans[i].onmouseout = function(){
+            this.innerHTML = "&nbsp;";
+        };
+    }
+    //1.2 绑定相应事件
+    close.onclick = mini.onclick = function(){
+        calc.style.display = 'none';
+    };
+    max.onclick = function(){
+        var that = this;
+        if(calc.offsetWidth > 300){
+            calc.style.width = 300+"px";
+            that.dataset["ico"] = "□";
+            that.title = "最大化";
+//            calcResFontSize("-",300);
+        }else{
+            calc.style.width = 600+"px";
+            that.dataset["ico"] = "※";
+            that.title = "恢复大小";
+//            calcResFontSize("+",600);
+        }
+    };
+
+    //2 点击键盘，注册单击事件
+    var keyBorders = document.querySelectorAll("#bottom span");
+    var keyBorde = null,        //键盘
+        expression = "",        //表达式
+        preClickKey = null,     //上一次点击的键盘
+        preKeyValue = "";       //上一次点击键盘的键盘的值
+    for(var j=0; j <keyBorders.length; j++){
+        keyBorde = keyBorders[j];
+
+        keyBorde.onclick = function(){
+            if(preClickKey){
+                preKeyValue = preClickKey.dataset["number"];
+            }
+            var that = this;
+            var result = document.getElementById("result"),
+                res = document.getElementById("res");
+            var number = that.dataset['number'];
+
+            if(number == "←"){      //减位操作
+                var resNumber = res.innerText;
+                expression = resNumber.substring(0,resNumber.length-1);
+                if(expression.length == 0){
+                    expression = 0;
+                    res.style.fontSize = "60px";
+                }
+            }else if(number == "C"){ //复位操作
+                result.innerHTML = '<div id="res" style="font-size: 60px;">0</div>';
+            }else{
+                //如果上一次按的复位键
+                if(preKeyValue == "C"){
+                    expression = "";
+                }
+                if(res.innerText.length == 1 && res.innerText == 0){
+                    if(preKeyValue == "C"){
+                        expression = "";
+                    }
+                }
+                expression += number;
+            }
+
+            try{
+                //计算结果
+                if(isNaN(expression)){
+                    //如果是字符串，对特殊符号进行的替换
+                    expression = expression.replace(/\*/g,"×").replace(/\//g,"÷");
+                }
+                if(number == "="){
+                    expression = expression.replace(/×/g,"*").replace(/÷/,"/");
+                    expression = expression.substring(0,expression.length-1);
+                    expression = eval(expression);
+                }
+            }catch(e){
+                expression = "<font style='font-size:12px;color:red'>Erro：计算出错！</font>";
+            }finally{
+                //显示结果
+                res.innerHTML = expression;
+                //记录上一次操作的键盘
+                preClickKey = that;
+                //处理长度
+                calcFontSize();
+            }
+        };
+    }
+
+    function calcFontSize(){
+        var result = document.getElementById("result"),
+            res = document.getElementById("res");
+        var resWidth = res.offsetWidth,
+            resultWidth = result.offsetWidth;
+//        console.log(resultWidth);
+        var fs = (resWidth/resultWidth)*15;
+
+        var fontSize = parseInt(res.style.fontSize)-fs;
+        if(resWidth >= resultWidth-10){
+            if(fontSize > 20){
+                res.style.fontSize = fontSize + "px";
+            }else{
+                res.style.height = "69px";
+                res.style.wordBreak="break-all";
+                res.style.overflowY = "auto";
+            }
+        }else{
+            res.style.fontSize = fontSize + fs +"px";
+            res.style.wordBreak="normal";
+            res.style.overflow = "hidden";
+        }
+    }
+
+//    function calcResFontSize(type,width){
+//        console.log(width);
+//        var res = document.getElementById("res");
+//        res.style.wdith = width +"px";
+//        console.log(res.style.wdith);
+//
+//    }
+
+
+</script>
+</body>
+</html>

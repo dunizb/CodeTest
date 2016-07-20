@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../lib/underscore/underscore.js"></script>
+</head>
+<body>
+    <!--<div>
+        <p><span>xjj</span>:<span>10</span></p>
+        <p><span>xxj</span>:<span>11</span></p>
+    </div>-->
+    <div id="box"></div>
+    <!--<script type="text/javascript"></script>-->
+    <!--/*模版就是一段html不会解析的字符串*/-->
+    <!--在  <% js代码 %>-->
+    <!-- 怎么样去值    通过=号取值  还可以通过-获取 -->
+    <script id="box_template" type="text/template">
+        <%_.each(model,function(obj,index){%>
+            <p><span style="color: red"><%=obj.name%></span>:<span><%=obj.age%></span></p>
+        <%});%>
+    </script>
+    <script>
+        /*准备一个数组*/
+        var dataList = [
+            {name:'xdsjj',age:'11210'},
+            {name:'xdsxj',age:'11111'}
+        ]
+        /*准备模版*/
+        /*模版就是一段html不会解析的字符串*/
+        /*转化成模版方法*/
+        /*jquery是$.  underscore 调用方法是 _.*/
+
+        /*模版当中的字符串*/
+        var templateStr = document.querySelector('#box_template').innerHTML;
+        console.log(templateStr);
+        /*得到一个模版方法 function*/
+        var templateFuc = _.template(templateStr);
+        /*把你想要解析的数据传递给这个方法 就可以返还给你想要的解析后的html结构*/
+        /*给你想要传递的数据取一个名字*/
+        var templateHtml = templateFuc({model:dataList});
+        console.log(templateHtml);
+        /*把html字符渲染到页面上*/
+        document.querySelector('#box').innerHTML = templateHtml;
+    </script>
+</body>
+</html>

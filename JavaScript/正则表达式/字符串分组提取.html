@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串分组提取|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<script type="text/javascript">
+    //1 提取email中的每一部分
+    //    var str = "123123@xx.com";
+    //
+    //    var reg = /(\w+)@(\w+)\.(\w+)(\.\w+)?/;
+    //
+    //
+    //    //必须先去匹配一次，才可以获取分组的数据
+    ////    var array = str.match(reg);
+    ////    console.log(array);
+    //
+    //    reg.test(str);
+    //
+    //
+    //    //获取的是第二次匹配的分组中的数据
+    //    var reg1 = /\w+(@)\w+\.\w+/;
+    //    reg1.test(str);
+    //
+    //    //获取分组后  匹配到的每一组的数据
+    //    console.log(RegExp.$1);
+    //    console.log(RegExp.$2);
+    //    console.log(RegExp.$3);
+    //    console.log(RegExp.$4);
+    //    console.log(RegExp.$5);
+    //    console.log(RegExp.$6);
+    //    console.log(RegExp.$7);
+
+
+
+    //2 交换位置  源字符串"5=a, 6=b, 7=c"  要的结果"a=5, b=6, c=7"
+    var str = "5=a, 6=b, 7=c";
+
+    //分组
+    var reg = /(\d+)=(\w)/g;
+    //replace 后面可以通过$1  获取分组匹配的结果
+    str = str.replace(reg, "$2=$1");
+    console.log(str);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JSON解析</title>
+	<meta charset="UTF-8" />
+</head>
+<body>
+	<script type="text/javascript">
+	var book = {
+		title : "Javascript高级编程",
+		author : [
+			"张兵","张燕"
+		],
+		edition : 3,
+		year : 2016,
+		releaseDate : new Date(2016,05,03)
+	};
+	
+	var josnText = JSON.stringify(book);
+	console.log(josnText);
+
+	var bookCopy = JSON.parse(josnText,function(key,val){
+		if("author" === key){
+			return val.toString();
+		}else if("releaseDate" === key){
+			return new Date(val);
+		}else{
+			return val;
+		}
+	});
+	console.log("==============================");
+	console.log(bookCopy);
+	console.log(bookCopy.releaseDate.getFullYear());
+	</script>
+</body>
+</html>

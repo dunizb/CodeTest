@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        table {
+            border-color: black;
+            width: 500px;
+            border-collapse: collapse;
+        }
+        td {
+            text-align: center;
+        }
+        td input {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="添加" id="addBtn" />
+<input type="text" id="txt">
+<input type="button" value="搜索" id="searchBtn" />
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    //模拟从服务器获得的数据
+    var headers = ["姓名", "学科", "成绩","操作"];
+    var scores = [
+        {"name":"马闯", "subject": "语文", "score": 90},
+        {"name":"马户", "subject": "数学", "score": 100},
+        {"name":"马伦", "subject": "体育", "score": 9},
+        {"name":"马尧", "subject": "音乐", "score": 100},
+        {"name":"马震", "subject": "语文", "score": 90},
+        {"name":"马云", "subject": "语文", "score": 90}
+    ];
+
+    // 创建表格
+    cerateTable(document.body,headers,scores);
+
+    // 添加数据
+    var addBtn = $("#addBtn");
+    addBtn.onclick = function(){
+        // 禁用按钮
+        this.disabled = true;
+        // 创建一行
+        var tr = document.createElement("tr");
+        var table =  document.body.lastElementChild;
+        var tbody = table.children[1];
+        tbody.appendChild(tr);
+
+        //设置新行中的内容
+        for(var i = 0; i < headers.length-1; i++) {
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = "<input type='text'>";
+        }
+
+        //设置确定和取消
+        td = document.createElement("td");
+        tr.appendChild(td);
+        td.innerHTML = "<a href='javascript:;'>确定</a> <a href='javascript:;'>取消</a>";
+
+        // 点击取消删除一行
+        var cancel = td.children[1];
+        cancel.onclick = function(){
+            tbody.removeChild(tr);
+            // 启用按钮
+            addBtn.disabled = false;
+        }
+
+        // 点击确定
+        var sure = td.children[0];
+        sure.onclick = function(){
+            // 获取文本框中的数据
+            var name = tr.children[0].children[0].value;
+            var subject = tr.children[1].children[0].value;
+            var score = tr.children[2].children[0].value;
+
+            if(name && subject && score){
+                //把输入的数据添加到数组中
+                scores.push({"name":name,"subject":subject,"score":score});
+                // 刷新前删除旧的表格
+                document.body.removeChild(table);
+                cerateTable(document.body,headers,scores);
+
+                // 启用按钮
+                addBtn.disabled = false;
+            }else{
+                alert("请填写完整数据");
+            }
+        }
+    };
+
+    var searchBtn = $("#searchBtn");
+    // 表格搜索
+    searchBtn.onclick = function(){
+        var keyworld = $("#txt").value;
+        var table =  document.body.lastElementChild;
+        var tBodies = table.tBodies[0];
+        console.log(tBodies.rows);
+
+        var row,cell;
+        for(var i=0; i<tBodies.rows.length; i++){
+            row = tBodies.rows[i];
+            row.style.backgroundColor = "#fff";
+            // 如果查询字符串为空，清空背景色
+            if(keyworld == ""){
+                continue;
+            }
+            for(var j=0; j<row.cells.length - 1; j++){
+                cell = row.cells[j];
+                console.log(cell.innerText);
+                // 如果单元格存在这个字符串
+                if(cell.innerText.search(keyworld) != -1){
+                    row.style.backgroundColor = "yellow";
+                }
+
+            }
+        }
+    };
+    /**
+     * 创建表格
+     * @param {Node} parentNode 父节点
+     * @param {Array} headers 表头
+     * @param {Object} datas 表格数据
+     */
+    function cerateTable(parentNode,headers,datas){
+        // 创建表格
+        var table = document.createElement("table");
+        parentNode.appendChild(table);
+        table.cellSpacing = "0";
+        table.cellPadding = "0";
+        table.border = "1";
+        // 创建表格的thead
+        var thead = document.createElement("thead");
+        table.appendChild(thead);
+        // 创建表格的thead的tr
+        var tr = document.createElement("tr");
+        thead.appendChild(tr);
+        tr.style.height = "50px";
+        thead.style.backgroundColor = "lightgray";
+        // 创建表格的thead的tr的th
+        for(var i=0; i<headers.length; i++){
+            var th = document.createElement("th");
+            th.innerText = headers[i];
+            tr.appendChild(th);
+        }
+
+        createTBody(table,datas);
+    }
+
+    /**
+     * 创建数据行
+     * @param {Node} table 往哪个表格生成数据
+     * @param {Object} datas 数据
+     */
+    function createTBody(table,datas){
+        // 创建表格的tbody
+        var tbody = document.createElement("tbody");
+        table.appendChild(tbody);
+
+        // 循环创建td
+        var tr,td,data;
+        for(var i=0; i<datas.length; i++){
+            data = datas[i];
+            tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            // 遍历具体成绩对象
+            for(var key in data){
+                td = document.createElement("td");
+                td.innerText = data[key];
+                tr.appendChild(td);
+            }
+
+            // 添加删除的列
+            td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = "<a href='javascript:;'>删除</a>";
+
+            var link = td.children[0];
+            link.index = i;
+            link.onclick = function(){
+                // 删除数据中的对象
+                datas.splice(this.index,1);
+                document.body.removeChild(table)
+                cerateTable(document.body, headers,datas);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

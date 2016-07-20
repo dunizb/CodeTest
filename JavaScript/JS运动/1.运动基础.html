@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS运动基础</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn1" value="开始运动" onclick="startMove()"/>
+<div id="div1">JS运送基础1</div>
+</body>
+<script>
+    var timer = null;
+    function startMove(){
+        var oDiv = document.getElementById("div1");
+        //保证永远只有一个定时器
+        clearInterval(timer);
+        timer = setInterval(function(){
+            //控制运动物体的速度
+            var speet = 1;
+            // 当运动到500像素的地方是停下来
+            if(oDiv.offsetLeft === 500){
+                clearInterval(timer);
+            }else{
+                oDiv.style.left = oDiv.offsetLeft + speet +"px";
+            }
+        },30);
+    }
+</script>
+</html>

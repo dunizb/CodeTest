@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>筋斗云|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        .nav {
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            background: url(images/rss.png) right center no-repeat;
+            background-color: #fff;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .nav li {
+            width: 83px;
+            height: 42px;
+            text-align: center;
+            line-height: 42px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .nav span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 42px;
+            background: url(images/cloud.gif) no-repeat;
+        }
+
+        ul {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <span id="cloud"></span>
+    <ul id="navBar">
+        <li>北京校区</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+        <li>深圳校区</li>
+        <li>武汉校区</li>
+        <li>关于我们</li>
+        <li>联系我们</li>
+        <li>招贤纳士</li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    var cloud = document.getElementById("cloud");
+    var navBar = document.getElementById("navBar");
+
+    //记录鼠标点击的时候的位置
+    var tartget = 0;
+
+    for(var i=0; i<navBar.children.length; i++){
+        var li = navBar.children[i];
+
+        li.onmouseover = function(){
+            //鼠标放到li上，让clound 也到当前li的位置
+            animate(cloud,this.offsetLeft);
+        };
+        li.onmouseout = function(){
+            //鼠标离开回到原来的位置
+            animate(cloud,tartget);
+        };
+        li.onclick = function () {
+            tartget = this.offsetLeft;
+        };
+    }
+
+    function animate(element,target){
+        // 1.清除定时器
+        if(element.timerId){
+            clearInterval(element.timerId);
+        }
+
+        element.timerId = setInterval(function(){
+            var current = element.offsetLeft;
+            var speet = (target - current)/10;
+            speet = speet>0 ? Math.ceil(speet) : Math.floor(speet);
+            current += speet;
+
+            element.style.left = current +"px";
+
+            if(speet == 0){
+                clearInterval(element.timerId);
+            }
+        },30);
+    }
+</script>
+</body>
+</html>

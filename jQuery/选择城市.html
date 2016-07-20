@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择城市|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        select {
+            width: 200px;
+            background-color: teal;
+            height: 200px;
+            font-size: 20px;
+        }
+
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<h1>城市选择：</h1>
+<select id="src-city" name="src-city" multiple>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">西红柿</option>
+</select>
+<div class="btn-box">
+    <!--实体字符-->
+    <button id="btn-sel-all"> &gt;&gt; </button>
+    <button id="btn-sel-none"> &lt;&lt; </button>
+    <button id="btn-sel"> &gt;</button>
+    <button id="btn-back"> &lt; </button>
+</div>
+<select id="tar-city" name="tar-city" multiple>
+</select>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 1. 左边全部到右边
+        $("#btn-sel-all").click(function () {
+            $("#tar-city").append($("#src-city>option"));
+        });
+        // 2. 右边全部到左边
+        $("#btn-sel-none").click(function () {
+            $("#src-city").append($("#tar-city>option"));
+        });
+        // 3. 左边选中的全部到右边
+        $("#btn-sel").click(function () {
+            $("#tar-city").append($("#src-city>option:selected"));
+        });
+        //4. 右边选中的全部到左边
+        $("#btn-back").click(function () {
+            $("#src-city").append($("#tar-city>option:selected"));
+        });
+    });
+</script>
+</body>
+</html>

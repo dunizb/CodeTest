@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>美化复选框|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        input[type="checkbox"] + label::before {
+            content: '\a0'; /*不换号空格*/
+            display: inline-block;
+            vertical-align: .2em;
+            width: .8em;
+            height: .8em;
+            margin-right: .2em;
+            border-radius: .2em;
+            background: silver;
+            text-indent: .15em;
+            line-height: .65;
+        }
+        input[type="checkbox"]:checked + label::before {
+            content: '✔';
+            background: yellowgreen;
+        }
+        input[type="checkbox"]{
+            position: absolute;
+            clip: rect(0,0,0,0);
+        }
+        input[type="checkbox"]:focus + label::before {
+            box-shadow: 0 0 .1em .1em #58a;
+        }
+        input[type="checkbox"]:disabled + label::before {
+            background: grey;
+            box-shadow: none;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<input type="checkbox" name="" id="awesome"/>
+<label for="awesome">Awesome!</label>
+</body>
+</html>

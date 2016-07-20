@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度</title>
+</head>
+<body>
+	<input type="text" id="text1" />
+	<input type="button" id="btn1" value="按钮" />
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var oText = document.getElementById("text1");
+		var oBtn = document.getElementById("btn1");
+
+		oBtn.onclick = function(){
+			// 第一种方式，点操作符
+			//oText.value = "第一种方式，点操作符";
+			//第二种方式，方括号操作符
+			//oText["value"] = "第二种方式，方括号操作符";
+			//第三种方式，DOM方法
+			oText.setAttribute("value","第三种方式，DOM方法");
+		};
+	};
+</script>
+</html>

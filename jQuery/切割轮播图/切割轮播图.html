@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>切割轮播图|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../../HTML&CSS/favicon.ico"/>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 0;
+            background-color: #F7F7F7;
+        }
+        ul {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .view {
+            width: 560px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #CCC;
+            position: relative;
+        }
+        li {
+            position: absolute;
+            top: 0;
+            width: 112px;
+            height: 100%;
+            background-color: green;
+            transform-style: preserve-3d;
+            transition: all 1s;
+        }
+        li:nth-child(1) {
+            left: 0;
+        }
+        li:nth-child(2) {
+            left: 112px;
+        }
+        li:nth-child(3) {
+            left: 224px;
+        }
+        li:nth-child(4) {
+            left: 336px;
+        }
+        li:nth-child(5) {
+            left: 448px;
+        }
+        li span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 112px;
+            height: 300px;
+        }
+        li span:nth-child(1) {
+            background: url("images/1.jpg");
+            transform: translateZ(150px);
+        }
+        li span:nth-child(2) {
+            background: url("images/2.jpg");
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        li span:nth-child(3) {
+            background: url("images/3.jpg");
+            transform: rotateX(180deg) translateZ(150px);
+        }
+        li span:nth-child(4) {
+            background: url("images/4.jpg");
+            transform: rotateX(270deg) translateZ(150px);
+        }
+        li:nth-child(2) span {
+            background-position: -112px 0;
+        }
+        li:nth-child(3) span {
+            background-position: -224px 0;
+        }
+        li:nth-child(4) span {
+            background-position: -336px 0;
+        }
+        li:nth-child(5) span {
+            background-position: -448px 0;
+        }
+        img {
+            width: 560px;
+            height: 300px;
+        }
+
+        /*按钮*/
+        .prev, .next {
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            margin-top: -30px;
+            font-size: 40px;
+            color: #FFF;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+        }
+        .next {right: 0;}
+    </style>
+</head>
+<body>
+<center><h1>切割轮播图</h1></center>
+<div class="view">
+    <ul>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+    </ul>
+    <a href="javascript:;" class="prev">&lt;</a>
+    <a href="javascript:;" class="next">&gt;</a>
+</div>
+
+<script src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    // 全局索引
+    var current = 0;
+    // 上一张
+    $('.prev').on('click', function () {
+        current++;
+        $('li').each(function (key) {
+            $(this).css({
+                'transform': 'rotateX(' + current * 90 + 'deg)',
+                'transition-delay': key * 0.25 + 's'
+            });
+        });
+    });
+
+    // 下一张
+    $('.next').on('click', function () {
+        current--;
+        $('li').each(function (key) {
+            $(this).css({
+                'transform': 'rotateX(' + current * 90 + 'deg)',
+                'transition-delay': key * 0.25 + 's'
+            });
+        });
+    });
+</script>
+</body>
+</html>

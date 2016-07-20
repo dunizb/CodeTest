@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微笑的Android机器人|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        body {margin: 0; padding: 0;}
+        .box {
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            position: relative;
+            transition: all 1s;
+        }
+        header {
+            height: 100px;
+            width: 220px;
+            background-color: green;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 100px 100px 0 0;
+        }
+        header::after,
+        header::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        header::after {
+            top: 50px;
+            right: 40px;
+        }
+        header::before {
+            top: 50px;
+            left: 40px;
+        }
+        .zui {
+            height: 50px;
+            width: 60px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -30px;
+            border-radius: 50%;
+            border-bottom: 2px solid #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            background-color: rgba(255,255,255,0);
+            transition: all .6s;
+        }
+        section {
+            width: 220px;
+            height: 180px;
+            background-color: green;
+            margin: 10px auto 0;
+            border-radius: 0 0 15% 15%;
+            position: relative;
+            transition: all .6s;
+        }
+        section::after,
+        section:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background-color: green;
+            bottom: -80px;
+            border-radius: 0 0 110px 110px;
+            transition: all .6s;
+        }
+        section::after {
+            right: 40px;
+        }
+        section::before {
+            left: 40px;
+        }
+        footer {
+            width: 220px;
+            height: 150px;
+            position: absolute;
+            top: 120px;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -110px;
+        }
+        footer::after,
+        footer:before {
+            content: '';
+            width: 50px;
+            height: 150px;
+            position: absolute;
+            background-color: green;
+            border-radius: 25px;
+            transition: all .6s;
+        }
+        footer::after {
+            right: -60px;
+        }
+        footer::before {
+            left: -60px;
+        }
+        .box:hover {
+            transform: skew(-20deg,20deg);
+        }
+        .box:hover section{
+            margin: 0px auto 0;
+        }
+        .box:hover .zui{
+            transform: scale(0.5,1);
+        }
+        .box:hover section::before{
+            transform: rotate(20deg);
+        }
+        .box:hover footer:before{
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="android">
+        <!--头-->
+        <header>
+            <div class="zui"></div>
+        </header>
+        <!--身体-->
+        <section></section>
+        <!--手-->
+        <footer></footer>
+    </div>
+</div>
+</body>
+</html>

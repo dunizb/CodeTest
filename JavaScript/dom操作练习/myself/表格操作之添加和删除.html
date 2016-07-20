@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格操作之添加和删除</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var oTable = document.getElementById("table1");
+
+		// 添加一行
+		var oBtn = document.getElementById("btn1");
+		var maxIndex = oTable.tBodies[0].rows.length + 1; //最大的ID
+		oBtn.onclick = function(){
+			var oName = document.getElementById("name").value;
+			var oAge = document.getElementById("age").value;
+			var oSex = document.getElementById("sex").value;
+			maxIndex++;
+			var aInfo = [maxIndex,oName,oAge,oSex,"<a href='javascript:;'>删除</a>"];
+
+			var cells = oTable.tHead.rows[0].cells;
+			var oTr = document.createElement("tr");
+
+			for(var i=0; i<cells.length; i++){
+				var oTd = document.createElement("td");
+				oTd.innerHTML = aInfo[i];
+				oTr.appendChild(oTd);
+			}
+
+			oTable.tBodies[0].appendChild(oTr);
+
+			var aLinks = oTable.getElementsByTagName("a");
+			for(var i=0; i<aLinks.length; i++){
+				aLinks[i].onclick = function(){
+					oTable.tBodies[0].removeChild(this.parentNode.parentNode);
+				}
+			}
+		};
+
+
+	}
+	</script>	
+ </head>
+<body>
+	<p>
+	姓名：<input type="text" id="name" />
+	年龄：<input type="text" id="age" />
+	性别：<input type="text" id="sex" />
+	<input type="button" id="btn1" value="添加" />
+	</p>
+	<table id="table1" border="1" width="730">
+		<thead>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+			<th>删除</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>男</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>阮小婷</td>
+				<td>18</td>
+				<td>女</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>26</td>
+				<td>男</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王五</td>
+				<td>22</td>
+				<td>男</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>刘六</td>
+				<td>21</td>
+				<td>女</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>赵七</td>
+				<td>24</td>
+				<td>男</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

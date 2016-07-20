@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <style>
+        #box {
+            width: 400px;
+            margin: 200px auto;
+        }
+        #txtSearch {
+            width: 300px;
+        }
+
+        #pop {
+            width: 300px;
+            border: 1px red solid;
+            padding: 0px;
+        }
+        #pop ul {
+            list-style-type: none;
+            margin:0px;
+            padding: 0px;
+        }
+        #pop ul li:hover {
+            background-color: #ccccff;
+        }
+    </style>
+<body>
+    <div id="box">
+        <input type="text" id="txtSearch"><input type="button" value="搜索">
+    </div>
+
+
+    <script src="js/common.js"></script>
+    <script>
+        //模拟从服务器拿到的数据
+        var datas = ["aaaa","aabbbb","axyz","aaaaabbbb","abcd","abxyz"];
+
+        // 搜索文本框
+        var txtSearch = $("#txtSearch");
+        var box = $("#box");
+
+        // 当键盘按下的时候
+        txtSearch.onkeyup = function(){
+            var data = "";
+            var results = [];
+
+            for(var i=0; i<datas.length; i++){
+                //字符串是不是以this.value开头
+                data = datas[i];
+                if(data.indexOf(this.value) === 0){
+                    results.push(data);
+                }
+            }
+            console.log(results);
+
+            // 先删除div
+            var pop = $("#pop");
+            if(pop){
+                box.removeChild(pop);
+            }
+
+            // 如果文本框为空就不执行后面的代码
+            if(this.value === ""){
+                return;
+            }
+
+            // 如果检索结果为空就不执行后面的代码
+            if(results.length === 0){
+                return;
+            }
+
+            // 显示检索结果
+            var div = document.createElement("div");
+            div.id = "pop";
+            box.appendChild(div);
+
+            // 创建检索结果DIV
+            var ul = document.createElement("ul");
+            for(var j=0; j<results.length; j++){
+                var li = document.createElement("li");
+                DomOperaTools.setInnerText(li,results[j]);
+                ul.appendChild(li);
+            }
+            div.appendChild(ul);
+            // 重新追加div
+            box.appendChild(div);
+
+            // 当鼠标点击某个结果时显示在输入框
+            pop = $("#pop");
+            var lis = pop.getElementsByTagName("li");
+            for(var i=0; i<lis.length; i++){
+                var li = lis[i];
+                li.onclick = function(){
+                    txtSearch.value = DomOperaTools.getInnerText(this);
+                    box.removeChild(pop);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

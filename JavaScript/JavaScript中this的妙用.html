@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript中的this妙用</title>
+</head>
+<body>
+	<h2>闲置二手图书</h2>
+	<form action="#">
+		<input type="button" id="Java" value="Java" />
+		<input type="button" id="JavaScript" value="JavaScript" />
+		<input type="button" id="MySQL" value="MySQL" />
+		<input type="button" id="Html" value="HTML5" />
+	</form>
+	<a id='qqlink' target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin=715108023&site=qq&menu=yes'><img border='0' src='http://static.su.baidu.com/static/app/ver-3.6.17/images/QQ.png' alt='联系高传俊' style='vertical-align: sub;'/></a>
+</body>
+<script>
+	window.onload = initAll;
+
+	function initAll(){
+		document.getElementById("Java").onclick = viewDetail;
+		document.getElementById("JavaScript").onclick = viewDetail;
+		document.getElementById("MySQL").onclick = viewDetail;
+		document.getElementById("Html").onclick = viewDetail;
+	}
+
+	function viewDetail(){
+		console.log("this.id="+this.id);
+		switch(this.id){
+			case "Java" :
+				alert("《Java程序员基本功》这本书是李刚写的，在我的商店售价30元！");
+				break;
+			case "JavaScript" :
+				alert("《JavaScript语言精粹》这本书是Yahoo的一位工程师写的，在我的商店售价15元！");
+				break;
+			case "MySQL" :
+				alert("《MySQL入门很简单》这本书附带关盘，这个年代其实没什么卵用了，它在我的商店售价28元！");
+				break;
+			case "Html" :
+				alert("《HTML5秘籍》这本书是图灵系统的图书，非常值得拥有，它在我的商店售价25元，卖的非常好！");
+				break;
+			default :
+				alert("没有这本书");
+		}
+	}
+</script>
+</html>

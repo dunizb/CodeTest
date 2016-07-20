@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字翻转效果|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+	<meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+	<meta name="Author" content="dunizb">
+	<meta name="website" content="http://www.mybry.com">
+	<meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+	<link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+	body{font: 8rem "微软雅黑";padding: 200px;}
+	.fq{margin: .2rem;color: #ccc;position: relative;}
+	.fq:before,.fq:after{
+		content: attr(data-fq);
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform-origin:left top;
+		transition:all 0.3s ease 0s;
+	}
+	.fq:before{
+		color: #fff;
+		z-index: 3;
+		transform:rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+	}
+	.fq:after{
+		color: rgba(0,0,0,0.2);
+		transform:scale(1.1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		z-index: 2;
+	}
+	.fq:hover:before{
+		color: #fafafa;
+		transform:rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg,1deg);
+	}
+	.fq:hover:after{
+		transform:rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg,20deg);
+	}
+	</style>
+</head>
+<body>
+	<span class="fq" data-fq="丰">丰</span>
+	<span class="fq" data-fq="趣">趣</span>
+	<span class="fq" data-fq="海">海</span>
+	<span class="fq" data-fq="淘">淘</span>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <title>简易网页计算器|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="网页计算器,代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="简易网页计算器,Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link rel="stylesheet" href="css/calc.css"/>
+</head>
+<body>
+<div id="container">
+    <div id="calc" class="calc">
+        <div id="top">
+            <div id="win-tool">
+                <span id="close" title="关闭" data-ico="×">&nbsp;</span>
+                <span id="max" title="最大化" data-ico="□">&nbsp;</span>
+                <span id="mini" title="最小化" data-ico="_">&nbsp;</span>
+                <a id="history" href="javascript:void(0);">历史</a>
+                <a id="about" href="javascript:;" title="1. 该计算器布局使用Flex布局。&#13;2. 对异常进行了处理&#13;3. 作者：dunizb，http://www.mybry.com版权所有&#13;4. bug与建议：ibing@outlook.com&#13;※Build 1601. Version：1.0">关于</a>
+            </div>
+            <div id="result">
+                <div id="express"></div>
+                <div id="res" style="font-size: 6em;">0</div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div class="row">
+                <span id="reset" data-number="C">CE</span>
+                <span id="remove" data-number="←">←</span>
+                <span data-number="%">%</span>
+                <span data-number="/" class="tool chu">÷</span>
+            </div>
+            <div class="row">
+                <span data-number="7">7</span>
+                <span data-number="8">8</span>
+                <span data-number="9">9</span>
+                <span data-number="*" class="tool cheng">✖</span>
+            </div>
+            <div class="row">
+                <span data-number="4">4</span>
+                <span data-number="5">5</span>
+                <span data-number="6">6</span>
+                <span data-number="-" class="tool jiang">—</span>
+            </div>
+            <div class="row">
+                <span data-number="1">1</span>
+                <span data-number="2">2</span>
+                <span data-number="3">3</span>
+                <span data-number="+" class="tool add">＋</span>
+            </div>
+            <div class="row">
+                <span data-number="0" class="zero">0</span>
+                <span data-number="." class="dian">.</span>
+                <span id="equals" data-number="=" class="tool eq">＝</span>
+            </div>
+        </div>
+
+        <div id="historyBox">
+            <div class="con">
+                <ul></ul>
+            </div>
+            <div class="remove">
+                <a href="javascript:;" class="icon_del" title="清空历史记录"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/calc.js"></script>
+</body>
+</html>

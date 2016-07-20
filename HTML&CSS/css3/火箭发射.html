@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>火箭发射|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        section {
+            height: 100%;
+            background-color: #DE8910;
+            position: relative;
+        }
+        .rocket {
+            position: absolute;
+            bottom: -200px;
+            transition: all 2s ease-in-out;
+        }
+        section:hover .rocket {
+            transform: rotate(45deg) translate(0,-1200px);
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div class="rocket">
+        <img src="images/rocket.png" alt="">
+    </div>
+</section>
+</body>
+</html>

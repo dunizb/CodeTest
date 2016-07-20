@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>时钟2|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<div id="txt"></div>
+<script type="text/javascript">
+    getDateTime();
+
+    function getDateTime(){
+        var d = new Date();
+        var weeks = ["星期日","星期一","星期二","星期三", "星期四","星期五","星期六"];
+
+        var res = [];
+        res.push(d.getFullYear() + "年");
+        res.push(calc(d.getMonth() + 1) + "月");
+        res.push(calc(d.getDate()) + "日 ");
+        res.push(calc(d.getHours()) + ":");
+        res.push(calc(d.getMinutes()) + ":");
+        res.push(calc(d.getSeconds()));
+        res.push(" " + weeks[d.getDay()] + " ");
+        document.getElementById("txt").innerHTML = res.join("");
+        setTimeout(function(){
+            getDateTime();
+        }, 1000);
+
+        function calc(str){
+            return str < 10 ? "0" + str : str;
+        }
+    }
+</script>
+</body>
+</html>

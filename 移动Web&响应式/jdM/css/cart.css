@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+body{
+    background: #f5f5f5;
+    min-width: 300px;
+}
+.jd_topBar{
+    position: static;/*定位默认值 和 relative 不一样*/
+}
+/*安全提示*/
+.jd_safeTip{
+    text-align: center;
+    height: 34px;
+    line-height: 34px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    font-size: 12px;
+    color: #666;
+}
+.jd_safeTip p{
+    position: relative;
+    display: inline-block;
+    padding-left: 23px;
+}
+.jd_safeTip p::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 18px;
+    height: 18px;
+    background-image: url("../images/safe_icon.png");
+    background-size: 18px 18px;
+}
+/*店铺*/
+.jd_shop {
+    background: #fff;
+    margin-top: 10px;
+}
+.jd_shop .jd_shop_tit{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+}
+.jd_shop .check_box{
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+.jd_shop .shop_info{
+    padding-left: 40px;
+    height: 100%;
+    width: 100%;
+}
+.jd_shop .shop_info .logo{
+    width: 15px;
+    height: 13px;
+    display: inline-block;
+}
+.jd_shop .shop_info .tip{
+    font-size: 12px;
+    color: #d8505c;
+}
+.jd_shop .jd_shop_con .product{
+    border-bottom: 1px solid #ccc;
+    height: 100px;
+    position: relative;
+}
+.jd_shop .shop_info .img_box{
+    height: 100px;
+    width: 90px;
+    float: left;
+    padding:10px;
+    padding-left: 0;
+}
+.jd_shop .shop_info .img_box img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.jd_shop .shop_info .info_box{
+    overflow: hidden;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+.jd_shop .shop_info .info_box .p_name{
+    display: block;
+    overflow: hidden;
+    height: 30px;
+    line-height: 15px;
+    width: 100%;
+}
+.jd_shop .shop_info .info_box .p_price{
+    color: #d8505c;
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+/*数量选择盒子*/
+.change_num{
+    float: left;
+}
+.change_num span{
+    border: 1px solid #ccc;
+    height: 24px;
+    width: 36px;
+    float: left;
+    text-align: center;
+    line-height: 24px;
+}
+.change_num span:first-child{
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.change_num span:last-child{
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.change_num input{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    height: 24px;
+    width: 36px;
+    float: left;
+    text-align: center;
+}
+
+/*删除盒子*/
+.delete_box{
+    float: right;
+}
+.delete_box .delete_up{
+    width: 20px;
+    height: 5px;
+    display: block;
+    background-image: url("../images/delete_up.png");
+    background-size: 20px 5px;
+    margin-left: -1px;
+}
+.delete_box .delete_down{
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-image: url("../images/delete_down.png");
+    background-size: 18px 18px;
+    margin-top: -2px;
+}
+
+/*自定义复选框*/
+.jd_check_box{
+    width: 40px;
+    height: 34px;
+    padding: 7px 10px;
+    display: block;
+
+    background-image: url("../images/shop-icon.png");
+    background-size: 50px 100px;
+    background-position: 0 0;
+    background-clip: content-box;
+    background-origin: content-box;
+}
+.jd_check_box[checked]{
+    background-position: -25px 0;
+}
+
+/*弹出框*/
+.jd_win{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+    display: none;
+}
+.jd_win .jd_win_box{
+    width: 80%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0 10px;
+    /*不知道盒子的高宽的情况下怎么让这个盒子上下左右居中*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.jd_win .jd_win_box .jd_win_tit{
+    line-height: 75px;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+.jd_win .jd_win_box .jd_btn{
+    width: 100%;
+    padding: 10px 0;
+}
+.jd_win .jd_win_box .jd_btn a{
+    width: 45%;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    float: left;
+    border-radius: 4px;
+}
+.jd_win .jd_win_box .jd_btn .cancel{
+    margin-right: 10%;
+    border: 1px solid #ccc;
+}
+.jd_win .jd_win_box .jd_btn .submit{
+    background: #d8505c;
+    color: #fff;
+}
+
+.myBounceInDown {
+    -webkit-animation: myBounceInDown 1s;
+    animation: myBounceInDown 1s;
+}
+@keyframes myBounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -500%, 0);
+        transform: translate3d(-50%, -500%, 0);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, -45%, 0);
+        transform: translate3d(-50%, -45%, 0);
+    }
+
+    75% {
+        -webkit-transform: translate3d(-50%, -53%, 0);
+        transform: translate3d(-50%, -53%, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(-50%, -48%, 0);
+        transform: translate3d(-50%, -48%, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+

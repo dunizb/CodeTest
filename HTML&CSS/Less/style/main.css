@@ -1,0 +1,69 @@
+@charset "utf-8";
+ul {
+  margin: 0;
+  padding: 0;
+}
+div {
+  height: 100px;
+}
+/*我会被编译*/
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: yellow;
+  border: 5px solid pink;
+}
+.border {
+  border: 5px solid pink;
+}
+.test_hunhe {
+  border: solid yellow 30px;
+}
+.text_hunhe_03 {
+  border: solid green 10px;
+}
+.sanjiao {
+  border-width: 100px;
+  border-color: transparent transparent transparent #ccc;
+  border-style: dashed dashed dashed solid;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.pipei {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  position: relative;
+}
+.box_02 {
+  width: 1600px;
+}
+.list {
+  width: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background-color: pink;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+.list a {
+  float: left;
+}
+.list a:hover {
+  color: red;
+}
+.list span {
+  float: right;
+}
+.test_arguments {
+  border: 30px red solid;
+}
+.test_03 {
+  width: calc(200px - 30px);
+}

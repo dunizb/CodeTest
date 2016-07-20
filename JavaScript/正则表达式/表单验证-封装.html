@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单验证-封装|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+<label>QQ号：</label><input type="text" id="txtQQ"><span></span><br>
+<label>邮箱：</label><input type="text" id="txtMail"><span></span><br>
+<label>手机：</label><input type="text" id="txtPhone"><span></span><br>
+<label>生日：</label><input type="text" id="txtBirthday"><span></span><br>
+<label>姓名：</label><input type="text" id="txtName"><span></span><br>
+
+<script type="text/javascript">
+    //获取文本框
+    var txtQQ = document.getElementById("txtQQ");
+    var txtEMail = document.getElementById("txtEMail");
+    var txtPhone = document.getElementById("txtPhone");
+    var txtBirthday = document.getElementById("txtBirthday");
+    var txtName = document.getElementById("txtName");
+
+    //正则表达式
+    var regObj = {
+        "regQQ" : /^\d{5,12}$/,
+        "regMail" : /^\w+@\w+\.\w+(\.\w+)?$/,
+        "regPhone" : /^\d{11}$/,
+        "regBirthday" : /^\d{4}-\d{1,2}-\d{1,2}$/,
+        "regName" : /^[\u4e00-\u9fa5]{2,4}$/
+    }
+
+    var inputs = document.getElementsByTagName("input");
+    for(var i=0; i<inputs.length; i++){
+        var input = inputs[i];
+        if(input.type == "text"){
+            var reg = input.id.replace("txt","reg");
+            var tip = input.previousElementSibling.innerText;
+            tip = "请输入正确的" + tip.substr(0,tip.length-1);
+            addCheck(input, regObj[reg], tip);
+        }
+    }
+
+
+    //给文本框添加验证
+    function addCheck(element, reg, tip) {
+        element.onblur = function () {
+            //获取当前文本框对应的span
+            var span = this.nextElementSibling;
+            //判断验证是否成功
+            if(!reg.test(this.value) ){
+                //验证不成功
+                span.innerText = tip;
+                span.style.color = "red";
+            }else{
+                //验证成功
+                span.innerText = "";
+                span.style.color = "";
+            }
+        };
+    }
+</script>
+</body>
+</html>

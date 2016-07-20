@@ -1,0 +1,64 @@
+/**************************************
+		CSS Reset
+***************************************/
+body,p,h1,h2,h3,ul,li,input,div {
+	margin: 0;
+	padding: 0;
+}
+input,img {
+	border: none;
+}
+ul,li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #444444 ;
+}
+a:hover {
+	color: red;
+}
+body {
+	background-color: #FFFFFF;
+	font: normal normal 12px Arial,Verdana,"\5b8b\4f53";
+	color: #606060;
+}
+h1,h2,h3,b,strong {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+/**************************************
+		Float
+***************************************/
+.fl { float: left; }
+.fr { float: right; }
+.clearfix:after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix { zoom: 1;}
+
+
+/**************************************
+		Font
+***************************************/
+.f13 { font-size: 13px;}
+.f14 { font-size: 14px;}
+.center { margin: 0 auto;}
+.sj {
+	border-style: solid dashed dashed dashed;
+   	border-width: 5px;
+   	border-color: #606060 transparent transparent transparent;
+   	width: 0;
+   	height: 0;
+   	display: inline-block;
+   	vertical-align: sub;
+}
+.center {
+	margin: 0 auto;
+}

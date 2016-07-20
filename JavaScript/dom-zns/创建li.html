@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建li</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var oBtn = document.getElementById("btn1");
+		var oUl = document.getElementById("ul1");
+		var oText = document.getElementById("text1");
+
+		oBtn.onclick = function(){
+			var oLi = document.createElement("li");
+			var aLi = document.getElementsByTagName("li");
+			oLi.innerHTML = oText.value;
+			// 添加元素到末尾
+			//oUl.appendChild(oLi);
+			//添加元素到前面
+			if(aLi.length > 0){
+				oUl.insertBefore(oLi,aLi[0]);
+			}else{
+				oUl.appendChild(oLi);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="text" id="text1" />
+	<input type="button" id="btn1" value="创建li" />
+	<div id="ul1"></div>
+</body>
+</html>

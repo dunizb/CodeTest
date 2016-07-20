@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>在线人员列表</title>
+    <style>
+        * {
+            word-wrap: break-word;
+        }
+        .wp {
+            width: 730px;
+            margin: 0px auto;
+        }
+        .mtn {
+            margin-top: 5px!important;
+        }
+        #ct .frame {
+            margin: 0;
+            border: none;
+        }
+
+        .xfs_2 .frame-title, .xfs_2 .frametitle, .xfs_2 .tab-title {
+            background-color: #A90000;
+            background-position: 0 -99px;
+        }
+        .xfs .frame-title, .xfs .frametitle, .xfs .tab-title, .xfs .frame-title a, .xfs .frametitle a, .xfs .tab-title a {
+            color: #FFF!important;
+        }
+
+        .xfs .frame-title, .xfs .frametitle, .xfs .tab-title {
+            border: none;
+            background: transparent url(images/mu.png) repeat-x 0 95;
+        }
+
+        .title {
+            padding: 0 10px;
+            height: 32px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 32px;
+            overflow: hidden;
+        }
+        .block {
+            margin: 10px 10px 0;
+        }
+        ul, menu, dir {
+            display: block;
+            list-style-type: disc;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 25px;
+        }
+        .mls li {
+            padding: 0 0 5px;
+            width: 66px;
+            height: 85px;
+        }
+        .ml li {
+            float: left;
+            text-align: center;
+            overflow: hidden;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            font: 12px/1.5 Tahoma,'Microsoft Yahei','Simsun';
+        }
+        .mls p {
+            margin-top: 5px;
+        }
+        .ml p, .ml span {
+            display: block;
+            width: 100%;
+            height: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .mls img {
+            width: 48px;
+            height: 48px;
+        }
+        .ml img {
+            display: block;
+            margin: 0 auto;
+        }
+        a img {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wp mtn">
+    <div id="diy3" class="area"><div id="frameipq7f2" class="xfs xfs_2 frame move-span cl frame-1"><div
+            class="title frame-title"><span class="titletext">当前在线用户</span></div><div id="frameipq7f2_left"
+                                                                                      class="column frame-1-c"><div
+            id="frameipq7f2_left_temp" class="move-span temp"></div><div id="portal_block_695"
+                                                                         class="block move-span"><div
+            id="portal_block_695_content" class="dxb_bc">
+        <div class="module cl ml mls" id="users">
+
+        </div>
+    </div></div></div></div></div>
+</div>
+
+<script src="js/common.js"></script>
+<script>
+    var datas = [
+        {"name": "tdxy01","icon":"images/noavatar_small.gif"},
+        {"name": "沉眠楚人","icon":"images/noavatar_small.gif"},
+        {"name": "爱上karina","icon":"images/75_avatar_small.jpg"},
+        {"name": "tdxy01","icon":"images/89_avatar_small.jpg"},
+        {"name": "today","icon":"images/noavatar_small.gif"},
+        {"name": "hlg","icon":"images/noavatar_small.gif"},
+        {"name": "itcast","icon":"images/noavatar_small.gif"},
+        {"name": "heima","icon":"images/noavatar_small.gif"},
+        {"name": "nima","icon":"images/noavatar_small.gif"},
+        {"name": "gege","icon":"images/noavatar_small.gif"},
+        {"name": "nimei","icon":"images/noavatar_small.gif"},
+        {"name": "goodman","icon":"images/noavatar_small.gif"},
+        {"name": "haoren","icon":"images/noavatar_small.gif"},
+        {"name": "yuanxiaojie","icon":"images/noavatar_small.gif"},
+        {"name": "zhengyue","icon":"images/noavatar_small.gif"},
+        {"name": "qishi","icon":"images/noavatar_small.gif"},
+        {"name": "qqtang","icon":"images/noavatar_small.gif"},
+        {"name": "wawawa","icon":"images/noavatar_small.gif"},
+        {"name": "haha","icon":"images/noavatar_small.gif"},
+        {"name": "robot","icon":"images/noavatar_small.gif"},
+        {"name": "XFlute","icon":"images/noavatar_small.gif"},
+        {"name": "lovmilan","icon":"images/noavatar_small.gif"},
+        {"name": "johnny670","icon":"images/noavatar_small.gif"},
+        {"name": "xiaobinbin02","icon":"images/noavatar_small.gif"}
+    ];
+
+    var users = $("#users");
+
+    // 动态创建元素
+    var ul = document.createElement("ul");
+    // 追加到users
+    users.appendChild(ul);
+
+    var array = [];
+    for(var i=0; i<datas.length; i++){
+        var data = datas[i];
+
+        array.push('<li>' +
+                '<a href="#" target="_blank"><img src="'+ data.icon +'" width="48" height="48" alt="'+ data.name +'"></a>' +
+                '<p><a href="#" title="'+ data.name +'" target="_blank">'+ data.name +'</a></p>' +
+                '</li>');
+    }
+    ul.innerHTML = array.join("");
+
+//    <li>
+//        <a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="tdxy01"></a>
+//            <p><a href="#" title="tdxy01" target="_blank">tdxy01</a></p>
+//    </li>
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>倒计时|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+<body>
+<div id="box"></div>
+
+<script type="text/javascript">
+    //获取截至日期的毫秒
+    var end = Date.parse("2016-11-11 00:00:00");
+    setInterval(function(){
+        //当前日期的毫秒
+        var now = +new Date();
+
+        //两个时间的差--毫秒
+        var minus = end - now;
+        //获取相差的天
+        var day = parseInt(minus / 1000 / 60 / 60 / 24) ;
+        //获取相差的小时
+        var hour = parseInt(minus / 1000 / 60 / 60 % 24 );
+        //获取相差的分钟
+        var minute = parseInt(minus / 1000 / 60 % 60  );
+        //获取相差的秒
+        var second = parseInt(minus / 1000 % 60  );
+        var box = document.getElementById("box");
+        box.innerText = "距离抢购时间还剩余"+ day +"天 " + hour + "时 " + minute + "分 " + second + "秒";
+    },1000);
+
+</script>
+</body>
+</html>

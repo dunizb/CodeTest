@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+<input type="button" id="btn" value="注册" />
+
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+
+    // 事件注册 IE9+
+    // btn.addEventListener("click",test,false);
+    function test(){
+        console.log("hello");
+        console.log(this);  // 事件源：btn
+    }
+    // 移除事件
+    // btn.removeEventListener("click",test);
+
+
+    // 事件注册IE9-
+    // 里面的this指向window
+    // btn.attachEvent("onclick",test);
+
+    // 移除事件
+    // btn.detachEvent("onclick",test);
+
+    EventTools.addEventListener(btn,"click",test);
+
+</script>
+</body>
+</html>

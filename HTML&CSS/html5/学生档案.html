@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生档案|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+            font-family: '微软雅黑';
+        }
+
+        form {
+            max-width: 640px;
+            width: 100%;
+            margin: 24px auto;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 10px 15px;
+            font-size: 24px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 40px;
+            font-size: 22px;
+            margin-top: 10px;
+            padding: 6px 10px;
+            color: #333;
+            border: 1px solid #CCC;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        meter, progress {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        .btn input {
+            color: #000;
+            background-color: #ccc;
+            border: 0 none;
+            outline: none;
+            cursor: pointer;
+            border: 1px solid #CCC;
+            transition:all 0.5s;
+        }
+        .btn input:hover {
+        	background-color: green;
+        	color: #fff;
+        }
+        #levelMeter {
+			border: 1px solid #CCC;
+			border-radius: 5px;
+			height: 30px;
+			margin-top: 10px;
+            overflow: hidden;
+        }
+        #level {
+        	background-color: red;
+        	width: 0;
+        	height: 30px;
+        	text-align: center;
+        	line-height: 30px;
+        	font-size: 12px;
+        	color: #fff;
+        	transition: width .5s;
+        }
+
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>学生档案</legend>
+        <label>
+            姓名: <input type="text" name="name" placeholder="请输入姓名" id="username" required autofocus >
+        </label>
+        <label>
+            手机号码: <input type="text" name="mobile" placeholder="请输入手机号" required pattern="^1\d{10}$"  >
+        </label>
+        <label>
+            邮箱地址: <input type="email" name="email" placeholder="请输入邮箱地址" required  >
+        </label>
+        <label>
+            所属学院: <input type="text" name="course" list="course" placeholder="请输入所属学院"  >
+            <datalist id="course">
+                <option value="前端与移动开发"></option>
+                <option value="PHP"></option>
+                <option value="JAVA"></option>
+                <option value="Android"></option>
+                <option value="IOS"></option>
+                <option value="UI设计"></option>
+                <option value="C++"></option>
+            </datalist>
+        </label>
+        <label>
+            入学成绩: <input id="score" name="score" type="number" min="0" max="100" step="10" value="60"/>
+        </label>
+        <label>
+            <!-- 基础水平: <meter id="level" name="level" min="0" max="100" low="40" high="80" value="60"></meter> -->
+            基础水平：<div id="levelMeter" name="scoreLevel">
+            	<div id="level"></div>
+            </div>
+        </label>
+        <label>
+            入学日期: <input type="date" value="2016-07-03">
+        </label>
+        <label>
+            毕业时间: <input type="date" value="2016-11-03">
+        </label>
+        <label>
+            课程进度: <progress max="100" value="30"></progress>
+        </label>
+        <div class="btn">
+        	<input type="submit" value="保存"/>
+        </div>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+	var username = document.getElementById("username");
+    //个这个元素绑定监听校验事件
+    username.oninvalid = function(){
+        if(this.value === ''){
+            this.setCustomValidity('请输入姓名');
+        }
+    };
+
+
+    var scoreInput = document.getElementById('score');
+    var levelMeter = document.getElementById('levelMeter');
+    var level = document.getElementById('level');
+
+    //设置颜色
+    setColor(scoreInput.value);
+
+    //监听score的值的改变
+    scoreInput.oninput = function(){
+    	var score = this.value;
+        setColor(score);
+    };
+
+    function setColor(score){
+    	if(score < 30){
+        	level.style.backgroundColor = "red";
+        	level.style.width = score+"%";
+        	level.innerText = "太差";
+        }
+        else if(score < 60){
+        	level.style.backgroundColor = "#FFC107";
+        	level.style.width = score+"%";
+        	level.innerText = "勉强可以";
+        }else if(score < 80){
+        	level.style.backgroundColor = "#2196F3";	
+        	level.style.width = score+"%";
+        	level.innerText = "不错！";
+        }else{
+        	level.style.backgroundColor = "green";
+        	level.style.width = score+"%";
+        	level.innerText = "你很优秀";	
+        }
+    }
+
+</script>
+</body>
+</html>

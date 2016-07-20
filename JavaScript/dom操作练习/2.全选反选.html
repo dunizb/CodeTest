@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全选反选</title>
+    <meta name="Generator" content="Sublime Text3">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll" />
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>红烧狮子头</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>日式肥牛</td>
+            <td>田老师</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <input type="button" id="btn" value="反选">
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    // 获取全选checkbox
+    var oCbAll = $("#j_cbAll");
+    var oTb = $("#j_tb");
+    // 获取所有的子checkbox
+    var aInput = oTb.getElementsByTagName("input");
+
+    // 给全选checkbox注册事件
+    oCbAll.onclick = function() {
+        var input;
+        for(var i=0; i<aInput.length; i++){
+            input = aInput[i];
+            //如果表达元素是checkbox
+            if(input.type === "checkbox"){
+                //把checkbox的状态置为跟全选checkbox状态一样
+                input.checked = oCbAll.checked;
+            }
+        }
+    };
+
+    // 给每个子checkbox都注册一个事件
+    for(var j=0; j<aInput.length; j++) {
+        var input = aInput[j];
+        input.onclick = function(){
+            singleClick();
+        };     
+    }
+
+    function singleClick(){
+        // 假设全都被选中了
+        var isCheckedAll = true;
+        for(var k=0; k<aInput.length; k++){
+            var input = aInput[k];
+            if(input.type === "checkbox" && !input.checked){
+                isCheckedAll = false;
+                break;
+            }
+        }
+        //只要有一个没选中，全选checkbox就被置为false了
+        oCbAll.checked = isCheckedAll;
+    }
+
+    // 获取反选按钮
+    // 给反选按钮设置事件
+    $("#btn").onclick = function(){
+        // 遍历所有的子checkbox
+        var input;
+        for(var i=0; i<aInput.length; i++){
+            input = aInput[i];
+            if(input.type === "checkbox") {
+                // 反选
+                input.checked = !input.checked;
+            }
+        }
+        //判断每一个子的checkbox是否都选中了
+        singleClick();
+    }
+</script>
+</body>
+</html>

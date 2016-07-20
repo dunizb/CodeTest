@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>简单轮播图|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        img {
+            vertical-align: top
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .inner {
+            width: 490px;
+            height: 170px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*transition: all .5s;*/
+        }
+
+        .inner li {
+            float: left;
+        }
+
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="../image/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/05.jpg" alt=""/></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+
+<script src="../js/animate.js"></script>
+<script type="text/javascript">
+    //准备工作  获取元素
+    var box = document.getElementById("box");
+
+    var inner = box.children[0];
+    var ul = inner.children[0];
+    var square = inner.children[1];
+    //序号span
+    var spans = square.children;
+
+    //图片的宽度
+    var imgWidth = inner.offsetWidth;
+
+    //1 遍历span，注册事件
+    for(var i = 0; i < spans.length; i++) {
+        var span = spans[i];
+
+        //记录当前span的索引
+        span.index = i;
+
+        span.onclick = function () {
+            //2 让当前的span高亮显示，让其他的span取消高亮显示
+            for(i = 0; i < spans.length; i++) {
+                span = spans[i];
+                //移除class属性
+                span.removeAttribute("class");
+            }
+            //让当前span高亮
+            this.className = "current";
+
+
+            //3 切换图片--动画
+            var index = this.index;
+            //ul.style.left = -index * imgWidth + "px";
+            //动画切换图片
+            animate(ul, -index * imgWidth,10);
+        };
+    }
+</script>
+</body>
+</html>

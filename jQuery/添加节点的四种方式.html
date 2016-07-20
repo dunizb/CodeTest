@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>添加节点的四种方式|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="append添加" id="btnAppend">
+<input type="button" value="prepend添加" id="btnPrepend">
+<input type="button" value="After添加" id="btnAfter">
+<input type="button" value="before添加" id="btnBefore">
+<div>我是div的内容</div>
+<div>我是div的内容</div>
+<p>我是外面的p元素</p>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnAppend").click(function () {
+
+            //子级元素最后面
+            $("div").append($("p"));
+        });
+
+        $("#btnPrepend").click(function () {
+            //子级元素的最前面
+            $("div").prepend($("p"));
+        });
+
+        $("#btnAfter").click(function () {
+
+            //添加到调用者的后面，作为兄弟元素
+            $("div").after($("p"));
+        });
+
+        $("#btnBefore").click(function () {
+            //添加到调用者的前面，作为兄弟元素
+            $("div").before($("p"));
+        });
+    });
+</script>
+</body>
+</html>

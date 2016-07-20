@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择水果</title>
+    <style>
+        select {
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <select id="allSel" size="5" multiple="multiple">
+        <option>苹果</option>
+        <option>香蕉</option>
+        <option>西瓜</option>
+        <option>槟榔</option>
+        <option>西红柿</option>
+    </select>
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select id="sel" size="5" multiple="multiple">
+    </select>
+
+    <script src="js/common.js"></script>
+    <script>
+//        var allSel = $("#allSel");
+//        var sel = $("#sel");
+
+        //第一个按钮，全部移走
+        $("#btn1").onclick = function () {
+            moveAllOption("allSel","sel");
+        };
+        $("#btn2").onclick = function () {
+            moveAllOption("sel","allSel");
+        };
+
+        $("#btn3").onclick = function () {
+            moveSelectedOption("allSel","sel");
+        };
+        $("#btn4").onclick = function () {
+            moveSelectedOption("sel","allSel");
+        };
+
+        /**
+         * 全部移动
+         * @param {string} originId 源元素ID
+         * @param {string} targetId 目标元素ID
+         */
+        var moveAllOption = function(originId,targetId){
+            var originElement,targetElement,i,option;
+            originElement = $("#"+originId);
+            targetElement = $("#"+targetId);
+            //遍历所有的option
+            for (i = 0; i < originElement.children.length; i++ ) {
+                option  = originElement.children[i];
+                targetElement.appendChild(option);
+                i--;
+            }
+        }
+
+        /**
+         * 移动选中的元素
+         * @param {string} originId 源元素ID
+         * @param {string} targetId 目标元素ID
+         */
+        function moveSelectedOption(originId,targetId){
+            var originElement,targetElement,i,option;
+            originElement = $("#"+originId);
+            targetElement = $("#"+targetId);
+            //遍历所有的option
+            for (i = 0; i < originElement.children.length; i++ ) {
+                option = originElement.children[i];
+                //判断元素是否被选中
+                if(option.selected){
+                    targetElement.appendChild(option);
+                    i--;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

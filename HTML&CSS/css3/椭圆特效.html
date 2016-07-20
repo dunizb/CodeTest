@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟椭圆按钮效果|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+	<meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+	<meta name="Author" content="dunizb">
+	<meta name="website" content="http://www.mybry.com">
+	<meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+	<link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+	<style type="text/css">
+	#box{
+		width: 400px;
+		height: 200px;
+		background-color: #ccf;
+		margin: 100px auto;
+		border-radius: 50%;/*椭圆*/
+		box-shadow: 0 -15px 15px #88f inset,/** 内阴影 */
+		10px -15px 15px #44f inset,/** 左边加深阴影 */
+		-10px -15px 15px #fff inset,/** 右边高亮 */
+		0 15px #88f,/** 外阴影 */
+		-35px 40px 5px rgba(0,0,0,0.3);/** 左外倒影 */
+		/** 按钮按下过渡 */
+		transition:all 0.3s ease-in 0s;
+
+		line-height: 166px;/** 文字垂直居中 */
+		text-align: center;/** 文字水平居中 */
+		font-size: 50px;
+    	font-family: "微软雅黑";
+    	color: #88f;
+
+	}
+	#box:hover{
+		box-shadow: 0 -15px 15px #88f inset,/** 内阴影 */
+		10px -15px 15px #44f inset,/** 左边加深阴影 */
+		-10px -15px 15px #fff inset,/** 右边高亮 */
+		0 2px #88f,/** 外阴影 */
+		-8px 15px 5px rgba(0,0,0,0.3);/** 左外倒影 */
+		margin-top:115px;/** 模拟按钮按下 */ 
+	}
+	#content{
+		text-shadow:3px -3px 1px #44f,
+		-3px 3px 1px #fff;/** 文字阴影 */
+		transform:scale(1,0.8); /** 文字倾倒 */
+	}
+
+	</style>
+	<!-- <script src="http://apps.bdimg.com/libs/jquery/1.7.0/jquery.min.js"></script> -->
+</head>
+<body>
+	<div id="box">
+		<div id="content">丰趣海淘</div>
+	</div>
+</body>
+</html>

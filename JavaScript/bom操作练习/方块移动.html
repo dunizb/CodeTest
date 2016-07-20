@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>方块移动|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        body{padding: 0;margin: 0;}
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">来追我啊，向右漂移~~</div>
+
+<script type="text/javascript">
+    var box = document.getElementById("box");
+    var timerHeightId,timerWidthId;
+    var speet = 5;  //移动速度
+
+    // 默认开始向右移动
+    moveRight();
+    // 向右移动
+    function moveRight(){
+        box.innerText = "来追我啊，向右漂移~~";
+        var screenW = document.body.scrollWidth - box.offsetWidth;// - 可用的屏幕宽度
+        var left = 0;
+        var timerWidthId = setInterval(function(){
+            left++;
+            box.style.left = left + "px";
+            if(left === screenW){
+                clearInterval(timerWidthId);
+                moveDown(left);
+            }
+        },speet);
+    }
+
+    // 向下移动
+    function moveDown(left){
+        box.innerText = "追不到我把，我向下走了，好拉风";
+        var screenH = getScrollHeight() - box.offsetHeight;// - 可用的屏幕高度
+        var top = 0;
+        timerHeightId = setInterval(function(){
+            top++;
+            box.style.top = top + "px";
+            if(top === screenH){
+                clearInterval(timerHeightId);
+                moveLeft(left);
+            }
+        },speet);
+    }
+
+    // 向左移动
+    function moveLeft(left){
+        box.innerText = "哈哈哈，我又向左跑了";
+        timerWidthId = setInterval(function(){
+            left--;
+            box.style.left = left + "px";
+            if(left === 0){
+                clearInterval(timerWidthId);
+                moveUp();
+            }
+        },speet);
+    }
+
+    // 向上移动
+    function moveUp(){
+        box.innerText = "咳咳，把我能的要上天了";
+        var top =  getScrollHeight() - box.offsetHeight;// - 可用的屏幕高度
+        timerHeightId = setInterval(function(){
+            top--;
+            box = document.getElementById("box");
+            box.style.top = top + "px";
+            if(top === 0){
+                clearInterval(timerHeightId);
+                moveRight();
+            }
+        },speet);
+    }
+
+    function getScrollHeight(){
+        if(document.body.scrollHeight){
+            // console.log("scrollHeight="+document.body.scrollHeight);
+            return document.body.scrollHeight;
+        }else{
+            // console.log("availHeight="+window.screen.availHeight);
+            return window.screen.availHeight;
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico" />
+    <style>
+	#bigImg {
+		text-align: center;
+		line-height: 283px;
+		color: #ccc;
+	}
+    </style>
+<body>
+    <h1>美女画廊</h1>
+    <div id="gallery">
+    	<a id="link1" href="images/1.jpg" title="美女A"><img src="images/1-small.jpg" width="100" height="64" alt="1.jpg"></a>
+    	<a href="images/2.jpg" title="美女B"><img src="images/2-small.jpg" width="100" height="64" alt="2.jpg"></a>
+    	<a href="images/3.jpg" title="美女C"><img src="images/3-small.jpg" width="100" height="64" alt="3.jpg"></a>
+    	<a href="images/4.jpg" title="美女D"><img src="images/4-small.jpg" width="100" height="64" alt="4.jpg"></a>
+    </div>
+    <div>
+    	<img id="bigImg" src="" width="425" height="283" alt="400*250">
+    </div>
+    <p id="desc">点击上面的小图</p>
+
+    <script type="text/javascript">
+
+    	var oBigImg = document.getElementById("bigImg");
+        var oGallery = document.getElementById("gallery");
+    	var aLink = oGallery.getElementsByTagName("a");
+        var oDesc = document.getElementById("desc");
+		for(var i=0; i<aLink.length; i++){
+			changeImage(aLink[i]);
+		}
+        function changeImage(olink) {
+            olink.onclick = function() {
+                oBigImg.src = this.href; 
+                oDesc.innerText = this.title;
+                return false;
+            };  
+        }
+    </script>
+</body>
+</html>

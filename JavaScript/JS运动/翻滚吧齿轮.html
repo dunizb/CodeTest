@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>翻滚吧齿轮|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border-radius: 50%;
+            transform: rotate(0deg);
+            text-align: center;
+            font:700 50px/100px "simsun";
+            color: #fff;
+            border: 3px dashed;
+        }
+        #box {
+            background-color: deeppink;
+            margin-top: 5px;
+        }
+        #box1 {
+            background-color: deeppink;
+            margin-top: 110px;
+            margin-left: 7px;;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" name="0" value="滚出去500"/>
+<input type="button" id="btn1" name="0" value="滚出去1000"/>
+
+<div id="box" class="box">۞</div>
+<div id="box1" class="box">■</div>
+
+<script type="text/javascript">
+    var btn = document.getElementById("btn"),
+        btn1 = document.getElementById("btn1");
+
+    // 500
+    var name = 0;
+    btn.onclick = function(){
+        // 设置滚回开关
+        name = this.getAttribute("name");
+
+        var box = document.getElementById("box");
+        var box1 = document.getElementById("box1");
+        // 滚出去了，设滚回来
+        if(this.name == 0){
+            this.setAttribute("name","1");
+            this.value = "滚回来";
+            animate(box,500,50);
+            animate(box1,500,50);
+        }else{
+            this.setAttribute("name","0");
+            this.value = "滚出去500";
+            animate(box,0,50);
+            animate(box1,0,50);
+        }
+    };
+
+    // 1000
+    btn1.onclick = function(){
+        // 设置滚回开关
+        name = this.getAttribute("name");
+
+        var box = document.getElementById("box");
+        var box1 = document.getElementById("box1");
+
+        // 滚出去了，设滚回来
+        if(this.name == 0){
+            this.setAttribute("name","1");
+            this.value = "滚回来";
+            animate(box,1000,30);
+            animate(box1,1000,30);
+        }else{
+            this.setAttribute("name","0");
+            this.value = "滚出去1000";
+            animate(box,0,30);
+            animate(box1,0,30);
+        }
+    };
+
+    function animate(element,target,stepTime){
+        // 清除上一次创建的定时器
+        clearInterval(element.timerId);
+        var stepOffset = 10;  //步长
+        element.rotate = 0;   // 旋转角度
+        var rotate = element.rotate;
+
+        // 获取元素的当前位置
+        var current = element.offsetLeft;
+        if(current > target){
+            stepOffset = -Math.abs(stepOffset);
+        }
+
+        element.timerId = setInterval(function(){
+            rotate += stepOffset;
+            if(rotate === 360) rotate = 0;
+
+            if(Math.abs(current - target) > Math.abs(stepOffset)){
+                element.style.left = current + "px";
+                element.style.transform = "rotate(" + rotate + "deg)";
+            }else{
+                element.style.left = target + "px";
+                clearInterval(element.timerId);
+            }
+            // 累加位置
+            current += stepOffset;
+
+        },stepTime);
+    }
+</script>
+</body>
+</html>

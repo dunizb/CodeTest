@@ -1,0 +1,349 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button { 			/*fieldset组合表单中的相关元素*/
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;				/*清除列表风格*/
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+/*防止多行文本框拖动*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+    border-collapse: collapse;			/*合并外边线*/
+}
+
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53";	/*宋体，Unicode，统一码*/
+    color: #666;
+    background: #fff
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C81623;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+.col-red {
+    color: #C81623 !important;
+}
+
+/*公共类*/
+.w {
+    /*版心 提取 */
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.hide {
+    display: none
+}
+
+/*site-nav部分start*/
+.site-nav {
+    height: 30px;
+    line-height: 30px;
+    background-color: #F1F1F1;
+}
+.site-nav-send,
+.site-nav-r .fore{
+    padding: 0 25px 0 10px;
+    position: relative;
+}
+.site-nav-send:hover {
+    background-color: #fff;
+}
+.site-nav-send i,
+.fore i{
+    width: 15px;
+    height: 15px;
+    font:400 15px/15px "consolas";
+    position: absolute;
+    top: 13px;
+    right: 4px;
+    overflow: hidden;
+}
+.site-nav-send i s,
+.fore i s{
+    position: absolute;
+    top: -7px;
+}
+.site-nav-r li {
+    float: left;
+    padding: 0 10px;
+}
+.site-nav-r li.line {
+    width: 1px;
+    height: 12px;
+    background-color: #DDDDDD;
+    padding: 0;
+    margin-top: 10px;
+}
+.site-nav-r .mobile {
+    padding-left: 25px;
+}
+.site-nav-r .mobile b {
+    position: absolute;
+    width: 13px;
+    height: 18px;
+    background: url("../images/tel.png");
+    top: 5px;
+    left: 6px;
+}
+/*site-nav部分end*/
+
+/*top-banner部分star*/
+.top-banner {
+    background-color: #C81622;
+}
+.top-banner .tb {
+    position: relative;
+}
+.top-banner a.close {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 5px;
+    right: 5px;
+    background: url("../images/closebanner.png") no-repeat;
+}
+.top-banner a.close:hover {
+    background-position: left bottom;
+}
+/*top-banner部分end*/
+
+/*logo与搜索部分star*/
+.site-logo {
+    float: left;
+    width: 362px;
+    padding: 20px 0;
+}
+.site-logo h1 {
+   text-indent: -9999px;
+}
+.site-logo a {
+    display: inline-block;
+    width: 270px;
+    height: 60px;
+    display: block;
+    background: url("../images/logo.png") no-repeat;
+}
+.site-search {
+    float: left;
+    width: 538px;
+    height: 36px;
+    padding-top: 25px;
+}
+.site-search input {
+    width: 450px;
+    height: 32px;
+    line-height: 32px;
+    border: 2px solid #B61D1D;
+    float: left;
+    color: #666;
+    padding-left: 4px;
+}
+.site-search button {
+    float: left;
+    width: 80px;
+    height: 36px;
+    border-top:2px solid #B61D1D;
+    border-bottom:2px solid #B61D1D;
+    background-color: #B61D1D;
+    color:#fff;
+    font: normal 16px "微软雅黑";
+    cursor: pointer;
+}
+.site-car {
+    float: right;
+    margin: 25px 65px 0 0;
+    width: 96px;
+    height: 34px;
+    border: 1px solid #DFDFDF;
+    background-color: #F9F9F9;
+    padding-left: 43px;
+    line-height: 34px;
+    position: relative;
+}
+.site-car i.icon-buycar {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    width: 18px;
+    height: 18px;
+    background:url(../images/tel.png) no-repeat 0 -57px;
+}
+.site-car i.icon-count {
+    width: 16px;
+    height:14px;
+    line-height: 14px;
+    text-align: center;
+    background-color: #B61D1D;
+    color: #fff;
+    position: absolute;
+    top: -6px;
+    border-radius: 7px 7px 7px 0;
+}
+.site-car i.icon-gt {
+    position: absolute;
+    right: 10px;
+    font: 400 13px/34px "simsun";
+}
+.search-hot {
+    float: left;
+    width: 538px;
+    height: 28px;
+    line-height: 28px;
+}
+.search-hot a {
+    margin-right: 7px;
+}
+/*logo与搜索部分end*/
+
+/*footer部分start*/
+.footer-top-slogan {
+    height: 94px;
+    margin-bottom: 15px;
+    background-color: #F5F5F5;
+    position: relative;
+}
+.slogan {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+}
+.slogan1 {
+    margin-left: -604px;
+}
+.slogan2 {
+    margin-left: -302px;
+}
+.slogan4 {
+    margin-left: 304px;
+}
+.footer-top-shopping dl {
+    float: left;
+    width: 200px;
+}
+.footer-top-shopping .last-dl {
+    width: 100px;
+}
+.footer-top-shopping dt,
+.jd-coverage h3{
+    font: 16px/36px "微软雅黑";
+}
+.footer-top-shopping dd {
+    line-height: 20px;
+}
+.jd-coverage {
+    float: right;
+    width: 185px;
+    height: 168px;
+    padding-left: 18px;
+    margin-right: 44px;
+    background: url("../images/china.png") no-repeat left bottom;
+}
+.jd-coverage p {
+    padding-top: 8px;
+}
+.jd-coverage a {
+    float: right;
+}
+.footer-bottom {
+    border-top: 1px solid #E5E5E5;
+    text-align: center;
+    padding: 20px 0 30px 0;
+    margin-top: 20px;
+}
+.footer-bottom-links a {
+    margin: 0 6px;
+}
+.footer-bottom-copyright {
+    padding: 10px 0;
+}
+.footer-bottom-pic img {
+    margin-right: 13px;
+}
+/*footer部分end*/

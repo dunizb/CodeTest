@@ -1,0 +1,292 @@
+@charset "UTF-8";
+
+body,html{
+    height: 100%;
+}
+body{
+    min-width: 300px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-size: 62.5%;
+}
+ul {padding: 0;margin: 0;}
+
+
+#container {
+    /*background: currentColor;*/
+    /*height: 447px;*/
+    overflow: hidden;
+    padding: 5px 5px;
+}
+.calc {
+    width: 300px;
+    max-width: 600px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    height: 100%;
+    -webkit-transition: all .8s;
+    transition: all .5s;
+    overflow: hidden;
+     box-shadow: 0px 0px 10px #000;
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+    z-index: 0;
+    position: relative;
+    /* text-shadow: 0 2px 1px rgba(0,0,0,0.2); */
+}
+.flexbox {
+    width: 600px;
+    transform: none;
+}
+
+#top {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* height: 102px; */
+    position: relative;
+    width: 100%;
+    height: 30%;
+}
+#win-tool {
+    background-color: #999;
+    min-height: 35px;
+    position: relative;
+    /*padding-top: 7px;*/
+    /*padding-right: 8px;*/
+    padding: 7px 8px 0 8px;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
+}
+#win-tool span {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    line-height: 18px;
+    margin-right: 3px;
+    text-align: center;
+    display: inline-block;
+    font-size: .75em;
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+    /*box-shadow:0px 0px 6px #fff;*/
+    position: absolute;
+    top: 8px;
+}
+#close {
+    background-color: #FC5652;
+    left: 8px;
+}
+#max {
+    background-color: #FDBC40;
+    left: 34px;
+}
+#mini {
+    background-color: #34C749;
+    left: 60px;
+}
+#win-tool a {
+    background: hsl(0, 0%, 80%);
+    display: inline-block;
+    width: 45px;
+    height: 18px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 18px;
+    color: inherit;
+    text-decoration: none;
+    font-size: .75em;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+}
+#win-tool a:hover {
+    background: hsl(28, 90%, 60%);
+    color: #fff;
+}
+#win-tool a:active {
+    background: hsl(0, 100%, 50%);
+    color: #fff;
+}
+#result {
+    min-height: 90px;
+    width: 100%;
+    height: 100%;
+    background-color: #999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* font-size: 60px; */
+    font-family: "Helvetica Neue Light";
+    padding: 0 5px;
+    color: #FFF;
+    overflow: hidden;
+    box-sizing: border-box;
+    /*-webkit-transition: all .5s;*/
+    /*transition: all .5s;*/
+}
+#result > #express {
+    font-size: 2em;
+    height: 1em;
+}
+#result > #res {
+    font-size: 6em;
+}
+#bottom {
+    /* flex: 3; */
+    /* flex-direction: row; */
+    align-items: stretch;
+    width: 100%;
+    height: 70%;
+}
+#bottom .row {
+    /*height: 63px; */
+    /* height: 93px; */
+    /* flex: 1; */
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: -1px;
+}
+#bottom .row span:first-child {
+    border-left: 0;
+}
+#bottom .row:last-child span {
+    border-bottom: 0;
+}
+#bottom .row span{
+    /*height: 62px;*/
+    height: 100%;
+    width: 25%;
+    background-color: #F2F2F2;
+    border: 1px solid #999;
+    border-right: 0;
+    text-align: center;
+    flex: 1;
+    color: #000;
+    font:400 2.5em/62px "Microsoft YaHei";
+    cursor: default;
+    -webkit-user-select: none;
+}
+#win-tool span:active,
+#bottom .row span:active,
+#bottom .row span.tool:active{
+    background-color: red;
+    color: #fff;
+}
+#bottom .row span:hover,
+#bottom .row span.tool:hover {
+    box-shadow: 0px 0px 15px #999;
+    position: relative;
+}
+#bottom .row span.tool {
+    background-color: #F5923E;
+    color: #fff;
+}
+#bottom .row span.chu {
+    font-size: 35px;
+    font-weight: normal;
+}
+#bottom .row span.add {
+    font-size: 35px;
+    font-weight: normal;
+}
+#bottom .row span.jiang {
+    font-size: 20px;
+}
+#bottom .row span.eq {
+    /*width: 33.333%;*/
+    font-size: 35px;
+    font-weight: normal;
+}
+#bottom .row span.zero {
+    /*width: 33.333%;*/
+    flex: 2;
+    box-sizing: border-box;
+    /*height: 63px;*/
+    height: 100%;
+    padding-right: 1px;
+}
+
+/************** 历史记录 *****************/
+#historyBox {
+    background: hsl(0, 0%, 95%);
+    width: 100%;
+    height: 71%;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px 0px 10px #000;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transform: translateY(102%);
+    transform: translateY(102%);
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+}
+#historyBox .con {
+    height: 92%;
+    overflow-y: auto;
+}
+#historyBox .remove {
+    height: 8%;
+    /*background: green;*/
+    text-align: right;
+    /*padding: 2px 10px;*/
+    box-sizing: border-box;
+    border-top: 1px solid transparent;
+}
+#historyBox .remove .icon_del {
+    display: inline-block;
+    width: 30px;
+    height: 23px;
+    background: url("../images/delete1.png") no-repeat;
+    box-sizing: border-box;
+    background-position: center center;
+}
+#historyBox .remove .icon_del:hover {
+    background-color: hsl(0, 0%, 88%);
+}
+#historyBox ul {
+    padding: 5px 0;
+    color: hsl(0, 0%, 88%);
+}
+#historyBox ul li {
+    height: 45px;
+    text-align: right;
+    line-height: 45px;
+    font-size: 2.2em;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    background: hsl(0, 0%, 95%);
+    padding: 0 10px;
+    color: #000;
+}
+#historyBox ul li:hover {
+    background:hsl(0, 0%, 88%);
+}
+
+
+/*小屏*/
+@media (max-width: 500px){
+    body{
+        font-size: 80%;
+    }
+    #container {
+        height: 100%;
+    }
+    .calc {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+    }
+    #bottom .row {
+        margin-bottom: auto;
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>把回车替换成tab|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+<input type="text" /><br>
+
+<script type="text/javascript">
+    //1 获得所有的文本框，注册事件
+    var inputs = document.getElementsByTagName("input");
+
+    for(var i=0; i<inputs.length; i++){
+        var input = inputs[i];
+
+        input.onkeydown = function(e){
+            e = e || window.event;
+            //2 找到下一个文本框，让其获得焦点
+            //回车  13
+            if(e.keyCode === 13){
+                var nextTxt = this.nextElementSibling.nextElementSibling;
+                nextTxt.focus();
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>匀速运动的停止条件|JS运动基础</title>
+    <style>
+        body {padding: 0;margin: 0}
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            position: absolute;
+            top: 50px;
+            left: 600px;
+        }
+        #div2 {
+            width: 1px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            background-color: #ccc;
+        }
+        #div3{width: 1px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            background-color: #ccc;}
+    </style>
+</head>
+<body>
+<input type="button" id="btn1" value="到100" onclick="startMove(100)"/>
+<input type="button" id="btn2" value="到300" onclick="startMove(300)"/>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+</body>
+
+<script>
+var timer = null;
+function startMove(iTarget){
+    var oDiv = document.getElementById("div1");
+    timer = setInterval(function(){
+        var speet = 0;
+        if(oDiv.offsetLeft < iTarget){
+            speet = 7;
+        }else{
+            speet = -7;
+        }
+        if(Math.abs(iTarget - oDiv.offsetLeft) < speet){
+            clearInterval(timer);
+            oDiv.style.left = iTarget +"px";
+        }else{
+            oDiv.style.left = oDiv.offsetLeft + speet +"px";
+        }
+    },30);
+}
+</script>
+</html>

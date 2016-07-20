@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            height: 1000px;
+            margin: 0 auto;
+        }
+        /*利用媒体查询*/
+        /*不写screen默认的是它*/
+        /*1.当屏幕宽度超过1200px的时候 版心宽度限制为1170px 背景颜色是红色*/
+        @media screen and (min-width: 1200px){
+            .container{
+                width: 1170px;
+                background: red;
+            }
+        }
+        /*2.当屏幕宽度超过992px不超过1200px的时候 版心宽度限制为970px 背景颜色是蓝色*/
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+            .container{
+                width: 970px;
+                background: blue;
+            }
+        }
+        /* 3.当屏幕宽度超过768px不超过992px的时候 版心宽度限制为750px 背景颜色是绿色*/
+        @media screen and (min-width:768px) and (max-width: 992px){
+            .container{
+                width: 750px;
+                background: green;
+            }
+        }
+        /*4.不超过768px的时候 版心宽度限制为100% 背景颜色是粉色*/
+        @media screen and (max-width: 768px){
+            .container{
+                width: 100%;
+                background: pink;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+  1.当屏幕宽度超过1200px的时候 版心宽度限制为1170px 背景颜色是红色
+  2.当屏幕宽度超过992px不超过1200px的时候 版心宽度限制为970px 背景颜色是蓝色
+  3.当屏幕宽度超过768px不超过992px的时候 版心宽度限制为750px 背景颜色是绿色
+  4.不超过768px的时候 版心宽度限制为100% 背景颜色是粉色
+-->
+    <div class="container"></div>
+</body>
+</html>

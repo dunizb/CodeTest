@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>祝愿墙</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link rel="stylesheet" href="css/base.css">
+	<style type="text/css">
+		body {
+            background: url(images/zyq/bg.gif) repeat center 36px;
+            text-align: center;
+            background-color: #c30230;
+            color: #000;
+        }
+        #content {
+            margin: 0 auto;
+            width: 960px;
+            background: url(images/zyq/content_bg.jpg) no-repeat left top;
+            height: 627px;
+        }
+        #content .tip {
+        	position: absolute;
+            width: 227px;
+            left: 200px;
+            top: 100px;
+        }
+        #content .tip_h {
+        	background: url(images/zyq/tip1_h.gif) no-repeat left top;
+        	width: 227px;
+            padding-top: 45px;
+            height: 23px;
+            text-align: left;
+            /*cursor: move;*/
+            padding-left: 5px;
+        }
+        #content .close {
+        	width: 18px;
+        	text-align: center;
+        	background-color: rgba(0,0,0,.1);
+        	border-radius: 50%;
+        	margin-left: 5px;
+        }
+        #content .close:hover {
+        	cursor: pointer;
+        	color: #fff;
+        	background-color: rgba(0,0,0,.3);
+        }
+        #content .tip_c {
+        	width: 200px;
+            padding-left: 12px;
+            padding-right: 15px;
+            min-height: 40px;
+            text-align: left;
+            line-height: 20px;
+            max-height: 160px;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow: hidden;
+        	background: url(images/zyq/tip1_c.gif) repeat-y;
+        }
+        #content .tip_f {
+        	padding: 0 5px;
+        	height: 73px;
+        	line-height: 73px;
+        	background: url(images/zyq/tip1_f.gif) no-repeat left top;
+        }
+        #content .tip_f .name {
+        	padding-right: 15px;
+            text-align: right;
+            font-size: 14px;
+            color: #C0F;
+        }
+	</style>
+<body>
+	<div id="content">
+	    <div class="tip" id="tip_0" >
+	        <div class="tip_h clearfix" title="双击关闭纸条">
+	            <div class="num fl">第[<span id="tipNum">0</span>]条 2016-02-17 22:51:52</div>
+	            <div class="close fl" title="关闭纸条" >×</div>
+	        </div>
+	        <div class="tip_c">
+	            这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！
+	        </div>
+	        <div class="tip_f clearfix">
+	            <div class="icon fl">
+	                <img src="images/zyq/bpic_1.gif" alt="" title="">
+	            </div>
+	            <div class="name fr">读你博客</div>
+	        </div>
+	    </div>
+	</div>
+
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+    	var tipContent = {
+    		"p1" : "张三|张三：这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！",
+    		"p2" : "李四|李四：这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！",
+    		"p3" : "王五|王五：加油！你可以的！你行的！你是最棒的！",
+    		"p4" : "刘六|刘六：加油！你可以的！你行的！你是最棒的！",
+    		"p5" : "赵七|赵七：加油！你可以的！你行的！你是最棒的！",
+    		"p6" : "杨八|杨八：加油！你可以的！你行的！你是最棒的！",
+    		"p7" : "周九|周九：你可以的！你行的！你是最棒的！",
+    		"p8" : "读你博客|这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！",
+    		"p9" : "丰趣海淘|祝丰趣海淘越来越强，海淘就用丰趣！",
+    		"p10" : "习大大|愿这个世界更美好，中国梦，世界梦！"
+    	};
+
+    	// 容器
+		var content = document.getElementById("content");
+		// 第一个小纸条
+        var tip = document.getElementById("tip_0");
+        // 纸条编号
+        var tipNum = document.getElementById("tipNum");
+
+        // 生成小纸条
+        createTips(10);
+    
+        function createTips(count) {
+        	var zIndex = 5;
+        	// 通过克隆随机生成10个小纸条
+	        for(var i=0; i<count; i++) {
+	        	// 克隆对象
+	        	var cloneTip = tip.cloneNode(true);
+	        	// 设置小纸条的编号
+	        	cloneTip.children[0].children[0].children[0].innerHTML  = i + 1;
+	        	// 设置小纸条的内容
+	        	setTipContent(cloneTip)
+	        	// 把小纸条追加到容器
+	        	content.appendChild(cloneTip);
+
+	        	// 随机生成小纸条的位置
+	        	// 200~800
+	        	var posX = parseInt(Math.random()*800)+200;
+	        	// 0~500
+	        	var posY = parseInt(Math.random()*500);
+
+	        	cloneTip.style.left = posX+"px";
+	        	cloneTip.style.top = posY+"px";
+
+	        	// 点击小纸条提高层级
+	        	cloneTip.onclick = function() {
+	        		zIndex++;
+	        		this.style.zIndex = zIndex;
+	        	}
+
+                // 双击纸条头部关闭纸条
+                var tipH = getFirstElementChild(cloneTip);
+                tipH.ondblclick = function(){
+                    if(confirm("您确定关闭这个小纸条吗？")){
+                        this.parentNode.style.display = "none";
+                    }
+                }
+
+                // 通过关闭按钮关闭小纸条
+                var closeBtn = tipH.children[1];
+                closeBtn.onclick = function(){
+                    this.parentNode.parentNode.style.display = "none";
+                }
+	        }
+
+			// 原始小纸条的位置
+			originalTipPosition(tip);
+			// 通过关闭按钮关闭原始小纸条
+			closeOriginalTipByBtn();
+			// 通过双击关闭原始小纸条
+			closeOriginalTipByDblclick();
+
+			tip.onclick = function(){
+				zIndex++;
+				this.style.zIndex = zIndex;
+			}
+        }
+
+        function closeOriginalTipByBtn() {
+        	var firstTip = getFirstElementChild(content);
+        	firstTip.onclick = function(){
+                this.parentNode.parentNode.style.display = "none";
+            }
+        }
+
+        // 双击第一个纸条头部关闭纸条
+        function closeOriginalTipByDblclick() {
+        	var firstTip = getFirstElementChild(content);
+            var firstTipHead = getFirstElementChild(firstTip);
+        	firstTipHead.ondblclick = function(){
+                if(confirm("您确定关闭这个小纸条吗？")){
+                    this.style.display = "none";
+                }
+            }
+        }
+
+        function setTipContent(tipNode){
+        	var index = parseInt(Math.random()*7)+1,
+        		indexNum = "p"+index;
+        	var content = tipContent[indexNum].split("|");
+        	var userName = content[0],
+        		content = content[1];
+        	tipNode.children[1].innerHTML = content;
+        	tipNode.children[2].children[1].innerHTML = userName;
+        }
+
+        function originalTipPosition(oneTip) {
+        	// 200~800
+        	var posX = parseInt(Math.random()*800)+200;
+        	// 0~500
+        	var posY = parseInt(Math.random()*500);
+
+        	oneTip.style.left = posX+"px";
+	        oneTip.style.top = posY+"px";
+        }
+	</script>
+</body>
+</html>

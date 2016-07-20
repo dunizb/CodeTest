@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟class选择器</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="box"></li>
+		<li></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var oUl = document.getElementById("ul1");
+		var aEle = getByClass(oUl,"box");
+		console.log(aEle);
+		for (var i=0 ;i<aEle.length; i++) {
+			aEle[i].style.background = "red";
+		}
+	};
+
+	function getByClass(oParent,sClass){
+		var eles = [];
+		var oEle = oParent.getElementsByTagName("*");
+		for (var i = 0; i < oEle.length; i++) {
+			if(oEle[i].className === sClass){
+				eles.push(oEle[i]);
+			}
+		}
+		return eles;
+	}
+</script>
+</html>

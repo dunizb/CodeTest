@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>会呼吸的圆圈|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <style>
+        div {
+            width: 80px;
+            height: 80px;
+            transition: all 0.5s;
+            border-radius:50% ;
+            line-height: 80px;
+            text-align: center;
+            color: #fff;
+            display: inline-block;
+            margin-top: 100px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #box1 {background-color: pink;}
+        #box2 {background-color: #008000;}
+        #box3 {background-color: grey;}
+        #box4 {background-color: #ff5d24;}
+    </style>
+</head>
+<body>
+
+<center>
+<div id="box1">Java</div>
+<div id="box2">CSS</div>
+<div id="box3">PHP</div>
+<div id="box4">Ruby</div>
+</center>
+
+<script>
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+    var box3 = document.getElementById("box3");
+    var box4 = document.getElementById("box4");
+    var x = y = 1;
+    setInterval(function () {
+        x += 0.1;
+        y += 0.1;
+        if(x > 1.2){
+            x = y = 1;
+        }
+        box1.style.transform = "scale("+x+","+y+")";
+        box2.style.transform = "scale("+(x+0.1)+","+(y+0.1)+")";
+        box3.style.transform = "scale("+x+","+x+")";
+        box4.style.transform = "scale("+(x+0.1)+","+(y+0.1)+")";
+    },500);
+</script>
+</body>
+</html>

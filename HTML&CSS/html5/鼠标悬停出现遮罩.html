@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>鼠标悬停出现遮罩|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        .outdiv {
+            border: 1px solid #008cc8;
+            width: 259px;
+            position: relative;
+            display: inline-block;
+        }
+        .inner:hover::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .inner2::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .inner2:hover::after {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="outdiv">
+    <div class="inner">
+        <img src="images/wxgzh.jpg" alt="我的微信公众号"/>
+    </div>
+</div>
+<div class="outdiv">
+    <div class="inner inner2">
+        <img src="images/wxgzh.jpg" alt="我的微信公众号"/>
+    </div>
+</div>
+</center>
+</body>
+</html>

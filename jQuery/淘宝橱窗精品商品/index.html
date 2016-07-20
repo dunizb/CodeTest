@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淘宝橱窗精品商品|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/><style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .wrapper {
+        width: 298px;
+        height: 248px;
+        margin: 100px auto 0;
+        border: 1px solid pink;
+        overflow: hidden;
+    }
+    #left,#center,#right{
+        float: left;
+    }
+    #left li , #right li{
+        background: url(images/lili.jpg) repeat-x;
+    }
+    #left li a,#right li a{
+        display: block;
+        width: 48px;
+        height: 27px;
+        border-bottom: 1px solid pink;
+        line-height: 27px;
+        text-align: center;
+        color: black;
+    }
+    #left li a:hover,#right li a:hover{
+        background-image: url(images/abg.gif);
+    }
+    #center {
+        border-left: 1px solid pink;
+        border-right: 1px solid pink;
+    }
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+
+    <ul id="left">
+        <li><a href="#">女靴</a></li>
+        <li><a href="#">雪地靴</a></li>
+        <li><a href="#">冬裙</a></li>
+        <li><a href="#">呢大衣</a></li>
+        <li><a href="#">毛衣</a></li>
+        <li><a href="#">棉服</a></li>
+        <li><a href="#">女裤</a></li>
+        <li><a href="#">羽绒服</a></li>
+        <li><a href="#">牛仔裤</a></li>
+    </ul>
+    <ul id="center">
+        <li><a href="#"><img src="images/女靴.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/雪地靴.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/冬裙.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/呢大衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/毛衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/棉服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/女裤.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/羽绒服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/牛仔裤.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/女包.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男靴.jpg" width="200" height="250" /></a></li>
+        <li><a href="#"><img src="images/登山鞋.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/皮带.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/围巾.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/皮衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男毛衣.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男棉服.jpg" width="200" height="250"/></a></li>
+        <li><a href="#"><img src="images/男包.jpg" width="200" height="250"/></a></li>
+
+    </ul>
+    <ul id="right">
+        <li><a href="#">女包</a></li>
+        <li><a href="#">男靴</a></li>
+        <li><a href="#">登山鞋</a></li>
+        <li><a href="#">皮带</a></li>
+        <li><a href="#">围巾</a></li>
+        <li><a href="#">皮衣</a></li>
+        <li><a href="#">男毛衣</a></li>
+        <li><a href="#">男棉服</a></li>
+        <li><a href="#">男包</a></li>
+    </ul>
+
+</div>
+
+<script src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //1. 左边的功能
+        $("#left>li").mouseenter(function () {
+            var index = $(this).index();
+            // 显示当前图片，隐藏兄弟图片
+            $("#center>li:eq("+ index +")").show().siblings().hide();
+        });
+        //2. 右边的功能
+        $("#right>li").mouseenter(function () {
+            var index = $(this).index() + $("#left>li").length;
+            $("#center>li").eq(index).show().siblings().hide();
+        });
+    });
+</script>
+</body>
+</html>

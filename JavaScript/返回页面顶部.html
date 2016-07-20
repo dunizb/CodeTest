@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回页面顶部</title>
+</head>
+<style type="text/css">
+	body {
+	    height: 3000px;
+	}
+
+	.top {
+	    position: absolute;
+	    top: 120px;
+	    display: inline-block;
+	    width: 50px;
+	    height: 50px;
+	    line-height: 50px;
+	    text-decoration: none;
+	    text-align: center;
+	    background-color: #666666;
+	    color: #ffffff;
+	    right: 10px;
+	    transition: all 0.3s;
+	     visibility: hidden;
+	}
+	.top:hover {
+	    background-color: #ff3300;
+	}
+</style>
+<body>
+	<!-- <img src="image/1.png" /><img src="image/2.png" /> -->
+	<a href="#" class="top">顶部</a>
+	<script type="text/javascript">
+		var ele_body = document.body;
+		var ele_top = document.getElementsByClassName("top")[0];
+		var n_half_height = window.screen.height / 2;
+		ele_top.style.top = n_half_height + "px";
+		window.onscroll = function (e) {
+			var n_stop = e.target.scrollingElement.scrollTop;
+			if (n_stop === 0 ) {
+				ele_top.style.visibility = "hidden";
+		    }else {
+		        ele_top.style.visibility = "visible";
+		    }
+		    var n_top = n_stop + n_half_height ;
+  			ele_top.style.top = n_top + "px";
+		}
+	</script>
+</body>
+</html>

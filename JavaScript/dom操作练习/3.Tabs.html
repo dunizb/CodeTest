@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico" />
+    <style>
+	    * {margin:0; padding: 0;}
+	    ul {
+	        list-style-type: none;
+	    }
+	    .box {
+	        width: 400px;
+	        height: 300px;
+	        border: 1px solid #ccc;
+	        margin: 100px auto;
+	        overflow: hidden;
+	    }
+	    .hd {
+	        height: 45px;
+	    }
+	    .hd span {
+	        display:inline-block;
+	        width: 90px;
+	        background-color: pink;
+	        line-height: 45px;
+	        text-align: center;
+	        cursor: pointer;
+	    }
+	    .hd span.current {
+	        background-color: purple;
+	    }
+	    .bd li {
+	        height: 255px;
+	        background-color: purple;
+	        display: none;
+	    }
+	    .bd li.current {
+	        display: block;
+	    }
+	</style>
+<body>
+<div class="box" id="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul>
+            <li class="current">我是体育模块</li>
+            <li>我是娱乐模块</li>
+            <li>我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var oBox = document.getElementById("box");
+	var aSpan = oBox.getElementsByTagName("span");
+	var ali = oBox.getElementsByTagName("li");
+
+	var timerId = null;
+	var index = 0;
+
+	for(var i=0; i<aSpan.length; i++) {
+		// 记录当前索引
+		aSpan[i].id = i;
+		// 切换tab
+		aSpan[i].onmouseover = function() {
+			clearInterval(timerId);
+			changeTag(this.id);
+		};
+		aSpan[i].onmouseout = function() {
+			index = this.id;
+			timerId = setInterval(autoChange,2000);
+		};
+	}
+	// 默认开启自动切换
+	timerId = setInterval(autoChange,2000);
+
+	// 自动切换
+	function autoChange(){
+		index++;
+		if(index == aSpan.length){
+			index = 0;
+		}
+		changeTag(index);
+	}
+
+	// 切换选项卡
+	function changeTag(objIndex) {
+		//取消选中其它span
+		for(var j=0; j<aSpan.length; j++){
+			aSpan[j].className = "";
+			ali[j].className = "";
+		}
+		aSpan[objIndex].className = "current";
+		ali[objIndex].className = "current";
+	}
+
+</script>    
+</body>
+</html>

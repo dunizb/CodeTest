@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D方块|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            position: relative;
+            transform: rotateY(30deg) rotateX(-30deg);
+            transform-style: preserve-3d;
+            /*perspective: 1000px;*/
+        }
+        #box div {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            position: absolute;
+            /*opacity: 0.5;*/
+        }
+        .front {
+            background-color: pink;
+            transform: translateZ(100px);
+        }
+        .back {
+            background-color: red;
+            transform: translateZ(-100px);
+        }
+        .top {
+            background-color: orange;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom {
+            background-color: blue;
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        .left {
+            background-color: green;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        .right {
+            background-color: yellow;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="front">1</div>
+    <div class="back">2</div>
+    <div class="left">3</div>
+    <div class="right">4</div>
+    <div class="top">5</div>
+    <div class="bottom">6</div>
+</div>
+<center>
+    <input type="button" value="开始" id="start"/>
+</center>
+
+<script>
+    var box = document.getElementById("box");
+    var startBtn = document.getElementById("start");
+    var timerId = null;
+
+    startBtn.onclick = function(){
+        if(this.value == "停止"){
+            clearInterval(timerId);
+            this.value = "开始";
+        }else{
+            startBox();
+            this.value = "停止";
+        }
+    };
+
+    function startBox(){
+        var x = 30,y = -30;
+        clearInterval(timerId);
+        timerId = setInterval(function(){
+            x += 10;
+            y += -15;
+            box.style.transform = "rotateX("+x+"deg) rotateY("+y+"deg)";
+        },30);
+    }
+
+</script>
+</body>
+</html>

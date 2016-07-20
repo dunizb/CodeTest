@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>360浏览器|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="wrap">
+    <section class="section" id="section1">
+        <div class="logo"></div>
+        <div class="text">
+            <img src="images/text_1.png" alt="">
+            <img src="images/text_2.png" alt="">
+            <img src="images/text_3.png" alt="">
+            <img src="images/text_4.png" alt="">
+            <img src="images/text_5.png" alt="">
+            <img src="images/text_6.png" alt="">
+            <img src="images/text_7.png" alt="">
+            <img src="images/text_8.png" alt="">
+        </div>
+        <div class="info"></div>
+    </section>
+    <section class="section" id="section2">
+        <!-- 盾牌 -->
+        <div class="shield">
+            <img src="images/shield_1.png" alt="">
+            <img src="images/shield_2.png" alt="">
+            <img src="images/shield_3.png" alt="">
+            <img src="images/shield_4.png" alt="">
+            <img src="images/shield_5.png" alt="">
+            <img src="images/shield_6.png" alt="">
+            <img src="images/shield_7.png" alt="">
+            <img src="images/shield_8.png" alt="">
+            <img src="images/shield_9.png" alt="">
+        </div>
+        <!-- 信息 -->
+        <div class="info"></div>
+    </section>
+    <section class="section" id="section3">
+        <!-- 信息 -->
+        <div class="info"></div>
+        <!-- 圆环 -->
+        <div class="circle"></div>
+        <!-- 火箭 -->
+        <div class="rocket"></div>
+    </section>
+    <section class="section" id="section4">
+        <!-- 搜索 -->
+        <div class="search">
+            <div class="key"></div>
+            <div class="wraps">
+                <div class="result"></div>
+            </div>
+        </div>
+        <!-- 信息 -->
+        <div class="info"></div>
+    </section>
+    <section class="section" id="section5">
+        <!-- 信息 -->
+        <div class="info"></div>
+        <!-- 浏览器 -->
+        <div class="broswer">
+            <!-- 四边框 -->
+            <div class="leftline"></div>
+            <div class="topline"></div>
+            <div class="rightline"></div>
+            <div class="bottomline"></div>
+            <!-- 工具栏 -->
+            <div class="toolbar"></div>
+            <!-- 边框盒子 -->
+            <div class="box">
+                <span></span>
+            </div>
+            <div class="line"></div>
+            <!-- 其它 -->
+            <div class="extra"></div>
+        </div>
+    </section>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullpage.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".wrap").fullpage({
+            // 设置背景色
+            sectionsColor : ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            afterLoad:function(link,index){
+                $('.section').removeClass('current');
+
+                // 延时100毫秒执行
+                setTimeout(function () {
+                    $('.section').eq(index - 1).addClass('current');
+                }, 100);
+            }
+        });
+    });
+</script>
+</body>
+</html>

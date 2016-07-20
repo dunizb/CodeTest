@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>盒子拖拽|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            height: 30px;
+            background: #036663;
+            border-bottom: 1px solid #369;
+            line-height: 30px;
+            padding-left: 30px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+
+        }
+
+        .d-box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eee;
+            box-shadow: 2px 2px 2px 2px #666;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            background-color: white;
+        }
+
+        .hd {
+            width: 100%;
+            height: 25px;
+            background-color: #7c9299;
+            border-bottom: 1px solid #369;
+            line-height: 25px;
+            color: white;
+            cursor: move;
+        }
+
+        #box_close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="javascript:;" id="register">注册信息</a>
+</div>
+<div class="d-box" id="d_box">
+    <div class="hd" id="drop">注册信息 (可以拖拽)
+        <span id="box_close">【关闭】</span>
+    </div>
+    <div class="bd"></div>
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    // 大盒子
+    var box = $("#d_box");
+    // 盒子头部
+    var drop = $("#drop");
+
+    // 鼠标按下的时候获取相应坐标
+    drop.onmousedown = function(e){
+        e = e || window.event;
+
+        // 求鼠标在盒子当中的位置
+        var spaceX = EventTools.getPageX(e) - box.offsetLeft;
+        var spaceY = EventTools.getPageY(e) - box.offsetTop;
+
+        document.onmousemove = function(e){
+            e = e || window.event;
+            // 计算盒子的位置：鼠标当前的位置 - 鼠标在盒子中的位置
+
+            var x = EventTools.getPageX(e) - spaceX;
+            var y = EventTools.getPageY(e) - spaceY;
+
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+        };
+    };
+
+    document.onmouseup = function(){
+        //当鼠标弹起的时候，移除事件，不拖动box
+        document.onmousemove = null;
+    };
+</script>
+</body>
+</html>

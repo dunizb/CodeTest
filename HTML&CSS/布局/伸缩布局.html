@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伸缩布局|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        header,footer,aside,.right{
+            text-align: center;
+            color: #fff;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: green;
+            height: 100px;
+        }
+        footer{
+            background-color: orangered;
+            height: 100px;
+        }
+        main {
+            flex: 1;
+            display: flex;
+        }
+        aside {
+            background-color: blue;
+            flex: 1;
+        }
+        .right {
+            background-color: deeppink;
+            flex: 3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>header</header>
+    <main>
+        <aside>aside</aside>
+        <div class="right">right</div>
+    </main>
+    <footer>footer</footer>
+</div>
+</body>
+</html>

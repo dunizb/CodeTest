@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文档碎片</title>
+</head>
+<body>
+	<ul id="ul1">
+	</ul>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var oUl = document.getElementById("ul1");
+		var oFrag = document.createDocumentFragment();
+		for(var i=0; i<10000; i++){
+			var oLi = document.createElement("li");
+			oLi.innerText = "这是第"+ i+1 +"个li标签";
+			// 添加到文档碎片
+			oFrag.appendChild(oLi);
+		}
+		// 把文档碎片添加到UL
+		oUl.appendChild(oFrag);
+	};
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格操作之起步</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var oTable = document.getElementById("table1");
+		// 传统模式获取获取阮小婷
+		//var sPerson = oTable.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[1].getElementsByTagName("td");
+		//alert("姓名："+sPerson[1].innerText+"，年龄："+sPerson[2].innerText+"，性别："+sPerson[3].innerText);
+		
+		// 便捷模式获取获取阮小婷
+		var sPerson = oTable.tBodies[0].rows[1].cells;
+		alert("姓名："+sPerson[1].innerText+"，年龄："+sPerson[2].innerText+"，性别："+sPerson[3].innerText);
+
+		// 其它方法：tBodies,tHead,tFoot,rows,cells
+	}
+	</script>
+</head>
+<body>
+	<table id="table1" align="center" border="1" width="500">
+		<thead>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>阮小婷</td>
+				<td>18</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>26</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

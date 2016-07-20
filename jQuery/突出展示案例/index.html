@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>突出显示|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+        .wrap li {
+            float: left;
+        }
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+    <script src='../js/jquery-1.12.4.js'></script>
+    <script>
+        $(document).ready(function () {
+            //1. 找到li,注册mouseenter事件
+            $(".wrap>ul>li").mouseenter(function () {
+                //2. 让当前元素高亮，并且让其他兄弟变暗（排他）
+                $(this).css("opacity",1).siblings().css("opacity", 0.4);
+            });
+
+            //3. 离开整个盒子的时候，让所有的li高亮
+            $(".wrap").mouseleave(function () {
+                //$(".wrap li")
+                $(this).find("li").css("opacity", 1);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li><a href="#"><img src="images/01.jpg" width="200" height="186" alt=""/></a></li>
+        <li><a href="#"><img src="images/02.jpg" width="200" height="186" alt=""/></a></li>
+        <li><a href="#"><img src="images/03.jpg" width="200" height="186" alt=""/></a></li>
+        <li><a href="#"><img src="images/04.jpg" width="200" height="186" alt=""/></a></li>
+        <li><a href="#"><img src="images/05.jpg" width="200" height="186" alt=""/></a></li>
+        <li><a href="#"><img src="images/06.jpg" width="200" height="186" alt=""/></a></li>
+    </ul>
+</div>
+</body>
+</html>

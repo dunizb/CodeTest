@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串替换|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<script type="text/javascript">
+    //替换所有的空白
+    //    var str = "   123AD  asadf   asadfasf  adf ";
+    //    str = str.replace(/\s/g,"xx");
+    //    console.log(str);
+
+
+    // g 全局匹配   i 忽略大小写   gi
+    //把所有的ad/AD替换成xx
+    //    var str = "   123AD  asadf   asadfasf  adf ";
+    //    str = str.replace(/ad/gi,"xx");
+    //    console.log(str);
+
+
+
+    //6.1 所有的逗号替换成句号abc,efg,123,abc,123,a
+    //    var str = "abc,efg,123,abc,123,a";
+    //    str = str.replace(/,/g, ".");
+    //    console.log(str);
+
+    //6.2 修改成绩，全改成100分
+    //    var jsonStr = '[{"name":"张三",score:80},{"name":"张三",score:90},{"name":"张三",score:81}]';
+    //    jsonStr = jsonStr.replace(/\d{1,2}/g, 100);
+    //    console.log(jsonStr);
+
+    //6.3 把, ， . 和。都改成 。
+    //    var str = "“你饿了,调我们的粮进京。你渴了.调我们的水进京。高考了，你特么想尽千方百计不让我们的孩子进京。为什么？!” 我们呼吁：全国一张卷，一个录取线！愿赌服输！最近高考方案闹得沸沸扬扬，其实大家就是要的公平竞争！同样都是孩子，同样的国家，同样的教育！为何不同的待遇？";
+    //
+    //    str = str.replace(/,|，|\.|！|？|!/g, "。");
+    //    console.log(str);
+
+
+
+    //6.4 去掉前后空格，封装成函数
+    var str = "     123AD  asadf   asadfasf  adf     ";
+    str = str.replace(/^\s+|\s+$/g, "");
+    console.log("aa" + str + "aa");
+    var res = str.search(/a|f/);
+    console.info(res);
+
+    function trim(str) {
+        return str.replace(/^\s+|\s+$/g, "");
+    }
+
+</script>
+</body>
+</html>

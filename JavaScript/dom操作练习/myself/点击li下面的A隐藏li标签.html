@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>这是第1个li<a href="javascript:;">隐藏</a></li>
+		<li>这是第2个li<a href="javascript:;">隐藏</a></li>
+		<li>这是第3个li<a href="javascript:;">隐藏</a></li>
+		<li>这是第4个li<a href="javascript:;">隐藏</a></li>
+		<li>这是第5个li<a href="javascript:;">隐藏</a></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var aLink = document.getElementsByTagName("a");
+		var oUl = document.getElementById("ul1");
+		for(var i=0; i<aLink.length; i++){
+			aLink[i].onclick = function(){
+				// 因此元素
+				//this.parentNode.style.display = "none";
+				// 删除元素
+				oUl.removeChild(this.parentNode);
+			}
+		}
+	};
+</script>
+</html>

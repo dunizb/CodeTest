@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>&&与||操作符</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="image/favicon.ico" />
+	<script type="text/javascript">
+		// &&的情况
+		// 总结：只要一个false就取false的值，都是true取后面，都是false取前面。
+		var val1 = 1 && 2;	//2
+		var val2 = 0 && 1;	//0
+		var val3 = 1 && 0;	//0
+		var val4 = 1 && "";	//""
+		var val5 = "" && 1;	//""
+		var val6 = "" && 0;	//""
+		var val7 = 0 && "";	//0
+
+		// ||的情况
+		// 总结：只要一个是true就取true的值，都是true取前面，都是false取后面。
+		// var val1 = 1 || 2;	//1
+		// var val2 = 0 || 1;	//1
+		// var val3 = 1 || 0;	//1
+		// var val4 = 1 || "";	//1
+		// var val5 = 0 || "";	//""
+		// var val6 = "" || 0;	//0
+		// var val7 = 0 || "";	//""
+
+		console.log(val1);
+		console.log(val2);
+		console.log(val3);
+		console.log(val4);
+		console.log(val5);
+		console.log(val6);
+		console.log(val7);
+	</script>
+<body>
+    这是html内容
+</body>
+</html>

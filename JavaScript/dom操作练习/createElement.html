@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+<body>
+    <div id="box">
+    </div>
+
+    <script src="js/common.js"></script>
+    <script>
+        var box = document.getElementById("box");
+
+        //模拟从服务器获取数据
+        var datas = ["冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪","冰冰","凤姐","琪琪"];
+        console.log(datas.length);
+        
+        //动态创建元素-ul    仅仅是在内存中创建了一个ul的对象
+        var ul = document.createElement("ul");
+        var star = new Date().getMilliseconds();
+        console.log(star);
+
+        for(var i = 0; i < datas.length; i++) {
+            var data = datas[i];
+            //创建li
+            var li = document.createElement("li");
+            setInnerText(li, data);
+            //把li添加到ul中
+            ul.appendChild(li);
+        }
+        //把ul对象添加到页面上显示
+        box.appendChild(ul);
+
+        var end = new Date().getMilliseconds();
+        console.log(end);
+        console.info(end - star);
+	</script>
+</body>
+</html>

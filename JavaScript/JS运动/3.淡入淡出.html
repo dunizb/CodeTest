@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS运动基础</title>
+    <style>
+        body {padding: 0;margin: 0}
+        div {
+            width: 200px;
+            height: 200px;
+            background-color:red;
+            filter:alpha(opacity:30);
+            opacity:0.3;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+<script>
+window.onload = function(){
+    var oDiv = document.getElementById("div1");
+    oDiv.onmouseover = function(){
+        startMove(100);
+    };
+    oDiv.onmouseout = function(){
+        startMove(30);
+    };
+}
+
+var alpha = 30;   //透明度
+var timer = null;
+function startMove(iTarget){
+    var oDiv = document.getElementById("div1");
+
+    clearInterval(timer);
+
+    timer = setInterval(function(){
+        var speet = -10;     //速度
+        if(alpha < iTarget){
+            speet = 10;
+        }
+        if(alpha == iTarget){
+            clearInterval(timer);
+        }else{
+            alpha += speet;
+            oDiv.style.filter = "alpha(opacity:"+ alpha +")";
+            oDiv.style.opacity = alpha/100;
+        }
+    },100);
+}
+</script>
+</html>

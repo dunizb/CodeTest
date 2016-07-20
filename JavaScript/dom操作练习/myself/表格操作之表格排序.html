@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格操作之表格排序</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico" />
+	<script type="text/javascript">
+	window.onload = function() {
+		var oTable = document.getElementById("table1");
+		var oBtn = document.getElementById("btn1");
+
+		var rows = oTable.tBodies[0].rows;
+		oBtn.onclick = function(){
+			var arr = [];
+			for(var i=0; i<rows.length; i++){
+				arr[i] = rows[i];
+			}
+			
+			arr.sort(function(row1,row2){
+				var one = parseInt(row1.cells[0].innerHTML);
+				var two = parseInt(row2.cells[0].innerHTML);
+				return one - two;
+			});
+
+			for(var j=0; j<arr.length; j++){
+				oTable.appendChild(arr[j]);
+			}
+		}	
+	}
+	</script>	
+ </head>
+<body>
+	<p>
+		<input type="button" id="btn1" value=" 排 序 " />
+	</p>
+	<table id="table1" border="1" width="730">
+		<thead>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>4</td>
+				<td>王四五</td>
+				<td>22</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>26</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>阮小婷</td>
+				<td>18</td>
+				<td>女</td>
+			</tr>	
+			<tr>
+				<td>5</td>
+				<td>刘六</td>
+				<td>21</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>赵七</td>
+				<td>24</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>23</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

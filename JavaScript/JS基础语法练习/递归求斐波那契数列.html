@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归求和</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+	<script type="text/javascript">
+		//1,1,2,3,5,8,13...n
+		function fn(n) {
+			if(n === 1 || n === 2){
+				return 1;
+			}
+			return fn(n-1) + fn(n-2);
+		}
+
+		console.log(fn(12));
+	</script>
+<body>
+    这是html内容
+</body>
+</html>

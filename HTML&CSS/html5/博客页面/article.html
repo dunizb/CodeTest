@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web技术研究所</title>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+	<!-- 顶部导航 -->
+	<div class="topnav">
+		<dl class="wrap">
+			<dt>次碳酸钴的技术博客，文章原创，转载请保留原文链接 ^_^</dt>
+			<dd>
+				<a href="javascript:;" class="rss"></a>
+				<a href="javascript:;" class="share"></a>
+				<a href="javascript:;" class="setting"></a>
+				<a href="javascript:;" class="network"></a>
+			</dd>
+		</dl>
+	</div>
+	<!-- 头部 -->
+	<header>
+		<div class="wrap">
+			<h2 class="logo">
+				<a href="javascript:;">Web技术研究所</a>
+				<small>我一直坚信着，Web将会成为未来应用程序的主流</small>
+			</h2>
+			<!-- 导航 -->
+			<nav>
+				<a href="javascript:;" class="active">网站首页</a>
+				<a href="javascript:;">文章一览</a>
+				<a href="javascript:;">系列专题</a>
+				<a href="javascript:;">神奇海螺</a>
+				<a href="javascript:;">次炭酸钴</a>
+			</nav>
+		</div>
+	</header>
+	<!-- 主体 -->
+	<div class="main wrap">
+		<!-- 侧边栏 -->
+		<aside>
+			<!-- 搜索框 -->
+			<section class="search">
+				<a href="javascript:;">搜</a>
+				<input type="search" placeholder="请输入搜索内容">
+			</section>
+			<section class="theme">
+				<header>神奇海螺</header>
+			</section>
+			<!-- 评论 -->
+			<section class="article_list">
+				<header>相关文章</header>
+				<ul>
+					<li>
+						<a href="javascript:;">关于运营商链路劫持</a>
+					</li>
+					<li>
+						<a href="javascript:;">局部 HTTPS 的安全隐患</a>
+					</li>
+					<li>
+						<a href="javascript:;">localStorage 跨 scheme 的坑</a>
+					</li>
+					<li>
+						<a href="javascript:;">predeclare.js</a>
+					</li>
+					<li>
+						<a href="javascript:;">HSTS 与 307 状态码</a>
+					</li>
+					<li>
+						<a href="javascript:;">字符串模板与正则</a>
+					</li>
+					<li>
+						<a href="javascript:;">关于 DNS 劫持</a>
+					</li>
+					<li>
+						<a href="javascript:;">JSON Stream</a>
+					</li>
+					<li>
+						<a href="javascript:;">火狐7开始就支持ellipsis了</a>
+					</li>
+					<li>
+						<a href="javascript:;">剪不断理还乱的规范</a>
+					</li>
+				</ul>
+			</section>
+		</aside>
+		<!-- 文章 -->
+		<div class="article">
+			<article>
+				<h4 class="title">https 并没有解决劫持的问题</h4>
+				<p>每次一提到防劫持，大家给出的终极方案总是 https。但是 https 真的可以完美解决运营商劫持的问题么？也许从安全的角度考虑，https 确实是最佳解决方案。但是从产品角度从用户体验上来考虑呢？使用 https 不但没有解决问题，甚至会变得比从前的 http 更糟糕。</p>
+				<p>自从某项目上了 https 后老有用户反馈说页面打不开。以前使用 http 的时候虽然有劫持，偶尔还会被插入一些恶心的广告，但页面总是可以打开，功能可以正常使用。现在上了 https 反而各种白屏，各种连接建立失败。虽然广告看不见了，但连功能也无法使用了。</p>
+				<p>很多时候网页上并不存在敏感信息，传输没有安全的必要，产品设计上只是为了让用户看到这个页面，所以即使被插入广告也比白屏好。对于这类页面，使用 https 可能适得其反。</p>
+				<p>但是即便是纯展示的页面也是有安全风险的。比如一个宣传页，如果使用 http，攻击者可以篡改页面上的二维码或下载链接，让用户下载到奇奇怪怪的东西，或者链进一个钓鱼网页。虽然比起 SessionID 泄露之类的风险要低得多，但这依然是一种风险。</p>
+				<p>Web 页面的运营商劫持问题目前就技术层面我也没想到什么解决方案，如果大家有什么方案可以一起聊一聊。但如果是 App 内部就可以解决。因为我们可以基于传输层协议自己封装一个运营商不知道的域名解析协议，并且自己搭建相应的 DNS 服务器。只要不是被针对性地攻击就可以免受劫持。</p>
+				<p>另外，比起白屏和被植入广告，我更愿意选择白屏（虽然产品经理不会这么想）。但是作为 Web 开发者，推进全面 https 才是我们该做的。如果全世界都 https 了，运营商自然也就不会去做劫持这种费力不讨好的事情。</p>
+			</article>
+			<div class="widget">
+				<a href="javascript:;" class='time'>
+					<b>2015</b>
+					<br>
+					12 24
+				</a>
+				<a href="javascript:;" class="discuss">
+					<b>分享</b>
+					<br>
+					<span>+</span>
+				</a>
+				<a href="javascript:;" class="prev">
+					<b>上一篇</b>
+					<br>
+					<span>Newer</span>
+				</a>
+				<a href="javascript:;" class="next">
+					<b>下一篇</b>
+					<br>
+					<span>Older</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<footer>
+		<p>Copyright ©2012-2016 次碳酸钴 All rights reserved</p>
+	</footer>
+</body>
+</html>

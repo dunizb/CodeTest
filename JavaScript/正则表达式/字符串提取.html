@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串提取|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<script type="text/javascript">
+    //7.1 提取工资
+    //    var str = "张三：1000，李四：5000，王五：8000。";
+    //
+    //    var array = str.match(/\d+/g);
+    //    console.log(array);
+
+    //7.2 提取email地址
+    var str = "123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...";
+
+    var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
+    console.log(array);
+
+</script>
+</body>
+</html>

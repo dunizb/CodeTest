@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜效果|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="small">
+        <img src="images/small.webp" width="350" alt=""/>
+
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="images/big.jpg" width="800" alt=""/>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    //获取元素
+    var box = document.getElementById("box");
+    var small = box.children[0];
+    var big = box.children[1];
+
+    var mask = small.children[1];
+    var bigImg = big.children[0];
+
+    //1 鼠标放到盒子中 显示隐藏 mask 这个黄色的div
+    box.onmouseover = function () {
+        mask.style.display = "block";
+        big.style.display = "block";
+    };
+    box.onmouseout = function () {
+        mask.style.display = "none";
+        big.style.display = "none";
+    }
+
+    //2 鼠标在box中移动的时候，mask跟着鼠标动
+    box.onmousemove = function(e){
+        e = e || window.event;
+
+        //当鼠标移动的时候，获取鼠标在盒子中的位置，就是黄色div的位置
+        var x = EventTools.getPageX(e) - box.offsetLeft;
+        var y = EventTools.getPageY(e) - box.offsetTop;
+
+        //让鼠标在黄色div的中间显示
+        x = x - mask.offsetWidth/2;
+        y = y - mask.offsetHeight/2;
+
+        //让黄色的盒子始终在box中
+        // 左上
+        x = x < 0 ? 0 : x;
+        y = y < 0 ? 0 : y;
+        // 右下
+        x = x > box.offsetWidth - mask.offsetWidth ? box.offsetWidth - mask.offsetWidth : x;
+        y = y > box.offsetHeight - mask.offsetHeight ? box.offsetHeight - mask.offsetHeight : y;
+
+        // 给黄色小盒子设置样式
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+
+        //3 鼠标放到box中，显示大图片， 鼠标移动的时候，改变图片的位置
+        //mask移动的距离/mask能够移动的最大距离 = 大图片移动的距离/大图片能够移动的最大距离
+        //mask能够移动的最大距离
+        var maskMax = box.offsetWidth - mask.offsetWidth;
+        //大图片能够移动的最大距离
+        var bigImgMax = bigImg.offsetWidth - big.offsetWidth;
+        //大图片移动的距离
+        var spaceX = x/maskMax*bigImgMax;
+        var spaceY = y/maskMax*bigImgMax;
+
+        bigImg.style.marginLeft = -spaceX + "px";
+        bigImg.style.marginTop = -spaceY + "px";
+
+    }
+
+
+</script>
+</body>
+</html>

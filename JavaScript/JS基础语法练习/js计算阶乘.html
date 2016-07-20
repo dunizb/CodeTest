@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算阶乘的和</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="image/favicon.ico" />
+	<script type="text/javascript">
+	//计算阶乘
+	function factorial( n ){
+    	return ( n <= 1 ) ? 1 : n * factorial( n-1 );
+	}
+
+	//计算阶乘的和
+	function factorialSum( n ){
+		var sum = 0;
+		for(var i=1; i<=n; i++){
+			sum += factorial(i);
+		}
+		return sum;
+	}
+	var num = prompt("请输入一个数：");
+	alert("这个数的阶乘的和为："+factorialSum(num));
+	
+	</script>
+<body>
+    这是html内容
+</body>
+</html>

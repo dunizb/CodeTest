@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格操作之隔行换色与鼠标移入高亮</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var oTable = document.getElementById("table1");
+
+		// 隔行换色
+		var rows = oTable.tBodies[0].rows;
+		// 原来的颜色
+		var oldColor = "";
+		for(var i=0; i<rows.length; i++){
+			rows[i].onmouseover = function(){
+				oldColor = this.style.background;
+				this.style.background = "red";
+			};
+			rows[i].onmouseout = function() {
+				if(oldColor){
+					this.style.background = "yellow";
+				}else{
+					this.style.background = "";
+				}
+			}
+
+			if( i%2 == 0){
+				rows[i].style.background = "yellow";
+			}else{
+				rows[i].style.background = "";
+			}
+		}
+
+	}
+	</script>	
+ </head>
+<body>
+	<table id="table1" align="center" border="1" width="500">
+		<thead>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>阮小婷</td>
+				<td>18</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>26</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王五</td>
+				<td>22</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>刘六</td>
+				<td>21</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>赵七</td>
+				<td>24</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

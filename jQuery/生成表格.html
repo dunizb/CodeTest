@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+        th,td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+        td {
+            font: 14px "微软雅黑";
+        }
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="获取数据" id="j_btnGetData" />
+<table>
+    <thead>
+    <tr>
+        <th>标题</th>
+        <th>地址</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody id="j_tbData">
+
+    </tbody>
+</table>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    // 模拟从后台拿到的数据
+    var data = [{
+        name: "传智播客",
+        url: "http://www.itcast.cn",
+        type: "IT最强培训机构"
+    }, {
+        name: "黑马程序员",
+        url: "http://www.itheima.com",
+        type: "大学生IT培训机构"
+    }, {
+        name: "传智前端学院",
+        url: "http://web.itcast.cn",
+        type: "前端的黄埔军校"
+    }];
+    
+    $(function () {
+        $("#j_btnGetData").click(function(){
+            //<tr><td>传智播客</td><td>http://www.itcast.cn</td><td>IT最强培训机构</td></tr>
+            var str = "",obj = null;
+            for(var i=0; i<data.length; i++){
+                obj = data[i];
+                str += "<tr><td>"+obj.name+"</td><td>"+obj.url+"</td><td>"+obj.type+"</td></tr>"
+            }
+            $("#j_tbData").html(str);
+        });
+    });
+</script>
+</body>
+</html>

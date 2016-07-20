@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转木马轮播图|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+    <style>
+        @charset "UTF-8";
+        /*初始化  reset*/
+        blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
+        body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif;color: #666;}
+        ol,ul{list-style:none}
+        a{text-decoration:none}
+        fieldset,img{border:0;vertical-align:top;}
+        a,input,button,select,textarea{outline:none;}
+        a,button{cursor:pointer;}
+
+        .wrap{
+            width:1200px;
+            margin:10px auto;
+        }
+        .slide {
+            height:500px;
+            position: relative;
+        }
+        .slide li{
+            position: absolute;
+            left:200px;
+            top:0;
+        }
+        .slide li img{
+            width:100%;
+        }
+        .arrow{
+            opacity: 0;
+        }
+        .prev,.next{
+            width:76px;
+            height:112px;
+            position: absolute;
+            top:50%;
+            margin-top:-56px;
+            background: url(../image/prev.png) no-repeat;
+            z-index: 99;
+        }
+        .next{
+            right:0;
+            background-image: url(../image/next.png);
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li><a href="#"><img src="../image/slidepic1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/slidepic2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/slidepic3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/slidepic4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="../image/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev"></a>
+            <a href="javascript:;" class="next"></a>
+        </div>
+    </div>
+
+</div>
+
+<script src="../js/animate.js"></script>
+<script type="text/javascript">
+    //记录每一张图片的 位置 大小  透明度 层级
+    var datas = [
+        {   //  1
+            width:400,
+            top:70,
+            left:50,
+            opacity:0.2,
+            zIndex:2
+        },
+        {  // 2
+            width:600,
+            top:120,
+            left:0,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:1,
+            zIndex:4
+        },
+        {  // 4
+            width:600,
+            top:120,
+            left:600,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   //5
+            width:400,
+            top:70,
+            left:750,
+            opacity:0.2,
+            zIndex:2
+        }
+    ];
+
+    //准备工作  获取元素
+    var slide = document.getElementById("slide");
+    var ul = slide.children[0];
+    var arrow = slide.children[1];
+    //上一个
+    var arrowPrev = arrow.children[0];
+    //下一个
+    var arrowNext = arrow.children[1];
+
+    //1 让图片以动画的方式散开
+    imgMove();
+    function imgMove(){
+        for(var i=0; i<ul.children.length; i++){
+            var li = ul.children[i];
+
+            var data = datas[i];
+            animate(li,data);
+        }
+    }
+
+    //2 鼠标放到容器中 显示或隐藏箭头
+    slide.onmouseover = function(){
+        animate(arrow,{"opacity": 1});
+    };
+    slide.onmouseout = function(){
+        animate(arrow,{"opacity": 0});
+    };
+
+    //3 点击下一个
+    arrowNext.onclick = function () {
+        //把datas 数组中的最后一项，放到第一项
+        var last = datas.pop();
+        datas.unshift(last);
+        imgMove();
+    };
+
+    //4 点击上一个
+    arrowPrev.onclick = function () {
+        //把datas数组中的第一项放到最后一项
+        var first = datas.shift();
+        datas.push(first);
+        imgMove();
+    };
+</script>
+</body>
+</html>

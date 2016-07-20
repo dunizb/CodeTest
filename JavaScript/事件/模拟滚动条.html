@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟滚动条|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        * {margin: 0;padding: 0;}
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+
+            /* 不让文字被选中 */
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
+        .content {
+            padding: 5px 18px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+            border-radius:  10px;
+        }
+        .bar {
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+            border-radius:  10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content" id="content">
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+        我是文字内容，你是谁，你饿不饿是文字内容
+    </div>
+    <div class="scroll" id="scroll">
+        <div class="bar" id="bar"></div>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    //获取元素
+    var box = document.getElementById("box");
+    var content = document.getElementById("content");
+    var scroll = document.getElementById("scroll");
+    //滚动条
+    var bar = document.getElementById("bar");
+
+
+    //1 滚动条的高度
+    //  滚动条的高度 / scroll的高度  = box的高度 / content的高度
+    var barHeight = 0;
+    if(box.offsetHeight < content.offsetHeight){
+        barHeight = box.offsetHeight / content.offsetHeight * scroll.offsetHeight;
+    }
+    bar.style.height = barHeight + "px";
+
+    bar.onmousedown = function (e) {
+        e = e || window.event;
+
+        //spaceY 代表两端距离  box的位置 和 鼠标在bar中的位置
+        //鼠标的位置-bar在box中的位置
+        var spaceY = EventTools.getPageY(e) - bar.offsetTop;
+
+        document.onmousemove = function (e) {
+            e = e || window.event;
+
+            //鼠标的位置- spaceY
+            //bar的位置
+            var y = EventTools.getPageY(e) - spaceY;
+
+            //控制y不越界
+            y = y < 0 ? 0 : y;
+            y = y > scroll.offsetHeight - barHeight ? scroll.offsetHeight - barHeight : y;
+
+            bar.style.top = y + "px";
+
+            //3 让内容跟随滚动条滚动
+            //滚动条当前滚动的距离 / 滚动条最大的滚动距离 =  内容当前滚动的距离 / 内容最大的滚动距离
+            var barMax = scroll.offsetHeight - barHeight;
+            var contentMax = content.offsetHeight - box.offsetHeight;
+
+            var contentY =  y / barMax * contentMax;
+            content.style.top = -contentY + "px";
+        }
+    }
+
+    document.onmouseup = function () {
+        document.onmousemove=  null;
+    }
+</script>
+</body>
+</html>

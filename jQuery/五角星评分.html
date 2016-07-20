@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>五角星评分|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        .comment {font-size: 40px;color: teal;}
+        .comment li {float: left;}
+        ul {list-style: none;}
+    </style>
+</head>
+<body>
+<ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var wjx_s = "★";
+        var wjx_k = "☆";
+        //1. 获取li,注册mouseenter事件
+        $("ul li").mouseenter(function () {
+            //2. 让当前元素变实心，前面的兄弟元素变实心，后面的兄弟变空心
+            $(this).text(wjx_s).prevAll().text(wjx_s);
+            $(this).nextAll().text(wjx_k);
+
+        });
+
+        //3. 给ul注册离开事件
+        $("ul").mouseleave(function () {
+            $("li").text(wjx_k);
+
+            //5. 找到添加了active这个类的li
+            $("li.active").text(wjx_s).prevAll().text(wjx_s);
+        });
+
+        //4 给所有的li注册点击事件
+        $("li").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    });
+
+
+</script>
+</body>
+</html>

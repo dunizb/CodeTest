@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝滚动|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="../image/wf1.jpg" width="500" height="200"/></li>
+            <li><img src="../image/wf2.jpg" width="500" height="200"/></li>
+            <li><img src="../image/wf3.jpg" width="500" height="200"/></li>
+            <li><img src="../image/wf4.jpg" width="500" height="200"/></li>
+            <li><img src="../image/wf5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+
+<script src="../js/animate.js"></script>
+<script type="text/javascript">
+    //准备工作  获取对象
+    var box = document.getElementById("box");
+    var screen = box.children[0];
+    var arr = box.children[1];
+    //
+    var ul = screen.children[0];
+    var ol = screen.children[1];
+    //
+    var arrLeft = arr.children[0];
+    var arrRight = arr.children[1];
+    //图片的宽度
+    var imgWidth = screen.offsetWidth;
+    //点击箭头的时候记录索引  -- 图片的索引
+    var index = 0;
+
+    //-------6.1 记录序号的索引
+    var olIndex = 0;
+
+    // 定时器
+    var timerId = null;
+
+
+    //记录有多少张图片---真实图片的个数
+    var count = ul.children.length;
+
+    //1 动态生成ol中的序号
+    for(var i=0; i<count; i++){
+        var li = document.createElement("li");
+        ol.appendChild(li);
+
+        li.innerText = i + 1;
+    }
+    // 默认第一个li高亮选中
+    ol.children[0].className = "current";
+
+    //2 点击序号切换图片
+    // 记录上一次点击的序号
+    var currentIndex = ul.children.length;
+    for(var i=0; i<ol.children.length; i++){
+        var li = ol.children[i];
+        //记录li对应图片的索引
+        li.index = i;
+
+        li.onclick = function(){
+            currentIndex = currentIndex - this.index;
+            //控制li的高亮显示
+            for(i=0; i<ol.children.length; i++){
+                li = ol.children[i];
+                li.removeAttribute("class");
+            }
+            //当前li高亮显示
+            this.className = "current";
+
+            //动画切换图片
+
+            // 如果是从第5张切换到第二张
+            if(currentIndex == 0){
+                ul.style.left = 0;
+            }
+            animate(ul,{"left":-this.index * imgWidth});
+
+
+
+            //------7 点击序号的时候，让索引同步
+            index = olIndex = this.index;
+
+        };
+    }
+
+    //3 点击箭头切换图片
+    //3.1 显示箭头
+    box.onmouseover = function () {
+        arr.style.display = "block";
+        // 5.2 鼠标移到box上定制播放的定时器
+        clearInterval(timerId);
+    };
+
+    box.onmouseout = function () {
+        arr.style.display = "none";
+        //5.3 鼠标离开box  开启定时器，继续自动播放
+        autoPlay();
+    };
+
+    //4 无缝滚动
+    //4.1 把第一张图片对应的li克隆，追加到ul的最后
+    var firstLi = ul.children[0];
+    var cloneLi = firstLi.cloneNode(true);
+    //追加到ul的最后
+    ul.appendChild(cloneLi);
+
+    // 5.自动切换
+    autoPlay();
+
+    function autoPlay(){
+        timerId = setInterval(function () {
+            arrRight.click();
+        }, 2000);
+    }
+
+    //下一张
+    arrRight.onclick = function () {
+        //如果当前是最后一张图片(克隆的第一张图片), 让index = 0 并且偷偷设置ul切换到第一张图片
+        if(index === count){
+            index = 0;
+            ul.style.left = "0px";
+        }
+        index++;
+        animate(ul,{"left":-index * imgWidth});
+
+        //-----6.2 切换到下一个序号
+        if(olIndex < count - 1) {
+            olIndex++;
+        }else{
+            //如果是最后一项的话，让index= 0； 设置第一项
+            olIndex = 0;
+        }
+
+        //清除ol中所有li高亮显示
+        for(i = 0; i < ol.children.length; i++) {
+            li = ol.children[i];
+            li.removeAttribute("class");
+        }
+        //让当前li高亮显示
+        ol.children[olIndex].className = "current";
+    };
+    //上一张
+    arrLeft.onclick = function () {
+        //如果是第一张图片的话，让index=克隆的图片的索引，偷偷的切换到最后一张
+        if(index === 0) {
+            index = count;
+            ul.style.left = -index * imgWidth + "px";
+        }
+        index--;
+        animate(ul,{"left":-index * imgWidth});
+
+        //-----6.3 切换到上一个序号
+        if(olIndex > 0) {
+            olIndex--;
+        }else{
+            //如果是第一张，把序号切换成最后一张
+            olIndex = count - 1;
+        }
+        //清除ol中所有li高亮显示
+        for(i = 0; i < ol.children.length; i++) {
+            li = ol.children[i];
+            li.removeAttribute("class");
+        }
+        //让当前li高亮显示
+        ol.children[olIndex].className = "current";
+    };
+
+
+
+    // 6.点击下一张的时候切换序号
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+
+body, h2, h4, p, ul {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background-color: #EEE;
+	font: 14px/1.75 Helvetica, Arial, 'Hiragino Sans GB','微软雅黑';
+}
+
+.wrap {
+	width: 990px;
+	margin: 0 auto;
+}
+
+/*顶部导航*/
+.topnav {
+	position: fixed;
+	z-index: 99;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	background-color: #333;
+}
+
+.topnav dl {
+	overflow: hidden;
+}
+
+.topnav dt {
+	float: left;
+	color: #CCC;
+}
+
+.topnav dd {
+	float: right;
+}
+
+.topnav a {
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin: 8px 0 0 8px;
+	background-image: url(../images/icons16.gif);
+	float: left;
+}
+
+.topnav .rss {
+	background-position: 0 0;
+}
+
+.topnav .rss:hover {
+	background-position: -16px 0;
+}
+
+.topnav .share {
+	background-position: 0 -32px;
+}
+
+.topnav .share:hover {
+	background-position: -16px -32px;
+}
+
+.topnav .setting {
+	background-position: 0 -16px;
+}
+
+.topnav .setting:hover {
+	background-position: -16px -16px;
+}
+
+.topnav .network {
+	background-position: 0 -48px;
+}
+
+/*头部*/
+body > header {
+	height: 76px;
+	padding-top: 46px;
+	margin-bottom: 16px;
+	border-bottom: 1px solid #B0B0B0;
+	background-color: #F8F8F8;
+}
+
+.logo {
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 1.25;
+	float: left;
+}
+
+.logo a {
+	color: #666;
+}
+
+.logo a:hover {
+	color: #333;
+}
+
+.logo small {
+	display: block;
+	font-size: 14px;
+	color: #666;
+	line-height: 2.25;
+}
+
+header nav {
+	height: 30px;
+	margin-top: 10px;
+	float: right;
+}
+
+header nav a {
+	display: inline-block;
+	height: 20px;
+	padding-bottom: 6px;
+	margin-right: 14px;
+	color: #777;
+	font-size: 14px;
+}
+
+header nav a.active,
+header nav a:hover {
+	border-bottom: 4px solid #333;
+}
+
+/*主体*/
+.main {
+	overflow: hidden;
+}
+
+.items {
+	padding-right: 285px;
+}
+
+.items .item {
+	position: relative;
+	padding-left: 70px;
+	background-color: #F2F2F2;
+	margin-bottom: 12px;
+}
+
+.items figure {
+	padding: 12px 16px;
+	margin: 0;
+	border: 1px solid #D4D4D4;
+}
+
+.items figcaption {
+	height: 18px;
+	line-height: 18px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.items figcaption a {
+	color: #333;
+}
+
+.items figcaption a:hover {
+	color: #E63;
+}
+
+.items a.pic {
+	display: block;
+	width: 92px;
+	height: 92px;
+	float: left;
+}
+
+.items .brief {
+	height: 92px;
+	line-height: 1.75;
+	padding-left: 100px;
+	color: #666;
+}
+
+/*widget*/
+.main .widget {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	text-align: center;
+}
+
+.main .widget a {
+	display: block;
+	width: 50px;
+	height: 40px;
+	line-height: 18px;
+	padding: 5px 0;
+	margin-bottom: 10px;
+	border: 1px solid #D4D4D4;
+	color: #666;
+}
+
+.main .widget a.time {
+	font-family: Georgia;
+}
+
+.main .widget span {
+	line-height: 1.75;
+}
+
+/*侧边栏*/
+.main aside {
+	position: relative;
+	z-index: 3;
+	width: 270px;
+	float: right;
+}
+
+.main aside section {
+	padding: 10px;
+	border: 1px solid #D4D4D4;
+	background-color: #E9E9E9;
+	margin-bottom: 16px;
+}
+
+.main aside header {
+	line-height: 1;
+	color: #666;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.main .search input {
+	display: block;
+	width: 223px;
+	height: 26px;
+	padding: 5px;
+	border: 1px solid #AAA;
+	background-color: #F5F5F5;
+	outline: none;
+}
+
+.main .search a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	color: #666;
+	border: 1px solid #AAA;
+	border-left: 0 none;
+	float: right;
+}
+
+.main .theme {
+	height: 200px;
+}
+
+.main .discuss article {
+	height: 64px;
+	margin-top: 10px;
+	border: 1px solid #CCC;
+	background-color: #F4F4F4;
+}
+
+/*文章页*/
+.main .article {
+	position: relative;
+	padding: 0 285px 0 70px;
+	color: #333;
+}
+
+.main .article article {
+	line-height: 2;
+	padding: 12px 16px;
+	border: 1px solid #D4D4D4;
+	background-color: #F3F3F3;
+}
+
+.main .article h4 {
+	text-align: center;
+	line-height: 1.75;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.main .article_list li {
+	line-height: 1;
+	margin-top: 14px;
+}
+
+.main .article_list a {
+	display: block;
+	color: #666;
+}
+
+.main .article_list a:hover {
+	color: #C30;
+}
+
+/*底部*/
+footer {
+	background-color: #FFF;
+}
+
+footer p {
+	margin-top: 20px;
+	text-align: center;
+	padding: 20px;
+	font-size: 14px;
+	border-top: 1px solid #B0B0B0;
+	line-height: 2;
+	color: #666;
+}
+

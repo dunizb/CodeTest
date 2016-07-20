@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>祝愿墙</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link rel="stylesheet" href="css/base.css">
+	<style type="text/css">
+		body {
+            background: url(images/zyq/bg.gif) repeat center 36px;
+            text-align: center;
+            background-color: #c30230;
+            color: #000;
+        }
+        #wallpaper {
+            margin: 0 auto;
+            width: 960px;
+            background: url(images/zyq/content_bg.jpg) no-repeat left top;
+            height: 627px;
+        }
+        #wallpaper .tip {
+        	position: absolute;
+            width: 227px;
+        }
+        #wallpaper .tip_h {
+        	background: url(images/zyq/tip1_h.gif) no-repeat left top;
+            padding-top: 45px;
+            height: 23px;
+            text-align: left;
+            cursor: move;
+            padding-left: 5px;
+        }
+        #wallpaper .close {
+        	width: 18px;
+        	text-align: center;
+        	background-color: rgba(0,0,0,.1);
+        	border-radius: 50%;
+        	margin-left: 5px;
+        }
+        #wallpaper .close:hover {
+        	cursor: pointer;
+        	color: #fff;
+        	background-color: rgba(0,0,0,.3);
+        }
+        #wallpaper .tip_c {
+        	width: 200px;
+            padding-left: 12px;
+            padding-right: 15px;
+            min-height: 40px;
+            text-align: left;
+            line-height: 20px;
+            max-height: 160px;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow: hidden;
+        	background: url(images/zyq/tip1_c.gif) repeat-y;
+        }
+        #wallpaper .tip_f {
+        	padding: 0 5px;
+        	height: 73px;
+        	line-height: 73px;
+        	background: url(images/zyq/tip1_f.gif) no-repeat left top;
+        }
+        #wallpaper .tip_f .name {
+        	padding-right: 15px;
+            text-align: right;
+            font-size: 14px;
+            color: #C0F;
+        }
+	</style>
+<body>
+	<div id="wallpaper">
+	    <!-- <div class="tip" id="tip_0" >
+	        <div class="tip_h clearfix" title="双击关闭纸条">
+	            <div class="num fl">第[<span id="tipNum">0</span>]条 2016-02-17 22:51:52</div>
+	            <div class="close fl" title="关闭纸条" >×</div>
+	        </div>
+	        <div class="tip_c">
+	            这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！
+	        </div>
+	        <div class="tip_f clearfix">
+	            <div class="icon fl">
+	                <img src="images/zyq/bpic_1.gif" alt="" title="">
+	            </div>
+	            <div class="name fr">读你博客</div>
+	        </div>
+	    </div> -->
+	</div>
+
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+    var messages = [
+        {"id":1,"name":"mahu","content":"今天你拿苹果支付了么","time":"2016-02-17 00:00:00"},
+        {"id":2,"name":"haha","content":"今天天气不错，风和日丽的","time":"2016-02-18 12:40:00"},
+        {"id":3,"name":"jjjj","content":"常要说的事儿是乐生于苦","time":"2016-03-18 12:40:00"},
+        {"id":4,"name":"9.8的妹纸","content":"把朋友家厕所拉堵了 不敢出去 掏了半小时了都","time":"2016-03-18 12:40:00"},
+        {"id":5,"name":"雷锋ii.","content":"元宵节快乐","time":"2016-02-22 12:40:00"},
+        {"id":6,"name":"哎呦哥哥.","content":"据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。","time":"2016-02-22 01:30:00"},
+        {"id":7,"name":"没猴哥，不春晚","content":"班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……","time":"2016-02-22 01:30:00"},
+        {"id":8,"name":"哎呦杰杰.","content":"真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，","time":"2016-02-22 01:30:00"},
+        {"id":9,"name":"哎呦哎呦","content":"今天哪里的烟花最好看！！？答：朋友圈。。。","time":"2016-02-22 02:30:00"},
+        {"id":10,"name":"读你博客","content":"这世间唯有梦想和好姑娘不可辜负！加油！你可以的！你行的！你是最棒的！","time":"2016-06-11 10:18:35"}
+    ];
+
+    var wallpaper = document.getElementById("wallpaper"),    // 容器的div
+        tip;                        // 小纸条对象
+
+    var i,              // 循环变量
+        messageLeng,    // 数组长度
+        msgObj,         // 数组中的每个对象
+        zIndex = 0;     // 小纸条的层级
+    for(i=0, messageLeng = messages.length; i<messageLeng; i++){
+        msgObj = messages[i];
+
+        tip = document.createElement("div");
+        // 设置样式
+        tip.className = "tip";
+        wallpaper.appendChild(tip);
+
+        tip.innerHTML = '<div class="tip_h clearfix" title="双击关闭纸条">'+
+        '<div class="num fl">第[<span>'+ msgObj.id +'</span>]条 '+ msgObj.time +'</div>'+
+        '<div class="close fl" title="关闭纸条" >×</div>'+
+        '</div>'+
+        '<div class="tip_c">'+ msgObj.content +'</div>'+
+        '<div class="tip_f clearfix">'+
+        '<div class="icon fl">'+
+        '<img src="images/zyq/bpic_1.gif" alt="头像">'+
+        '</div>'+
+        '<div class="name fr">'+ msgObj.name +'</div>'+
+        '</div>'+
+        '</div>';
+
+        // 随机生成位置
+        var x = parseInt(Math.random() * 600) + 200 ; //小纸条的水平位置
+        var y = parseInt(Math.random() * 500);          //小纸条的垂直位置
+
+        tip.style.left = x + "px";
+        tip.style.top = y + "px";
+
+        // 点击纸条提高层级
+        tip.onclick = function(){
+            zIndex++;
+            this.style.zIndex = zIndex;
+        }
+
+
+        var closeArray = tip.getElementsByClassName("close");
+        var tipHeadArray = tip.getElementsByClassName("tip_h");
+        var closeBtn = closeArray[0],
+            tipHead = tipHeadArray[0];
+        // 点击close关闭小纸条
+        closeBtn.onclick = function(){
+            this.parentNode.parentNode.style.display = "none";
+        };
+        // 点击小纸条头部关闭小纸条
+        tipHead.ondblclick = function(){
+            if(confirm("您确定关闭这个小纸条吗？")){
+                this.parentNode.style.display = "none";
+            }
+        };
+        //鼠标按下的时候获取相应坐标
+        tipHead.onmousedown = function(e){
+            // 提高纸条层级
+            zIndex++;
+            this.parentNode.style.zIndex = zIndex;
+
+            e = e || window.event;
+
+            var spaceX = EventTools.getPageX(e) - wallpaper.offsetLeft;
+            var spaceY = EventTools.getPageY(e) - wallpaper.offsetTop;
+            var $this = this;
+
+            wallpaper.onmousemove = function(e){
+                e = e || window.event;
+                console.log(EventTools.getPageX(e));
+                var x = EventTools.getPageX(e) - spaceX;
+                var y = EventTools.getPageY(e) - spaceY;
+
+                $this.parentNode.style.left = x + "px";
+                $this.parentNode.style.top = y + "px";
+
+            };
+        };
+
+        wallpaper.onmouseup = function(){
+            //当鼠标弹起的时候，移除事件，不拖动tip
+            wallpaper.onmousemove = null;
+        };
+    }
+
+	</script>
+</body>
+</html>

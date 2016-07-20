@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>大风车|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 100%;
+            /*animate*/
+            /*我们用animation来指定使哪一个动画序列*/
+            animation: rotate 3s linear infinite;
+        }
+
+        /*有一个小问题*/
+
+        /*动画序列，指定一个动画该如何执行*/
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(2);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <img src="images/fengche.png">
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归求和</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+	<script type="text/javascript">
+		var i = 1,sum = 0;
+		function getSum(n) {
+			sum += i++;
+			return i > n ? sum : getSum(n);
+		}
+
+		console.log(getSum(100));
+	</script>
+<body>
+    这是html内容
+</body>
+</html>

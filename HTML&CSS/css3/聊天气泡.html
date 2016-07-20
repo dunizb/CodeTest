@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>聊天气泡|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        .message1,.message2 {
+            width: 200px;
+            height: 80px;
+            margin: 100px auto;
+            background-color: green;
+            border-bottom-color:green;/*为了给after伪元素自动继承*/
+            color: #fff;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: 18px;
+            padding: 5px 12px 5px 12px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            position: relative;
+            word-break: break-all;
+        }
+        .message1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -24px;
+            width: 20px;
+            height: 20px;
+            border-width: 0 0 20px 20px;
+            border-style: solid;
+            border-bottom-color: inherit;   /*自动继承父元素的border-bottom-color*/
+            border-left-color: transparent;
+            border-radius: 0 0 60px 0;
+        }
+        /** 通过对小正方形旋转45度解决 **/
+        .message2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            margin-top: -10px;
+            background: inherit;/*自动继承父元素的背景*/
+            transform: rotate(45deg);
+        }
+
+        /** 通过画三角形解决 */
+        /*.message2::before {*/
+            /*content: '';*/
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: -20px;*/
+            /*width: 0px;*/
+            /*height: 0px;*/
+            /*margin-top: -10px;*/
+            /*border-width: 10px;*/
+            /*border-style: solid;*/
+            /*border-color: transparent green transparent transparent;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div class="message1">
+    Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://www.mybry.com
+</div>
+
+<div class="message2">
+    Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://www.mybry.com
+</div>
+</body>
+</html>

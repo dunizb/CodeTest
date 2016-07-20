@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*css  reset 重置默认样式 */
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    /*设置所有的盒子都是以边框开始计算  使用的都流式布局*/
+    -webkit-box-sizing: border-box;/*要求兼容主流浏览器 webkit内核的必须*/
+    box-sizing: border-box;
+    /*清除移动端默认的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    font-size: 14px;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    min-width: 300px;
+}
+ul,ol{
+    list-style: none;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    color: #333;
+}
+
+input,textarea{
+    outline: none;
+    border: none;
+    resize: none;
+    /*清除移动端默认的输入框的默认样式*/
+    -webkit-appearance: none;
+}
+
+/*css common 公用*/
+.f_left{
+    float: left;
+}
+.f_right{
+    float: right;
+}
+/*清楚浮动*/
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    display: block;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    clear: both;
+}
+.m_t10{
+    margin-top: 10px;
+}
+.m_b10{
+    margin-bottom: 10px;
+}
+.m_l10{
+    margin-left:  10px;
+}
+.m_r10{
+    margin-right: 10px;
+}
+
+/*雪碧图*/
+[class^='icon_'],[class*=' icon_']{
+    background-image:url('../images/sprites.png');
+    background-size: 200px 200px;
+}
+
+/*顶部通栏*/
+.jd_topBar{
+    height: 45px;
+    border-bottom: 1px solid #e0e0e0;
+    background: url("../images/header-bg.png");
+    background-size: 1px 44px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.jd_topBar .icon_back,
+.jd_topBar .icon_menu{
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    padding: 12px 10px;
+    background-origin: content-box;
+    background-clip: content-box;
+}
+.jd_topBar .icon_back{
+    left: 0;
+    background-position: -20px 0;
+}
+.jd_topBar .icon_menu{
+    right: 0;
+    background-position: -60px 0;
+}
+
+.jd_topBar form{
+    width: 100%;
+    height: 44px;
+    padding: 0 40px;
+}
+.jd_topBar form input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 7px;
+    padding: 0 10px;
+}
+.jd_topBar h3{
+    font-weight: normal;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px;
+}

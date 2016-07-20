@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <style>
+            section {text-align: left}
+            select h1 {text-align: center}
+        </style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1>计算机的三大原则与计算机的进化</h1>
+                    <h6>Web前端二期 张兵</h6>
+                </section>
+                <section>
+                    <h1>原则一</h1>
+                    输入、运算、输出是硬件的基础
+                </section>
+                <section>
+                    <h1>IC(集成电路)</h1>
+                    <img src="http://pro.user.img41.51sole.com/productImages3/20150720/b_1534298_20150720162921.jpg" alt=""/>
+                </section>
+                <section>
+                    <h1>原则二</h1>
+                    软件是指令和数据的集合
+                </section>
+                <section>
+                    <h1>原则三</h1>
+                    计算的处理方式有时与人们的思维习惯不同
+                </section>
+                <section style="text-align: left">
+                    <h1>计算机的进化</h1>
+                    <ul>
+                        <li>计算机的进化只有一个目的——与人类更加相近。要想更加贴近人类，就必须从计算机的处理方式中摒弃不符合人类思维习惯的部分，其实按照这么一来，计算机的进化最终形态就是机器人了，与着人类一样的外表，可以使用人类的语言。</li>
+                        <li>印度科幻电影《宝莱坞机器人之恋》 </li>
+                    </ul>
+                </section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide',
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

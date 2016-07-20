@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <style>
+        #list li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color:beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #list li.current {
+            background-color: burlywood;
+        }
+
+        #list li a {
+            text-decoration: none;
+        }
+
+        .odd {
+            background-color: #cccccc;
+        }
+        .even {
+            background-color: #f0f0f0;
+        }
+    </style>
+<body>
+    <div id="menu">
+    <ul id="list">
+        <li class="current"><a href="javascript:void(0)">首页</a></li>
+        <li><a href="javascript:void(0)">播客</a></li>
+        <li><a href="javascript:void(0)">博客</a></li>
+        <li><a href="javascript:void(0)">相册</a></li>
+        <li><a href="javascript:void(0)">关于</a></li>
+        <li><a href="javascript:void(0)">帮助</a></li>
+    </ul>
+
+    <script type="text/javascript">
+		var menu = document.getElementById("menu");
+		var ul = document.getElementById("list");
+		// 1.获取UL所有Li子元素
+		var lis = ul.children;
+
+		for(var i=0; i<lis.length; i++) {
+			// 获取每一个Li
+			var li = lis[i];
+			// 获取第一个a标签
+			var link = li.children[0];
+			// 2.去掉所有的.current类
+			link.onclick = function() {
+				for(var i=0; i<lis.length; i++){
+					lis[i].removeAttribute("class");
+				}
+				// 给当前的li添加.current类
+				this.parentNode.setAttribute("class","current");
+				return false;
+			};
+		}
+	</script>
+</div>
+</body>
+</html>

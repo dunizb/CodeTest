@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格操作之表格搜索筛选</title>
+	<script type="text/javascript">
+	window.onload = function() {
+		var oTable = document.getElementById("table1");
+		var oBtn = document.getElementById("btn1");
+		var oTextName = document.getElementById("name");
+
+		var rows = oTable.tBodies[0].rows;
+		oBtn.onclick = function(){
+			var aKeyword = oTextName.value.split(" ");
+			var oKey;
+
+			for(var i=0; i<rows.length; i++){
+				var tdTxt = rows[i].cells[1].innerHTML.toLowerCase();
+
+				//先隐藏
+				rows[i].style.display = "none";
+				for(var j=0; j<aKeyword.length; j++){
+					if(aKeyword[j]){
+						// 忽略大小写
+						oKey = aKeyword[j].toLowerCase();
+						// 模糊搜索
+						if(oKey && tdTxt.search(oKey)!=-1){
+							rows[i].style.display = "block";
+						}
+					}else{
+						rows[i].style.display = "block";
+					}
+				}	
+			}
+		}	
+	}
+	</script>	
+ </head>
+<body>
+	<p>
+	姓名：<input type="text" id="name" />
+	<input type="button" id="btn1" value="搜索" />
+	</p>
+	<table id="table1" border="1" width="730">
+		<thead>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>23</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>阮小婷</td>
+				<td>18</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>26</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王四五</td>
+				<td>22</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>刘六</td>
+				<td>21</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>赵七</td>
+				<td>24</td>
+				<td>男</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

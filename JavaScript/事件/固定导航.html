@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="image/favicon.ico"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        img {
+            vertical-align: top;
+        }
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top" id="topPart">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+    <img src="images/main.png" alt=""/>
+</div>
+
+<script type="text/javascript">
+    var topPart = document.getElementById("topPart");
+    var navBar = document.getElementById("navBar");
+    var mainPart = document.getElementById("mainPart");
+    var barClass = navBar.getAttribute("class");
+
+    window.onscroll = function(){
+        //判断滚动出去的距离 是否大于 topPart的高度
+        if(getScroll().scrollTop >= topPart.offsetHeight){
+            //大于的时候，让导航栏固定显示
+            navBar.className = barClass + " fixed";
+            //当navBar设置成fixed之后会脱离文档流，此时mainPart会塌陷
+            //当navBAr脱离文档流之后，设置mainPart的间距
+            mainPart.style.paddingTop = navBar.offsetHeight + "px";
+        }else{
+            //小于的时候，去掉固定显示
+            navBar.className = barClass;
+            mainPart.style.paddingTop = "0px";
+        }
+    };
+
+    //获取页面滚动出去的距离，屏蔽浏览器的差异
+    function getScroll() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+        return {
+            scrollTop: scrollTop,
+            scrollLeft : scrollLeft
+        };
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>纸张阴隐|代码演示、代码片段 - 读你|这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style type="text/css">
+    .curved_box {
+        width: 200px;
+        height: 248px;
+        margin: 20px;
+        background-color: #fff;
+        border: 1px solid #eee;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.06) inset;
+        -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+        display: inline-block;
+        *display: inline;
+        position: relative;
+        *zoom: 1;
+    }
+    .curved_box:before {
+        -webkit-transform: skew(-15deg) rotate(-6deg);
+        -moz-transform: skew(-15deg) rotate(-6deg);
+        transform: skew(-15deg) rotate(-6deg);
+        left: 15px;
+    }
+    .curved_box:after {
+        -webkit-transform: skew(15deg) rotate(6deg);
+        -moz-transform: skew(15deg) rotate(6deg);
+        transform: skew(15deg) rotate(6deg);
+        right: 15px;
+    }
+    .curved_box:before, .curved_box:after {
+        width: 70%;
+        height: 55%;
+        content: ' ';
+        -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        position: absolute;
+        bottom: 10px;
+        z-index: -1;    
+    }
+    </style>
+<body>
+    <div class="curved_box"></div>
+</body>
+</html>

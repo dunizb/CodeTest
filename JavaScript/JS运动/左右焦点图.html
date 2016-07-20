@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>左右焦点图|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+    <style>
+        body, ul, ol, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            /* 不允许选中 */
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+
+            width: 490px;
+            height: 270px;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+        }
+
+        .ad {
+            width: 490px;
+            height: 270px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #box img {
+            width: 490px;
+        }
+
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .ad ol li {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: #fff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+            _display: inline;
+        }
+
+        .ad ol li.current {
+            background: yellow;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+
+        .ad ul {
+            position: absolute;
+            top: 0;
+            width: 2940px;
+            /*transition: all .5s;*/
+        }
+
+        .ad ul li.current {
+            display: block;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="../image/1.jpg"/></li>
+            <li><img src="../image/2.jpg"/></li>
+            <li><img src="../image/3.jpg"/></li>
+            <li><img src="../image/4.jpg"/></li>
+            <li><img src="../image/5.jpg"/></li>
+        </ul>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+
+<script src="../js/animate.js"></script>
+<script type="text/javascript">
+    // 1.获取元素
+    var box = document.getElementById("box"),
+        arr = document.getElementById("arr"),
+        imgs = document.getElementById("imgs");
+    var left = document.getElementById("left"),
+        right =  document.getElementById("right");
+    var imgWidth = box.children[0].offsetWidth;
+
+    // 2.鼠标移到box上隐藏显示左右箭头
+    box.onmouseover = function(){
+        arr.style.display = "block";
+    };
+    box.onmouseout = function(){
+        arr.style.display = "none";
+    };
+
+    // 3.给右箭头注册事件
+    var index = 0;
+    right.onclick = function(){
+
+        // 如果切换到最后一张就回到第一张
+        if(index < imgs.children.length - 1){
+            index++;
+            // 切换图片
+            //imgs.style.left = -index * imgWidth + "px";
+            animate(imgs,{"left":-index * imgWidth});
+        }
+    };
+
+    left.onclick = function(){
+        if(index > 0){
+            index--;
+            // 切换图片
+            //imgs.style.left = -index * imgWidth + "px";
+            animate(imgs,{"left":-index * imgWidth});
+        }
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片跟随鼠标|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        img {
+            position: absolute;
+            transition: all .3s;
+        }
+    </style>
+</head>
+<body>
+
+<img src="favicon.ico" id="img" />
+<script src="js/common.js"></script>
+<script type="text/javascript">
+
+    var img = $("#img");
+
+    document.onmousemove = function(event){
+        // clientX 窗口的位置
+        // pageX 文档的位置
+        img.style.left = event.pageX + "px";
+        img.style.top = event.pageY + "px";
+    };
+</script>
+</body>
+</html>

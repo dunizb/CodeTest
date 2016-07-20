@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分享到|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="image/favicon.ico"/>
+    <style>
+        body {padding: 0;margin: 0}
+        div {
+            width: 150px;
+            height: 200px;
+            background-color: green;
+            position: absolute;
+            left: -150px;
+        }
+        span {
+            width: 20px;
+            background-color: blue;
+            position: absolute;
+            top: 60px;
+            right: -20px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <span id="shar">分享到</span>
+</div>
+</body>
+<script>
+    var oDiv = document.getElementById("div1");
+    oDiv.onmouseover = function(){
+        animate(oDiv,{"left":0});
+    };
+    oDiv.onmouseout = function(){
+        animate(oDiv,{"left":-150});
+    };
+
+    function animate(element,attrs){
+        // 1.清除定时器
+        if(element.timerId){
+            clearInterval(element.timerId);
+        }
+
+        element.timerId = setInterval(function(){
+            // a假设应该停止定时器
+            var stop = true;
+            // 遍历对象的属性
+            for(var key in attrs){
+                var target = attrs[key];
+                var current = parseInt(getCalcStyle(element,key)) || 0;
+                var speet = (target - current)/10;
+                speet = speet>0 ? Math.ceil(speet) : Math.floor(speet);
+                current += speet;
+
+                element.style[key] = current +"px";
+
+                if(speet !== 0){
+                    stop = false;
+                }
+            }
+
+            if(stop){
+                clearInterval(element.timerId);
+            }
+        },30);
+    }
+
+    /**
+     * 获取计算后的样式
+     * @param {Node} element
+     * @param {String} attr
+     * @returns {StyleObject}
+     */
+    function getCalcStyle(element,attr){
+        if(window.getComputedStyle){
+            // 标准
+            return window.getComputedStyle(element,null)[attr];
+        }else{
+            // IE9-
+            return element.currentStyle(attr);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Tab标签切换|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        .tabs {
+            width: 400px;
+            margin: 30px auto;
+            background-color: #FFF;
+            border: 1px solid #C0DCC0;
+            box-sizing: border-box;
+        }
+
+        .tabs nav {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            overflow: hidden;
+            background-color: #C0DCC0;
+            display: flex;
+        }
+
+        nav a {
+            display: block;
+            width: 100px;
+            border-right: 1px solid #FFF;
+            color: #000;
+            text-decoration: none;
+        }
+
+        nav a:last-child {
+            border-right: 0 none;
+        }
+
+        nav a.active {
+            background-color: #9BAF9B;
+        }
+
+        .cont {
+            overflow: hidden;
+            display: none;
+        }
+
+        .cont ol {
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="tabs">
+    <nav>
+        <a href="javascript:;" data-cont="local">国内新闻</a>
+        <a href="javascript:;" data-cont="global">国际新闻</a>
+        <a href="javascript:;" data-cont="sports">体育新闻</a>
+        <a href="javascript:;" data-cont="funny">娱乐新闻</a>
+    </nav>
+    <section class="cont" id="local">
+        <ol>
+            <li>河感在生矿难，死伤在全10</li>
+            <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广在全国暴发</li>
+            <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+    <section class="cont" id="global">
+        <ol>
+            <li>河南再次发生矿难，死伤人数超过100</li>
+            <li>禽流感次发生蔓延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广减产绝收发</li>
+            <li>禽流感在全国多作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+    <section class="cont" id="sports">
+        <ol>
+            <li>河南再次发生矿难，死伤人数超过100</li>
+            <li>禽流感在全国多处农作物农延，温家宝指示</li>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+            <li>禽流感在全农作物继续蔓延，温家宝指示</li>
+            <li>南方大农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+    <section class="cont" id="funny">
+        <ol>
+            <li>南方大旱，农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+            <li>禽流感在全农作物继续蔓延，温家宝指示</li>
+            <li>南方大农作物减产绝收面积上亩</li>
+            <li>猪流感在广东群体性暴发</li>
+        </ol>
+    </section>
+</div>
+
+<script type="text/javascript">
+    (function(initIndex){
+        //1. 初始化选中一个页签
+        var tabs = document.querySelectorAll("nav > a");
+        var initTab = tabs[initIndex];
+        //1.1. 设置选中效果
+        initTab.classList.add("active");
+        var cont = document.querySelector("#"+initTab.dataset["cont"]);
+        //1.2. 显示内容
+        cont.style.display = "block";
+
+        //2. 点击页签进行切换
+        for(var i=0; i<tabs.length; i++){
+            tabs[i].onclick = function(){
+                //2.1 清除上一次选中的页签样式和内容
+                var oldTab = document.querySelector(".active");
+                oldTab.classList.remove("active");
+                document.querySelector("#"+oldTab.dataset["cont"]).style.display = "none";
+
+                //2.2 显示当前页签样式和内容
+                this.classList.add("active");
+                document.querySelector("#"+this.dataset["cont"]).style.display = "block";
+            };
+        }
+    })(1);
+</script>
+</body>
+</html>
