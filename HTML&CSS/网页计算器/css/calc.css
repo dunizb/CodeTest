@@ -14,8 +14,6 @@ ul {padding: 0;margin: 0;}
 
 
 #container {
-    /*background: currentColor;*/
-    /*height: 447px;*/
     overflow: hidden;
     padding: 5px 5px;
 }
@@ -31,9 +29,6 @@ ul {padding: 0;margin: 0;}
     -webkit-transition: all .8s;
     transition: all .5s;
     overflow: hidden;
-     box-shadow: 0px 0px 10px #000;
-    /* margin-bottom: 10px; */
-    /* margin-top: 10px; */
     z-index: 0;
     position: relative;
     /* text-shadow: 0 2px 1px rgba(0,0,0,0.2); */
@@ -47,7 +42,6 @@ ul {padding: 0;margin: 0;}
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    /* height: 102px; */
     position: relative;
     width: 100%;
     height: 30%;
@@ -56,8 +50,6 @@ ul {padding: 0;margin: 0;}
     background-color: #999;
     min-height: 35px;
     position: relative;
-    /*padding-top: 7px;*/
-    /*padding-right: 8px;*/
     padding: 7px 8px 0 8px;
     text-align: right;
     width: 100%;
@@ -75,7 +67,6 @@ ul {padding: 0;margin: 0;}
     color: #fff;
     font-weight: bold;
     cursor: default;
-    /*box-shadow:0px 0px 6px #fff;*/
     position: absolute;
     top: 8px;
 }
@@ -121,14 +112,11 @@ ul {padding: 0;margin: 0;}
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    /* font-size: 60px; */
     font-family: "Helvetica Neue Light";
     padding: 0 5px;
     color: #FFF;
     overflow: hidden;
     box-sizing: border-box;
-    /*-webkit-transition: all .5s;*/
-    /*transition: all .5s;*/
 }
 #result > #express {
     font-size: 2em;
@@ -138,21 +126,16 @@ ul {padding: 0;margin: 0;}
     font-size: 6em;
 }
 #bottom {
-    /* flex: 3; */
-    /* flex-direction: row; */
     align-items: stretch;
     width: 100%;
     height: 70%;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
 }
 #bottom .row {
-    /*height: 63px; */
-    /* height: 93px; */
-    /* flex: 1; */
     height: 20%;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    box-sizing: border-box;
     margin-bottom: -1px;
 }
 #bottom .row span:first-child {
@@ -162,18 +145,18 @@ ul {padding: 0;margin: 0;}
     border-bottom: 0;
 }
 #bottom .row span{
-    /*height: 62px;*/
     height: 100%;
     width: 25%;
     background-color: #F2F2F2;
     border: 1px solid #999;
     border-right: 0;
-    text-align: center;
-    flex: 1;
     color: #000;
-    font:400 2.5em/62px "Microsoft YaHei";
+    font: 400 2.5em/62px "Microsoft YaHei";
     cursor: default;
     -webkit-user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #win-tool span:active,
 #bottom .row span:active,
@@ -190,30 +173,28 @@ ul {padding: 0;margin: 0;}
     background-color: #F5923E;
     color: #fff;
 }
-#bottom .row span.chu {
-    font-size: 35px;
-    font-weight: normal;
-}
-#bottom .row span.add {
-    font-size: 35px;
-    font-weight: normal;
+#bottom .row span.cheng,
+#bottom .row span.chu,
+#bottom .row span.add,
+#bottom .row span.eq
+{
+    font-size: 3.3em;
 }
 #bottom .row span.jiang {
-    font-size: 20px;
-}
-#bottom .row span.eq {
-    /*width: 33.333%;*/
-    font-size: 35px;
-    font-weight: normal;
+    font-size: 1.5em;
+    font-weight: bolder;
 }
 #bottom .row span.zero {
-    /*width: 33.333%;*/
-    flex: 2;
+    width: 50.4%;
     box-sizing: border-box;
-    /*height: 63px;*/
     height: 100%;
-    padding-right: 1px;
+    align-items: flex-start;
 }
+#bottom .row span.zero i {
+    font-style: normal;
+    padding-left: 21.2%;
+}
+
 
 /************** 历史记录 *****************/
 #historyBox {
@@ -280,13 +261,19 @@ ul {padding: 0;margin: 0;}
     }
     #container {
         height: 100%;
+        padding: 0;
     }
     .calc {
         width: 100%;
         height: 100%;
         max-width: none;
     }
-    #bottom .row {
-        margin-bottom: auto;
+    #bottom .row {margin: 0;}
+    #bottom .row span {
+        box-sizing: border-box;
+        padding-top:.3em;
+    }
+    #bottom .row span.zero {
+        width: 50.1%;
     }
 }

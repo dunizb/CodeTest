@@ -1,2 +1,7 @@
 # CodeTest
-个人日常编程练习、测试、小程序等
+```js
+var projectName = "CodeTest";
+var info = "个人学习、练习";
+```
+
+
