@@ -100,7 +100,7 @@ function clickFunc(){
                 //计算上一次的结果
                 if(symbol[number]){
                     //上一次点击的是不是符号键
-                    if(symbol[preKey]){
+                    if(preKey != "=" && symbol[preKey]){
                         express.innerHTML = exp.slice(0,-1) + number;
                     }else{
                         if(exp == ""){
