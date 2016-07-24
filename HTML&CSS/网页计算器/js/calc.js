@@ -58,7 +58,7 @@ function clickFunc(){
         var that = this;
         if(calc.classList.contains("flexbox")){        //缩小
             calc.classList.remove("flexbox");
-            that.dataset["ico"] = "□";
+            that.dataset["ico"] = "口";
             that.title = "最大化";
         }else{          //放大
             calc.classList.add("flexbox");
@@ -73,9 +73,10 @@ function clickFunc(){
         express = document.getElementById("express"),//计算表达式
         res =  document.getElementById("res"),  //输出结果
         keyBorde = null;        //键盘
-    var preKey = "";
+    var preKey = "",            //上一次按的键盘
+        isFromHistory = false;  //是否来自历史记录
     //符号
-    var symbol = {"+":"+","-":"-","×":"×","÷":"÷","=":"="};
+    var symbol = {"+":"+","-":"-","×":"*","÷":"/","=":"="};
 
     /***********键盘按钮***********/
     for(var j=0; j <keyBorders.length; j++){
@@ -83,66 +84,87 @@ function clickFunc(){
 
         keyBorde.onclick = function() {
             var number = this.dataset["number"];
+            var resVal = res.innerHTML;
+            var exp = express.innerHTML;
+            //表达式最后一位的符号
+            var expressEndSymbol = exp.substring(exp.length-1,exp.length);
             if(number !== "←" || number !== "C"){
                 //转换显示符号
                 if(isNaN(number)){
                     number = number.replace(/\*/g,"×").replace(/\//g,"÷");
                 }
-
-                //去掉初始0
-                if(!preKey){
-                    res.innerHTML = "";
+                if(isResOverflow(resVal.length+1)){
+                    return;
                 }
-
-                //如果点击的是符号键
-                if(symbol[number] || preKey == "="){
-                    express.innerHTML = res.innerHTML + number;
-                    number = "";
-                }
-
-                //对0，第二次计算重置上一次结果
-                //if(number == "0" && tempRes == "0" || symbol[preKey]){
-                //    res.textContent = "";
-                //}
-
-                //如果前面直接是符号位,去掉比较值的前导0
-                if(symbol[preKey] && symbol[number]){
-                    var s = parseFloat(res.innerHTML).toString();
-                    res.innerHTML = s.substring(0, s.length-1);
-                }
-                if(!isResOverflow()){
-                    res.innerHTML += number;
-                    preKey = number;
+                //点击的是符号
+                //计算上一次的结果
+                if(symbol[number]){
+                    //上一次点击的是不是符号键
+                    if(symbol[preKey]){
+                        express.innerHTML = exp.slice(0,-1) + number;
+                    }else{
+                        if(exp == ""){
+                            express.innerHTML = resVal + number;
+                        }else{
+                            express.innerHTML += resVal + number;
+                        }
+                        if(symbol[expressEndSymbol]){
+                            exp = express.innerHTML.replace(/×/g,"*").replace(/÷/,"/");
+                            res.innerHTML = eval(exp.slice(0,-1));
+                        }
+                    }
                 }else{
-                    return false;
+                    //如果首位是符号，0
+                    if(symbol[number] || symbol[preKey] || resVal=="0"){
+                        res.innerHTML = "";
+                    }
+                    res.innerHTML += number;
                 }
+                preKey = number;
             }
         };
     }
 
     /***********相等，计算结果***********/
     equals.onclick = function(){
-        var tempRes = express.innerHTML, val = "";
+        var expVal = express.innerHTML, val = "";
         var resVal = res.innerHTML;
-        try{
-            if(tempRes){
-                var temp = tempRes.replace(/×/g,"*").replace(/÷/,"/");
-                val = eval(temp+resVal);
+        //表达式最后一位的符号
+        if(resVal && resVal !== "0"){
+            var expressEndSymbol = expVal.substring(expVal.length-1,expVal.length);
+            try{
+                if(!isFromHistory){
+                    var temp = "";
+                    if(symbol[expressEndSymbol] && resVal){
+                        temp = expVal.replace(/×/g,"*").replace(/÷/,"/");
+                        temp = eval(temp.slice(0,-1)) + symbol[expressEndSymbol] + resVal;
+                    }else{
+                        temp = expVal.replace(/×/g,"*").replace(/÷/,"/");
+                    }
+                    val = eval(temp);
+                }else{
+                    val = resVal;
+                }
+            }catch(error){
+                val = "<span style='font-size:1em;color:red'>Erro：计算出错！</span>";
+            }finally{
+                express.innerHTML = "";
+                res.innerHTML = val;
+                preKey = "=";
+                saveCalcHistory(expVal+resVal+"="+val);
+                isResOverflow(resVal.length);
             }
-        }catch(error){
-            val = "<font style='font-size:12px;color:red'>Erro：计算出错！</font>";
-        }finally{
-            express.innerHTML = "";
-            res.innerHTML = val;
-            preKey = "=";
-            saveCalcHistory(tempRes+resVal+"="+val);
-            isResOverflow("equals");
         }
+    };
+
+    /***********移动端拨号功能***********/
+    equals.ondblclick = function(){
+        console.log("打电话");
     };
 
     /***********复位操作***********/
     reset.onclick = function(){
-        res.innerHTML = "";
+        res.innerHTML = "0";
         express.innerHTML = "";
         res.style.fontSize = "6em";
     };
@@ -151,7 +173,7 @@ function clickFunc(){
     remove.onclick = function(){
         var tempRes = res.innerHTML;
         if(tempRes.length>1){
-            tempRes = tempRes.substring(0,tempRes.length-1);
+            tempRes = tempRes.slice(0,-1);
             res.innerHTML = tempRes;
         }else{
             res.innerHTML = 0;
@@ -161,40 +183,60 @@ function clickFunc(){
     /***********历史功能***********/
     var history = document.getElementById("history"),
         historyBox = document.getElementById("historyBox");
-    history.onclick = function(e){
+    var about = document.getElementById("about");
+    about.onclick = history.onclick = function(e){
+        e = e || window.event;
+        var target = e.target.id || window.event.srcElement.id;
+
         historyBox.style.webkitTransform = "none";
         historyBox.style.transform = "none";
         e.stopPropagation();
+        //点击的是历史
+        if(target == "history"){
+            var keyArray = Mybry.wdb.getKeyArray();
+            var separate = Mybry.wdb.constant.SEPARATE;
+            keyArray.sort(function(a,b){
+                var n = a.split(separate)[1];
+                var m = b.split(separate)[1];
+                return m - n;
+            });
+            var html = [],val = "";
+            for(var i=0; i<keyArray.length; i++){
+                val = Mybry.wdb.getItem(keyArray[i]);
+                html.push("<li>"+val+"</li>");
+            }
+            if(html.length>0){
+                historyUl.innerHTML = html.join("");
+            }else{
+                historyUl.innerHTML = "尚无历史记录";
+            }
 
-        var keyArray = App.getKeyArray();
-        var separate = App.constant.SEPARATE;
-        keyArray.sort(function(a,b){
-            var n = a.split(separate)[1];
-            var m = b.split(separate)[1];
-            return m - n;
-        });
-        var html = [],val = "";
-        for(var i=0; i<keyArray.length; i++){
-            val = localStorage.getItem(keyArray[i]);
-            html.push("<li>"+val+"</li>");
+            //把历史记录一条数据添加到计算器
+            var hLis = historyUl.querySelectorAll("li");
+            for(var i=0; i<hLis.length; i++){
+                hLis[i].onclick = function(){
+                    var express = this.innerHTML;
+                    var exp = express.split("=")[0],
+                        res = express.split("=")[1];
+                    resultDiv.querySelector("#express").innerHTML = exp;
+                    resultDiv.querySelector("#res").innerHTML = res;
+                    isFromHistory = true;
+                };
+            }
         }
-        if(html.length>0){
-            historyUl.innerHTML = html.join("");
-        }else{
-            historyUl.innerHTML = "尚无历史记录";
+        //点击的是关于
+        if(target == "about"){
+            historyBox.children[0].children[0].innerHTML = `
+                <div style='padding:5px;color:#000;'>
+                    <p>1. 该计算器布局使用Flex布局</p>
+                    <p>2. 对异常进行了处理</p>
+                    <p>3. 作者：dunizb，www.mybry.com版权所有</p>
+                    <p>4. bug与建议：ibing@outlook.com</p>
+                    <p>※Build 1240. Version：3.0</p>
+                </div>
+            `;
         }
 
-        //把历史记录一条数据添加到计算器
-        var hLis = historyUl.querySelectorAll("li");
-        for(var i=0; i<hLis.length; i++){
-            hLis[i].onclick = function(){
-                var express = this.innerHTML;
-                var exp = express.split("=")[0],
-                    res = express.split("=")[1];
-                resultDiv.querySelector("#express").innerHTML = exp;
-                resultDiv.querySelector("#res").innerHTML = res;
-            };
-        }
     };
 
     window.onclick = function(e){
@@ -225,7 +267,7 @@ function clickFunc(){
     delBtn.onclick = function(e){
         var e = e || window.event;
         e.stopPropagation();
-        if(App.deleteItem("*")){
+        if(Mybry.wdb.deleteItem("*")){
             historyUl.innerHTML = "尚无历史记录";
         }
     };
@@ -235,25 +277,31 @@ function clickFunc(){
      * @param val 要记录的表达式
      */
     function saveCalcHistory(val){
-        var key = App.constant.TABLE_NAME + App.constant.SEPARATE + App.getId();
+        var key = Mybry.wdb.constant.TABLE_NAME + Mybry.wdb.constant.SEPARATE + Mybry.wdb.getId();
         window.localStorage.setItem(key,val);
     }
 
     /**********自动设置文字大小************/
-    function isResOverflow(type){
-        var result = document.getElementById("result"),
-            resultW = result.offsetWidth;
-        var resDiv = document.getElementById("res"),
-            resW = resDiv.offsetWidth;
+    function isResOverflow(leng){
+        var calc = document.getElementById("calc");
+        var w = calc.style.width || getComputedStyle(calc).width || calc.currentStyle.width;
+            w = parseInt(w);
 
-        var fsw = resW/resultW;
-        var fontSize = parseFloat(resDiv.style.fontSize);
-        //resW要超出resultW的时候
-        if(fsw >= 0.9){
-            if(type && type == "equals"){
-                resDiv.style.fontSize = fontSize - 2 + "em";
+        //判断是否是移动端
+        if(Mybry.browser.versions.android || Mybry.browser.versions.iPhone || Mybry.browser.versions.iPad) {
+            if(leng > 8){
+                return true;
             }
-            return true;
+        }else{
+            if(leng > 10){
+                if(w == 300) {
+                    max.click();
+                }else{
+                    if(leng > 16){
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
