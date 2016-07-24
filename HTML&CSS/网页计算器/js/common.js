@@ -23,7 +23,7 @@ Mybry.transitionEnd  = function(dom,callback){
         callback && callback();
     });
 };
-
+//移动端单击事件
 Mybry.tap = function(dom,callback){
     //基本的判断
     if(!dom || typeof dom != 'object' ) return false;

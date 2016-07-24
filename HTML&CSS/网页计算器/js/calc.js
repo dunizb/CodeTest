@@ -130,7 +130,7 @@ function clickFunc(){
         var expVal = express.innerHTML, val = "";
         var resVal = res.innerHTML;
         //表达式最后一位的符号
-        if(resVal && resVal !== "0"){
+        if(expVal){
             var expressEndSymbol = expVal.substring(expVal.length-1,expVal.length);
             try{
                 if(!isFromHistory){
@@ -157,16 +157,44 @@ function clickFunc(){
         }
     };
 
+    //移动端长按事件
     /***********移动端拨号功能***********/
-    equals.ondblclick = function(){
-        console.log("打电话");
+    var timeOutEvent = null;
+    equals.addEventListener("touchstart",function(e){
+        timeOutEvent = setTimeout(longPress,500);
+        e = e || window.event;
+        e.preventDefault();
+    });
+    equals.addEventListener("touchmove",function(){
+        clearTimeout(timeOutEvent);
+        timeOutEvent = null;
+    });
+    equals.addEventListener("touchend",function(){
+        clearTimeout(timeOutEvent);
+        if(timeOutEvent){
+            //cosole.log("你这是点击，不是长按");
+            equals.click();
+        }
+        return false;
+    });
+
+    function longPress(){
+        timeOutEvent = null;
+        //console.log("长按事件触发发");
+        var num = res.innerHTML;
+        if(num && num !== "0"){
+            var telPhone = document.getElementById("telPhone");
+            telPhone.href = "tel:"+num;
+            telPhone.target = "_blank";
+            telPhone.click();
+        }
     };
+
 
     /***********复位操作***********/
     reset.onclick = function(){
         res.innerHTML = "0";
         express.innerHTML = "";
-        res.style.fontSize = "6em";
     };
 
     /***********减位操作***********/
@@ -289,11 +317,11 @@ function clickFunc(){
 
         //判断是否是移动端
         if(Mybry.browser.versions.android || Mybry.browser.versions.iPhone || Mybry.browser.versions.iPad) {
-            if(leng > 8){
+            if(leng > 11){
                 return true;
             }
         }else{
-            if(leng > 10){
+            if(leng > 11){
                 if(w == 300) {
                     max.click();
                 }else{

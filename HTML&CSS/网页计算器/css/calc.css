@@ -123,7 +123,7 @@ ul {padding: 0;margin: 0;}
     height: 1em;
 }
 #result > #res {
-    font-size: 5em;
+    font-size: 4.5em;
 }
 #bottom {
     align-items: stretch;
@@ -267,6 +267,9 @@ ul {padding: 0;margin: 0;}
         width: 100%;
         height: 100%;
         max-width: none;
+    }
+    #result > #res {
+        font-size: 3.5em;
     }
     #bottom .row {margin: 0;}
     #bottom .row span {
