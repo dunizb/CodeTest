@@ -159,36 +159,7 @@ function clickFunc(){
 
     //移动端长按事件
     /***********移动端拨号功能***********/
-    var timeOutEvent = null;
-    equals.addEventListener("touchstart",function(e){
-        timeOutEvent = setTimeout(longPress,500);
-        e = e || window.event;
-        e.preventDefault();
-    });
-    equals.addEventListener("touchmove",function(){
-        clearTimeout(timeOutEvent);
-        timeOutEvent = null;
-    });
-    equals.addEventListener("touchend",function(){
-        clearTimeout(timeOutEvent);
-        if(timeOutEvent){
-            //cosole.log("你这是点击，不是长按");
-            equals.click();
-        }
-        return false;
-    });
 
-    function longPress(){
-        timeOutEvent = null;
-        //console.log("长按事件触发发");
-        var num = res.innerHTML;
-        if(num && num !== "0"){
-            var telPhone = document.getElementById("telPhone");
-            telPhone.href = "tel:"+num;
-            telPhone.target = "_blank";
-            telPhone.click();
-        }
-    };
 
 
     /***********复位操作***********/
@@ -254,15 +225,14 @@ function clickFunc(){
         }
         //点击的是关于
         if(target == "about"){
-            historyBox.children[0].children[0].innerHTML = `
-                <div style='padding:5px;color:#000;'>
-                    <p>1. 该计算器布局使用Flex布局</p>
-                    <p>2. 对异常进行了处理</p>
-                    <p>3. 作者：dunizb，www.mybry.com版权所有</p>
-                    <p>4. bug与建议：ibing@outlook.com</p>
-                    <p>※Build 1240. Version：3.0</p>
-                </div>
-            `;
+            historyBox.children[0].children[0].innerHTML = "<div style='padding:5px;color:#000;'>"
+                + "<p>1. 该计算器布局使用Flex布局</p>"
+                + "<p>2. 移动APP使用HBuild构建</p>"
+                + "<p>3. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
+                + "<p>4. 作者：dunizb，www.mybry.com版权所有</p>"
+                + "<p>5. bug与建议：ibing@outlook.com</p>"
+                + "<p>※Build 1240. Version：3.0</p>"
+                + "</div>";
         }
 
     };
