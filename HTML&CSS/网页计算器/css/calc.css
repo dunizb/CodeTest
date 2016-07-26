@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
-body,html{
+html{
     height: 100%;
+    font-size: 62.5%;
 }
 body{
+	height: 100%;
     min-width: 300px;
     position: relative;
     padding: 0;
@@ -31,7 +33,7 @@ ul {padding: 0;margin: 0;}
     overflow: hidden;
     z-index: 0;
     position: relative;
-    /* text-shadow: 0 2px 1px rgba(0,0,0,0.2); */
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 .flexbox {
     width: 600px;
@@ -45,6 +47,7 @@ ul {padding: 0;margin: 0;}
     position: relative;
     width: 100%;
     height: 30%;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.2);
 }
 #win-tool {
     background-color: #999;
@@ -56,19 +59,18 @@ ul {padding: 0;margin: 0;}
     box-sizing: border-box;
 }
 #win-tool span {
-    width: 18px;
-    height: 18px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
-    line-height: 18px;
     margin-right: 3px;
     text-align: center;
     display: inline-block;
-    font-size: .75em;
     color: #fff;
     font-weight: bold;
     cursor: default;
     position: absolute;
     top: 8px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 #close {
     background-color: #FC5652;
@@ -85,23 +87,16 @@ ul {padding: 0;margin: 0;}
 #win-tool a {
     background: hsl(0, 0%, 80%);
     display: inline-block;
-    width: 45px;
-    /*height: 1.3em;*/
+    width: 4rem;
     border-radius: 10px;
     text-align: center;
-    line-height: 1.5em;
+    line-height: 1.5rem;
     color: inherit;
     text-decoration: none;
-    font-size: .75em;
+    font-size: .75rem;
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
-}
-#win-tool a:hover {
-    background: hsl(28, 90%, 60%);
-    color: #fff;
-}
-#win-tool a:active {
-    background: hsl(0, 100%, 50%);
-    color: #fff;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-left: 0.4rem;    
 }
 #result {
     min-height: 90px;
@@ -110,23 +105,27 @@ ul {padding: 0;margin: 0;}
     background-color: #999;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    font-family: "Helvetica Neue Light";
-    padding: 0 5px;
+    justify-content: flex-end;
     color: #FFF;
-    overflow: hidden;
+    overflow: auto;
     box-sizing: border-box;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
+    text-align: right;
 }
 #result > #express {
-    font-size: 2em;
-    height: 1em;
+    font-size: 2rem;
+}
+#result div {
+	padding: 0 5px;
+	box-sizing: border-box;
 }
 #result > #res {
-    font-size: 4.5em;
+    font-size: 4.5rem;
+    font-weight: 600;
+    width: 100%;
 }
 #bottom {
-    align-items: stretch;
+    font-weight: 600;
     width: 100%;
     height: 70%;
     text-shadow: 0 2px 1px rgba(0,0,0,0.3);
@@ -148,26 +147,23 @@ ul {padding: 0;margin: 0;}
     height: 100%;
     width: 25%;
     background-color: #F2F2F2;
-    border: 1px solid #999;
+    border: 1px solid #fff;
     border-right: 0;
-    color: #000;
-    font: 400 2em/62px "Microsoft YaHei";
+    color:hsl(0, 17%, 20%);
+   	font-size: 2rem;
+   	line-height: 5rem;
     cursor: default;
     -webkit-user-select: none;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
+#win-tool a:active,
 #win-tool span:active,
 #bottom .row span:active,
 #bottom .row span.tool:active{
     background-color: red;
     color: #fff;
-}
-#bottom .row span:hover,
-#bottom .row span.tool:hover {
-    box-shadow: 0px 0px 15px #999;
-    position: relative;
 }
 #bottom .row span.tool {
     background-color: #F5923E;
@@ -176,23 +172,19 @@ ul {padding: 0;margin: 0;}
 #bottom .row span.cheng,
 #bottom .row span.chu,
 #bottom .row span.add,
-#bottom .row span.eq
-{
-    font-size: 3.3em;
+#bottom .row span.eq {
+    font-size: 2.5rem;
 }
 #bottom .row span.jiang {
-    font-size: 1.5em;
-    font-weight: bolder;
+    font-size: 1.9rem;
 }
 #bottom .row span.zero {
     width: 50.4%;
     box-sizing: border-box;
     height: 100%;
-    align-items: flex-start;
-}
-#bottom .row span.zero i {
-    font-style: normal;
-    padding-left: 21.2%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 11%;
 }
 
 
@@ -213,21 +205,24 @@ ul {padding: 0;margin: 0;}
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
 }
 #historyBox .con {
-    height: 92%;
+    height: 91%;
     overflow-y: auto;
 }
 #historyBox .remove {
-    height: 8%;
-    /*background: green;*/
+	height: 28px;
+    background: hsl(0, 0%, 88%);
     text-align: right;
-    /*padding: 2px 10px;*/
     box-sizing: border-box;
     border-top: 1px solid transparent;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
 }
 #historyBox .remove .icon_del {
     display: inline-block;
-    width: 30px;
-    height: 23px;
+    width: 35px;
+    height: 28px;
     background: url("../images/delete1.png") no-repeat;
     box-sizing: border-box;
     background-position: center center;
@@ -235,19 +230,24 @@ ul {padding: 0;margin: 0;}
 #historyBox .remove .icon_del:hover {
     background-color: hsl(0, 0%, 88%);
 }
+#historyBox .remove .icon_del:active{
+	background-color: red;
+}
 #historyBox ul {
     padding: 5px 0;
     color: hsl(0, 0%, 88%);
+    font-size: 1rem;
 }
 #historyBox ul li {
     height: 45px;
     text-align: right;
     line-height: 45px;
-    font-size: 2.2em;
+    font-size: 2.2rem;
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
     background: hsl(0, 0%, 95%);
     padding: 0 10px;
     color: #000;
+    overflow: auto;
 }
 #historyBox ul li:hover {
     background:hsl(0, 0%, 88%);
@@ -256,8 +256,9 @@ ul {padding: 0;margin: 0;}
 
 /*小屏*/
 @media (max-width: 500px){
-    body{
-        font-size: 80%;
+    html {
+    	font-size: 80%;
+    	font-family:Helvetica;
     }
     #container {
         height: 100%;
@@ -267,18 +268,18 @@ ul {padding: 0;margin: 0;}
         width: 100%;
         height: 100%;
         max-width: none;
+        border-radius: 0;
     }
-    #result > #res {
-        font-size: 3.5em;
-    }
+    #close,#max {display: none !important;}
+    #win-tool a {font-size: 1rem;line-height: 1.6rem;}
+    #mini {left: 8px;}
     #bottom .row {margin: 0;}
     #bottom .row span {
         box-sizing: border-box;
-        padding-top:.5em;
         border-top: 0;
     }
-    #bottom .row span.tool {
-        padding-top: .2em;
+    #bottom .row span.cheng {
+    	font-size: 2.1rem;
     }
     #bottom .row span.zero {
         width: 50.1%;

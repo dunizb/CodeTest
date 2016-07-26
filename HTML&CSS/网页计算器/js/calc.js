@@ -6,7 +6,7 @@ window.onload = function(){
     //点击功能
     clickFunc();
     //移动端滑动功能
-    mSwiper();
+    //mSwiper();
 };
 
 function clickFunc(){
@@ -55,7 +55,10 @@ function clickFunc(){
     };
     /***********最大化按钮***********/
     max.onclick = function(){
-        var that = this;
+        maxCalc();
+    };
+    function maxCalc(){
+    	var that = this;
         if(calc.classList.contains("flexbox")){        //缩小
             calc.classList.remove("flexbox");
             that.dataset["ico"] = "口";
@@ -66,7 +69,7 @@ function clickFunc(){
             that.title = "恢复大小";
         }
         isResOverflow("max");
-    };
+    }
 
     /***********点击键盘***********/
     var keyBorders = document.querySelectorAll("#bottom span"),
@@ -76,7 +79,7 @@ function clickFunc(){
     var preKey = "",            //上一次按的键盘
         isFromHistory = false;  //是否来自历史记录
     //符号
-    var symbol = {"+":"+","-":"-","×":"*","÷":"/","=":"="};
+    var symbol = {"+":"+","-":"-","×":"*","÷":"/","%":"%","=":"="};
 
     /***********键盘按钮***********/
     for(var j=0; j <keyBorders.length; j++){
@@ -93,8 +96,8 @@ function clickFunc(){
                 if(isNaN(number)){
                     number = number.replace(/\*/g,"×").replace(/\//g,"÷");
                 }
-                if(isResOverflow(resVal.length+1)){
-                    return;
+                if(!symbol[number] && isResOverflow(resVal.length+1)){
+                    return false;
                 }
                 //点击的是符号
                 //计算上一次的结果
@@ -127,7 +130,11 @@ function clickFunc(){
 
     /***********相等，计算结果***********/
     equals.onclick = function(){
-        var expVal = express.innerHTML, val = "";
+        calcEques();
+    };
+    
+    function calcEques(){
+    	var expVal = express.innerHTML, val = "";
         var resVal = res.innerHTML;
         //表达式最后一位的符号
         if(expVal){
@@ -155,11 +162,26 @@ function clickFunc(){
                 isResOverflow(resVal.length);
             }
         }
-    };
-
-    //移动端长按事件
+    }
+	
+	
     /***********移动端拨号功能***********/
-
+    //移动端长按事件
+    $(equals).on("longTap",function(){
+    	//console.log("sdsdsd");
+    	var num = res.innerHTML;
+        if(num && num !== "0"){
+			var regx = /^1[0-9]{2}[0-9]{8}$/;
+			if(regx.test(num)){
+				console.log("是手机号码");
+				var telPhone = document.getElementById("telPhone");
+	            telPhone.href = "tel:"+num;
+	            telPhone.target = "_blank";
+	            telPhone.click();
+			}
+        }
+    });
+    
 
 
     /***********复位操作***********/
@@ -192,6 +214,9 @@ function clickFunc(){
         e.stopPropagation();
         //点击的是历史
         if(target == "history"){
+        	//恢复显示删除按钮
+        	historyBox.children[1].children[0].className = "icon_del";
+        	
             var keyArray = Mybry.wdb.getKeyArray();
             var separate = Mybry.wdb.constant.SEPARATE;
             keyArray.sort(function(a,b){
@@ -225,16 +250,19 @@ function clickFunc(){
         }
         //点击的是关于
         if(target == "about"){
+        	// 取消删除按钮显示
+        	console.info(historyBox.children[1].children[0]);
+        	historyBox.children[1].children[0].className = "";
             historyBox.children[0].children[0].innerHTML = "<div style='padding:5px;color:#000;'>"
-                + "<p>1. 该计算器布局使用Flex布局</p>"
-                + "<p>2. 移动APP使用HBuild构建</p>"
-                + "<p>3. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
-                + "<p>4. 作者：dunizb，www.mybry.com版权所有</p>"
-                + "<p>5. bug与建议：ibing@outlook.com</p>"
+            	+ "<p>1. 纯HTML、CSS、JS编写</p>"
+            	+ "<p>2. 该计算器布局使用Flex布局</p>"
+                + "<p>3. 移动APP使用HBuild构建</p>"
+                + "<p>4. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
+                + "<p>5. 作者：dunizb，www.mybry.com版权所有</p>"
+                + "<p>6. bug与建议：ibing@outlook.com</p>"
                 + "<p>※Build 1240. Version：3.0</p>"
                 + "</div>";
         }
-
     };
 
     window.onclick = function(e){
@@ -250,6 +278,8 @@ function clickFunc(){
                 historyBox.style.transform = "translateY(102%)";
             }
         }
+        //恢复显示删除按钮
+        historyBox.children[1].children[0].className = "icon_del";
     };
 
     //点击头部恢复大小
@@ -286,14 +316,14 @@ function clickFunc(){
             w = parseInt(w);
 
         //判断是否是移动端
-        if(Mybry.browser.versions.android || Mybry.browser.versions.iPhone || Mybry.browser.versions.iPad) {
-            if(leng > 11){
+        if((Mybry.browser.versions.android || Mybry.browser.versions.iPhone || Mybry.browser.versions.iPad) && !symbol[preKey]) {
+            if(leng > 15){
                 return true;
             }
         }else{
-            if(leng > 11){
+            if(leng > 10){
                 if(w == 300) {
-                    max.click();
+                    maxCalc();
                 }else{
                     if(leng > 16){
                         return true;
