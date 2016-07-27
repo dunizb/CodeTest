@@ -58,7 +58,7 @@ function clickFunc(){
         maxCalc();
     };
     function maxCalc(){
-    	var that = this;
+        var that = this;
         if(calc.classList.contains("flexbox")){        //缩小
             calc.classList.remove("flexbox");
             that.dataset["ico"] = "口";
@@ -87,54 +87,69 @@ function clickFunc(){
 
         keyBorde.onclick = function() {
             var number = this.dataset["number"];
-            var resVal = res.innerHTML;
-            var exp = express.innerHTML;
-            //表达式最后一位的符号
-            var expressEndSymbol = exp.substring(exp.length-1,exp.length);
-            if(number !== "←" || number !== "C"){
-                //转换显示符号
-                if(isNaN(number)){
-                    number = number.replace(/\*/g,"×").replace(/\//g,"÷");
-                }
-                if(!symbol[number] && isResOverflow(resVal.length+1)){
-                    return false;
-                }
-                //点击的是符号
-                //计算上一次的结果
-                if(symbol[number]){
-                    //上一次点击的是不是符号键
-                    if(preKey != "=" && symbol[preKey]){
-                        express.innerHTML = exp.slice(0,-1) + number;
-                    }else{
-                        if(exp == ""){
-                            express.innerHTML = resVal + number;
-                        }else{
-                            express.innerHTML += resVal + number;
-                        }
-                        if(symbol[expressEndSymbol]){
-                            exp = express.innerHTML.replace(/×/g,"*").replace(/÷/,"/");
-                            res.innerHTML = eval(exp.slice(0,-1));
-                        }
-                    }
-                }else{
-                    //如果首位是符号，0
-                    if(symbol[number] || symbol[preKey] || resVal=="0"){
-                        res.innerHTML = "";
-                    }
-                    res.innerHTML += number;
-                }
-                preKey = number;
-            }
+            clickNumber(number);
         };
+    }
+
+    /**
+     * 点击键盘进行输入
+     * @param {string} number 输入的内容
+     * */
+    function clickNumber(number){
+        var resVal = res.innerHTML;		//结果
+        var exp = express.innerHTML;	//表达式
+        //表达式最后一位的符号
+        var expressEndSymbol = exp.substring(exp.length-1,exp.length);
+        //点击的不是删除键和复位键时才能进行输入
+        if(number !== "←" || number !== "C"){
+            //是否已经存在点了，如果存在那么不能接着输入点号了
+            var hasPoint = (resVal.indexOf('.') !== -1)?true:false;
+            if(hasPoint && number === '.'){
+                return false;
+            }
+            //转换显示符号
+            if(isNaN(number)){
+                number = number.replace(/\*/g,"×").replace(/\//g,"÷");
+            }
+            //如果输入的都是数字，那么当输入达到固定长度时不能再输入了
+            if(!symbol[number] && isResOverflow(resVal.length+1)){
+                return false;
+            }
+            //点击的是符号
+            //计算上一次的结果
+            if(symbol[number]){
+                //上一次点击的是不是符号键
+                if(preKey !== "=" && symbol[preKey]){
+                    express.innerHTML = exp.slice(0,-1) + number;
+                }else{
+                    if(exp == ""){
+                        express.innerHTML = resVal + number;
+                    }else{
+                        express.innerHTML += resVal + number;
+                    }
+                    if(symbol[expressEndSymbol]){
+                        exp = express.innerHTML.replace(/×/g,"*").replace(/÷/,"/");
+                        res.innerHTML = eval(exp.slice(0,-1));
+                    }
+                }
+            }else{
+                //如果首位是符号，0
+                if((symbol[number] || symbol[preKey] || resVal=="0") && number !== '.'){
+                    res.innerHTML = "";
+                }
+                res.innerHTML += number;
+            }
+            preKey = number;
+        }
     }
 
     /***********相等，计算结果***********/
     equals.onclick = function(){
         calcEques();
     };
-    
+
     function calcEques(){
-    	var expVal = express.innerHTML, val = "";
+        var expVal = express.innerHTML, val = "";
         var resVal = res.innerHTML;
         //表达式最后一位的符号
         if(expVal){
@@ -160,28 +175,29 @@ function clickFunc(){
                 preKey = "=";
                 saveCalcHistory(expVal+resVal+"="+val);
                 isResOverflow(resVal.length);
+                isFromHistory = false;
             }
         }
     }
-	
-	
+
+
     /***********移动端拨号功能***********/
-    //移动端长按事件
+        //移动端长按事件
     $(equals).on("longTap",function(){
-    	//console.log("sdsdsd");
-    	var num = res.innerHTML;
+        //console.log("sdsdsd");
+        var num = res.innerHTML;
         if(num && num !== "0"){
-			var regx = /^1[0-9]{2}[0-9]{8}$/;
-			if(regx.test(num)){
-				console.log("是手机号码");
-				var telPhone = document.getElementById("telPhone");
-	            telPhone.href = "tel:"+num;
-	            telPhone.target = "_blank";
-	            telPhone.click();
-			}
+            var regx = /^1[0-9]{2}[0-9]{8}$/;
+            if(regx.test(num)){
+                //console.log("是手机号码");
+                var telPhone = document.getElementById("telPhone");
+                telPhone.href = "tel:"+num;
+                telPhone.target = "_blank";
+                telPhone.click();
+            }
         }
     });
-    
+
 
 
     /***********复位操作***********/
@@ -214,9 +230,9 @@ function clickFunc(){
         e.stopPropagation();
         //点击的是历史
         if(target == "history"){
-        	//恢复显示删除按钮
-        	historyBox.children[1].children[0].className = "icon_del";
-        	
+            //恢复显示删除按钮
+            historyBox.children[1].children[0].className = "icon_del";
+
             var keyArray = Mybry.wdb.getKeyArray();
             var separate = Mybry.wdb.constant.SEPARATE;
             keyArray.sort(function(a,b){
@@ -250,17 +266,16 @@ function clickFunc(){
         }
         //点击的是关于
         if(target == "about"){
-        	// 取消删除按钮显示
-        	console.info(historyBox.children[1].children[0]);
-        	historyBox.children[1].children[0].className = "";
+            // 取消删除按钮显示
+            historyBox.children[1].children[0].className = "";
             historyBox.children[0].children[0].innerHTML = "<div style='padding:5px;color:#000;'>"
-            	+ "<p>1. 纯HTML、CSS、JS编写</p>"
-            	+ "<p>2. 该计算器布局使用Flex布局</p>"
+                + "<p>1. 纯HTML、CSS、JS编写</p>"
+                + "<p>2. 该计算器布局使用Flex布局</p>"
                 + "<p>3. 移动APP使用HBuild构建</p>"
                 + "<p>4. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
                 + "<p>5. 作者：dunizb，www.mybry.com版权所有</p>"
                 + "<p>6. bug与建议：ibing@outlook.com</p>"
-                + "<p>※Build 1240. Version：3.0</p>"
+                + "<p>※Build 1250. Version：3.2</p>"
                 + "</div>";
         }
     };
@@ -285,11 +300,18 @@ function clickFunc(){
     //点击头部恢复大小
     var topDiv = document.getElementById("top");
     topDiv.onclick = function(){
+        resetMini();
+    };
+    //移动端Tap事件
+    $(topDiv).on("tap",function(){
+        resetMini();
+    });
+    function resetMini(){
         var ts = calc.style.transform || calc.style.webkitTransform;
         if(ts || ts != "none"){
             calc.style.transform = 'none';
         }
-    };
+    }
 
     /***********清空历史记录***********/
     delBtn.onclick = function(e){
@@ -313,7 +335,7 @@ function clickFunc(){
     function isResOverflow(leng){
         var calc = document.getElementById("calc");
         var w = calc.style.width || getComputedStyle(calc).width || calc.currentStyle.width;
-            w = parseInt(w);
+        w = parseInt(w);
 
         //判断是否是移动端
         if((Mybry.browser.versions.android || Mybry.browser.versions.iPhone || Mybry.browser.versions.iPad) && !symbol[preKey]) {

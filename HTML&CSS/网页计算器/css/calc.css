@@ -5,7 +5,7 @@ html{
     font-size: 62.5%;
 }
 body{
-	height: 100%;
+    height: 100%;
     min-width: 300px;
     position: relative;
     padding: 0;
@@ -61,6 +61,7 @@ ul {padding: 0;margin: 0;}
 #win-tool span {
     width: 1.5rem;
     height: 1.5rem;
+    line-height: 1.5rem;
     border-radius: 50%;
     margin-right: 3px;
     text-align: center;
@@ -96,7 +97,7 @@ ul {padding: 0;margin: 0;}
     font-size: .75rem;
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    margin-left: 0.4rem;    
+    margin-left: 0.4rem;
 }
 #result {
     min-height: 90px;
@@ -116,8 +117,8 @@ ul {padding: 0;margin: 0;}
     font-size: 2rem;
 }
 #result div {
-	padding: 0 5px;
-	box-sizing: border-box;
+    padding: 0 5px;
+    box-sizing: border-box;
 }
 #result > #res {
     font-size: 4.5rem;
@@ -150,8 +151,8 @@ ul {padding: 0;margin: 0;}
     border: 1px solid #fff;
     border-right: 0;
     color:hsl(0, 17%, 20%);
-   	font-size: 2rem;
-   	line-height: 5rem;
+    font-size: 2rem;
+    line-height: 5rem;
     cursor: default;
     -webkit-user-select: none;
     display: flex;
@@ -209,7 +210,7 @@ ul {padding: 0;margin: 0;}
     overflow-y: auto;
 }
 #historyBox .remove {
-	height: 28px;
+    height: 28px;
     background: hsl(0, 0%, 88%);
     text-align: right;
     box-sizing: border-box;
@@ -228,14 +229,14 @@ ul {padding: 0;margin: 0;}
     background-position: center center;
 }
 #historyBox .remove .icon_del:hover {
-    background-color: hsl(0, 0%, 88%);
+    background-color: #ccc;
 }
 #historyBox .remove .icon_del:active{
-	background-color: red;
+    background-color: red;
 }
 #historyBox ul {
-    padding: 5px 0;
-    color: hsl(0, 0%, 88%);
+    padding: 0 5px 0 5px;
+    color: hsl(0, 0%, 50%);
     font-size: 1rem;
 }
 #historyBox ul li {
@@ -245,7 +246,6 @@ ul {padding: 0;margin: 0;}
     font-size: 2.2rem;
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
     background: hsl(0, 0%, 95%);
-    padding: 0 10px;
     color: #000;
     overflow: auto;
 }
@@ -257,8 +257,8 @@ ul {padding: 0;margin: 0;}
 /*小屏*/
 @media (max-width: 500px){
     html {
-    	font-size: 80%;
-    	font-family:Helvetica;
+        font-size: 80%;
+        font-family:Helvetica;
     }
     #container {
         height: 100%;
@@ -279,7 +279,7 @@ ul {padding: 0;margin: 0;}
         border-top: 0;
     }
     #bottom .row span.cheng {
-    	font-size: 2.1rem;
+        font-size: 2.1rem;
     }
     #bottom .row span.zero {
         width: 50.1%;
