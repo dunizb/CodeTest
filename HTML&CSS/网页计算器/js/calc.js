@@ -303,9 +303,9 @@ function clickFunc(){
         resetMini();
     };
     //移动端Tap事件
-    $(topDiv).on("tap",function(){
-        resetMini();
-    });
+    //$(topDiv).on("tap",function(){
+    //    resetMini();
+    //});
     function resetMini(){
         var ts = calc.style.transform || calc.style.webkitTransform;
         if(ts || ts != "none"){
