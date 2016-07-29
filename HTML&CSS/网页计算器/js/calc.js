@@ -275,6 +275,7 @@ function clickFunc(){
                 + "<p>4. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
                 + "<p>5. 作者：dunizb，www.mybry.com版权所有</p>"
                 + "<p>6. bug与建议：ibing@outlook.com</p>"
+                + "<p><a href='http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.0.apk' target='_blank'>点击下载安卓APP</a></p>"
                 + "<p>※Build 1250. Version：3.2</p>"
                 + "</div>";
         }

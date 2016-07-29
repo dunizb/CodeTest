@@ -15,7 +15,7 @@
 <figure>
     <figcaption>视频播放器</figcaption>
     <div class="player">
-        <video src="./video/mv.mp4"></video>
+        <video id="myVideo" src="./video/mv.mp4"></video>
         <div class="controls">
             <!-- 播放/暂停 -->
             <a href="javascript:;" class="switch fa fa-play"></a>
@@ -36,6 +36,7 @@
         </div>
     </div>
 </figure>
+
 
 <script type="text/javascript">
     var video = document.querySelector("video");
@@ -90,6 +91,7 @@
 
     //播放完毕还原设置
     video.onended = function(){
+        var that = this;
         //切换播放按钮状态
         isPlay.classList.remove("fa-pause");
         isPlay.classList.add("fa-play");
@@ -98,7 +100,7 @@
         //还原当前播放时间
         currPlayTime.innerHTML = getFormatTime();
         //视频恢复到播放开始状态
-        video.currentTime = 0;
+        that.currentTime = 0;
     };
 
     function getFormatTime(time) {
