@@ -11,7 +11,7 @@
 
 ## 版本
 + [网页版](http://www.mybry.com/demo/javascript/%E7%AE%80%E6%98%93%E7%BD%91%E9%A1%B5%E8%AE%A1%E7%AE%97%E5%99%A8/)
-+ [下载安卓APP（v2.0。1）](http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.0.apk)
++ [下载安卓APP（v2.0.1）](http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.0.apk)
 
 ## 更新记录
 **2016-07-27**

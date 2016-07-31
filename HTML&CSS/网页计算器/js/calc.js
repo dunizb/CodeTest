@@ -2,6 +2,7 @@
  * Author： www.mybry.com:dunizb
  * Date：2016/7/14 0014.
  */
+window.version = "2.1.5";
 window.onload = function(){
     //点击功能
     clickFunc();
@@ -274,10 +275,13 @@ function clickFunc(){
                 + "<p>3. 移动APP使用HBuild构建</p>"
                 + "<p>4. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
                 + "<p>5. 作者：dunizb，www.mybry.com版权所有</p>"
-                + "<p>6. bug与建议：ibing@outlook.com</p>"
-                + "<p><a href='http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.0.apk' target='_blank'>点击下载安卓APP</a></p>"
+                + "<p id='updateApp'>检查新版本</p>"
+                + "<p id='downloadApp'><a href='http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.5.apk' target='_blank'>点击下载安卓APP</a></p>"
                 + "<p>※Build 1250. Version：3.2</p>"
                 + "</div>";
+
+            //检查新版本
+            updateApp();
         }
     };
 
@@ -285,7 +289,7 @@ function clickFunc(){
         var e = e || window.event;
         var target = e.target.className || e.target.nodeName;
         //如果点击的是历史记录DIV和删除按钮DIV就不隐藏
-        var notTarget =  {"con":"con","remove":"remove","UL":"UL"};
+        var notTarget =  {"con":"con","remove":"remove","UL":"UL","P":"P"};
         if(!notTarget[target]){
             //如果设置了最小化
             var ts = historyBox.style.transform || historyBox.style.webkitTransform;
@@ -304,12 +308,13 @@ function clickFunc(){
         resetMini();
     };
     //移动端Tap事件
-    //$(topDiv).on("tap",function(){
-    //    resetMini();
-    //});
+//  $(topDiv).on("tap",function(){
+//  	console.log("tap事件");
+//  	resetMini();
+//  });
     function resetMini(){
         var ts = calc.style.transform || calc.style.webkitTransform;
-        if(ts || ts != "none"){
+        if(ts && ts != "none"){
             calc.style.transform = 'none';
         }
     }
@@ -355,6 +360,44 @@ function clickFunc(){
             }
         }
         return false;
+    }
+
+
+}
+
+function updateApp(){
+    //检查新版本
+    var updateApp = document.getElementById("updateApp");
+    updateApp.onclick = function(){
+        var _this = this;
+        $.ajax({
+            type:'get',
+            url:'http://www.mybry.com/demo/app.php?jsoncallback=?',
+            dataType:'jsonp',
+            beforeSend : function(){
+                _this.innerHTML = "正在检查新版本...";
+            },
+            success:function(data){
+                var newVer = data[0].version;
+                if(newVer > version){
+                    var log = data[0].log;
+                    var downloadUrl = data[0].downloadUrl;
+                    if(confirm("检查到新版本，是否立即下载？\n 更新日志：\n " + log)){
+                        var a = document.getElementById("telPhone");
+                        a.href = downloadUrl;
+                        a.target = "_blank";
+                        a.click();
+                    }
+                }else{
+                    alert("你很潮哦，当前已经是最新版本！");
+                }
+                _this.innerHTML = "检查新版本";
+            },
+            error:function(msg){
+                _this.innerHTML = "检查新版本";
+                alert("检查失败："+msg);
+            }
+        });
     }
 }
 

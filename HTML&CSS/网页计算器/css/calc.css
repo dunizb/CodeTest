@@ -253,6 +253,15 @@ ul {padding: 0;margin: 0;}
     background:hsl(0, 0%, 88%);
 }
 
+#updateApp {
+    background-color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    display: none;
+}
+#downloadApp {
+
+}
 
 /*小屏*/
 @media (max-width: 500px){
@@ -284,4 +293,7 @@ ul {padding: 0;margin: 0;}
     #bottom .row span.zero {
         width: 50.1%;
     }
+
+    #updateApp {display: block;}
+    #downloadApp {display: none;}
 }
