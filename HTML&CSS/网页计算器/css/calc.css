@@ -47,7 +47,7 @@ ul {padding: 0;margin: 0;}
     position: relative;
     width: 100%;
     height: 30%;
-    text-shadow: 0 2px 1px rgba(0,0,0,0.2);
+    /*text-shadow: 0 2px 1px rgba(0,0,0,0.2);*/
 }
 #win-tool {
     background-color: #999;
@@ -110,7 +110,7 @@ ul {padding: 0;margin: 0;}
     color: #FFF;
     overflow: auto;
     box-sizing: border-box;
-    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
+    /*text-shadow: 0 2px 1px rgba(0,0,0,0.3);*/
     text-align: right;
 }
 #result > #express {
@@ -129,7 +129,7 @@ ul {padding: 0;margin: 0;}
     font-weight: 600;
     width: 100%;
     height: 70%;
-    text-shadow: 0 2px 1px rgba(0,0,0,0.3);
+    /*text-shadow: 0 2px 1px rgba(0,0,0,0.3);*/
 }
 #bottom .row {
     height: 20%;
