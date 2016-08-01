@@ -2,7 +2,7 @@
  * Author： www.mybry.com:dunizb
  * Date：2016/7/14 0014.
  */
-window.version = "2.1.5";
+window.version = "2.2.0";
 window.onload = function(){
     //点击功能
     clickFunc();
@@ -274,10 +274,10 @@ function clickFunc(){
                 + "<p>2. 该计算器布局使用Flex布局</p>"
                 + "<p>3. 移动APP使用HBuild构建</p>"
                 + "<p>4. 在APP上，当输入手机号码后长按等于号可以拨打手机号码</p>"
-                + "<p>5. 作者：dunizb，www.mybry.com版权所有</p>"
+                + "<p>5. 作者：dunizb，www.mybry.com</p>"
                 + "<p id='updateApp'>检查新版本</p>"
                 + "<p id='downloadApp'><a href='http://dunizb.b0.upaiyun.com/demo/app/myCalc-2.1.5.apk' target='_blank'>点击下载安卓APP</a></p>"
-                + "<p>※Build 1250. Version：3.2</p>"
+                + "<p>※Build 1300. Version："+ version +"</p>"
                 + "</div>";
 
             //检查新版本
@@ -382,7 +382,7 @@ function updateApp(){
                 if(newVer > version){
                     var log = data[0].log;
                     var downloadUrl = data[0].downloadUrl;
-                    if(confirm("检查到新版本，是否立即下载？\n 更新日志：\n " + log)){
+                    if(confirm("检查到新版本【"+newVer+"】，是否立即下载？\n 更新日志：\n " + log)){
                         var a = document.getElementById("telPhone");
                         a.href = downloadUrl;
                         a.target = "_blank";
@@ -455,4 +455,3 @@ function mSwiper(){
     });
 
 }
-
