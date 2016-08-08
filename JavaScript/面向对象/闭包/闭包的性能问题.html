@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包的性能问题</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var f = (function(){
+			var num = 123;
+			return function(){
+				return num;
+			}
+		})();
+		// f 引用着函数，函数引用着变量num
+		// 因此在不使用该数据的时候，最好写上
+		f = null;
+	</script>
+</html>

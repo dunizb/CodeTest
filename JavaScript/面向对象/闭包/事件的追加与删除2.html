@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件的追加与删除</title>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+	</body>
+	<script type="text/javascript">
+
+		var events = {
+			click:[],
+			mouseover:[],
+			keyup:[]
+		};
+		
+		var o = {
+			addEvent:function(dom,en,fn){
+				events[en].push(fn);
+				var funcs = events[en];
+				for(var i=0; i<funcs.length; i++){
+					dom.addEventListener(en,funcs[i]);
+				}
+			},
+			removeEvent:function(dom,en,fn){
+				if(fn && events[en].indexOf(fn)!=-1){
+					var index = events[en].indexOf(fn);
+					dom.removeEventListener(en,events[en][index]);
+					events[en].splice(index,1);
+				}
+			}
+		};
+		
+		o.addEvent(document.getElementById("div1"),'click',function(){
+			alert("sdasd");
+		});
+		o.addEvent(document.getElementById("div1"),'click',function(){
+			alert("123");
+		});
+		
+		o.addEvent(document.getElementById("div1"),'mouseover',function(){
+			console.log("1111111111111");
+		});
+		o.addEvent(document.getElementById("div1"),'mouseover',function(){
+			console.log("22222222222");
+		});
+		
+		var f = function(){
+			alert("456");
+		};
+		o.addEvent(document.getElementById("div1"),'click',f);
+		o.removeEvent(document.getElementById("div1"),'click',f);
+		
+		alert("over");
+	</script>
+</html>
