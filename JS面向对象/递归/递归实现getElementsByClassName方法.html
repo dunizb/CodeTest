@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>递归实现getElementsByClassName方法</title>
+	</head>
+	<body>
+		<div>
+			<div>1
+				<div class="c">2</div>
+				<div>3</div>
+			</div>
+			<div class="c">4</div>
+			<div>5
+				<div>6</div>
+				<div class="c">7</div>
+			</div>
+			<div>8</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/**
+		 * 1. 如果实现一个方法`byClass( node, 'c', list )`，表示在某个节点上查找符合 class 属性为 c 的元素
+		 * 2. 在当前元素的子元素中查找，如果有符合要求的吗，存储早一个数组中
+		 * 3. 首先遍历子节点，然后看子节点是否还有子节点，如果没有直接判断，如果有再递归
+		 */
+		function byClass( node,className,list ){
+			var nodes = node.childNodes;
+			for(var i=0 ; i <nodes.length; i++){
+				if(nodes[i].className == className){
+					list.push( nodes[i] );
+				}
+				if(nodes[i].childNodes.length > 0) {
+					byClass(nodes[i],className,list);
+				}
+			}
+		}
+		
+		var arr = [];
+		byClass( document.body, 'c', arr );
+		console.log(arr);
+	</script>
+</html>

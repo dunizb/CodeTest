@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>使用原型创建DIV</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+		function Tag(tagName){
+			this.DOM = document.createElement(tagName);
+		}
+		Tag.prototype.extend = function(o){
+			for ( var k in o ) {
+				this[ k ] = o[ k ];
+			}
+		}
+		Tag.prototype.extend({
+			appendTo:function(node){
+				node.appendChild(this.DOM);
+				return this;
+			},
+			css:function(options){
+				for(var k in options){
+					this.DOM.style[k] = options[k];
+				}
+				return this;
+			},
+			setUrl:function(type,val){
+				this.DOM[type] = val;
+				return this;
+			},
+			setContent:function(content){
+				this.DOM.innerHTML = content;
+				return this;
+			}
+		});
+		
+		// 创建DIV
+		new Tag("div").appendTo(document.body).css({
+			width: '200px',
+			height: '200px',
+			border: '1px solid red',
+			float: 'left'
+		}).setContent("<p>我是DIV</p>");
+		
+		//创建IMG
+		new Tag("img").appendTo(document.body)
+			.setUrl("src","img/1.jpg")
+			.css({
+				width:'450px',
+				height:'300px',
+				border:'1px solid green'
+			});
+		
+		//创建A
+		new Tag("a").appendTo(document.getElementsByTagName("div")[0])
+			.setUrl("href","http://www.mybey.com")
+			.setContent("欢迎观临我的博客！");
+
+		</script>
+	</body>
+
+</html>

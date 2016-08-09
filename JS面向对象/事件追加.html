@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件追加</title>
+	</head>
+	<body>
+		<input type="button" id="btn" value=" click " />
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById( 'btn' );
+
+		var events = {
+			click:[],
+			load:[],
+			keyup:[]
+		};
+		
+		function on( node,type ){
+			node["on"+type] = function( e ){
+				for(var i=0; i<events[type].length; i++){
+					events[type][i].apply( node, [e] );
+				}
+			};
+		}
+		
+		on(window,'load');
+		on(btn,'click');
+		
+		var obj = {
+			addEvent:function(node ,type ,fn){
+				if(node.nodeName == "INPUT"){
+					// button
+					events[type].push( fn );
+				}else{
+					//window
+					events[type].push( fn );
+				}
+			},
+			removeEvent:function(node ,type ,fn){
+				if(node.nodeName == "INPUT"){
+					var index;
+					if( (index = events[type].indexOf(fn)) !=-1 ){
+						events[type].splice(index,1);
+					}
+				}else{}
+			}
+		};
+		
+		obj.addEvent(window,'load',function(){
+			alert("开始");
+		});
+		
+		obj.addEvent(btn,'click',function(){
+			alert("我被点击了");
+		});
+		
+		function f(){
+			alert("我是有名字的函数");
+		}
+		obj.addEvent(btn,'click',f);
+		obj.removeEvent(btn,'click',f);
+	</script>
+</html>

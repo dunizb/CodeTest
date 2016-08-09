@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>潜拷贝</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var p = {
+			name : '张三',
+			age : 19,
+			gender : '男',
+			copy : function(){			//	将当前对象拷贝一份
+				var temp = {};			//	创建对象
+				for(var k in this){		//	复制属性
+					temp[k] = this[k];
+				}
+				return temp;			
+			}
+		};
+		
+		var p2 = p.copy();
+		p.name = '李四';
+		p.age = 20;
+		p.gender = '女';
+		
+		console.log(p);//Object {name: "李四", age: 20, gender: "女"}
+		console.log(p2);//Object {name: "张三", age: 19, gender: "男"}
+		</script>
+	</body>
+</html>

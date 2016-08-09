@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>深拷贝-复杂实现</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function clone(o) {
+			var temp = {};
+			for(var k in o){
+				if(typeof o[k] == 'object'){
+					temp[k] = clone( o[k] );
+				}else{
+					temp[k] = o[k];
+				}
+			}
+			return temp;
+		}
+		
+		var person1 = {
+			name: '张三',
+			children: [
+				{ name: '张一' },
+				{ name: '张二' },
+				{ name: '王三' }
+			]
+		};
+		
+		var person2 = clone(person1);
+		// 修改一个看另一个是否也修改
+		person2.name = '李四';
+		
+		person2.children[ 0 ].name = '王小虎';
+		person2.children[ 1 ].name = '张大虎';
+		person2.children[ 2 ].name = '李长虎';
+	</script>
+</html>

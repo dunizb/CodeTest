@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件的追加与删除</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var events = [];
+//
+//		window.onload = function(){
+//		    for( var i=0; i<events.length; i++ ){
+//		         events[ i ]();
+//		    }
+//		};
+//		
+//		var o = {
+//		    addEvent : function( fn ){
+//		         events.push( fn );
+//		    },
+//		    removeEvent: function( fn ){
+//		         // 查找，如果存在才移除，否则忽略 indexOf
+//		         var i = 0;
+//		         for( ; i < events.length; i++ ){
+//		             if( events[ i ] === fn ){
+//		             	break;
+//		             }
+//		         }
+//		         if( i != events.length ){
+//		              events.splice( i, 1 );
+//		         }
+//		    }
+//		};
+//		
+//		// 添加一个事件处理函数
+//		o.addEvent( function () {
+//		   alert( 123 );
+//		});
+//		 
+//		var f = function () {
+//		   alert( '可以被移除的函数' );
+//		};
+//		 
+//		o.addEvent( f );
+//		o.addEvent( function () {
+//		   alert( 456 );
+//		});
+//		o.removeEvent( f );
+//		alert( 'over' );
+
+		
+//		var events = [];
+//		
+//		window.onload = function(){
+//			for(var i=0; i <events.length; i++){
+//				events[i]();
+//			}
+//		}
+//		
+//		var o = {
+//			addEvent: function( fn ){
+//				events.push(fn);
+//			},
+//			removeEvent: function( fn ){
+//				for(var i=0; i<events.length; i++){
+//					if(events[i] == fn){
+//						evevts.splice(i,1);
+//					}
+//				}
+//			}
+//		};
+//		
+//		o.addEvent(function(){
+//			alert("123");
+//		});
+//		
+//		var f = function(){
+//			alert( '我将会被删除' );
+//		};
+//		o.removeEvent(f);
+//		
+//		o.addEvent(function(){
+//			alert("456");
+//		})
+//		
+//		alert("over");
+
+		var events = [];
+		
+		onload = function(){
+			for(var i=0; i<events.length; i++){
+				events[i]();
+			}
+		}
+		
+		var o = {
+			addEvent:function(fn){
+				events.push(fn);
+			},
+			removeEvent:function(fn){
+				if(events.indexOf(fn)!=-1){
+					events.splice(events.indexOf(fn),1);
+				}
+			}
+		};
+		
+		o.addEvent(function(){
+			alert("123");
+		});
+		
+		var f =function(){
+			alert('我被删除了');
+		};
+		o.removeEvent(f);
+		
+		o.addEvent(function(){
+			alert("456");
+		});
+		
+		alert("over");
+	</script>
+</html>

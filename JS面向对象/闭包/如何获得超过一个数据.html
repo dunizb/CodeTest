@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>如何获得超过一个数据</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function foo () {
+		    var num1 = Math.random();
+		    var num2 = Math.random();
+		    return {
+		        num1: function () {
+		            return num1;
+		        },
+		        num2: function () {
+		            return num2;
+		        }
+		    }
+		}
+		
+		var f = foo();
+		console.log(f.num1());
+		console.log(f.num2());
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//var func = new Function( 'a','b','console.log(a+b)');
+		//func(1,2);	// 3
+		
+		var func1 = new Function(
+			`
+				var args = arguments;
+				var sum = 0;
+				for(var i=0; i<args.length; i++){
+					sum += args[i];
+				}
+				console.log(sum);
+			`
+		);
+		func1(1,2,3,10,4);
+	</script>
+</html>

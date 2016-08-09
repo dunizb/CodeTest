@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用CSS实现：一个矩形内容，有投影，有圆角，hover状态慢慢变透明。</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 100px;
+				margin: 100px auto;
+				background-color: green;
+				border-radius: 5px;
+				box-shadow: 0 0 10px #000;
+				transition: all 1s;
+				opacity: 1;
+			}
+			div:hover {
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

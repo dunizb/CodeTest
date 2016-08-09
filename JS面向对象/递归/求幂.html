@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求幂</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function power( n , m){
+			if(m==1)return n;
+			return power(n, m-1) * n;
+		}
+		
+		console.log(power(2,3));	//8
+	</script>
+</html>

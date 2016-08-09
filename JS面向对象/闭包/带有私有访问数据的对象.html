@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>带有私有访问数据的对象</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function createName() {
+			var __name__ = "";
+			return {
+				getName: function(){
+					return __name__;
+				},
+				setName: function(value){
+					// 如果不姓张就报错
+					if(value.charAt(0) === '张'){
+						__name__ = value;
+					}else{
+						throw new Error('姓氏不对，不能取名' );
+					}
+				}
+			};
+		}
+		
+		var p = createName();
+		p.setName('张三丰');
+		console.log(p.getName());
+		
+		p.setName("李四");
+		console.log(p.getName());
+	</script>
+</html>

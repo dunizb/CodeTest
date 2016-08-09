@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>等差数列</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//练习: 求 1, 3, 5, 7, 9, ... 第 n 项的结果与前 n 项和. 序号从 0 开始
+		//1.首先假定递归函数已经写好, 假设是 fn. 那么 第 n 项就是 fn( n )
+		//2.找递推关系: fn( n ) == f( n - 1 ) + 2
+		//第N项
+		function fn( n ) {
+		    if ( n == 0 ) return 1;
+		    return fn( n-1 ) + 2;
+		}
+		console.log(fn(5));
+		//第N项的和
+		function sum( n ) {
+			if ( n == 0 ) return 1;
+			return sum( n ) + fn(n-1);
+		}
+		console.log(sum(5));
+		
+		//练习: 求 2, 4, 6, 8, 10, ... 第 n 项的结果与前 n 项和
+		//1.假设递归函数已经写好，假设是fn ，第n项就是fn(n)
+		//2.找递推关系：fn(n) == fn( n -1 ) +2
+		console.log("=========================");
+		//第n项
+		function fn(n){
+			if(n==1)return 2;
+			return fn(n-1)+2;
+		}
+		function sum(n){
+			if(n == 1)return 2;
+			return fn(n) + sum(n-1);
+		}
+		
+		console.log("第"+5+"项："+fn(5)+","+sum(5));
+	</script>
+</html>

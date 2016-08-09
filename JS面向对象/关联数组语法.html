@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关联数组语法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var o = {
+			name : '张三',
+			sayHello : function(){
+				console.log('你好，我是：'+this.name);
+			}
+		};
+		// 关联数组方式调用属性
+		console.log(o['name']);
+		// 关联数组方式调用方法
+		o['sayHello']();
+		
+		// for..in方式边遍历
+		for(var k in o){
+			if(typeof o[k] == 'function'){
+				o[k]();
+			}else{
+				console.log('log:'+o[k]);
+			}
+		}
+	</script>
+</html>
