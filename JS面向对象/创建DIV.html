@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建DIV</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function DivTag(){
+				this.DOM = document.createElement("div");
+				this.appendTo = function( node ){
+					node.appendChild(this.DOM);
+					return this;
+				};
+				this.css = function(options) {
+					for(var k in options){
+						this.DOM.style[k] = options[k];
+					}
+					return this;
+				}
+			}
+			
+//			function DivTag(){
+//				this.DOM = document.createElement("div");
+//				this.appendTo = function(node){
+//					node.appendChild(this.DOM);
+//					return this;
+//				},
+//				this.css = function(options){
+//					for(var k in options){
+//						this.DOM.style[k] = options[k];
+//					}
+//					return this;
+//				}
+//			}
+//			
+//			function DivTag(){
+//				this.DOM = document.createElement("div");
+//				this.appendTo = function(node){
+//					node.appendChild(this.DOM);
+//					return this;
+//				},
+//				this.css = function(options){
+//					for(var k in options){
+//						this.DOM.style[k] = options[k];
+//					}
+//					return this;
+//				}
+//			}
+
+			new DivTag().appendTo(document.body).css({
+				width:'200px',
+				height:'200px',
+				border:'1px solid red'
+			});
+		</script>
+	</body>
+</html>

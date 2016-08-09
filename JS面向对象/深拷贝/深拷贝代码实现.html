@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>深拷贝代码实现</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var deepCopy = function(){
+				//创建一个对象
+				var temp = {};
+				//判断属性是否是引用类型
+				for(var k in this){
+					if(typeof this[k] === 'object'){
+						temp[k] = this[k].deepCopy();	
+					}else{
+						temp[k] = this[k];
+					}
+				}
+				return temp;
+			};
+			
+			var car = {name:'法拉利'};
+			var p = {name:'张三',age:19,gender:'男',car:car};
+			
+			// 让所有对象都有拷贝方法
+			car.deepCopy = deepCopy;
+			p.deepCopy = deepCopy;
+			
+			var newP = p.deepCopy();
+			
+			p.name = '李四';
+			p.age = 20;
+			p.gender = '女';
+			p.car.name = '兰博基尼';
+			
+			console.log(p);	//Object {name: "李四", age: 20, gender: "女", car: Object}
+			console.log(newP);	//Object {name: "张三", age: 19, gender: "男", car: Object}
+		</script>
+	</body>
+</html>

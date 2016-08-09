@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DivTag</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var element = {
+			__init__:function( tagName ){
+				this.DOM = document.createElement( tagName );
+			},
+			appendTo:function( node ){
+				//如果传入的是DOM
+				if( node.nodeType ){
+					//DOM 元素
+					node.appendChild( this.DOM );
+				} else if( node.DOM ){
+					node.DOM.appendChild( this.DOM );
+				}
+				return this;
+			},
+			add:function( node ){
+				if( node.nodeType ){
+					this.DOM.appendChild( node );
+				} else if( node.DOM ){
+					this.DOM.appendChild( node.DOM );
+				}
+				return this;
+			},
+			html:function( str ){
+				this.DOM.innerHTML = str;
+				return this;
+			},
+			css:function( options ){
+				for(var k in options){
+					this.DOM.style[ k ] = options[ k ];
+				}
+				return this;
+			},
+			ce:function( tagName ){
+				this.DOM = document.createElement( tagName );
+				return this;
+			}
+		};
+		
+		function DivTag(){
+			this.ce("div");
+		}
+		DivTag.prototype = element;
+		function PTag(){
+			this.ce("p");
+		}
+		PTag.prototype = element;
+		
+		window.onload = function(){
+			new DivTag().html("我是DIV....")
+				.css({
+					border:'1px solid red',
+					width:'600px',
+					height:'200px'
+				})
+				.add(new PTag().html("我是P表情"))
+				.appendTo(document.body);
+		}
+	</script>
+</html>

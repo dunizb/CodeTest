@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>如何完成读取一个数据和修改这个数据</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function foo () {
+		    var num = Math.random();
+		    return {
+		        get_num : function () {
+		            return num;
+		        },
+		        set_num: function( value ) {
+		            return num = value;
+		        }
+		    }
+		}
+		
+		var f = foo();
+		console.log(f.get_num());
+		console.log(f.set_num(10));
+	</script>
+</html>

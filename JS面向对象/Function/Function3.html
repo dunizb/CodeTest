@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script id="code1">
+			/*
+			 
+			 
+			 
+			 
+			 
+			 */
+		</script>
+	</head>
+	<body>
+		<div id="code" style="display: none;">
+			var res = a > b ? a : b;
+			res = res > c ? res : c;
+			return res;
+			
+		</div>
+	</body>
+	<script>
+	
+		var txt = document.getElementById( 'code' ).lastChild.nodeValue;
+		
+		var func = new Function( 'a', 'b', 'c', txt );
+		
+		// document.getElementById( 'code' ).parentNode.removeChild( document.getElementById( 'code'  ))
+		
+	</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 利用混入, 可以让对象继承
+//		var Person = function () {
+//			
+//		};
+//		
+//		var extend = function ( o1, o2 ) {
+//			for ( var k in o2 ) {
+//				o1[ k ] = o2[ k ];
+//			}
+//		};
+//		
+//		extend( Person.prototype, {
+//			run: function () { console.log( '我能跑了' ); },
+//			eat: function () { console.log( '我可以吃了' ); },
+//			sayHello: function () { console.log( '我吃饱了' ); }
+//		});
+		
+		
+		
+		
+		
+		
+		
+		
+		// 改良
+		var Person = function () {};
+		
+		Person.prototype.extend = function ( o ) {
+			for ( var k in o ) {
+				this[ k ] = o[ k ];
+			}
+		};
+		
+		Person.prototype.extend({
+			run: function () { console.log( '我能跑了' ); },
+			eat: function () { console.log( '我可以吃了' ); },
+			sayHello: function () { console.log( '我吃饱了' ); }
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		var p1 = new Person();
+		var p2 = new Person();
+		
+		
+		p1.run();
+		p1.eat();
+		p1.sayHello();
+		
+		p2.run();
+		p2.eat();
+		p2.sayHello();
+		
+		
+	</script>
+</html>

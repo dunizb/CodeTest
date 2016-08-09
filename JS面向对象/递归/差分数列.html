@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>差分数列</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//差分数列:1, 1, 2, 4, 7, 11, 16, … 求 第 n 项, 求前 n 项和.
+		
+		//求第 n 项，从0开始
+		//1.假设已经得到结果 fn, fn( 10 ) 就是第 10 项
+		//2.找递推关系
+		//	第 0 项和第 1 项，相差0 => fn( 0 ) + 0 = fn( 1 )
+		//	第 1 项和第 2 项，相差1 => fn( 1 ) + 1 = fn( 2 )
+		//	第 2 项和第 3 项，相差2 => fn( 1 ) + 2 = fn( 2 )
+		//	…
+		//	第 n-1 项和第 n 项，相差n-1 => fn( n -1 ) + n -1 = fn( n )
+		
+		function fn( n ){
+			if( n == 0 ) return 1;
+			return fn( n -1 ) + n - 1;
+		}
+		console.log(fn(5));	//11
+		
+		//求第 n 项，从1开始
+		//假设已经得到结果 fn, fn( 10 ) 就是第 10 项
+		//	第 1 项和第 2 项，相差0 => fn( 1 ) + 0 = fn( 2 )
+		//	第 2 项和第 3 项，相差1 => fn( 2 ) + 1 = fn( 3 )
+		//	第 3 项和第 4 项，相差2 => fn( 3 ) + 2 = fn( 4 )
+		//	…
+		//	第 n-1 项和第第 n 项，相差 n - 1 => fn( n -1 ) + n -2 = fn( n )
+		//临界条件 n == 1 => 1
+		function fn1( n ) {
+			if( n == 1) return 1;
+			return fn1( n -1 ) + n - 2;
+		}
+		console.log(fn1(5));	//7
+		
+		//前n项和
+		function sum ( n ){
+			if( n == 0) return 1;
+			return sum( n - 1) + fn( n );
+		}
+		console.log(sum(5));	//26
+		
+	</script>
+</html>

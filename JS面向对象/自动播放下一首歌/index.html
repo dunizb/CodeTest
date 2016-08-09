@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自动播放下一首歌</title>
+		<style>
+			.h {background-color: yellow;}
+		</style>
+	</head>
+	<body>
+		<audio id="myAudio" src="" controls="controls" autoplay="autoplay"></audio>
+		<ul id="viewList">
+			
+		</ul>
+	</body>
+	<script>
+		var myAudio = document.getElementById("myAudio"),
+			viewList = document.getElementById("viewList");
+		
+		//MP3列表
+		var audioList = ['./res/Carpenters - Yesterday Once More.mp3','./res/Declan Galbraith - Tell Me Why.mp3','./res/Pure Music - 芦笙恋歌.mp3'];
+		//默认播放第一个音乐
+		var index = 0;
+		//显示列表
+		var html = "";
+		for(var i=0; i<audioList.length; i++){
+			html += "<li class=''>"+audioList[i]+"</li>";
+		}
+		viewList.innerHTML = html;
+		
+		//播放
+		var lis = viewList.children;
+		function play(index){
+			myAudio.src = audioList[index];
+			myAudio.index = index;
+					
+			for(var i=0; i<lis.length; i++){
+				lis[i].classList.remove("h");
+			}
+			lis[index].classList.add("h");
+		}
+		
+		play(index);
+		
+		//是否播放完毕
+		myAudio.onended = function(){
+			index++;
+			if(index == audioList.length){
+				index = 0;
+			}
+			if(index <= audioList.length){
+				play(index);
+			}
+			
+		};
+	</script>
+</html>

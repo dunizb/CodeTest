@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		var Person = function(name,age,gender){
+//			this.name = name;
+//			this.age = age;
+//			this.gender = gender;
+//			this.sayHello = function(){
+//				return "你好，我是："+this.name;
+//			}
+//		}
+//		
+//		var p = new Person("zhangsan",19,"man");
+//		
+		
+//		var Person = function(name,age,gender){
+//			this.name = name;
+//			this.age = age;
+//			this.gender = gender;
+//		}
+//		Person.prototype.sayHello = function(){
+//			return "你好，我是："+this.name;
+//		}
+//		
+//		var p = new Person("zhangsan",19,"man");
+//		var p2 = new Person();
+//		console.log(p.sayHello());
+//		console.log(p.sayHello === p2.sayHello);
+
+		var Student = function(name,age,gender){
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+		}
+		
+		Student.prototype.sayHello = function(){
+			return "你好，我是："+this.name;
+		}
+		Student.prototype.study = function(){
+			return "我正在学习JavaScript";
+		}
+		
+		var stu1 = new Student("zhangsan",19,"man");
+		console.log(stu1);
+		console.log(stu1.sayHello());
+		var stu2 = new Student("李四",20,"woman");
+		console.log(stu2);
+		console.log(stu2.study());
+	</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跳出多层循环</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [
+				[1,2,3,4],
+				[5,6,7,8],
+				[9,10,11,12]
+			];
+			
+			var i = 0;
+			var j = 0;
+			out:
+			for(i=0; i<arr.length; i++){
+				for(j=0; j<arr[i].length; j++){
+					if(arr[i][j] === 7){
+						break out;
+					}
+				}
+			}
+			console.log("行："+(i+1)+"，列："+(j+1));
+			
+		</script>
+	</body>
+</html>

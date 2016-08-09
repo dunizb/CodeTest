@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>深拷贝-简单实现</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function clone(o1,o2){
+			for (var k in o2) {
+				if(typeof o2[k] == 'object') {
+					o1[k] = {};
+					clone(o1[k],o2[k]);
+				}else{
+					o1[k] = o2[k];
+				}
+			}
+		}
+		
+		var person1 = {
+			name: '张三',
+			children: [
+				{ name: '张一' },
+				{ name: '张二' },
+				{ name: '王三' }
+			]
+		};
+		
+		var person2 = {};
+		
+		clone( person2, person1 );
+		
+		
+	</script>
+</html>

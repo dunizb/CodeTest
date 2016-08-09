@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM操作表格</title>
+		<style>
+			table {border-collapse: collapse;width: 50%;}
+			th {background-color: #B1E4FF;cursor: pointer;}
+			th:hover {background-color: #3B99E3;}
+		</style>
+		<script type="text/javascript">
+			//4*3的表格
+			
+			window.onload = function(){
+				var dataHead = ["序号","姓名","年龄","性别"];
+				var dataBody = [
+					{num:1,name:'张三1',age:18,gender:'man'},
+					{num:2,name:'张三2',age:19,gender:'man'},
+					{num:3,name:'张三3',age:20,gender:'man'},
+					{num:4,name:'张三4',age:21,gender:'woman'},
+					{num:5,name:'张三5',age:22,gender:'man'},
+					{num:6,name:'张三6',age:23,gender:'woman'}
+				];
+				
+				createTable(dataHead,dataBody);
+				
+				function createTable(dataHeads,dataBodys){
+					var paramCount = arguments.length;
+					if(paramCount < 2){
+						return false;
+					}
+					
+					var table = c("table");
+					var thead = c("thead");
+					var tbody = c("tbody");
+					
+					// 表头
+					var tr = c("tr");
+					for(var i=0; i<dataHeads.length; i++){
+						var th = c("th");
+						var txt = document.createTextNode(dataHeads[i]);
+						th.appendChild(txt);
+						tr.appendChild(th);
+					}
+					thead.appendChild(tr);
+					table.appendChild(thead);
+					
+					//表内容
+					for(var j=0; j<dataBodys.length; j++){
+						var tr = c("tr");
+						for(var k in dataBodys[j]){
+							var td = c("td");
+							var txt = document.createTextNode(dataBodys[j][k]);
+							td.appendChild(txt);
+							tr.appendChild(td);
+						}
+						tbody.appendChild(tr);
+					}
+					table.appendChild(tbody);				
+					
+					table.setAttribute("border","1");
+					document.body.appendChild(table);
+					
+					function c(tag){
+						return document.createElement(tag);
+					}
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

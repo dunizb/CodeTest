@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>阶乘</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//求 n 的阶乘
+		
+		function foo( n ){
+		    if( n == 1 ) return 1;
+		    return foo( n -1 ) * n; 
+		}
+		
+		console.log(foo(5));	//120
+	</script>
+	
+</html>
