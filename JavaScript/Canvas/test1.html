@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {border: 1px solid black;}
+		</style>
+	</head>
+	<body>
+		<canvas id="cas" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		//获得画布
+		var cas = document.getElementById("cas");
+		//获取工具
+		var ctx = cas.getContext("2d");
+		
+		ctx.moveTo(100,100);
+		
+		ctx.lineTo(200,200);
+		ctx.lineTo(200,100);
+		ctx.lineTo(400,100);
+		
+		ctx.stroke();
+	</script>
+</html>

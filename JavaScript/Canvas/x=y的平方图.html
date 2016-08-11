@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<title>Canvas绘图</title>
+	<style type="text/css">
+		canvas {border: 1px solid black;}
+	</style>
+    </head>
+    <body>
+	    <canvas id="cas" width="600" height="600"></canvas>
+    </body>
+    <script type="text/javascript">
+		//获得画布
+		var cas = document.getElementById("cas");
+		//获取工具
+		var ctx = cas.getContext("2d");
+		
+		ctx.moveTo(0,0);
+		var x,y;
+		for(var i=0; i<200; i++){
+			x = i;
+			y = (x/10) * (x/10);
+			
+			ctx.lineTo(x,y);
+		}
+		
+		ctx.stroke();
+    </script>
+</html>

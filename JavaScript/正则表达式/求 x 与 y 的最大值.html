@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求 x 与 y 的最大值</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//* 求 x 与 y 的最大值
+	    var data = [ [1, 2], [2, 3], [0, 4], [5, 8], [4,6] ];
+	    var resX=data.map(function (v,i) {
+	        return v[0];
+	    });
+	    console.log(Math.max.apply(null, resX));
+	    var resY=data.map(function (v,i) {
+	        return v[1];
+	    });
+	    Math.max.apply(null,resY);
+	</script>
+</html>

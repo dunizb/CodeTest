@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>将数字转换成RMB的形式</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//思路：先将数字转为字符， str= str + '' ;
+		//利用反转函数，每三位字符加一个 ','最后一位不加； re()是自定义的反转函数，最后再反转回去！
+		var num = 12345678;
+		
+		function convertRmb( num ){
+			var str = rev(num + "");
+			var temp = "";
+			for(var i=1; i<=str.length; i++){
+				temp  += str[ i - 1 ];
+				if(i % 3 == 0 && i != str.length){
+					temp += ",";
+				}
+			}
+			return rev(temp);
+		}
+		
+		function rev( str ){
+			return str.split("").reverse().join("");
+		}
+		
+		console.log(convertRmb(num));
+	</script>
+</html>
