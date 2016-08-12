@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式案例</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//案例1：var s = '今天的天气很好, 有 30 几度, 我都花了 10 块钱喝水, 打车花了 103 块钱, 买了一台电脑花了 9999 元.'
+		
+		var s = '今天的天气很好, 有 30 几度, 我都花了 10 块钱喝水, 打车花了 103 块钱, 买了一台电脑花了 9999 元.'
+		var r = /\d+/g;
+		
+		var arr = [],m;
+		while(m = r.exec( s )){
+			arr.push( m[0] );
+		}
+		console.log(arr);
+		
+	</script>
+</html>
