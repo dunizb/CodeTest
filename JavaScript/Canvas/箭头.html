@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="cas"></canvas>
+<script>
+    var cas=document.getElementById("cas");
+    var context=cas.getContext("2d");
+
+    context.moveTo(100,100);
+    context.lineTo(400,100);
+    context.lineTo(400,300);
+    context.lineTo(100,300);
+    context.closePath();
+    //100 150 200 300 350 400
+    context.moveTo(250,150);
+    context.lineTo(150,200);
+    context.lineTo(200,200);
+    context.lineTo(200,250);
+    context.lineTo(300,250);
+    context.lineTo(300,200);
+    context.lineTo(350,200);
+    context.closePath()
+    context.fill()
+
+
+</script>
+</body>
+</html>

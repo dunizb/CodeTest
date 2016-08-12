@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="cas"></canvas>
+<script>
+    var cas=document.getElementById("cas");
+    var context=cas.getContext("2d");
+
+    var start=44;
+    context.lineWidth=50
+    for(var i=0;i<256;i++){
+        context.beginPath();
+
+        context.moveTo(start,100);
+        context.strokeStyle="rgb("+i+","+(256-i)+",0)";
+        context.lineTo(start=44+i*2,100);
+        context.stroke();
+    }
+
+
+</script>
+</body>
+</html>

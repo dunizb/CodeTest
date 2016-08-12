@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            canvas {
+                border: 1px solid black;
+            }   
+        </style>
+    </head>
+    <body>
+        <canvas width="600" height="400" id="cas"></canvas>
+    </body>
+    <script>
+        // 首先要获得画布( 工具 )
+        var cas = document.getElementById( 'cas' );
+        // 调用方法获得 绘图工具
+        var ctx = cas.getContext( '2d' );
+        
+        
+        var x = 100, y = 100;
+        var width = 100;
+        
+        var stepX = parseInt(4 * Math.random() + 1), 
+			stepY = parseInt(4 * Math.random() + 1);
+        
+        var xi = 1, yi = 1;
+        
+        setInterval(function () {
+        	// 应该是将上一次绘制的内容清除, 再来绘制新的
+        	ctx.clearRect( 0, 0, cas.width, cas.height );  // 清除整个画布
+        	
+        	ctx.fillRect( x, y, width, width );
+        	
+        	if ( x >= cas.width - width || x <= 0) {
+        		xi = -1 * xi;
+        	}
+        	if ( y >= cas.height - width || y <= 0) {
+        		yi = -1 * yi;
+        	}
+        	
+        	
+        	x += stepX * xi;
+        	y += stepY * yi;
+        	
+        }, 20); // 1000, 50Hz, 16.67
+        
+        
+    </script>
+</html>

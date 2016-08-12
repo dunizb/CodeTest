@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<title>绘制扇形|Canvas绘图</title>
+	<style type="text/css">
+		canvas {border: 1px solid black;}
+	</style>
+    </head>
+    <body>
+	    <canvas id="cas" width="600" height="600"></canvas>
+    </body>
+    <script type="text/javascript">
+		//获得画布
+		var cas = document.getElementById("cas");
+		//获取工具
+		var ctx = cas.getContext("2d");
+		
+		function to_弧度(angle){
+			return angle * Math.PI / 180;
+		}
+		
+		//绘制一个-75到+45的扇形
+		var x = cas.width / 2,
+			y = cas.height / 2,
+			r = 100;
+		
+		ctx.moveTo(x, y);
+		ctx.arc(x, y ,r , to_弧度(-75), to_弧度(45));
+		ctx.closePath();
+		
+		ctx.stroke();
+    </script>
+</html>

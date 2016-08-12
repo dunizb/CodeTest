@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="cas"></canvas>
+<script>
+    var cas=document.getElementById("cas");
+    var context=cas.getContext("2d");
+    //context.moveTo(0,0);
+    //context.lineTo(400,200);
+    //context.stroke()
+/*
+    context.moveTo(100,100);
+    context.lineTo(200,200);
+    context.lineTo(200,100);
+    context.lineTo(400,100);
+    context.stroke()
+*/
+
+    context.moveTo(0,200)
+    var x,y;
+    for(var i = 0 ;i <= 120; i++){
+        x=i;
+        y=Math.sin(x/10)*100+200;
+        context.lineTo(x*5,y)
+    }
+    context.stroke();
+</script>
+</body>
+</html>

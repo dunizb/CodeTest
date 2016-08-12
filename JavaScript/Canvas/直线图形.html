@@ -1,38 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-	<meta charset="UTF-8">
-	<title>直线图形|Canvas绘图</title>
-	<style type="text/css">
-		canvas {border: 1px solid black;}
-	</style>
-    </head>
-    <body>
-	    <canvas id="cas" width="600" height="600"></canvas>
-    </body>
-    <script type="text/javascript">
-		//获得画布
-		var cas = document.getElementById("cas");
-		//获取工具
-		var ctx = cas.getContext("2d");
-		
-		ctx.moveTo(100-4,100-4);
-		ctx.lineTo(104,96);
-		ctx.lineTo(104,104);
-		ctx.lineTo(96,104);
-		ctx.closePath();
-		ctx.fill();
-		
-		ctx.beginPath();
-		ctx.setLineDash([5]);
-		ctx.moveTo(100,100);
-		ctx.lineTo(100,0);
-		ctx.stroke();	//描边
-		
-		ctx.beginPath();
-		ctx.setLineDash([5]);
-		ctx.moveTo(100,100);
-		ctx.lineTo(0,100);
-		ctx.stroke();
-    </script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="cas"></canvas>
+<script>
+    var cas=document.getElementById("cas");
+    var context=cas.getContext("2d");
+
+    context.moveTo(50,50)
+    context.lineTo(100,50)
+    context.lineTo(100,100)
+    context.lineTo(50,100)
+    context.lineTo(50,50)
+
+
+    context.moveTo(150,50);
+    context.lineTo(200,100);
+    context.lineTo(150,100);
+    context.lineTo(150,50);
+
+    context.moveTo(250,50)
+    context.lineTo(275,50)
+    context.lineTo(300,100)
+    context.lineTo(250,100)
+    context.lineTo(250,50)
+    context.stroke();
+
+    context.beginPath()
+    context.moveTo(50,150);
+    context.lineTo(100,150)
+    context.lineTo(100,200);
+    context.lineTo(50,200);
+    context.closePath()
+
+
+    context.moveTo(150,150);
+    context.lineTo(200,200);
+    context.lineTo(150,200);
+    context.closePath()
+
+    context.moveTo(250,150)
+    context.lineTo(275,150)
+    context.lineTo(300,200)
+    context.lineTo(250,200)
+    context.closePath()
+    context.fill()
+
+</script>
+</body>
 </html>
