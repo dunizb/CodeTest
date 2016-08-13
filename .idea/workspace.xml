@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="" />
+    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="">
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\test1.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\x=y的平方图.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\三角函数.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\渐变.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\画圆弧.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\直线图形.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\移动的方块.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\箭头.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\绘制扇形.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\网格.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\随机折线图.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\test1.html" afterPath="$PROJECT_DIR$/Canvas/test1.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\x=y的平方图.html" afterPath="$PROJECT_DIR$/Canvas/x=y的平方图.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\三角函数.html" afterPath="$PROJECT_DIR$/Canvas/三角函数.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\渐变.html" afterPath="$PROJECT_DIR$/Canvas/渐变.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\画圆弧.html" afterPath="$PROJECT_DIR$/Canvas/画圆弧.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\直线图形.html" afterPath="$PROJECT_DIR$/Canvas/直线图形.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\移动的方块.html" afterPath="$PROJECT_DIR$/Canvas/移动的方块.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\箭头.html" afterPath="$PROJECT_DIR$/Canvas/箭头.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\绘制扇形.html" afterPath="$PROJECT_DIR$/Canvas/绘制扇形.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\网格.html" afterPath="$PROJECT_DIR$/Canvas/网格.html" />
+      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\随机折线图.html" afterPath="$PROJECT_DIR$/Canvas/随机折线图.html" />
+    </list>
     <ignored path="CodeTest.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,8 +115,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -121,30 +143,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="移动Web&amp;响应式" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wjs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CodeTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CodeTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="移动Web&amp;响应式" />
+              <option name="myItemId" value="Canvas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,6 +170,9 @@
       <recent name="E:\CodeTest\HTML&amp;CSS\网页计算器" />
       <recent name="E:\CodeTest\HTML&amp;CSS" />
       <recent name="E:\CodeTest\HTML&amp;CSS\网页计算器\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CodeTest" />
     </key>
   </component>
   <component name="RunManager">
@@ -419,13 +428,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/css/calc.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -782,6 +784,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Canvas/渐变.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
