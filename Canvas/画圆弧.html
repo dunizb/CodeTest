@@ -28,10 +28,9 @@
 			if(deg > 720){
 				//return false;
 			}
-			ctx.arc(cas.width/2, cas.height/2, deg, 
+			ctx.arc(cas.width/2, cas.height/2, deg,
 			to_弧度(deg+180), to_弧度(deg));
-			
-			//ctx.strokeStyle = "rgb("+deg/3+","+deg/2+","+deg+")";
+
 			ctx.stroke();
 			
 		},100);

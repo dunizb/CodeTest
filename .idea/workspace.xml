@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\test1.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\x=y的平方图.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\三角函数.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\渐变.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\画圆弧.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\直线图形.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\移动的方块.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\箭头.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\绘制扇形.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\网格.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\Canvas\随机折线图.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\test1.html" afterPath="$PROJECT_DIR$/Canvas/test1.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\x=y的平方图.html" afterPath="$PROJECT_DIR$/Canvas/x=y的平方图.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\三角函数.html" afterPath="$PROJECT_DIR$/Canvas/三角函数.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\渐变.html" afterPath="$PROJECT_DIR$/Canvas/渐变.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\画圆弧.html" afterPath="$PROJECT_DIR$/Canvas/画圆弧.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\直线图形.html" afterPath="$PROJECT_DIR$/Canvas/直线图形.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\移动的方块.html" afterPath="$PROJECT_DIR$/Canvas/移动的方块.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\箭头.html" afterPath="$PROJECT_DIR$/Canvas/箭头.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\绘制扇形.html" afterPath="$PROJECT_DIR$/Canvas/绘制扇形.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\网格.html" afterPath="$PROJECT_DIR$/Canvas/网格.html" />
-      <change type="MOVED" beforePath="E:\CodeTest\JavaScript\Canvas\随机折线图.html" afterPath="$PROJECT_DIR$/Canvas/随机折线图.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Canvas/画圆弧.html" afterPath="$PROJECT_DIR$/Canvas/画圆弧.html" />
     </list>
     <ignored path="CodeTest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +26,28 @@
     <favorites_list name="CodeTest" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="绘制扇形.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Canvas/绘制扇形.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.83871">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Canvas/test1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35135135">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,6 +76,7 @@
         <option value="$PROJECT_DIR$/HTML&amp;CSS/网页计算器/css/calc.css" />
         <option value="$PROJECT_DIR$/HTML&amp;CSS/网页计算器/index.html" />
         <option value="$PROJECT_DIR$/HTML&amp;CSS/网页计算器/README.md" />
+        <option value="$PROJECT_DIR$/Canvas/画圆弧.html" />
       </list>
     </option>
   </component>
@@ -352,7 +353,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470667222604</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="跟换目录">
+      <created>1471054068949</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1471054068949</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -366,26 +373,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20864381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="565" y="60" width="236" height="617" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20864381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="565" y="60" width="236" height="617" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46515396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -419,7 +426,8 @@
     <MESSAGE value="新闻入口链接" />
     <MESSAGE value="readme" />
     <MESSAGE value="面向对象" />
-    <option name="LAST_COMMIT_MESSAGE" value="面向对象" />
+    <MESSAGE value="跟换目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="跟换目录" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -428,27 +436,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/css/calc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="22" selection-start-line="194" selection-start-column="22" selection-end-line="194" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/js/calc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="45" selection-start-line="77" selection-start-column="45" selection-end-line="77" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/css/calc.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -791,6 +778,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Canvas/绘制扇形.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.83871">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Canvas/画圆弧.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9081081">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Canvas/test1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35135135">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding />
         </state>
       </provider>
