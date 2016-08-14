@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        * {padding:0;margin: 0;}
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="cas" width="800" height="600" ></canvas>
+<p>提示：按W、S、D、A进行移动，空格停止，Shift+？发射子弹</p>
+<script type="text/javascript">
+    var cas = document.getElementById("cas");
+    var ctx = cas.getContext("2d");
+
+    var casWidth = cas.width;
+    var casHeight = cas.height;
+
+    //初始化图片
+    var img = new Image();
+    img.src = '士兵.png';
+    var width,height;   //图片的宽度高度
+    var activeWidth,activeHeight;  //可移动高度宽度
+
+    var timerId = null;
+    var px = 0,py = 0,direImg = 0;
+
+    //初始化士兵坐标
+    init();
+
+    function init(){
+        img.onload = function(){
+            width = img.width / 4;
+            height = img.height / 4;
+            activeWidth = casWidth - width;
+            activeHeight = casHeight - height;
+
+            var numX = px = Math.floor((Math.random() * casWidth) - width);
+            var numY = py = Math.floor((Math.random() * casHeight) - height);
+            ctx.drawImage( img, 0, 0, width, height, numX, numY, width, height );
+        };
+    }
+
+    //士兵移动动画
+    function move(direction){
+        var i = 0;
+        img.timerId = setInterval(function () {
+            //清除士兵
+            ctx.clearRect( px, py, width, height );
+
+            if(direction == "left"){
+                px -= 10;
+                direImg = 70;
+            }else if(direction == "right"){
+                px += 10;
+                direImg = 140;
+            }else if(direction == "bottom"){
+                py += 10;
+                direImg = 0;
+            }else if(direction == "top"){
+                py -= 10;
+                direImg = 210;
+            }
+            //如果到达画布边缘不再移动
+            if( px > activeWidth) px = activeWidth;
+            if( px < 0 ) px = 0;
+            if( py > activeHeight) py = activeHeight;
+            if( py < 0 ) py = 0;
+
+            //ctx.drawImage( img, width * (i++ % 4),0, width, height, x, 0, width, height );
+            ctx.drawImage( img, width * (i++ % 4),direImg, width, height, px, py, width, height );
+        }, 200 );
+    }
+
+    //发射子弹
+    var bulletTimerId = null;
+    function sendBullet(direction){
+        var mx = 0, my = 0;
+        mx = px;
+        my = py;
+        var options = {
+            bulletWidth: 4,
+            bulletHeight: 4,
+            color: "red"
+        };
+
+        if(direImg == 140 ){      //向右
+            options.marginX = 50;
+            options.marginY = 20;
+            options.bwmx = 38;
+            options.bwmy = 18;
+
+            bulletTimerId = setInterval(function(){
+                options.mx = mx;
+                options.my = my;
+
+                if(mx < casWidth){
+                    bullet(options);
+                    mx += 8;
+                }
+            },100);
+        }else if(direImg == 70){    //向左
+            options.marginX = 0;
+            options.marginY = 25;
+            options.bwmx = 5;
+            options.bwmy = 22;
+
+            bulletTimerId = setInterval(function(){
+                options.mx = mx;
+                options.my = my;
+
+                if(mx < casWidth){
+                    bullet(options);
+                    mx -= 8;
+                }
+            },100);
+        }else if(direImg == 210){   //向下
+            options.marginX = 25;
+            options.marginY = 0;
+            options.bwmx = 23;
+            options.bwmy = 5;
+
+            bulletTimerId = setInterval(function(){
+                options.mx = mx;
+                options.my = my;
+
+                if(my < casHeight){
+                    bullet(options);
+                    my -= 8;
+                }
+            },100);
+        }else if(direImg == 0){     //向上
+            options.marginX = 25;
+            options.marginY = 50;
+            options.bwmx = 23;
+            options.bwmy = 40;
+
+            bulletTimerId = setInterval(function(){
+                options.mx = mx;
+                options.my = my;
+
+                if(my < casHeight){
+                    bullet(options);
+                    my += 8;
+                }
+            },100);
+        }
+    }
+
+    //生成子弹
+    function bullet( options ){
+        ctx.clearRect( options.mx+options.bwmx, options.my+options.bwmy, 8, 8 );
+        ctx.fillStyle = options.color;
+        ctx.fillRect(options.mx+options.marginX,options.my+options.marginY,
+                options.bulletWidth,options.bulletHeight);
+    }
+
+    //点击方向键盘
+    window.onkeypress = function(e){
+        e = e || window.event;
+        var key = e.keyCode;
+        var direction = getDirection( key );
+        if(direction) {
+            if (img.timerId) {
+                clearInterval(img.timerId);
+            }
+            move(direction);
+        }
+
+        //按住shift发射子弹
+        if(e.shiftKey) {
+            if(key == 63) sendBullet(direction);
+        }
+
+    }
+
+    window.onkeyup = function(e){
+        e = e || window.event;
+        var direction = getDirection( e.keyCode );
+
+        if(direction){
+//            if(img.timerId){
+//                clearInterval(img.timerId);
+//            }
+        }
+    };
+
+    //获取方向字符串
+    function getDirection( keyCode ){
+        //上：38，右:39，下:40，左:37
+        switch (keyCode) {
+            case 97:
+                return "left";
+            case 119:
+                return "top";
+            case 100:
+                return "right";
+            case 115:
+                return "bottom";
+            case 32:
+                return "space";
+            default :
+                return false;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400" id="cas"></canvas>
+
+<script type="text/javascript">
+    var cas = document.getElementById("cas");
+    var ctx = cas.getContext("2d");
+
+    var x = 10, y = 10, oldx = 10, oldy = 0;
+    var width = 100, height = 50;
+    var intervalId = setInterval(function () {
+        ctx.clearRect( oldx - 1, oldy - 1, width + 2, height + 2 );
+
+        ctx.strokeRect( x, y, width, height );
+
+        oldx = x;
+        oldy = y;
+
+        x += 4;
+        //y += 2;
+
+        if ( oldy >= 200 ) {
+            // clearInterval( intervalId );
+            x = 10, y = 10;
+        }
+    }, 20);
+</script>
+</body>
+</html>
