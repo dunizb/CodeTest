@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			document.querySelectorAll = 123;
+			
+		</script>
+		<script src="./select.js"></script>
+	</head>
+	<body>
+		<div id="dv">123</div>
+		<p>pppp</p>
+		<div class="c">456</div>
+		<p>pppp</p>
+		<div>789</div>
+	</body>
+	<script>
+		
+		var list = Select( '#dv , .c    ,   p' );
+		
+		for ( var i = 0; i < list.length; i++ ) {
+			list[ i ].style.border = '1px dashed blue';
+		}
+		
+	</script>
+</html>

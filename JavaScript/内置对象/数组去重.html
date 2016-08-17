@@ -67,8 +67,16 @@
         return res;
     }
     //console.log(unique2(arr));
-
-
+	
+	function unique3( array ){
+		var tempArray = [];
+		for(var i=0; i<array.length; i++){
+			if(tempArray.indexOf(array[i]) == -1){
+				tempArray.push( array[i] );
+			}
+		}
+		return tempArray;
+	}
 </script>
 </body>
 </html>

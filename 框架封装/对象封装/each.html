@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>each封装</title>
+		<script src="common.js"></script>
+	</head>
+	<body>
+		<div>123</div>
+		<div>456</div>
+		<img src="" alt="123" />
+		<a href="">aaaa</a>
+		<p>123</p>
+		<p>123</p>
+		<span>span</span>
+	</body>
+	<script type="text/javascript">
+		
+		it.each( it.selects( 'div,p' ),function(){
+			this.style.border = "1px solid red";
+		});
+		
+	</script>
+</html>

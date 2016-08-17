@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02-后代元素选择器测试</title>
+		<script>
+			document.querySelectorAll = 123;
+			
+		</script>
+		<script src="./select.js"></script>
+		
+	</head>
+	<body>
+		<div>
+			<div class="c">123
+				<div class="c">789
+					<p>abc</p>
+					<p class="c">def</p>
+				</div>
+			</div>
+			<p class="c">456</p>
+		</div>
+	</body>
+	<script>
+		
+		// var list = Select( 'div .c' );
+		
+		var list = Select( 'div .c' );
+		
+	</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试selet函数</title>
+		<script>
+			document.querySelectorAll = 123;
+			
+		</script>
+		<script src="./select.js"></script>
+	</head>
+	<body>
+		<div id='dv'>123</div>
+		<p>pppppp</p>
+		<div class="c">456</div>
+		<p>pppppp</p>
+		<div class="c1">789</div>
+		<p>pppppp</p>
+		<div class="c1 c c2">012</div>
+	</body>
+	<script>
+		var list1 = Select( '#dv' );
+		var list2 = Select( '.c' );
+		var list3 = Select( 'div' );
+		var list4 = Select( '*' );
+		
+		// var list5 = Select( 'div, #p' );
+		
+	</script>
+</html>

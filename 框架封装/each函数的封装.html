@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>each函数的封装</title>
+		<script>
+			document.querySelectorAll = 123;
+		</script>
+		<script src="./select.js"></script>
+	</head>
+	<body>
+		<p>ppppp</p>
+		<p>ppppp</p>
+		<p>ppppp</p>
+		<p>ppppp</p>
+		<p>ppppp</p>
+	</body>
+	<script type="text/javascript">
+		// 什么是 抽象性?
+		// 面向对象中有一个概念, 鸭子辨型. 如果给定一个事物, 它像鸭子一样的走路, 叫, ...
+		// 那么它就是一只鸭子.
+		
+		// 在 js 中所谓数组, 不一定就是真正的数组, 伪数组也是数组
+		// 可以说只要含有 length 属性, 并且不为 负数的 对象就可以是数组
+		function isLikeArray( obj ){
+			return obj.length >= 0;
+		}
+		
+		function each( array, callback ){
+			if( array.length >= 0 ){
+				//数组、伪数组
+				for (var i=0; i<array.length; i++) {
+					if(callback.call( array[ i ] , i, array [ i] ) === false ){
+						break;
+					}
+				}
+			}else{
+				// 对象
+				for( var k in array){
+					if(callback.call( array [ k] ,k , array[ k ]) ===false ){
+						break;
+					}
+				}
+			}
+			
+			return array;
+		}
+		
+		each( Select('p'),function(){
+			this.style.border = '1px dashed red';
+		});
+		
+		var o = { name: 'jim', age: 19, gender: '男' };
+		each( o, function ( k, v ) {
+			console.log( this );
+			console.log( k + ', ' + v );
+			console.log( '---------------------------' );
+		});
+	</script>
+</html>

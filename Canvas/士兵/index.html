@@ -122,7 +122,7 @@
                     mx -= 8;
                 }
             },100);
-        }else if(direImg == 210){   //向下
+        }else if(direImg == 210){   //向上
             options.marginX = 25;
             options.marginY = 0;
             options.bwmx = 23;
@@ -137,7 +137,7 @@
                     my -= 8;
                 }
             },100);
-        }else if(direImg == 0){     //向上
+        }else if(direImg == 0){     //向下
             options.marginX = 25;
             options.marginY = 50;
             options.bwmx = 23;
@@ -181,17 +181,6 @@
         }
 
     }
-
-    window.onkeyup = function(e){
-        e = e || window.event;
-        var direction = getDirection( e.keyCode );
-
-        if(direction){
-//            if(img.timerId){
-//                clearInterval(img.timerId);
-//            }
-        }
-    };
 
     //获取方向字符串
     function getDirection( keyCode ){
