@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>apply转换数组</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	/*
+		var a = {};
+		a[ 0 ] = 'a'; 
+		a[ 1 ] = 'b';
+		a.length = 2;
+		
+		// 数组自带的方法 concat
+		// 语法: arr.concat( 1, 2, 3, [ 4, [ 5 ] ] );
+		// 特点不修改原数组
+		
+		var arr = [];
+		//var newArr = arr.concat( a ); // 如果是伪数组放到这里 无效
+		
+		var newArr = Array.prototype.concat.apply( arr, a );
+		
+		// 该调用实际上利用了 apply 可以将第二个参数, 伪数组展开的方式使用参数
+		// 而算法上还是希望将 伪数组中的每一个元素, 与当前数组合并, 返回新数组
+		// 由于当前数组中什么东西都没有, 因此相当于将 伪数组 转换为 数组
+	*/
+	
+	// push实现
+	/*
+	var a = { length: 0 }; // 伪数组
+	a[ a.length++ ] = 'abc'; // a[ 0 ] = 'abc'; a.length++;
+	a[ a.length++ ] = 'def';
+	
+	// 使用一个空数组, 将元素一个个放到数组中即可
+	var arr = [];
+	// arr.push( a ); // 此时不会将元素展开, 而是将这个伪数组作为一个元素加到数组中
+	// 再次利用 apply 可以展开伪数组的特征
+	arr.push.apply( arr, a );
+	*/
+	
+	// unshift
+	/*
+	var a = { length: 0 }; // 伪数组
+	a[ a.length++ ] = 'abc'; // a[ 0 ] = 'abc'; a.length++;
+	a[ a.length++ ] = 'def';
+	
+	var arr = [];
+	
+	arr.unshift.apply( arr, a );
+	*/
+	
+	var a = { length: 0 };
+	a[ a.length++ ] = 'abc';
+	a[ a.length++ ] = 'def';
+	a[ a.length++ ] = '123';
+	a[ a.length++ ] = '王钢蛋';
+	a[ a.length++ ] = '456';
+	
+	
+	// 假设他是一个数组, 就是应该 从 0 项开始截取到 最后
+	// 如果可以的话, 应该 a.slice( 0 )
+	// 但是他没有该方法
+	// 借用 数组的 slice, 将 this 转换成 这个伪数组
+	
+	var arr = [];
+	// var newArr = arr.slice.apply( a, [ 0 ] );
+	// 在使用的时候 为了简单也可以不传递第二个参数
+	// var newArr = arr.slice.call( a );
+	
+	// var newArr = arr.splice.call( a, 0 );
+	
+	</script>
+</html>

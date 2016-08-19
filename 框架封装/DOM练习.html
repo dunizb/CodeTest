@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM练习</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function parseHTML( str ){
+			var node = document.createElement("div");
+			node.innerHTML = str;
+			var arr = [];
+			arr.push.apply( arr, node.childNodes );
+			return arr;
+		}
+		
+		// 创建DIV
+		var div = parseHTML("<div style='width:100px;height:50px;border:1px solid red;'>123</div>");
+		document.body.appendChild(div[0]);
+		
+		//创建UL列表
+		/*
+		var ul = parseHTML(`
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		`);
+		for(var i=0; i<ul.length; i++){
+			document.body.appendChild( ul[i] );
+		}	
+		*/
+		var data = ['Canvas','PHP','JavaScript','NodeJS'];
+		var html = "<ul><li>" + data.join("</li><li>") + "</li></ul>";
+		document.body.appendChild( parseHTML( html )[0] );
+	</script>
+</html>
