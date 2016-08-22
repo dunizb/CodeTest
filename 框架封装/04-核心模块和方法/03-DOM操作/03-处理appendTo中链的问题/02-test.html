@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				border: 1px dashed red;
+				margin: 10px 0;
+				padding: 10px;
+				width: 200px;
+				height: 50px;
+			}
+			p {
+				border: 1px dotted blue;
+				padding:0;
+				margin: 0;
+			}
+		</style>
+		<script src="itcast.js"></script>
+		<script>
+			
+			Itcast.fn.extend({
+				
+				appendTo: function ( selector ) {
+					var iObj = this.constructor( selector);
+					var tObj;
+					// 创建一个新对象，用于构成链的变化
+					var newObj = this.constructor();
+					//两个伪数组
+					var arr = [];
+					for(var i=0; i<iObj.length; i++){
+						for (var j=0; j< this.length; j++) {
+							tObj = 1=== iObj.length -1
+									? this[ j ]
+									: this[ j ].cloneNode( true );
+							// 此时如果 i === iObj.length - 1 那么就不克隆
+							// 换句话说 凡是 不等于就是克隆
+							// 如果克隆就加到this 中
+							// this[ this.length++ ] = tObj;
+							if( i != iObj.length - 1 ){
+								arr.push( tObj );
+							}
+							
+							iObj[ i ].appendChild( tObj );
+						}
+					}
+					
+					[].push.apply( this, arr );
+					
+					//此时，在该函数中，其实有两个Itcast对象。
+					//一个是 源来的没有改变链的对象，一个事新的具有克隆元素和没有克隆元素的对象
+					
+					newObj.pre = this;
+					
+					return newObj;
+				},
+				
+				end: function(){
+					return this.pre || this; //恢复链
+				},
+				
+				append: function( selector){
+					this.constructor( selector).appendTo( this );
+					return this;
+				}
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>7</div>
+	</body>
+	<script>
+//		var i1 = I( '<p>p1</p><p>p2</p>' );
+//		
+//		var i2 = i1.appendTo( 'div' );
+
+		I( 'div' ).eq( 1 ).each( function () {
+			this.style.border = '1px solid green';
+		}).end().each(function () {
+			this.style.backgroundColor = 'yellow';
+		});
+		
+		
+	</script>
+</html>

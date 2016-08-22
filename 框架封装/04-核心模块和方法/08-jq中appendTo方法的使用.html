@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08-jq中appendTo方法的使用</title>
+		<style>
+			div , p {
+				border: 1px dashed red;
+				padding: 10px;
+				
+			}
+			
+			div {
+				width: 400px;
+				height: 100px;
+				margin: 10px 0;
+			}
+			
+		</style>
+		<script src="../jquery/jquery-1.12.0/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+//		使用 jq 中的 appendTo 方法
+//		作用 将 当前对象中的每一个DOM元素加入到目标对象的结尾处
+//		$('<p>p1</p><p>p2</p>').appendTo( 'div');
+		
+//		在追加之前 是一个 Itcast对象,里面有2个DOM对象
+//		在追加以后,变成了4个DOM对象
+		var $1 = $('<p>p1</p><p>p2</p>');
+		var $2 = $1.appendTo( 'div' );
+		
+//		如果自己实现这个问题
+//		可以将问题简化伪 appendTo (数组)
+//		没次在加入的时候,需要注意的是 将DOM对象拷贝一份
+//		
+//		将上面的案例,可以简化成
+//		var ps = [{}, {}];
+//		var divs = [{}, {}];
+//		将 ps[0] 加到 divs[0] 中,还要将
+//		ps[0]加到divs[1]中,
+//		将ps[1]加到 divs[0]中,还要将
+//		ps[1]加到divs[1]中.
+		
+//		在DOM操作中有一个原则,每一个DOM元素只允许有一个父元素
+
+		
+		
+	</script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				border: 1px dashed red;
+				margin: 10px 0;
+				padding: 10px;
+				width: 200px;
+				height: 50px;
+			}
+			p {
+				border: 1px dotted blue;
+				padding:0;
+				margin: 0;
+			}
+		</style>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			// 工具方法完成元素处理
+			Itcast.extend({
+				append: function(parent, element){
+					parent.appendChild(element);
+				},
+				prepend: function(parent,element){
+					parent.insertBefore( element, parent.firstChild );
+				}
+			});
+			
+			Itcast.fn.extend({
+				// 1> 构造数据原型
+				// 2> 添加
+				// 3> 返回新数据
+				appendTo: function( selector ){
+					var iObj = this.constructor(selector);
+					var tObj;
+					var newObj = this.constructor();
+					var arr = [];
+					for( var i=0; i< iObj.length; i++){
+						for(var j=0; j<this.length; j++){
+							tObj = i === iObj.length - 1
+										? this[ j ]
+										: this[ j ].cloneNode(true);
+							arr.push( tObj );
+							
+							Itcast.append( iObj[ i ],tObj );
+						}
+					}
+					
+					[].push.apply(newObj , arr);
+					
+					newObj.prev = this;
+					
+					return newObj;
+				},
+				
+				end: function(){
+					return this.prev || this;	//恢复链
+				},
+				
+				append:function(selector){
+					this.constructor(selector).appendTo( this );
+					return this;
+				},
+				prependTo: function(selector){
+					var iObj = this.constructor(selector);
+					var tObj;
+					var newObj = this.constructor();
+					var arr = [];
+					for( var i=0; i< iObj.length; i++){
+						for(var j=0; j<this.length; j++){
+							tObj = i === iObj.length - 1
+										? this[ j ]
+										: this[ j ].cloneNode(true);
+							arr.push( tObj );
+							
+							Itcast.prepend( iObj[ i ],tObj );
+						}
+					}
+					
+					[].push.apply(newObj , arr);
+					
+					newObj.prev = this;
+					
+					return newObj;
+				},
+				prepend:function(selector){
+					this.constructor(selector).prependTo(this);
+					return this;
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>7</div>
+		
+		<script type="text/javascript">
+			// I( '<p>ppp</p>' ).appendTo( 'body' );
+		
+			I( '<p>ppp</p>' ).prependTo( 'body' );
+		</script>
+	</body>
+</html>

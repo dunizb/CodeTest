@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01-prependChild方法</title>
+	</head>
+	<body>
+		<div id="dv">
+			<div>1</div>
+			<div>2</div>
+		</div>
+		
+		<script type="text/javascript">
+			// 需要实现一个 方法, 将元素加入到 dv 中子元素的最前面
+			function prependChild(parent, element){
+				parent.insertBefore(element, parent.firstChild);
+			}
+			
+			var p = document.createElement("p");
+			prependChild(document.getElementById("dv"), p);
+			
+		</script>
+	</body>
+</html>

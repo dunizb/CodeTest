@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06-jq中实力方法each和map</title>
+		<script src="../jquery/jquery-1.12.0/jquery-1.12.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="checkbox" checked="checked"/><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" checked="checked"/><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" checked="checked"/><br />
+	</body>
+	<script type="text/javascript">
+		//使用jquery反选
+		//考察jquery中each的使用方法
+		
+		$("input").each(function(){
+			// this 就是伪数组中每一个DOM对象
+			//this.checked = !this.checked;
+			
+			// 使用 prop 方法
+			// attr	attribute	(key,value)
+			// prop	property	(key,value)
+			//$(this).prop('checked', !this.checked);
+			//$(this).prop('checked', !$(this).prop('checked'));
+			
+			$(this).prop('checked',function(a,b){
+				return !b;
+			});
+		});
+	</script>
+</html>

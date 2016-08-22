@@ -2,28 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/02-选择器/01-测试组合选择器代码.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/02-选择器/02-后代元素选择器测试.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/DOM练习.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JS面向对象/apply转换数组.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/01-对象封装/common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/01-对象封装/each.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/02-选择器/each函数的封装.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/03-框架/itcast-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/03-框架/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/02-选择器/select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/内置对象/冒泡排序（终极优化）.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/内置对象/数组分隔.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/内置对象/求数组最大值、最小值、平均值.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/02-选择器/测试select函数.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/03-框架/测试框架代码.html" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\01-测试组合选择器代码.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\02-后代元素选择器测试.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\each函数的封装.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\select.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\对象封装\common.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\对象封装\each.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\测试select函数.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/01-on和off测试.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/01-prependChild方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/02-appendTo方法的雏形/01-test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/01-test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/01-测试toArray和get.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/02-click方法的实现.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/02-eq测试.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/02-test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/02-test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-first和last测试.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/03-onfocus和onblur案例.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/04-appendTo方法测试.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/04-表格练习.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/05-实现each和map函数.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/05-菜单练习.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/06-jq中实力方法each和map.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/08-jq中appendTo方法的使用.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/09-假设参数为DOM数组的appendTo方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/01-完善构造方法init/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/02-appendTo方法的雏形/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.min.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.7.1/jquery-1.7.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.7.1/jquery-1.7.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.min.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.min.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/笔记.js" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\JS基础语法练习\字符串操作\字符串倒序排列.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\JS基础语法练习\字符串操作\将数字转换成RMB的形式.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\function.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\Array.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\冒泡排序（终极优化）.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\字符串操作练习.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\字符串练习.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组分隔.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组去重.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组排序.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\模拟sort().html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\求数组最大值、最小值、平均值.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\框架封装\03-框架\itcast-2.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CodeTest.iws" />
@@ -160,7 +187,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -196,6 +222,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,7 +449,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471441333581</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="框架封装">
+      <created>1471615041155</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1471615041155</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">

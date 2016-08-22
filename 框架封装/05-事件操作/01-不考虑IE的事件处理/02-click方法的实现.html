@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02-click方法的实现</title>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				on: function(type, callback ){					
+					return this.each(function( i , v){
+						this.addEventListener(type ,callback);
+					});
+				},
+				off:function(type,callback){
+					return this.each(function(){
+						this.removeEventListener(type, callback);
+					});
+				}
+//				,
+//				click:function(callback){
+//					return this.on( 'click' ,callback);
+//				},
+//				mouseup:function(callback){
+//					return this.on('mouseup',callback);
+//				}
+				
+			});
+			
+			Itcast.each( ("onclick,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout," +
+			"onmouseover,onmouseup,onmousewheel,onkeydown,onkeypress,onkeyup").split(','),function(i,v){
+				var event = v.slice(2);
+				Itcast.fn[ event ] = function(callback){
+					return this.on( event,callback );
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn1" name="哈哈哈1" value="按钮1"/>
+		
+		<div style="width: 400px; height: 200px; border: 1px solid red;font-size: 30px; color: red;"></div>
+	</body>
+	<script type="text/javascript">
+		var f1 = function(){
+			alert(this.name);
+		}
+		var f2 = function(){
+			this.value = "已点击";
+		}
+		//I("#btn1").on("click",f1).on("click",f2);
+		I("#btn1").on("click",f1).on("click",f2).off("click",f1);
+		
+		I( 'div' ).mouseover(function () {
+			this.innerHTML = '我进来啦... 啦啦啦....';
+		}).mouseout(function () {
+			this.innerHTML = '我又出去啦';
+		})
+	</script>
+</html>

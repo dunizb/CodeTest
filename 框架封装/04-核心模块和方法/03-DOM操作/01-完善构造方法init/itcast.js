@@ -1,50 +1,163 @@
+// 在框架中只有Itcast 与 I 暴露在外面，其余的所有内容应该在闭包中
 (function(window,undefined){
-
+	
+//定义 Itcast构造函数
 function Itcast( selector ){
 	return new Itcast.fn.init( selector );
 }
-
 Itcast.fn = Itcast.prototype = {
 	constructor: Itcast,
 	type: 'Itcast',
 	length: 0,
 	
-	init: function( selector ){
-		if(!selector){
+	//核心模块内容
+	init: function (selector) {
+		// 假设这里的init就是 jq 的 init，因此可以考虑各种参数
+		// '',null,undefined
+		if (!selector) {
 			return this;
 		}
 		
-		if(typeof selector === 'string'){
-			if(selector.charAt(0) == '<'){
+		// str
+		if(typeof selector == 'string'){
+			//这里可能是HTML的字符串，也可能是选择器
+			if( selector.charAt(0) === '<'){
+				// 是HTML字符串
+				// 将字符串转换为DOM对象，并加到this中
 				[].push.apply(this, Itcast.parseHTML( selector ));
 			}else{
 				//是选择器
-				//获取元素，并加到this中
-				//使得 Itcast.Select
-				[].push.apply(this, Itcast.Select( selector));
+				//获取元素，并加到 this 中
+				//使用 Itcast.Select
+				[].push.apply(this, Itcast.Select(selector));
+			}
+		} 
+		
+		// fn
+		if(typeof selector == 'funciton'){
+			
+		}
+		
+		//dom
+		if(selector.nodeType){
+			this[0] = selector;
+			this.length = 1;
+			return this;
+		}
+		
+		//Itcast
+		if(selector.type == 'Itcast'){
+			// 如果是 Itcast 对象简单的来说就是返回 这个对象就可以了
+			
+			// 理论上说 如果传入的就是一个 Itcast 对象什么也不做, 因此
+			// 可以直接返回该对象, 但是会将刚刚创建的 this 丢掉.
+			// 或者将 selector 中的 所有项 加到 this 中, 返回 this
+			// Itcast 对象之间区别, 实际上就是这个 数组项
+			
+			// return selector;
+			
+			[].push.apply( this, selector );
+			return this;
+		}
+		
+		// 不知道的 return this
+		// 这里返回, 返回的内容就是一个 空的 伪数组, 但是带有原型中的方法
+		// 需要用一个 DOM 对象初始化这个 Itcast 对象
+		// 需要在 这个伪数组中存储一个 DOM 对象.
+		
+		// 数组的情况
+		// 如果传入的东西不是上面的各种类型, 直接将其当做数组处理
+		// 默认就是伪数组, 如果不是伪数组就放到伪数组的第 0 项中
+		if( selector.length >= 0){
+			[].push.apply(this, selector);
+		}else{
+			this[0] = selector;
+			this.length = 1;
+		}
+		
+		return this;
+	},
+	
+	//将ITcast对象转换成数组对象返回
+	toArray: function(){
+		return [].slice.call( this,0 );
+	},
+	
+	//更具参数返回DOM对象或DOM数组
+	get: function(index){
+		if(index === undefined){
+			return this.toArray();
+		}else{
+			if(index >=0 ){
+				return this[ index ];
+			}else{
+				return this[ this.length + index ];
 			}
 		}
-		
-		if(typeof selector === 'function'){
-			
-		}
-		
-		if(selector.nodeType){
-			
-		}
-		
-		if(selector.type === 'Itcast'){
-			
-		}
+	},
+	
+	eq: function( index ){
+		return this.constructor( this.get(index) );
+	},
+	
+	first: function(){
+		return this.eq( 0 );
+	},
+	last: function(){
+		return this.eq(-1);
 	}
+	
 };
 Itcast.fn.init.prototype = Itcast.fn;
 
-Itcast.extend = Itcast.fn.extend = function (obj) {
-	for(var k in  obj ){
+// 添加 extend 方法
+Itcast.extend = Itcast.fn.extend = function( obj ){
+	for(var k in obj){
 		this[ k ] = obj[ k ];
 	}
 }
+
+// 添加核心模块的工具方法
+Itcast.extend({
+	each: function(array,callback){
+		if(array.length >= 0){
+			for(var i=0; i<array.length; i++){
+				var res = callback.call( array[i], i, array[i] );
+				if(res === false){
+					break;
+				}
+			}
+		}else{
+			for(var k in array){
+				var res = callback.call( array[k], k ,array[k] );
+				if(res === false){
+					break;
+				}
+			}
+		}
+		return array;
+	},
+	map: function(array,callback){
+		var res = [];
+		if(array.length >=0){
+			for(var i=0; i<array.length; i++){
+				var v = callback.call( array[ k ], k ,array[ k ] );
+				if(v !== undefined){
+					res.push( v );
+				}
+			}
+		}else{
+			for(var k in array){
+				var v = callback.call(array[ k ], k);
+				if( v !== undefined){
+					res.push( v );
+				}
+			}
+		}
+		return res;
+	}
+});
+
 
 //选择器模块放到这里
 var Select = 
@@ -240,28 +353,26 @@ return Select;
 
 Itcast.Select = Select;
 
-
-//DOM操作模块放到这里
+//DOM 操作模块放到这里
 //工具方法
 Itcast.parseHTML = (function(){
-
 var node = document.createElement("div");
-function parseHTML(str){
+function parseHTML (str) {
 	node.innerHTML = str;
 	var arr = [];
-	arr.push.apply(arr, node.childNodes );
+	arr.push.apply(arr, node.childNodes);
 	return arr;
 }
 
 return parseHTML;
-
 })();
 
 //模块中的实例方法
 Itcast.fn.extend({
-	appendTo : function ( dom ){
-		for (var i=0; i< this.length; i++) {
-			dom.appendChild( this[ i ]);
+	appendTo:function( dom ){
+		//将this中的每个成员加到DOM中
+		for(var i=0; i < this.length; i++){
+			dom.appendChild( this[i] );
 		}
 		return this;
 	}

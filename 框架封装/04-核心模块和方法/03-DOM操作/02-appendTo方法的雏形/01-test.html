@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			div {
+				border: 1px dashed red;
+				margin: 10px 0;
+				padding: 10px;
+				width: 200px;
+				height: 50px;
+			}
+			p {
+				border: 1px dotted blue;
+				padding:0;
+				margin: 0;
+			}
+		</style>
+		<script src="./itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				appendTo : function(selector){
+					var iObj = this.constructor(selector);
+					var tObj;
+					// 两个伪数组 this，iObj
+					
+					for (var i=0; i < iObj.length; i++) {
+						for (var j=0; j <this.length; j++) {
+							tObj = i === iObj.length - 1
+									  ? this[ j ]
+									  :	this[ j ].appendChild( this[ j ].cloneNode(true));
+							iObj[ i ].appendChild( tObj );		  
+						}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div class="c">2</div>
+		<div>3</div>
+		<div class="c">4</div>
+		<div>5</div>
+		<div class="c">6</div>
+		<div>7</div>
+	</body>
+	<script type="text/javascript">
+		// 传入的DOM元素
+		// var div = document.getElementsByTagName('div')[0];
+		// var div = I("div").get( -1 );
+		// I('<p>p1</p><p>p2</p>').appendTo( div );
+		
+		// 传入的时DOM数组
+		//I('<p>p1</p><p>p2</p>').appendTo( I('div').toArray() );
+		
+		//传入的是 Itcast对象
+		// I('<p>p1</p><p>p2</p>').appendTo( I('div') );
+		
+		//传入的是选择器
+		I('<p>p1</p><p>p2</p>').appendTo( '.c');
+		
+	</script>
+</html>

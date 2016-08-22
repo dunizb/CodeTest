@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04-表格练习1</title>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			//创建Table标签
+			I(function(){
+				var data = [
+					{ name: 'jim', age: 19, gender: 'male' },
+					{ name: 'jim', age: 19, gender: 'male' },
+					{ name: 'jim', age: 19, gender: 'male' },
+					{ name: 'jim', age: 19, gender: 'male' },
+					{ name: 'jim', age: 19, gender: 'male' },
+					{ name: 'jim', age: 19, gender: 'male' }
+				];
+				
+				I('<table border="1"></tbody>'+I.map(data,function(v, i){
+					return '<tr>'+I.map(v, function(v1,i1){
+						return '<td width="100" height="50">'+ v1 +'</td>';
+					}).join("")+'</tr>';
+				}).join("")+'</tbody></table>').appendTo( 'body' );
+			});
+			
+			
+			// 处理事件
+			I(function () {
+				
+				I( 'tr' ).mouseover(function () {
+					this.style.backgroundColor = 'red';
+				}).mouseout(function () {
+					this.style.backgroundColor = null;
+				});
+				
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

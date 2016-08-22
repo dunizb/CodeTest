@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>09-假设参数为DOM数组的appendTo方法</title>
+		<style>
+			div , p {
+				border: 1px dashed red;
+				padding: 10px;
+				
+			}
+			
+			div {
+				width: 400px;
+				height: 100px;
+				margin: 10px 0;
+			}
+			
+		</style>
+		<script src="itcast.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				appendTo: function(doms){
+					// this是一个伪数组
+					// doms 是一个DOM元素的（伪）数组
+					for( var j=0; j< doms.length; j++){
+						for( var i=0; i<this.length; i++){
+							//doms[j].appendChild( this[i].cloneNode(true) );
+							//在 j 为 doms.length-1的时候就不克隆
+							doms[ j ].appendChild( j==doms.length-1 ? this[i] : this[i].cloneNode(true));
+						}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		var i1 = I("<p>ppp</p><p>ppp</p>");
+		
+		var i2 = i1.appendTo( I("div").toArray());
+	</script>
+</html>

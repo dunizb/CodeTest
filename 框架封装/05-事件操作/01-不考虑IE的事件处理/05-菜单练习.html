@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05-菜单练习</title>
+		<script src="itcast.js"></script>
+		<style>
+			.hide {
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			I(function(){
+				var  data = [
+					{ name: '01-选择器模块', sub: [ 1, 2, 3 ] },
+					{ name: '02-DOM操作模块', sub: [ 1, 2, 3 ] },
+					{ name: '03-事件模块', sub: [ 1, 2, 3 ] },
+					{ name: '04-框架核心结构', sub: [ 1, 2, 3 ] },
+					{ name: '05-属性和样式', sub: [ 1, 2, 3 ] }
+				];
+				
+				// ul>li('01-旋转模块')+ul>li(1,2,3)
+				/*
+				 	<ul>
+				 		<li>
+				 			<div>01-选择器模块</div>
+				 			<ul>
+				 				<li>1</li>
+				 				<li>2</li>
+				 				<li>3</li>
+				 			</ul>
+				 		</li>
+				 	</ul>
+				 */
+				
+				I('<ul style="cursor:pointer;">'+I.map(data,function(v,i){
+					// v是对象，其实name要生成div，sub要生成ul
+					// v 就是含有 name 和 sub 的对象，因此遍历该对象
+					// 里面会有两种返回结果
+					return '<li>'+I.map(v,function(v1,i1){
+						// 此时 i1 就是 name 或 sub
+						// v1 就是 名字或 数组
+						if(i1 === 'name'){
+							return '<div class="menu li">'+ v1 +'</div>'
+						}else if(i1 === 'sub'){
+							return '<ul></li>' + v1.join('</li><li>') + '</li></ul>';
+						}
+					}).join("")+'</li>';
+				}).join("")+'</ul>').appendTo('body');
+				
+				
+			});
+			
+			// 处理事件
+			I(function () {
+				
+				I( '.list, li li' ).mouseover(function () {
+					this.style.backgroundColor = 'yellow';
+				}).mouseout(function () {
+					this.style.backgroundColor = null;
+				});
+			});
+			
+			I(function(){
+				I(".menu").click(function(){
+					var ul = this.nextSibling;
+					if( ul.className == 'hide'){
+						ul.className = '';
+					}else{
+						ul.className = 'hide';
+					}
+				});
+			});
+			
+				
+				
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

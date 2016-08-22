@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05-实现each和map函数</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function each(array , callback){
+			if(array.length >= 0){	//伪数组和数组
+				for(var i=0; i<array.length; i++){
+					var res = callback.call( array[i], i ,array[i] );
+					if( res === false){
+						break;
+					}
+				}
+			}else{	//一般对象
+				for(var k in array){
+					var res = callback.call( array[k], k, array[k] );
+					if(res === false){
+						break;
+					}
+				}
+			}
+			
+			return array;
+		}
+		
+		function map(array,callback){
+			var res = [];
+			if(array.length >=0 ){	//数组或伪数组
+				for(var i=0; i<array.length; i++){
+					var v = callback( array[i],i );
+					if(v !== undefined){
+						res.push( v );
+					}
+				}
+			}else{	//对象
+				for(var k in array){
+					var v = callback(array[k], k);
+					if(v !== undefined){
+						res.push( v );
+					}
+				}
+				
+			}
+			return res;
+		}
+		
+		var newArray = map([1,2,3,4,5],function(v, i){
+			return v * 2;
+		});
+		console.log(newArray);
+	</script>
+</html>

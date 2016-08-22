@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03-onfocus和onblur案例</title>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				on: function(type, callback ){					
+					return this.each(function( i , v){
+						this.addEventListener(type ,callback);
+					});
+				},
+				off:function(type,callback){
+					return this.each(function(){
+						this.removeEventListener(type, callback);
+					});
+				}
+//				,
+//				click:function(callback){
+//					return this.on( 'click' ,callback);
+//				},
+//				mouseup:function(callback){
+//					return this.on('mouseup',callback);
+//				}
+				
+			});
+			
+			Itcast.each( ("onfocus,onblur,onclick,onmousedown,onmouseenter,onmouseleave,onmousemove,onmouseout," +
+			"onmouseover,onmouseup,onmousewheel,onkeydown,onkeypress,onkeyup").split(','),function(i,v){
+				var event = v.slice(2);
+				Itcast.fn[ event ] = function(callback){
+					return this.on( event,callback );
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<input type="text" name="text" id="text" value="请输入...." style="color:#ccc;" />
+	</body>
+	<script type="text/javascript">
+		I("input").focus(function(){
+			if(this.value === '请输入....'){
+				this.value = "";
+				this.style.color = "#000";
+			}
+		}).blur(function(){
+			if(this.value.trim().length == 0){
+				this.value = "请输入....";
+				this.style.color = "#ccc";
+			}
+		});
+	</script>
+</html>

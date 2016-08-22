@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04-appendTo方法测试</title>
+		<style type="text/css">
+			div {
+				border: 1px dashed red;
+				margin: 10px 0;
+				padding: 10px;
+				width: 200px;
+				height: 50px;
+			}
+			p {
+				border: 1px dotted blue;
+				padding:0;
+				margin: 0;
+			}
+		</style>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				appendTo: function (selector){
+					var iObj = this.constructor(selector);
+					var tObj;
+					var newObj = this.constructor();
+					
+					var arr = [];
+					for(var i=0; i<iObj.length; i++){
+						for(var j=0; j<this.length; j++){
+							tObj = i===iObj.length-1 
+									? this[j]
+									: this[j].cloneNode(true);
+									
+							arr.push( tObj );		
+							iObj[i].appendChild( tObj);
+						}
+					}
+					[].push.apply(newObj , arr);
+					
+					newObj.pre = this;
+					return newObj;
+				},
+				end: function(){
+					return this.pre || this;	//恢复链
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div class="c">2</div>
+		<div>3</div>
+		<div class="c">4</div>
+		<div>5</div>
+		<div class="c">6</div>
+		<div>7</div>
+	</body>
+	<script type="text/javascript">
+		I("<p>ppppp</p>").appendTo( I(".c"));
+	</script>
+</html>
