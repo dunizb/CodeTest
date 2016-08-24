@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02-addClass方法</title>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				addClass: function( name ){
+					//遍历每一个DOM对象，如果没有该类属性就加上
+					this.each(function(){
+						// this就是DOM对象
+						var value = this.className;
+						//undefioend " "
+						//'c1 c2 c3'
+						if( !value ){ //没有类名属性
+							this.className = name;
+						}else if( value.split(' ').indexOf( name ) == -1){
+							this.className += ' ' + name;
+						}
+					});
+					return this;
+				}
+			});
+		</script>
+	</head>
+	<body class="c">
+		<div class="c b"></div>
+		<div class="c"></div>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+		I('div').addClass('c');
+	</script>
+</html>

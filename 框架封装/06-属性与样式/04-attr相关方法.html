@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04-attr相关方法</title>
+		<style type="text/css">
+			
+		</style>
+		<script src="itcast.js"></script>
+		<script>
+			Itcast.fn.extend({
+				attr: function ( name,value ) {
+					if(typeof name === 'string' && typeof value === 'string'){
+						this.each(function(){
+							//this DOM对象
+							this.setAttribute(name,value);
+						});
+					}else if(typeof name === 'string' && value === undefined){
+						return this[0].getAttribute(name);
+					}else if(typeof name === 'object' && value === undefined){
+						this.each(function(){
+							for(var k in name){
+								this.setAttribute(k, name[k]);
+							}
+						});
+					}
+					
+					return this;
+				}, 
+				removeAttr: function ( name ) {
+					if(typeof name === 'string'){
+						this.each(function(){
+							this.removeAttribute(name);
+						});
+					}
+					return this;
+				}
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		
+	</script>
+</html>

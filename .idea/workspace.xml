@@ -1,56 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/01-on和off测试.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/01-prependChild方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/02-appendTo方法的雏形/01-test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/01-test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/01-测试toArray和get.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/02-click方法的实现.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/02-eq测试.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/02-test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/02-test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-first和last测试.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/03-onfocus和onblur案例.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/04-appendTo方法测试.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/04-表格练习.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/05-实现each和map函数.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/05-菜单练习.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/06-jq中实力方法each和map.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/08-jq中appendTo方法的使用.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/09-假设参数为DOM数组的appendTo方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/01-完善构造方法init/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/02-appendTo方法的雏形/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/03-处理appendTo中链的问题/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/03-DOM操作/04-prepend方法/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.12.0/jquery-1.12.0.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.7.1/jquery-1.7.1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-1.7.1/jquery-1.7.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-2.2.0/jquery-2.2.0.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/jquery/jquery-3.1.0/jquery-3.1.0.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/04-核心模块和方法/笔记.js" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\JS基础语法练习\字符串操作\字符串倒序排列.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\JS基础语法练习\字符串操作\将数字转换成RMB的形式.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\function.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\Array.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\冒泡排序（终极优化）.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\字符串操作练习.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\字符串练习.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组分隔.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组去重.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\数组排序.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\模拟sort().html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\内置对象\求数组最大值、最小值、平均值.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\CodeTest\框架封装\03-框架\itcast-2.js" afterPath="" />
+    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="核心模块与方法">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/01-自定义CSS方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/02-addClass方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/03-removeClass等其它方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/04-attr相关方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/Array.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/itcast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/冒泡排序（终极优化）.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/字符串倒序排列.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/将数字转换成RMB的形式.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/循环方式替换空白字符.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组分隔.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组去重.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组排序.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/查找出现次数最多的字符及出现的次数.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/模拟sort().html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/求数组最大值、最小值、平均值.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CodeTest.iws" />
@@ -74,48 +42,7 @@
     <favorites_list name="CodeTest" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="web存储-DB.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/html5/web存储-DB.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Canvas/士兵/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="矩形移动.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Canvas/矩形移动.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="60" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Canvas/Konva/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -187,7 +114,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -220,9 +146,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="框架封装" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="06-属性与样式" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -455,7 +400,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471615041155</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="核心模块与方法">
+      <created>1471873675781</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1471873675781</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -526,7 +477,8 @@
     <MESSAGE value="画圆弧" />
     <MESSAGE value="Canvas" />
     <MESSAGE value="框架封装" />
-    <option name="LAST_COMMIT_MESSAGE" value="框架封装" />
+    <MESSAGE value="核心模块与方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="核心模块与方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -787,16 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state>
-          <first_editor vertical-scroll-proportion="0.28668943">
-            <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Canvas/test1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13513513">
@@ -875,14 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Canvas/Konva/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Canvas/随机折线图.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -890,19 +824,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Canvas/士兵/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.935484">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Canvas/矩形移动.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.0054054055">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Canvas/士兵/index.html">
+    <entry file="file://$PROJECT_DIR$/Canvas/Konva/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.5243243">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state>
+          <first_editor vertical-scroll-proportion="0.040955633">
+            <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

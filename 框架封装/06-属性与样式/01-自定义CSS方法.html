@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01-自定义CSS方法</title>
+		<script src="itcast.js"></script>
+		<script type="text/javascript">
+			Itcast.extend({
+				getStyle: function(dom, name){
+					if(dom.currentStyle){
+						//IE 低版本
+						return dom.currentStyle[ name ];
+					}else{
+						return window.getComputedStyle(dom)[name];
+					}
+				}
+			});
+			
+			Itcast.fn.extend({
+				css: function(name, value){
+					if(typeof name === 'string' && typeof value === 'string'){
+						//带两个参数
+						//遍历设置
+						this.each(function(){
+							// this就是DOM对象
+							this.style[name] = value;
+						});
+					}else if(typeof name === 'object' && value === undefined){
+						//遍历添加多个样式
+						this.each(function(){
+							//this就是DOM对象
+							for(var k in name){
+								this.style[ k ] = name[ k ];
+							}
+						});
+					}
+					return this;
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		
+		
+		<script type="text/javascript">
+			//添加边框，高度 和 margin
+			I('div').css({
+				width:'100px',
+				height:'50px',
+				border:'1px dashed blue',
+				margin:'10px 0'
+			}).mouseover(function(){
+				I(this).css('backgroundColor','red');
+				console.log(I(this).css('backgroundColor'));
+			}).mouseout(function(){
+				I(this).css('backgroundColor','');
+			});
+		</script>
+	</body>
+</html>

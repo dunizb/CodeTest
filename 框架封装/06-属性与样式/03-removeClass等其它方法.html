@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03-removeClass等其它方法</title>
+		<script src="itcast.js"></script>
+		<style type="text/css">
+			
+			div {
+				
+				border: 1px dashed black;
+				width: 100px;
+				height: 50px;
+				margin: 10px;
+			}
+			
+			.black {
+				background-color: black;
+			}
+		</style>
+		<script type="text/javascript">
+			Itcast.fn.extend({
+				addClass: function( name ){
+					//遍历每一个DOM对象，如果没有该类属性就加上
+					this.each(function(){
+						// this就是DOM对象
+						var value = this.className;
+						//undefioend " "
+						//'c1 c2 c3'
+						if( !value ){ //没有类名属性
+							this.className = name;
+						}else if( value.split(' ').indexOf( name ) == -1){
+							this.className += ' ' + name;
+						}
+					});
+					return this;
+				},
+				removeClass: function( name ){
+					//如果含有就移除，如果没有就不管
+					//应该考虑循环移除
+					//就是如果用户添加了同名的类名，应该全部移除
+					//循环移除
+					this.each(function(){
+						var value = this.classname;
+						// 需要移除的是 value 中的 name 值
+						var arr = value.split(' ');
+						var temp;
+						
+						while( (temp == arr.indexOf( name ) !== -1 )){
+							arr.splice(temp, 1);
+						}
+						
+						this.className = arr.join( ' ' );
+					});
+					return this;
+				},
+				hasClass: function( name ){
+					//遍历凡是含有的就是返回true
+					var res = this.map(function(v,i){
+						// v就是DOM元素
+						// 如果v.className 中含有 name 就返回一个true
+						// 为了可以减少更多的判断，凡是看懂啊true就return
+						var arr = v.className.split( ' ' ); 
+						if( arr.indexOf( name ) != -1){
+							// 如果不含有，name就不返回，只有含有的时候才返回
+							return true;
+						}
+					});
+					
+					return res.length > 0;
+				},
+				toggleClass: function( name ){
+					var that = this;
+					this.each(function(){
+						if(that.constructor( name ).hasClass( name )){
+							that.constructor(this).removeClass( name)
+						}else{
+							that.constructor(this).addClass( name);
+						}
+					});
+					return this;
+				}
+			});
+		</script>
+	</head>
+	<body class="c">
+		<div class="black"></div>
+		<div></div>
+		<div class="black"></div>
+		<div></div>
+		<div></div>
+		<div class="black"></div>
+		<input type="button" value="点击" />
+	</body>
+	<script type="text/javascript">
+		I( 'input' ).click(function(){
+			I('div').toggleClass('black');
+		});
+	</script>
+</html>

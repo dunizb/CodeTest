@@ -235,20 +235,6 @@ Itcast.extend({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 选择器模块放到这里
 var Select =
 
@@ -457,19 +443,6 @@ return Select;
 Itcast.Select = Select;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // DOM 操作模块放到这里
 // 工具方法
 //var node = document.createElement( 'div' );
@@ -605,6 +578,158 @@ Itcast.each( ("onblur,onfocus,onclick,onmousedown,onmouseenter,onmouseleave,onmo
 	};
 	
 });
+
+Itcast.extend({
+	getStyle: function ( dom, name ) {
+		if ( dom.currentStyle ) {
+			// IE 低版本
+			return dom.currentStyle[ name ];
+		} else {
+			return window.getComputedStyle( dom )[ name ];
+		}
+	}
+	
+});
+
+// 样式操作
+Itcast.fn.extend({
+	css: function ( name, value ) {
+		if ( typeof name === 'string' && typeof value === 'string' ) {
+			// 带有两个参数
+			// 遍历设置
+			this.each(function () {
+				// this 就是 DOM 对象
+				this.style[ name ] = value;
+			});
+			
+		} else if ( typeof name === 'string'  && value === undefined ) {
+			// 获取样式值
+			return Itcast.getStyle( this.get( 0 ), name );
+		} else if ( typeof name === 'object' && value === undefined ) {
+			// 遍历添加多个样式
+			this.each(function () {
+				// this 就是 DOM 对象
+				for ( var k in name ) {
+					this.style[ k ] = name[ k ];
+				}
+				
+				/*
+				var that = this;
+				I.each( name, function ( k, v ) {
+					that.style[ k ] = v;
+				});
+				*/
+			});
+		}
+		return this;
+	},
+	
+	addClass: function ( name ) {
+					
+		// 遍历每一个 DOM 对象, 如果没有该类属性就加上
+		this.each(function () {
+			// this 是 DOM 对象
+			var value = this.className; // undefiend, "   "
+			// 'c1 c2 c3'
+			if ( !value ) {  // 没有 类名属性
+				this.className = name;
+			} else if ( value.split( ' ' ).indexOf( name ) == -1 ) {
+				this.className += ' ' + name;
+			}
+		});
+		
+		return this;
+	}, 
+	removeClass: function ( name ) {
+		// 如果含有就移除, 如果没有就不管
+		// 应该考虑循环移除
+		// 就是如果用户添加了同名的类名, 应该全部移除
+		// 循环移除
+		this.each(function () {
+			// this 就是 DOM 元素
+			var value = this.className;
+			// 需要移除的是 value 中的 name 值
+			var arr = value.split( ' ' );
+			var tmp;
+			
+			while ( ( tmp = arr.indexOf( name ) ) != -1 ) {
+				arr.splice( tmp, 1 );
+			}
+			
+			// 赋值给 this.className
+			this.className = arr.join( ' ' );
+		});
+		return this;
+	},
+	hasClass: function ( name ) {
+		
+		// 遍历凡是含有 的就是返回 true
+		var res = this.map(function ( v, i ) {
+			// v 就是 DOM 元素
+			// 如果 v.className 中 含有 name 就返回一个 true
+			// 为了可以减少更多的判断, 凡是看到 true 就 return
+			var arr = v.className.split( ' ' );
+			
+			if ( arr.indexOf( name ) != -1 ) {
+				return true; // 如果不含有, 那么就不反回, 只有含有的时候才返回
+			}
+		});
+		return res.length > 0;
+		
+		// ES5 中有 some
+		// this 是伪数组
+		/*
+		return [].slice.call( this, 0 ).some(function ( v, i ) { 
+			return new RegExp( '\\b' + name + '\\b', 'g' ).test( v.className ) 
+		});*/
+	},
+	
+	toggleClass: function ( name ) {
+		var that = this;
+		this.each( function () {
+			if ( that.constructor( this ).hasClass( name ) ) {
+				// 有
+				that.constructor( this ).removeClass( name );
+			} else {
+				// 没有
+				that.constructor( this).addClass( name ); 
+			}
+		});
+		return this;
+	}
+	
+});
+
+//属性操作
+Itcast.fn.extend({
+	attr: function ( name,value ) {
+		if(typeof name === 'string' && typeof value === 'string'){
+			this.each(function(){
+				//this DOM对象
+				this.setAttribute(name,value);
+			});
+		}else if(typeof name === 'string' && value === undefined){
+			return this[0].getAttribute(name);
+		}else if(typeof name === 'object' && value === undefined){
+			this.each(function(){
+				for(var k in name){
+					this.setAttribute(k, name[k]);
+				}
+			});
+		}
+		
+		return this;
+	}, 
+	removeAttr: function ( name ) {
+		if(typeof name === 'string'){
+			this.each(function(){
+				this.removeAttribute(name);
+			});
+		}
+		return this;
+	}
+});
+
  
 window.Itcast = window.I = Itcast;
 	

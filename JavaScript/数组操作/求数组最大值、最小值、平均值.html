@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求数组最大值、最小值、平均值</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = [2,3,1,21,43,45,4,6,8];
+		
+		function getMax( array ) {
+			var temp = array[0];
+			for(var i=1; i<array.length; i++){
+				if(array[i] > temp){
+					temp = array[i];
+				}
+			}
+			return temp;
+		}
+		
+		console.log("最大值："+getMax(arr));
+		
+		function getMin(array){
+			var temp = array[0];
+			for(var i=1; i<array.length; i++){
+				if(array[i] < temp){
+					temp = array[i];
+				}
+			}
+			return temp;
+		}
+		
+		console.log("最小值："+getMin(arr));
+		
+		function getVag(array){
+			var sum = 0;
+			var length = array.length;
+			for(var i=0; i<length; i++){
+				sum += array[i];
+			}
+			return sum/length;
+		}
+		console.log("平均值："+getVag(arr));
+	</script>
+</html>

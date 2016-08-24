@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串倒序排列</title>
+	<meta name="Generator" content="Sublime Text3">
+	<meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="读你，这世间唯有梦想和好姑娘不可辜负~~">
+    <link type="image/x-icon" rel="shortcut icon" href="image/favicon.ico" />
+	<script type="text/javascript">
+	
+		// 方法1：元素for循环
+		var num = 12345;
+
+		console.log("方法1：元素for循环");
+		console.log(rev(num));
+
+		function rev(conetnt) {
+			var str = conetnt+"";
+			var newStr = "";
+			for (var i=str.length-1; i>=0; i--){
+				newStr += str[i];
+			}
+			return newStr;
+		}
+		
+		//方法2：利用数组的反转方法
+		function rev2(){
+			var str = num+"";
+			return str.split("").reverse().join("");
+		}
+		console.log("方法2：利用数组的反转方法");
+		console.log(rev2(num));
+
+	</script>
+<body>
+    这是html内容
+</body>
+</html>

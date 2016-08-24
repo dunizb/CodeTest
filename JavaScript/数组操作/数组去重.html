@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组去重|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<h1>数组去重</h1>
+<script type="text/javascript">
+    var arr = ["c","a","z","a","x","a"];
+    /***********************
+     * 1.对象轮询法
+     * 定义一个对象o 保存结果，遍历需要去重的数组，如果该元素已经存在在 o 中了则+1，否则=1，
+     * 最后得到的o对象：{c: 1, a: 3, z: 1, x: 1}，就是已经去重的数组的数据了，
+     * 进一步，这个方法顺便还得到了重复次数最多的数据
+     * ********************/
+    function unique(array){
+        var o = {};
+        for(var i=0; i<array.length; i++){
+            var item = array[i];
+            //判断字典中是否已经存在该值
+            //如果不存在  = 1
+            //如果存在  + 1
+            if(o[item]){
+                o[item]++;
+            }else{
+                o[item] = 1;
+            }
+        }
+        // 删掉原来的数组
+        array = null;
+        // 去重后的新数组
+        var newArray = [];
+        for(var key in o) {
+            newArray.push(key);
+        }
+        return newArray;
+    }
+    //console.log(unique(arr));
+
+    /***********************
+     * 2.数组轮询法
+     * 定义一个变量数组 res 保存结果，遍历需要去重的数组，如果该元素已经存在在 res 中了，则说明是重复的元素，
+     * 如果没有，则放入 res 中。本质上跟方法一一样
+     * 如果不考虑浏览器兼容，我们可以用 ES5 提供的 Array.prototype.indexOf 方法来简化代码
+     * ********************/
+    function unique2(array){
+        var res = [];
+
+        for(var i =0; i<array.length;i++){
+            var item = array[i];
+            for(var j= 0; j < res.length; j++){
+                if(res[j] === item){
+                    break;
+                }
+            }
+            if(j === res.length){
+                res.push(item);
+            }
+        }
+        return res;
+    }
+    //console.log(unique2(arr));
+	
+	function unique3( array ){
+		var tempArray = [];
+		for(var i=0; i<array.length; i++){
+			if(tempArray.indexOf(array[i]) == -1){
+				tempArray.push( array[i] );
+			}
+		}
+		return tempArray;
+	}
+</script>
+</body>
+</html>

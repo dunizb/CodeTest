@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Array|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<script type="text/javascript">
+    // 工资的数组[1500,1200,2000,2100,1800],把工资超过2000的删除
+//    var arr = [1500,1200,2000,2100,1800];
+//    arr = arr.filter(function(item,index){
+//        if(item < 2000){
+//            return true;
+//        }
+//        return false;
+//    });
+//    console.log(arr);
+
+    // ["c","a","z","a","x","a"]找到数组中每一个a出现的位置
+//    var arr2 = ["c","a","z","a","x","a"];
+//    arr2.forEach(function(item,index){
+//        if(item === "a"){
+//            console.log(index);
+//        }
+//    });
+
+//    var index = -1;
+//    do{
+//        index = arr2.indexOf("a",index + 1);
+//        if(index !== -1){
+//            console.log(index);
+//        }
+//    }while(index !== -1);
+
+    // 编写一个方法去掉数组中的重复元素
+    var arr3 = ["c","a","z","a","x","a"];
+    function unique(array){
+        var res = array.filter(function(item,index){
+            return array.indexOf(item) === index;
+        });
+        return res;
+    }
+    console.log(unique(arr3));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查找出现次数最多的字符及出现的次数|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../image/favicon.ico"/>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // 查找出现次数最多的字符及出现的次数
+    var str = "abcoefoxyozzopp";
+
+    var o = {};
+    for(var i=0; i<str.length; i++){
+        var c = str.charAt(i);
+        if(o[c]){
+            o[c]++;
+        }else{
+            o[c] = 1;
+        }
+    }
+
+    //假设一个最大值
+    var maxChar;  //出现最多的字符
+    var maxCount = 0;  //出现的次数
+    for(var key in o){
+        if(maxCount < o[key]){
+            maxCount = o[key];
+            maxChar = key;
+        }
+    }
+    console.log("出现次数最多的字符 ："+maxChar+"，出现了" + maxCount + "次");
+
+</script>
+</body>
+</html>
