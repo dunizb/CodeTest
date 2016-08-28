@@ -1,0 +1,14 @@
+{
+  "name": "angular-demo",
+  "version": "1.0.0",
+  "description": "angular-test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dunizb",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}

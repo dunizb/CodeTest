@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="核心模块与方法">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/01-自定义CSS方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/02-addClass方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/03-removeClass等其它方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/04-attr相关方法.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/Array.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/框架封装/06-属性与样式/itcast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/冒泡排序（终极优化）.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/字符串倒序排列.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/将数字转换成RMB的形式.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/循环方式替换空白字符.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组分隔.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组去重.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/数组排序.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/字符串操作/查找出现次数最多的字符及出现的次数.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/模拟sort().html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JavaScript/数组操作/求数组最大值、最小值、平均值.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" afterPath="$PROJECT_DIR$/框架封装/05-事件操作/01-不考虑IE的事件处理/itcast.js" />
+    <list default="true" id="bdbd62d1-2be5-47e5-9bbb-38e19a6e2755" name="Default" comment="delete ks">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/angular.min.js.gzip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/angular-csp.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/angular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/angular.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/angular.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/hello.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/hello2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/hello3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-demo/node_modules/angular/package.json" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\事件追加.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\创建DIV.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\深拷贝\浅拷贝代码实现.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\深拷贝\深拷贝-复杂实现.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\深拷贝\深拷贝-简单实现.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\深拷贝\深拷贝代码实现.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\混合式继承的简单描述.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\1到100求和.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\差分数列.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\斐波那契数列.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\求幂.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\等差数列.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\递归实现getElementsByClassName方法.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\递归\阶乘.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\事件的追加与删除.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\事件的追加与删除2.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\如何完成读取一个数据和修改这个数据.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\如何获得超过一个数据.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\带有私有访问数据的对象.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\斐波那契数列改进.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\闭包.html" afterPath="" />
+      <change type="DELETED" beforePath="E:\CodeTest\JavaScript\面向对象\闭包\闭包的性能问题.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CodeTest.iws" />
@@ -42,7 +62,38 @@
     <favorites_list name="CodeTest" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="hello.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-demo/hello.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.387096">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hello2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-demo/hello2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.516129">
+              <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hello3.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/angular-demo/hello3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30810812">
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,6 +126,12 @@
         <option value="$PROJECT_DIR$/Canvas/Konva/test.html" />
         <option value="$PROJECT_DIR$/Canvas/矩形移动.html" />
         <option value="$PROJECT_DIR$/Canvas/士兵/index.html" />
+        <option value="$PROJECT_DIR$/JavaScript/考试.html" />
+        <option value="$PROJECT_DIR$/JavaScript/考试2.html" />
+        <option value="$PROJECT_DIR$/angular/hello.html" />
+        <option value="$PROJECT_DIR$/angular-demo/hello.html" />
+        <option value="$PROJECT_DIR$/angular-demo/hello2.html" />
+        <option value="$PROJECT_DIR$/angular-demo/hello3.html" />
       </list>
     </option>
   </component>
@@ -142,7 +199,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="框架封装" />
+              <option name="myItemId" value="JS面向对象" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -156,11 +213,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="框架封装" />
+              <option name="myItemId" value="JavaScript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="06-属性与样式" />
+              <option name="myItemId" value="angular-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -183,11 +250,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\CodeTest\angular" />
       <recent name="E:\CodeTest\Canvas\Konva\js" />
       <recent name="E:\CodeTest\Canvas\士兵" />
       <recent name="E:\CodeTest\JavaScript\面向对象" />
       <recent name="E:\CodeTest\HTML&amp;CSS\网页计算器" />
-      <recent name="E:\CodeTest\HTML&amp;CSS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\CodeTest" />
@@ -406,7 +473,19 @@
       <option name="project" value="LOCAL" />
       <updated>1471873675781</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="属性与样式操作">
+      <created>1472033056841</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1472033056841</updated>
+    </task>
+    <task id="LOCAL-00028" summary="delete ks">
+      <created>1472290042416</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1472290042417</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -422,7 +501,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20864381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="565" y="60" width="236" height="617" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1728763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="565" y="60" width="236" height="617" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -454,7 +533,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="删除备用文件" />
     <MESSAGE value="修改样式" />
     <MESSAGE value="修改关键字" />
     <MESSAGE value="新增纯CSS3幻灯片显示" />
@@ -478,7 +556,9 @@
     <MESSAGE value="Canvas" />
     <MESSAGE value="框架封装" />
     <MESSAGE value="核心模块与方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="核心模块与方法" />
+    <MESSAGE value="属性与样式操作" />
+    <MESSAGE value="delete ks" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete ks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -487,77 +567,27 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Canvas/Konva/test.html">
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/网页计算器/js/calc.js">
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="268" column="19" selection-start-line="268" selection-start-column="19" selection-end-line="268" selection-end-column="19" />
+          <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state>
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/移动Web&amp;响应式/wjs/index.html">
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello3.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/移动Web&amp;响应式/wjs/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/移动Web&amp;响应式/wjs/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/移动Web&amp;响应式/wjs/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6666667">
-          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery/添加节点的四种方式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6619469">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery/360浏览器/360浏览器.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -704,20 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript/面向对象/混合式继承的简单描述.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.016216217">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript/面向对象/闭包/闭包.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.016216217">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Canvas/渐变.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -757,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.935484">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0054054055">
           <caret line="25" column="60" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +857,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5243243">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/框架封装/03-框架/itcast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8037542">
+          <caret line="172" column="10" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/框架封装/06-属性与样式/itcast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="624" column="6" selection-start-line="624" selection-start-column="6" selection-end-line="624" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -853,9 +886,32 @@
         <state>
           <first_editor vertical-scroll-proportion="0.040955633">
             <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-            <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.387096">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.516129">
+          <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-demo/hello3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30810812">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
