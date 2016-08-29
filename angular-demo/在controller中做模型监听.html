@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>在controller中做模型监听|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.mybry.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+<input type="text" ng-model="username" />
+<h1>{{username}}</h1>
+
+<script src="node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myModule = angular.module('myModule',[]);
+    myModule.controller("myController", function ($scope) {
+        $scope.username = "文本框";
+
+        $scope.$watch("username", function (now,old) {
+            console.log(now);
+            console.log("值发生变化");
+            console.log(old);
+        });
+    });
+</script>
+</body>
+</html>
