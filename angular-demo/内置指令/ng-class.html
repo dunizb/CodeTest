@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-class|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        .red {
+            color: red
+        }
+
+        .green {
+            color: green
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="AController">
+    <input type="text" placeholder="输入姓名" ng-model="search">
+    <ul>
+        <!--奇数偶数年龄不同颜色-->
+        <!-- <li ng-repeat="item in data" ng-class="{green: !(item.age % 2), red: item.age % 2}">{{item.name}}</li> -->
+        <li ng-repeat="item in data" ng-class="{red: search && item.name.startsWith(search)}">
+            {{item.name}}
+        </li>
+    </ul>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var data = [
+        /* beautify ignore:start */
+        { id: 1, name: '张三', age: 11, gender: true },
+        { id: 2, name: '李思', age: 12, gender: true },
+        { id: 3, name: '李龙', age: 13, gender: true },
+        { id: 4, name: '大男', age: 14, gender: true },
+        { id: 5, name: '小葱', age: 15, gender: true },
+        { id: 6, name: '老邓', age: 15, gender: true },
+        /* beautify ignore:end */
+    ];
+    angular.module('myApp', []).controller('AController', ['$scope', function($scope) {
+        $scope.search = '';
+        $scope.data = data;
+    }]);
+</script>
+</body>
+</html>

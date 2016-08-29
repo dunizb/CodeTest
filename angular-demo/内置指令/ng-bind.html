@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-bind|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body ng-app="myapp" ng-controller="MainController">
+<!--ng-bind可以防止表达式的页面闪动-->
+<!--<p>{{ 'angular1' }}</p>-->
+<!--<p ng-bind="angular1"></p>-->
+
+
+<!--<h1>{{post.title}}</h1>-->
+<!-- 表达式会自动将内容进行HTML编码化(考虑安全) -->
+<!--<div>{{post.content}}</div>-->
+<!-- ng-bind和表达式效果相同-->
+<!--<div ng-bind="post.content"></div>-->
+
+<div ng-bind-html="post.content"></div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript">
+    angular.module("myapp",["ngSanitize"]).controller("MainController",["$scope",function($scope){
+        $scope.angular1 = "df";
+
+        var post = {
+            title: '母猪的成产过程',
+            content: '<h1>母猪的成产过程</h1><h2>jsdlfj</h2>'
+        };
+        $scope.post = post;
+    }]);
+</script>
+</body>
+</html>
