@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-app之手动启动|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body>
+<div id="module1_div">
+    <div ng-controller="AController">
+        <input type="button" value="clicked me" ng-click="say()">
+    </div>
+</div>
+<hr />
+<div id="module2_div">
+    <div ng-controller="BController">
+        <input type="button" value="clicked me" ng-click="say()">
+    </div>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module("module1",[]).controller("AController",function($scope){
+        $scope.name = "module1";
+        $scope.say = function () {
+            alert($scope.name);
+        }
+    });
+
+    angular.module("module2",[]).controller("BController",function($scope){
+        $scope.name = "module2";
+        $scope.say = function () {
+            alert($scope.name);
+        }
+    });
+
+    // 如果需要在同一个页面上使用多个模块，使用方式就不再是ng-app了
+    // 可以使用angular.bootstrap方法手动启动模块
+    // 第一个参数就是要作用于哪个DOM节点， 第二个参数指的是交给哪个模块
+    angular.bootstrap(document.getElementById('module1_div'), ['module1']);
+    angular.bootstrap(document.getElementById('module2_div'), ['module2']);
+</script>
+</body>
+</html>
