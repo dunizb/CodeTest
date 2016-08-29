@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-switch|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body ng-app="module1" ng-controller="HelloController">
+<div ng-switch="data">
+<!--<div ng-switch on="data">-->
+    <div ng-switch-when="hello">
+        <span>Hello</span>
+    </div>
+    <div ng-switch-when="world">
+        <span>world</span>
+    </div>
+    <div ng-switch-default>
+        <span>default</span>
+    </div>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module('module1', []).controller('HelloController', ['$scope', function($scope) {
+        $scope.data = 'hello';
+    }]);
+</script>
+</body>
+</html>
