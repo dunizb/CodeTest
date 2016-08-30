@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter过滤器|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+<h1>filter过滤器(模糊匹配对象中所有的值)</h1>
+
+<input type="text" ng-model="search" placeholder="输入过滤内容"/>
+<ul>
+    <li ng-repeat="item in data | filter:search">
+        {{item.id}} {{item.name}} {{item.age}} {{item.gender}}
+    </li>
+</ul>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myModule = angular.module('myModule',[]);
+    myModule.controller("myController", function ($scope) {
+        $scope.data = [
+            {"id":"01","name":"张丰","age":"10","gender":"男"},
+            {"id":"02","name":"张艳","age":"8","gender":"女"},
+            {"id":"03","name":"赵七","age":"28","gender":"女"},
+            {"id":"04","name":"周八","age":"18","gender":"女"}
+        ];
+    });
+</script>
+</body>
+</html>
