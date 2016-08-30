@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orderBy过滤器|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <style>
+        .friends {
+            border-collapse: collapse;
+        }
+
+        .friends th {
+            border-bottom: 1px solid;
+        }
+        .friends td, .friends th {
+            border-left: 1px solid;
+            padding: 5px 10px;
+        }
+        .friends td:first-child, .friends th:first-child {
+            border-left: none;
+        }
+
+        .sortorder:after {
+            content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+        }
+        .sortorder.reverse:after {
+            content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+        }
+    </style>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+
+<pre>根据 {{propertyName}} 排序; reverse = {{reverse}}</pre>
+<hr/>
+<button ng-click="propertyName = null; reverse = false">重置排序</button>
+<hr/>
+<table class="friends">
+    <tr>
+        <th>
+            <button ng-click="sortBy('name')">姓名</button>
+            <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="sortBy('phone')">电话</button>
+            <span class="sortorder" ng-show="propertyName === 'phone'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="sortBy('age')">年龄</button>
+            <span class="sortorder" ng-show="propertyName === 'age'" ng-class="{reverse: reverse}"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="friend in friends | orderBy:propertyName:reverse">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+        <td>{{friend.age}}</td>
+    </tr>
+</table>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myModule = angular.module('myModule',[]);
+    myModule.controller("myController", function ($scope) {
+        var friends = [
+            {name: '约翰',   phone: '555-1212',  age: 10},
+            {name: '玛丽',   phone: '555-9876',  age: 19},
+            {name: '米克',   phone: '555-4321',  age: 21},
+            {name: '艾德玛',   phone: '555-5678',  age: 35},
+            {name: '居里',  phone: '555-8765',  age: 29}
+        ];
+
+        $scope.propertyName = 'age';
+        $scope.reverse = true;
+        $scope.friends = friends;
+
+        $scope.sortBy = function(propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
+    });
+</script>
+</body>
+</html>
