@@ -7,11 +7,11 @@
     <meta name="Author" content="dunizb">
     <meta name="website" content="http://www.dunizb.com">
     <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
-    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
 </head>
-<body ng-app="module1" ng-controller="HelloController">
-<div ng-switch="data">
-<!--<div ng-switch on="data">-->
+<body ng-app="myApp" ng-controller="HelloController">
+<h1>根据value值决定页面中的哪部分显示</h1>
+<div ng-switch on="data">
     <div ng-switch-when="hello">
         <span>Hello</span>
     </div>
@@ -25,8 +25,8 @@
 
 <script src="../node_modules/angular/angular.min.js"></script>
 <script type="text/javascript">
-    angular.module('module1', []).controller('HelloController', ['$scope', function($scope) {
-        $scope.data = 'hello';
+    angular.module('myApp', []).controller('HelloController', ['$scope', function($scope) {
+        $scope.data = 'hello111';
     }]);
 </script>
 </body>
