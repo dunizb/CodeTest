@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngClass实现loading|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="HelloController">
+    <!-- <div ng-class="{hidden:!loading}">正在加载</div> -->
+    <div ng-show="loading">正在加载</div>
+
+    <div>{{data}}</div>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('HelloController', ['$scope', function($scope) {
+            $scope.loading = true;
+            $scope.data = new Date();
+            // 模拟异步请求
+            setTimeout(function(){
+                $scope.loading = false; // 只有在异步操作时需要调用$apply
+                $scope.$apply(); // 告诉ng数据模型发生了变化，需要同步
+            }, 3000);
+        }]);
+</script>
+</body>
+</html>
