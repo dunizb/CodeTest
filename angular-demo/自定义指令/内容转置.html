@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容转置|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myApp">
+
+<h1>内容转置</h1>
+<div>以下内容来自【./components/hello.html】</div>
+<div ng-controller="HelloController">
+    <div hello-world></div>
+    <hello-world></hello-world>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    // 自定义指令和自定义控制器都是必须挂载模块下
+    angular.module("myApp",[])
+            .directive("helloWorld",[function(){
+                // 此处为指令工厂 工厂应该返回指令对象
+                return {
+                    transclude:true,
+                    templateUrl:'./components/hello.html'
+                };
+            }]);
+</script>
+</body>
+</html>
