@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope的作用域|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myApp">
+<div>每个模块中的$scope都有自己的独立作用域</div>
+
+<div ng-controller="AController">
+    <spna>root:{{number}}</spna>
+    <div ng-controller="BController">
+        <spna>childb:{{number}}</spna>
+    </div>
+    <div ng-controller="CController">
+        <spna>childc:{{number}}</spna>
+    </div>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module("myApp",[])
+            .controller("AController",["$scope",function($scope){
+                $scope.number = 1;
+            }])
+            .controller("BController",["$scope",function($scope){
+                $scope.number = 2;
+            }])
+            .controller("CController",["$scope",function($scope){
+                // 此时scope会向上查找number
+                // $scope.number = 3;
+            }]);
+</script>
+</body>
+</html>
