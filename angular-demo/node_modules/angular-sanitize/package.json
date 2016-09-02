@@ -1,0 +1,68 @@
+{
+  "name": "angular-sanitize",
+  "version": "1.5.8",
+  "description": "AngularJS module for sanitizing HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "html",
+    "client-side"
+  ],
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-sanitize": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
+  },
+  "gitHead": "380756a11f0b6b213d0b82c9fdbe56f40d4c0093",
+  "_id": "angular-sanitize@1.5.8",
+  "_shasum": "1832f69487ee820a21cbe30055a8fb1bdf297ab8",
+  "_from": "angular-sanitize@latest",
+  "_npmVersion": "2.15.8",
+  "_nodeVersion": "4.4.7",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "dist": {
+    "shasum": "1832f69487ee820a21cbe30055a8fb1bdf297ab8",
+    "tarball": "https://registry.npmjs.org/angular-sanitize/-/angular-sanitize-1.5.8.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    },
+    {
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-sanitize-1.5.8.tgz_1469201493952_0.7776193369645625"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular-sanitize/-/angular-sanitize-1.5.8.tgz"
+}
