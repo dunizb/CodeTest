@@ -45,7 +45,7 @@
             .when('/demos',{template:'<iframe src="http://duni.sinaapp.com/demo/index.html" width="100%" height="550"></iframe>'})
             .when('/obook',{template:'<iframe src="http://duni.sinaapp.com/obook/index.html" width="100%" height="550"></iframe>'})
             .when('/weibo',{template:'<iframe src="http://weibo.com/duni" width="100%" height="550"></iframe>'})
-            .when('/github',{template:'<iframe src="https://github.com/dunizb" width="100%" height="550"></iframe>'})
+            .when('/github',{templateUrl:'../hello/hello.html'})
             .otherwise({redirectTo:'/home'});
     }]);
 </script>
