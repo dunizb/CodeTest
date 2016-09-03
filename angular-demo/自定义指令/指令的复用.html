@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令的复用|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myController1">
+    <loader type="loadData()">滑动加载1</loader>
+</div>
+<div ng-controller="myController2">
+    <loader type="loadData2()">滑动加载2</loader>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myApp = angular.module("myApp",[]);
+    myApp.controller("myController1",["$scope",function($scope){
+        $scope.loadData = function(){
+            console.log("正在加载。。。。");
+        }
+    }]);
+
+    myApp.controller("myController2",["$scope",function($scope){
+        $scope.loadData2 = function(){
+            console.log("正在加载。。。。2222");
+        }
+    }]);
+
+    myApp.directive("loader", function () {
+        return {
+            restrict:"AE",
+            link:function(scope,element,attr){
+                element.bind("mouseenter",function(){
+                    //scope.loadData();
+                    //scope.$apply("loadData()");
+                    scope.$apply(attr.type);
+                });
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

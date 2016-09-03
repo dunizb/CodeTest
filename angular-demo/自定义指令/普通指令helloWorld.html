@@ -14,6 +14,8 @@
 <div ng-controller="HelloController">
     <div hello-world></div>
     <hello-world></hello-world>
+    <div class="hello-world"></div>
+    <!-- directive:hello-world -->
     <div hello-btn></div>
 </div>
 
@@ -30,7 +32,15 @@
             .directive("helloWorld",["$log",function($log){
                 // 此处为指令工厂 工厂应该返回指令对象
                 return {
-                    template:'<div>Hello：{{info.name}} - {{info.address}}</div>'
+                    restrict:"EACM",
+                    template:'<div>Hello：{{info.name}} - {{info.address}}</div>',
+                    replace:true,
+                    compile:function(){
+
+                    },
+                    link:function(){
+
+                    }
                 };
             }])
             // 指令初体验：就是将一段重复使用的代码封装起来
