@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="MyCSSModule">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .text-red {
+            background-color: #ff0000;
+        }
+        .text-green {
+            background-color: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="CSSCtrl">
+        <p class="text-{{color}}">测试CSS样式</p>
+        <button class="btn btn-default" ng-click="setGreen()">绿色</button>
+    </div>
+</body>
+<script src="js/angular/angular.min.js"></script>
+<script>
+    var myCSSModule = angular.module('MyCSSModule', []);
+    myCSSModule.controller('CSSCtrl', ['$scope',
+        function($scope) {
+            $scope.color = "red";
+            $scope.setGreen = function() {
+                $scope.color = "green";
+            }
+        }
+    ])
+
+</script>
+
+</html>
