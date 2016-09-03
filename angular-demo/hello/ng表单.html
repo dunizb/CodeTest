@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng表单|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body ng-app="UserInfoModule">
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">双向数据绑定</div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" role="form" class="form-horizontal" ng-controller="UserInfoCtrl">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            姓名：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" placeholder="请输入姓名" class="form-control" ng-model="userInfo.username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">
+                            地址：
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" placeholder="只能是上海市" class="form-control" ng-model="userInfo.address"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="userInfo.saveinfo"/>记住信息
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button class="btn btn-default" ng-click="getFormData()">获取Form表单的值</button>
+                                <button class="btn btn-default" ng-click="setFormData()">设置Form表单的值</button>
+                                <button class="btn btn-default" ng-click="resetFormData()">重置表单</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript">
+    var userInfoModule = angular.module("UserInfoModule",["ngSanitize"]);
+    userInfoModule.controller("UserInfoCtrl",["$scope",function($scope){
+        $scope.userInfo = {
+            username:"dunizb",
+            address:"浦东新区",
+            saveinfo:true
+        };
+
+        $scope.getFormData = function(){
+            console.log($scope.userInfo);
+        }
+
+        $scope.setFormData = function(){
+            $scope.userInfo = {
+                username:"duni",
+                address:"普陀区",
+                saveinfo:false
+            };
+        }
+        $scope.resetFormData = function(){
+            $scope.userInfo = {
+                username:"",
+                address:"",
+                saveinfo:false
+            };
+        }
+    }]);
+</script>
+</body>
+</html>
