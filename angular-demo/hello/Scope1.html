@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.show-scope-demo .ng-scope,.show-scope-demo .ng-scope {
+				border: 1px solid red;
+				margin: 3px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show-scope-demo">
+			<div ng-controller="GreetCtrl">
+				Hello {{name}}!
+			</div>
+			<div ng-controller="ListCtrl">
+				<ol>
+					<li ng-repeat="name in names">
+						{{name}} from {{department}}
+					</li>
+				</ol>
+			</div>
+		</div>
+	</body>
+	<script src="../node_modules/angular/angular.min.js"></script>
+	<script>
+		angular.module("myApp",[])
+				.controller("GreetCtrl",["$scope","$rootScope",function($scope,$rootScope){
+					$scope.name = 'World';
+					$rootScope.department = 'Angular';
+				}])
+				.controller("ListCtrl",["$scope",function($scope){
+					$scope.names = ['Igor', 'Misko', 'Vojta'];
+				}])
+	</script>
+</html>
+

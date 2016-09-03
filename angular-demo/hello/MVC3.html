@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div ng-controller="CommonController">
+            <div ng-controller="Controller1">
+                <p>{{greeting.text}},Angular</p>
+                <button ng-click="test1()">test1</button>
+            </div>
+            <div ng-controller="Controller2">
+                <p>{{greeting.text}},Angular</p>
+                <button ng-click="test2()">test2</button>
+                <button ng-click="commonFn()">通用</button>
+            </div>
+        </div>
+    </body>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller("CommonController",["$scope",function($scope){
+            $scope.commonFn=function(){
+                alert("这里是通用功能！");
+            };
+        }]).controller("Controller1",["$scope",function($scope){
+            $scope.greeting = {
+                text: 'Hello1'
+            };
+            $scope.test1=function(){
+                alert("test1");
+            };
+        }]).controller("Controller2",["$scope",function($scope){
+            $scope.greeting = {
+                text: 'Hello2'
+            };
+            $scope.test2=function(){
+                alert("test2");
+            };
+        }]);
+    </script>
+</html>
