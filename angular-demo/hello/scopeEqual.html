@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scopeEqual|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myController">
+    Ctrl1:
+    <br/>
+    <input type="text" ng-model="ctrlFlavor"/>
+    <br/>
+    Directive:
+    <br/>
+    <drink flavor="{{ctrlFlavor}}"></drink>
+</div>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myApp = angular.module("myApp",[]);
+    myApp.controller("myController",["$scope",function($scope){
+        $scope.ctrlFlavor = "读你";
+    }]);
+    myApp.directive("drink",function(){
+        return {
+            restrict:"AE",
+            scope:{
+                flavor:"="
+            },
+            template:"<input type='text' ng-model='lavor' /> "
+        }
+    });
+</script>
+</body>
+</html>
