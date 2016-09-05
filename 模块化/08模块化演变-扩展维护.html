@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>模块的维护和扩展</title>
+    <script type="text/javascript" src="js/module1.js"></script>
+    <script type="text/javascript">
+    /*
+        计算器：加减乘除
+        */
+    // 这里是一个计算模块
+    // ------------------------计算模块开始--------------------------
+    var module = (function(m){
+        m.power = function(a){
+            return parseInt(a) * parseInt(a);
+        }
+        return m;
+    })(module);
+
+    // console.log(module);
+    // ------------------------计算模块结束--------------------------
+    window.onload = function() {
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            var a = document.getElementById('a').value;
+            var b = document.getElementById('b').value;
+            var flag = document.getElementById('flag').value;
+            var result = 0;
+            switch (parseInt(flag)) {
+                case 1:
+                    result = module.sum(a, b);
+                    break;
+                case 2:
+                    result = module.subtract(a, b);
+                    break;
+                case 3:
+                    result = module.multiply(a, b);
+                    break;
+                case 4:
+                    result = module.divide(a, b);
+                    break;
+                case 5:
+                    result = module.mod(a, b);
+                    break;
+            }
+            var show = document.getElementById('result');
+            show.innerHTML = result;
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <input type="text" name="a" id="a">
+    <select id="flag">
+        <option value="1">加</option>
+        <option value="2">减</option>
+        <option value="3">乘</option>
+        <option value="4">除</option>
+        <option value="5">取余</option>
+    </select>
+    <input type="text" name="b" id="b">
+    <input type="button" value="计算" id="btn">
+    <span id="result"></span>
+</body>
+
+</html>

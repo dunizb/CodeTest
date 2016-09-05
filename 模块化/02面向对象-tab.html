@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #tab div img,
+    #tab1 div img {
+        width: 300px;
+        height: 200px;
+    }
+    
+    #tab div,
+    #tab1 div {
+        display: none;
+    }
+    </style>
+    <script type="text/javascript" src="js/tab.js"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        var tab = new Tab('tab');
+        tab.init();
+        tab.autoPlay();
+
+        var tab1 = new Tab('tab1');
+        tab1.init();
+        // tab1.autoPlay();
+
+    }
+    </script>
+</head>
+
+<body>
+    <div id="tab">
+        <input type="button" value="苹果">
+        <input type="button" value="香蕉">
+        <input type="button" value="橘子">
+        <div><img src="img/apple.jpg"></div>
+        <div><img src="img/banana.jpg"></div>
+        <div><img src="img/orange.jpg"></div>
+    </div>
+
+    <div id="tab1">
+        <input type="button" value="苹果">
+        <input type="button" value="香蕉">
+        <input type="button" value="橘子">
+        <div><img src="img/apple.jpg"></div>
+        <div><img src="img/banana.jpg"></div>
+        <div><img src="img/orange.jpg"></div>
+    </div>
+</body>
+
+</html>

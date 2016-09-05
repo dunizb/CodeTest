@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    /*
+    1、命名冲突
+       命名空间(ExtJS YUI)->模块化开发
+    2、文件依赖
+
+    3、增强项目的可维护性
+
+    开闭原则
+    1、对修改是封闭的
+    2、对添加是开放的
+
+    */
+
+    var obj = {};
+    obj.abc = {};
+    obj.abc.hello = function(){}
+
+    obj.abc.hello();
+
+    obj.hello = function(){}
+
+    function hello(){
+
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
