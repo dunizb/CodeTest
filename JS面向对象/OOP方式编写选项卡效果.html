@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP方式编写选项卡效果|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+        #tab div img,
+        #tab1 div img {
+            width: 300px;
+            height: 200px;
+        }
+
+        #tab div,
+        #tab1 div {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="js/tab.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var tab = new Tab('tab');
+            tab.init();
+            tab.autoPlay();
+
+            var tab1 = new Tab('tab1');
+            tab1.init();
+            // tab1.autoPlay();
+
+        }
+    </script>
+</head>
+<body>
+<div id="tab">
+    <input type="button" value="苹果">
+    <input type="button" value="香蕉">
+    <input type="button" value="橘子">
+    <div><img src="img/apple.jpg"></div>
+    <div><img src="img/banana.jpg"></div>
+    <div><img src="img/orange.jpg"></div>
+</div>
+
+<div id="tab1">
+    <input type="button" value="苹果">
+    <input type="button" value="香蕉">
+    <input type="button" value="橘子">
+    <div><img src="img/apple.jpg"></div>
+    <div><img src="img/banana.jpg"></div>
+    <div><img src="img/orange.jpg"></div>
+</div>
+</body>
+</html>
