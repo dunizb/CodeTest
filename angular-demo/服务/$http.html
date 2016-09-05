@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$http|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="../favicon.ico"/>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="LoadDateCtrl">
+    <ul>
+        <li ng-repeat="user in users">{{user.name}}</li>
+    </ul>
+</div>
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script type="text/javascript">
+    var myApp = angular.module("myApp",[]);
+    myApp.controller("LoadDateCtrl",["$scope","$http",function($scope,$http){
+        $http({
+            method:"get",
+            url:"data.json"
+        }).success(function(data,status,headers,config){
+            console.log("success.....");
+            console.log(data);
+            $scope.users = data;
+        }).error(function(data,status,headers,config){
+            console.log("error.....")
+        });
+    }]);
+</script>
+</body>
+</html>
