@@ -14,9 +14,12 @@
 	#clear{clear: both;line-height: 0;}
 	#fixArea{height: 280px;background: blue;}
 	#floatArea{height: 380px;background: green;width: 300px;}
-	#tab div{width: 200px;height: 200px;display: none;background: #A7C0DC;}
+	#floatArea input[type='text']{width: 50px;}
+	#tab div img {width: 300px;  height: 200px;  }
+	#tab div{display: none;}
 	#drag{width: 200px;height: 200px;position: absolute;background: green;}
 	</style>
+
 	<script type="text/javascript" src="js/sea.js"></script>
 	<script>
 		seajs.config({
@@ -26,7 +29,7 @@
 			}
 		});
 		seajs.use('./main.js',function(obj){
-
+			console.log(obj);
 		});
 	</script>
 
@@ -41,13 +44,12 @@
 		<div id="right">
 			<div id="fixArea">
 				<div id="tab">
-					<input style="background: orange;" type="button" value="金三胖">
-					<input type="button" value="奥巴马">
-					<input type="button" value="安倍">
-					<div style="display: block;">你这黑厮，给我客气点儿，哥也有了氢弹</div>
-					<div>三胖，别狂，多看看萨达姆和卡扎菲</div>
-					<div>对于三胖的氢弹，安倍表示深受威胁</div>
-
+					<input type="button" value="苹果">
+					<input type="button" value="香蕉">
+					<input type="button" value="橘子">
+					<div><img src="img/apple.jpg"></div>
+					<div><img src="img/banana.jpg"></div>
+					<div><img src="img/orange.jpg"></div>
 				</div>
 			</div>
 			<div id="floatArea">
