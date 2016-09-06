@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>seajs综合案例</title>
+	<style type="text/css">
+	html,body,div,p{padding:0px;margin:0px;}
+    #container{width: 1000px;margin:auto;}
+    #header{height: 50px;background: lightblue;}
+    #main{}
+    #left{width: 700px;float: left;min-height: 800px;background:#FDE8E0;}
+    #right{width: 300px;float: right;min-height: 800px;background: gray;}
+    #footer{height: 360px;background: lightgray;}
+	#clear{clear: both;line-height: 0;}
+	#fixArea{height: 280px;background: blue;}
+	#floatArea{height: 380px;background: green;width: 300px;}
+	#tab div{width: 200px;height: 200px;display: none;background: #A7C0DC;}
+	#drag{width: 200px;height: 200px;position: absolute;background: green;}
+	</style>
+	<script type="text/javascript" src="js/sea.js"></script>
+	<script>
+		seajs.config({
+			base:'./sea_module',
+			alias:{
+				'jquery':'jquery-1.11.3.js'
+			}
+		});
+		seajs.use('./main.js',function(obj){
+
+		});
+	</script>
+
+</head>
+<body>
+<div id="container">
+	<div id="header">header</div>
+	<div id="main">
+		<div id="left">
+			<div id="drag"></div>
+		</div>
+		<div id="right">
+			<div id="fixArea">
+				<div id="tab">
+					<input style="background: orange;" type="button" value="金三胖">
+					<input type="button" value="奥巴马">
+					<input type="button" value="安倍">
+					<div style="display: block;">你这黑厮，给我客气点儿，哥也有了氢弹</div>
+					<div>三胖，别狂，多看看萨达姆和卡扎菲</div>
+					<div>对于三胖的氢弹，安倍表示深受威胁</div>
+
+				</div>
+			</div>
+			<div id="floatArea">
+				<input type="text" name="a" id="a">
+				<select id="flag">
+					<option value="1">加</option>
+					<option value="2">减</option>
+					<option value="3">乘</option>
+					<option value="4">除</option>
+					<option value="5">取余</option>
+					<option value="6">平方</option>
+				</select>
+				<input type="text" name="b" id="b">
+				<input type="button" value="计算" id="btn">
+				<span id="result"></span>
+			</div>
+		</div>
+		<div id="clear"></div>
+	</div>
+	<div id="footer">footer</div>
+</div>
+</body>
+</html>
