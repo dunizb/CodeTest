@@ -29,7 +29,7 @@
 			}
 		});
 		seajs.use('./main.js',function(obj){
-			console.log(obj);
+			obj.showLog();
 		});
 	</script>
 
@@ -53,18 +53,20 @@
 				</div>
 			</div>
 			<div id="floatArea">
-				<input type="text" name="a" id="a">
-				<select id="flag">
-					<option value="1">加</option>
-					<option value="2">减</option>
-					<option value="3">乘</option>
-					<option value="4">除</option>
-					<option value="5">取余</option>
-					<option value="6">平方</option>
-				</select>
-				<input type="text" name="b" id="b">
-				<input type="button" value="计算" id="btn">
-				<span id="result"></span>
+				<div id="calc">
+					<input type="text" name="a" id="a">
+					<select id="flag">
+						<option value="1">加</option>
+						<option value="2">减</option>
+						<option value="3">乘</option>
+						<option value="4">除</option>
+						<option value="5">取余</option>
+						<option value="6">平方</option>
+					</select>
+					<input type="text" name="b" id="b">
+					<input type="button" value="计算" id="btn">
+					<span id="result"></span>
+				</div>
 			</div>
 		</div>
 		<div id="clear"></div>

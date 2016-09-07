@@ -2,62 +2,55 @@
  * Created by Administrator on 2016/9/6 0006.
  */
 define(function(require,exports,module){
-    var tabModule = (function(m){
-        function Tab(id) {
-            this.tab = document.getElementById(id);
-            this.aInput = this.tab.getElementsByTagName('input');
-            this.aDiv = this.tab.getElementsByTagName('div');
-            this.nowIndex = 0;
-        }
+    function Tab(id) {
+        this.tab = document.getElementById(id);
+        this.aInput = this.tab.getElementsByTagName('input');
+        this.aDiv = this.tab.getElementsByTagName('div');
+        this.nowIndex = 0;
+    }
 
-        Tab.prototype.init = function() {
-            this.aInput[0].style.backgroundColor = 'orange';
-            this.aDiv[0].style.display = 'block';
-            var that = this;
-            for (var i = 0; i < this.aInput.length; i++) {
-                this.aInput[i].index = i;
-                this.aInput[i].onclick = function() {
-                    // ÇÐ»»¹¦ÄÜ
-                    // ÕâÀïµÄthisÊÇµ±Ç°µã»÷µÄinput
-                    that.change(this);
-                }
+    Tab.prototype.init = function() {
+        this.aInput[0].style.backgroundColor = 'orange';
+        this.aDiv[0].style.display = 'block';
+        var that = this;
+        for (var i = 0; i < this.aInput.length; i++) {
+            this.aInput[i].index = i;
+            this.aInput[i].onclick = function() {
+                // åˆ‡æ¢åŠŸèƒ½
+                // è¿™é‡Œçš„thisæ˜¯å½“å‰ç‚¹å‡»çš„input
+                that.change(this);
             }
-            // this.autoPlay();
         }
+        // this.autoPlay();
+    }
 
-        Tab.prototype.change = function(obj) {
-            // ÕâÀïµÄthisÊÇÊµÀý¶ÔÏó
-            for (var i = 0; i < this.aInput.length; i++) {
-                this.aInput[i].style.backgroundColor = '';
-                this.aDiv[i].style.display = 'none';
+    Tab.prototype.change = function(obj) {
+        // è¿™é‡Œçš„thisæ˜¯å®žä¾‹å¯¹è±¡
+        for (var i = 0; i < this.aInput.length; i++) {
+            this.aInput[i].style.backgroundColor = '';
+            this.aDiv[i].style.display = 'none';
+        }
+        obj.style.backgroundColor = 'orange';
+        this.aDiv[obj.index].style.display = 'block';
+    }
+
+    Tab.prototype.autoPlay = function(){
+        // è¿™é‡Œçš„thisæ˜¯å®žä¾‹å¯¹è±¡
+        var that = this;
+        setInterval(function(){
+            // è‡ªåŠ¨åˆ‡æ¢åŠŸèƒ½
+            // è¿™é‡Œçš„thisæ˜¯window
+            // nowIndex å˜åŒ–èŒƒå›´ï¼š0 1 2
+            if(that.nowIndex === that.aInput.length - 1){
+                // å¦‚æžœå½“å‰å¾ªçŽ¯çš„åˆ‡æ¢åˆ°æœ€åŽä¸€ä¸ªï¼Œé‚£ä¹ˆå°±ä»Žå¤´å¼€å§‹
+                that.nowIndex = 0;
+            }else{
+                that.nowIndex++;
             }
-            obj.style.backgroundColor = 'orange';
-            this.aDiv[obj.index].style.display = 'block';
-        }
+            var nowInput = that.aInput[that.nowIndex];
+            that.change(nowInput);
+        },1000);
+    }
 
-        Tab.prototype.autoPlay = function(){
-            // ÕâÀïµÄthisÊÇÊµÀý¶ÔÏó
-            var that = this;
-            setInterval(function(){
-                // ×Ô¶¯ÇÐ»»¹¦ÄÜ
-                // ÕâÀïµÄthisÊÇwindow
-                // nowIndex ±ä»¯·¶Î§£º0 1 2
-                if(that.nowIndex === that.aInput.length - 1){
-                    // Èç¹ûµ±Ç°Ñ­»·µÄÇÐ»»µ½×îºóÒ»¸ö£¬ÄÇÃ´¾Í´ÓÍ·¿ªÊ¼
-                    that.nowIndex = 0;
-                }else{
-                    that.nowIndex++;
-                }
-                var nowInput = that.aInput[that.nowIndex];
-                that.change(nowInput);
-            },1000);
-        }
-        var tab = new Tab('tab');
-        tab.init();
-        tab.autoPlay();
-        m.Tab = Tab;
-        return m;
-    })(tabModule || {});
-
-    exports.module = tabModule;
+    module.exports = Tab;
 });
