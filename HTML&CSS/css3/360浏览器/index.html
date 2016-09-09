@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>360</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/jquery.fullpage.min.css">
+</head>
+<body>
+	<div id="fullpage">
+		<!-- 第一屏 -->
+		<div class="section first">
+			<!-- LOGO -->
+			<div class="logo"></div>
+			<!-- 文字 -->
+			<div class="text">
+				<img src="images/text_1.png" alt="">
+				<img src="images/text_2.png" alt="">
+				<img src="images/text_3.png" alt="">
+				<img src="images/text_4.png" alt="">
+				<img src="images/text_5.png" alt="">
+				<img src="images/text_6.png" alt="">
+				<img src="images/text_7.png" alt="">
+				<img src="images/text_8.png" alt="">
+			</div>
+			<!-- 信息 -->
+			<div class="info"></div>
+		</div>
+		<!-- 第二屏 -->
+		<div class="section second">
+			<!-- 盾牌 -->
+			<div class="shield">
+				<img src="images/shield_1.png" alt="">
+				<img src="images/shield_2.png" alt="">
+				<img src="images/shield_3.png" alt="">
+				<img src="images/shield_4.png" alt="">
+				<img src="images/shield_5.png" alt="">
+				<img src="images/shield_6.png" alt="">
+				<img src="images/shield_7.png" alt="">
+				<img src="images/shield_8.png" alt="">
+				<img src="images/shield_9.png" alt="">
+			</div>
+			<!-- 信息 -->
+			<div class="info"></div>
+		</div>
+		<!-- 第三屏 -->
+		<div class="section third">
+			<!-- 信息 -->
+			<div class="info"></div>
+			<!-- 圆环 -->
+			<div class="circle"></div>
+			<!-- 火箭 -->
+			<div class="rocket"></div>
+		</div>
+		<!-- 第四屏 -->
+		<div class="section fourth">
+			<!-- 搜索 -->
+			<div class="search">
+				<div class="key"></div>
+				<div class="input"></div>
+				<div class="wrap">
+					<div class="result"></div>
+				</div>
+			</div>
+			<!-- 信息 -->
+			<div class="info"></div>
+		</div>
+		<!-- 第五屏 -->
+		<div class="section fifth">
+			<!-- 信息 -->
+			<div class="info"></div>
+			<!-- 浏览器 -->
+			<div class="broswer">
+				<!-- 四边框 -->
+				<div class="leftline"></div>
+				<div class="topline"></div>
+				<div class="rightline"></div>
+				<div class="bottomline"></div>
+				<!-- 工具栏 -->
+				<div class="toolbar"></div>
+				<!-- 边框盒子 -->
+				<div class="box">
+					<span></span>
+				</div>
+				<div class="line"></div>
+				<!-- 其它 -->
+				<div class="extra"></div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script>
+		$('#fullpage').fullpage({
+			// 设置背景色
+			sectionsColor : ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+			afterLoad: function (anchorLink, index) {
+				$('.section').removeClass('current');
+				
+				// 延时100毫秒执行
+				setTimeout(function () {
+					$('.section').eq(index - 1).addClass('current');
+				}, 100);
+			},
+			navigation:true
+		});
+	</script>
+</body>
+</html>
