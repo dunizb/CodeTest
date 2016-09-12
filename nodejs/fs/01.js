@@ -1,13 +1,16 @@
 /**
  * Created by Administrator on 2016/9/10 0010.
+ * 查看文件基本信息
  */
 
 var fs = require('fs');
 var path = require('path');
 
 var str = path.join(__dirname,'data.json');
-console.log(str);// E:\CodeTest\nodejs
+console.log(str);// E:\CodeTest\nodejs\fs\data.json
 
+
+// 查看文件基本信息
 fs.stat(str,function(error,stats){
     console.log(stats);
     //{ dev: -1975121017,

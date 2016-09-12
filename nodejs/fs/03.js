@@ -1,19 +1,12 @@
-# 文件操作（File System）
+/**
+ * Created by Administrator on 2016/9/12 0012.
+ * 文件的打开与写
+ */
+var fs = require('fs');
+var path = require('path');
 
-- 查看文件的基本信息 stat
-
-```
 var str = path.join(__dirname,'data.json');
-fs.stat(str,function(error,stats){
-    console.log(stats);
-})
-```
 
-- 打开文件 open
-- 读取文件 read
-
-
-```
 fs.stat(str,function(error,stats){
     if(stats.isFile()){
         /**
@@ -42,8 +35,3 @@ fs.stat(str,function(error,stats){
         });
     }
 });
-```
-
-- 写入文件 write
-- 关闭文件 close
-- 监视文件变化
