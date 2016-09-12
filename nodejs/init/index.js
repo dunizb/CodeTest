@@ -6,13 +6,13 @@ var param = process.argv[2];
 
 switch (param){
     case 'init':
-        //ÊµÏÖ³õÊ¼»¯²Ù×÷
+        //å®ç°åˆå§‹åŒ–æ“ä½œ
         obj.init();
         break;
     case '-v':
-        console.log('°æ±¾ĞÅÏ¢');
+        console.log('ç‰ˆæœ¬ä¿¡æ¯');
         break;
     case '-h':
-        console.log('°ïÖúĞÅÏ¢');
+        console.log('å¸®åŠ©ä¿¡æ¯');
         break;
 }
