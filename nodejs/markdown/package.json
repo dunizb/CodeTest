@@ -1,0 +1,16 @@
+{
+  "name": "markdown",
+  "version": "1.0.0",
+  "description": "markdown-it：第三方转换工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it": "^7.0.1"
+  }
+}
