@@ -10,10 +10,13 @@ var desPath = "D:\\bootstrap.pdf";
 var readStream = fs.createReadStream(srcPath);
 var writeStream = fs.createWriteStream(desPath);
 
-readStream.on('data',function(data){
-    writeStream.write(data);
-});
+//管道方式，最推荐
+readStream.pipe(writeStream);
 
-readStream.on('end',function(){
-    console.log('文件拷贝完成....');
-});
+//readStream.on('data',function(data){
+//    writeStream.write(data);
+//});
+//
+//readStream.on('end',function(){
+//    console.log('文件拷贝完成....');
+//});
