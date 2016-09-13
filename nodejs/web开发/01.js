@@ -4,15 +4,15 @@
 
 var http = require('http');
 
-//创建服务
+//鍒涘缓鏈嶅姟
 var server = http.createServer();
 
-//注册请求
+//娉ㄥ唽鏈嶅姟
 server.on('request',function(request,response){
     console.log(123);
     response.write('hellow write');
     response.end();
 });
 
-//监听端口
+//鐩戝惉绔彛
 server.listen(3000);

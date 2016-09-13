@@ -1,6 +1,6 @@
 /**
  * Created by Administrator on 2016/9/12 0012.
- * ÊµÏÖ³õÊ¼»¯²Ù×÷
+ * åˆå§‹åŒ–ç›®å½•
  */
 var config = require('./config.js');
 var path = require('path');
@@ -10,7 +10,7 @@ var root = config.rootName;
 
 exports.init = function(){
     fs.mkdir(path.join(__dirname,root),function(){
-        //´´½¨×ÓÄ¿Â¼
+        //åˆ›å»ºå­ç›®å½•
         config.files.forEach(function(item){
             if(item.type == 'dir'){
                 fs.mkdirSync(path.join(__dirname,root,item.fileName));
