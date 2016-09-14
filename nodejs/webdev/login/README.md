@@ -11,4 +11,4 @@ index.js第29行，默认端口为3000,
 
 4. 运行
 + `node index.js` 启动Web服务
-+ 在浏览器中打开：http://localhost:3000/
++ 在浏览器中打开：http://localhost:3000/www/login.html
