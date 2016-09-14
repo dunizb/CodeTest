@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                type : 'get',
+                url : 'http://localhost:3000/login',
+                dataType : 'json',
+                data : {
+                    username : $("#username").val(),
+                    password : $("#password").val()
+                },
+                success : function(data){
+                    // console.log(data.flag);
+                    if(data.flag == '1'){
+                        $("#info").html('登录成功');
+                    }else if(data.flag == '2'){
+                        $("#info").html('用户名或者密码错误');
+                    }
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <div>
+        <form>
+            用户名：<input type="text" id="username">
+            密码：<input type="text" id="password">
+            <input type="button" value="登录" id="btn">
+            <span id="info"></span>
+        </form>
+    </div>
+</body>
+</html>
