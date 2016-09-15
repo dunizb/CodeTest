@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+    <div>成绩</div>
+    <ul>
+        {{each list as value i}}
+            <li><span>{{i + 1}}</span><span>语文：{{value.chinese}}</span><span>数学：{{value.math}}</span><span>外语：{{value.english}}</span><span>理综：{{value.summary}}</span></li>
+        {{/each}}
+    </ul>
+</body>
+</html>
