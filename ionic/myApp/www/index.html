@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- 用于调用底层硬件 -->
+    <script src="cordova.js"></script>
+
+  
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+    <div class="bar bar-header">
+      <button class="button ion-thumbsup">按钮</button>
+      <h1 class="title">小明</h1>
+      <div class="button icon ion-happy">笑</div>
+    </div>
+
+    <div class="bar bar-subheader">我是头部下方</div>
+    <div class="scroll-content has-header has-subheader ">
+    
+    <!-- 选项卡 -->
+    <div class="tabs tabs-icon-top">
+        <a class="tab-item">
+        <i class="icon ion-home"></i>首页</a>
+        <a class="tab-item">购物车</a>
+        <a class="tab-item">个人中心</a>
+    </div>
+      <!-- 开关 -->
+      <div class="list list-inset">
+        <div class="item item-toggle">
+            <label for="" class="toggle toggle-royal">
+                <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+        </div>
+        <div class="item item-checkbox">
+          <div class="checkbox" >
+              <input type="checkbox">
+          </div>
+        </div>
+        <div class="item range">
+          <i class="icon ion-android-volume-down"></i>
+          <input type="range">
+          <i class="iocn ion-android-volume-up"></i>
+        </div>
+        <div class="item">我是一个小小明</div>
+      </div>
+
+      <!-- 列表 -->
+      <div class="list">
+        <div class="item">我是一个小小明</div>
+        <div class="item">我是一个小小明</div>
+        <div class="item">我是一个小小明</div>
+      </div>
+      
+      <div class="list list-borderless">
+        <div class="item">我是一个小小明</div>
+        <div class="item">我是一个小小明</div>
+        <div class="item">我是一个小小明</div>
+      </div>
+    <div class="bar bar-subfooter">我是尾部上方</div>
+  </body>
+</html>
