@@ -1,0 +1,75 @@
+<ion-view id="cart" view-title="购物车" >
+  <ion-content class="scroll-content" scroll="false">
+    <!-- 头部 -->
+    <header id="header">
+      <div class="header-left">
+        <div ng-click="func_goBack()">
+          <span></span>
+        </div >
+      </div>
+      <div class="header-center">
+        <span>购物车</span>
+      </div>
+      <div class="header-right">
+        <span></span>
+      </div>
+    </header>
+    <!-- 安全 -->
+    <div id="anquan">
+      <div class="anquan-warp">
+        <em></em>
+        <span>您正在安全购物环境中，请放心购物</span>
+      </div>
+    </div>
+    <!-- 产品列表 -->
+    <div id="pro">
+      <div class="pro-warp" ng-repeat="item in obj_cartDbData.data">
+        <!-- 列表容器内部 -->
+        <div class="pro-title">
+          <div class="pro-title-check"></div>
+          <div class="pro-title-name">
+            <img src="img/cart/buy-logo.png" alt="">
+            <span>京东自营</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <div class="pro-body-check"></div>
+          <div class="pro-body-des">
+            <a ng-href="#/details/{{item.productId}}">
+              <img src="img/details/detail01.jpg" alt="">
+            </a>
+            <div class="pro-body-des-text">
+              <span>{{item.goodsId}}</span>
+              <p>￥{{item.prise}}</p>
+              <div class="pro-body-des-con">
+                <div class="floatLeft clearBoth">
+                  <span class="anniu floatLeft" ng-click="func_jian1(item.goodsId)">-</span>
+                  <input class="floatLeft" type="text" readonly ng-value="item.number">
+                  <span class="anniu floatLeft" ng-click="func_jia1(item.goodsId)">+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div id="delete">-->
+         <!--<i class="ion-trash-a" ng-click="func_delete(item.goodsId)"></i>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </ion-content>
+  <!-- 固定底边栏 -->
+  <footer id="foot">
+    <div class="footLeft">
+      <div class="checkall"></div>
+      <div class="checktext">全选</div>
+      <div class="foot-info">
+        <strong>合计:￥{{obj_cartDbData.total}}</strong>
+        <span>总额:￥{{obj_cartDbData.total}} 返现:￥0.00</span>
+      </div>
+    </div>
+    <div class="footRight" ng-click="func_goHome()">
+      去结算（0）
+    </div>
+  </footer>
+
+</ion-view>

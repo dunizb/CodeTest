@@ -1,0 +1,48 @@
+#account .light-bg{
+  background-color: #FFFFFF;
+}
+
+#account ion-content{
+  background-color: #E4E1E1;
+}
+#account .item{
+  background-color: #EFEFEF;
+}
+
+#account img{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  z-index: 100;
+}
+
+#account #info span{
+  display: inline-block;
+  vertical-align:top;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+}
+
+#account .telephone{
+  position:absolute;
+  right: 20px;
+  height: 20px;
+  width: 50px;
+}
+
+#account .telephone{
+  float: right;
+  right: 40px;
+}
+#account .version{
+  float: right;
+  right: 5px;
+}
+
+
+
+
+
+

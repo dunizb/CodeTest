@@ -1,0 +1,60 @@
+<ion-view id="goodsList" view-title="商品列表页">
+  <!-- 头部搜索部分 -->
+  <header id="header">
+    <div class="header-left" ng-click="func_goBack()">
+      <span></span>
+    </div>
+    <div class="header-center">
+      <span></span>
+    </div>
+    <div class="header-right">
+      <span></span>
+    </div>
+  </header>
+  <!-- 筛选导航部分 -->
+  <nav id="nav">
+    <div class="nav-all">综合</div>
+    <div class="nav-warp">
+      <ul>
+        <li>11.11</li>
+        <li>销量</li>
+        <li>价格</li>
+        <li>品牌</li>
+        <li>新品</li>
+        <li>服务</li>
+      </ul>
+    </div>
+  </nav>
+  <ion-content class="scroll-content">
+    <!-- 产品部分 -->
+    <ion-refresher
+      pulling-text="获取最新数据..."
+      refreshing-text="正在加载"
+      on-refresh="func_refreshGoodsList()">
+    </ion-refresher>
+    <div class="pro" ng-repeat="item in obj_goodsListData">
+      <div class="pro-warp">
+        <div class="pro-body">
+          <div class="pro-body-des">
+            <a ng-href="#/details/{{item.productId}}">
+              <img ng-src="{{item.src}}" alt="">
+            </a>
+            <div class="pro-body-des-text">
+              <span>{{item.name}}</span>
+              <b>￥{{item.price}}</b>
+              <div class="pro-body-des-con">
+                <span>{{item.haoping}}%好评</span>
+                <span>{{item.buy}}人</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-hide="pms_isMoreItemsAvailable" style="text-align: center">
+      <span>我去，地主家也没有余粮啊！</span>
+    </div>
+    <ion-infinite-scroll ng-if="pms_isMoreItemsAvailable" on-infinite="func_loadMoreGoodsList()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

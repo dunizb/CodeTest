@@ -1,0 +1,56 @@
+<ion-view id="category" view-title="商品分类" hide-back-button="true" cache-view="false">
+    <ion-header-bar align-title="center" class="bar-stable item-input-inset">
+        <div class="buttons">
+            <button class="button icon ion-chevron-left" style="border:none"></button>
+        </div>
+        <label class="item-input-wrapper">
+            <input type="text">
+        </label>
+        <div class="buttons">
+            <button class="button icon ion-android-menu" style="border:none"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <nav id="nav">
+            <ul>
+                <li ng-class="$index==0?'nav-current':'nav-blur'" ng-repeat="item in categoryData" ng-click="categoryLeftClick($event);getCategoryDetailData(item.typeNumber)">{{item.name}}</li>
+            </ul>
+        </nav>
+        <div id="pro">
+            <ion-content lazy-scroll>
+                <div class="content">
+                    <div class="banner">
+                        <img image-lazy-src="img/category/banner_1.jpg" alt="">
+                    </div>
+                    <div class="content-title">
+                        <span>热卖品类</span>
+                    </div>
+                    <div class="content-body">
+                        <li class="content-body-list" ng-repeat="item in categoryDetailData" ui-sref="goodsList({typeNumber:{{item.typeNumber}}})">
+                            <img image-lazy-src="{{item.src}}" alt="" image-lazy-loader="lines" image-lazy-distance-from-bottom-to-load="100">
+                            <span>{{item.name}}</span>
+                        </li>
+                    </div>
+                    <div class="content-title">
+                        <span>冬季新品</span>
+                    </div>
+                    <div class="content-body">
+                        <li class="content-body-list" ng-repeat="item in categoryDetailData">
+                            <img image-lazy-src="{{item.src}}" alt="" image-lazy-loader="lines">
+                            <span>{{item.name}}</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="content-title">
+                    <span>测试图片延迟加载</span>
+                </div>
+                <div class="content-body">
+                    <li class="content-body-list">
+                        <img image-lazy-src=" http://m.360buyimg.com/mobile/s100x100_jfs/t1921/153/128855719/34476/1ba02abc/55f12e38N94438a7f.jpg" alt="" image-lazy-loader="lines">
+                        <span>猫粮</span>
+                    </li>
+                </div>
+            </ion-content>
+        </div>
+    </ion-content>
+</ion-view>
