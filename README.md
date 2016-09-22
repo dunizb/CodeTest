@@ -6,8 +6,11 @@ var project = {
 }
 
 project.update  = {
-    model : 'HTML & CSS',
-    content : '两列布局与等高布局'
+    model : ['HTML & CSS','React']
+    content : [
+        '两列布局与等高布局',
+        '创建第一个Demo,一个按钮组件'
+    ]    
 }
 ```
 

@@ -1,6 +1,6 @@
 # React
 
-[推荐入门文章](https://segmentfault.com/a/1190000006495917?utm_source=tuicool&utm_medium=referral)
+[React入门及资源指引](https://segmentfault.com/a/1190000006495917?utm_source=tuicool&utm_medium=referral)
 
 ### 什么是React,及组件化,JSX语法
   - 模块化(业务分割) //
@@ -9,9 +9,8 @@
   - 自动化构建及优化 gulp，grunt,webpack。
   - js模块化/css模块化,  less,sass ....
   - 组件化 , (view)
-  
   - jsx语法，js+xml    document.createElement('div')
-  - <div><button></button></div>
+  - `<div><button></button></div>`
   - diff算法 //different   // virtual DOM
 
   - 遇到< 就当html解析，遇到{就当js解析。

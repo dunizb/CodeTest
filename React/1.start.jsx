@@ -3,6 +3,7 @@
 var Btn = React.createClass({
     // 用来渲染相应组建的呃
     render:function(){
+        // return 不要单独写在一行，如果非要写在一行，请用括号把后面的内容包括起来
         return <button>我是一个按钮</button>
     } 
 });
