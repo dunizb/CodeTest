@@ -26,11 +26,11 @@
       + presets:// 指定转换规则
        * presets:["react","es2015"]
       + 这些规则都需要安装相应的npm包
-        - babel-preset-react
-        - `npm install --save-dev babel-preset-react`
-        - babel-preset-es2015
-    + babel-core也需要安装
-      - `npm install --save-dev babel-core`
+        - babel-preset-react：`npm install --save-dev babel-preset-react`
+        - babel-preset-es2015：`npm install --save-dev babel-preset-es2015`
+    + babel-core也需要安装：`npm install --save-dev babel-core`
+
+    + 转换成ES5的语法：`babel 1.start.jsx -o 1.start.js`  
     
 
 ### 操作样式
