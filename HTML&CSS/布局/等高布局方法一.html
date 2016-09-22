@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>等高布局方法一|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: auto;
+      }
+      #container {
+        background: #ffe3a6;
+      }
+      #wrapper {
+        display: inline-block;
+        border-left: 200px solid #d4c376;/*==此值等于左边栏的宽度值==*/
+        position: relative;
+        vertical-align: bottom;
+      }
+
+      #sidebar {
+        float: left;
+        width: 200px;
+        margin-left: -200px;/*==此值等于左边栏的宽度值==*/
+        position: relative;     
+      }
+
+      #main {
+        float: left;
+      } 
+
+      #maing,
+      #sidebar{
+        min-height: 200px;
+        height: auto !important;
+        height: 200px;
+      }
+    </style>
+</head>
+<body>
+    <div id="container">
+      <div id="wrapper">
+        <div id="sidebar">Left Sidebar</div>
+        <div id="main">Main Content</div>
+      </div>
+    </div>
+</body>
+</html>

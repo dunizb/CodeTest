@@ -6,3 +6,5 @@
 /nodejs/webdev/dynamic-web/node_modules/
 /ionic/SM/node_modules/
 /ionic/SM/plugins/
+.idea/CodeTest.iml
+.idea/workspace.xml
