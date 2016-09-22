@@ -5,7 +5,10 @@ var project = {
     desc : '个人学习、练习'
 }
 
-project.addConetent = "两列布局与等高布局"
+project.update  = {
+    model : 'HTML & CSS',
+    content : '两列布局与等高布局'
+}
 ```
 
 
