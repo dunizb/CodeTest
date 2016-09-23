@@ -6,7 +6,7 @@ var project = {
 }
 
 project.update  = {
-    model : ['HTML & CSS','React']
+    model : ['HTML & CSS','React/ruanyifeng','React/code']
     content : [
         {time:'2016-09-22',content:['两列布局与等高布局']},
         {time:'2016-09-22',content:[
@@ -21,7 +21,9 @@ project.update  = {
             '7、获取真实的DOM节点',
             '8、this.state',
             '9、表单',
-            '10、组件的生命周期'
+            '10、组件的生命周期',
+            '操作样式',
+            '单向数据流'
         ]}
     ]    
 }
