@@ -2,6 +2,8 @@
 
 [React入门及资源指引](https://segmentfault.com/a/1190000006495917?utm_source=tuicool&utm_medium=referral)
 
+[React入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
+
 ### 什么是React,及组件化,JSX语法
   - 模块化(业务分割) //
   - 组件化(页面)  // 利用- html,css,js
