@@ -1,4 +1,4 @@
-# CodeTest
+# JavaScript CodeTest
 ```js
 var project = {
     name : 'CodeTest',
@@ -20,7 +20,8 @@ project.update  = {
             '6、PropTypes',
             '7、获取真实的DOM节点',
             '8、this.state',
-            '9、表单'
+            '9、表单',
+            '10、组件的生命周期'
         ]}
     ]    
 }
