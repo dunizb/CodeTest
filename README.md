@@ -29,7 +29,8 @@ project.update  = {
         {time:'201-09-24',content:[
             '事件注册',
             '组件的生命周期',
-            '属性扩散'
+            '属性扩散',
+            'react+webpack'
         ]}
     ]    
 }
