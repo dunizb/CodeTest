@@ -8,9 +8,10 @@ var project = {
 
 project.update  = {[
     {
-        modelName: ['HTML & CSS'],
+        modelName: ['HTML & CSS','javascript'],
         update : [
-            {time:'2016-09-22',content:['两列布局与等高布局']}
+            {time:'2016-09-22',content:['css|两列布局与等高布局']},
+            {time:'2016-09-25',content:['javascript|将字符串的每个单词的首字母大写']}
         ]
     },
     {

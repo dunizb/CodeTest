@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>将字符串的每个单词的首字母大写|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+<body>
+  <script>
+        // 方法一：
+        function titleUpcase(str){
+            var r = [],t1,t2;
+            var s = str.toLowerCase().split(' ');
+            s.map(function(item){
+                t1 = item.charAt(0).toUpperCase();
+                t2 = item.substr(1);
+                return r.push(t1 + t2);    
+            });
+            return r.join(' ');
+        }
+
+        console.log(titleUpcase('hello javascript'));
+        console.info("---------------华丽的分割线----------------------");
+
+        // 方法二：
+        function titleCase(str) {
+           return str.toLowerCase().replace(/(?:^|\s)[a-z]/g, function (s) {
+              return s.toUpperCase();
+           });
+        };
+        console.log(titleCase('study react native'));//Study React Native
+        console.info("---------------华丽的分割线----------------------");
+
+        // 方法三：
+        function strConvertCase(str){
+            return str.toLowerCase().replace(/\b[a-z]/g,function(c){
+                // console.info(c);
+                return c.toUpperCase()
+            });
+        }
+        console.log(strConvertCase('study react native'));
+  </script>
+</body>
+</html>
