@@ -51,6 +51,15 @@ project.update  = {[
                 'react+webpack'
             ]}
         ]
+    },
+    {
+        modelName:['webpack'],
+        update:[
+            {time:'2016-09-24',content:[
+                'README.md',
+                'webpack.config.js'
+            ]}
+        ]
     }
 ]}
 ```
