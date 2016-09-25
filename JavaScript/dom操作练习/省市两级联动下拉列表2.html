@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>省市两级联动下拉列表2|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+<body>
+    <select id="sheng" style="width:150px">
+    </select>
+    <select id="city" style="width:150px">
+    </select>
+
+    <script>
+    var data=[
+        {id:0,name:"--请选择城市--",
+            city:[]
+        },
+        {id:1,name:"湖南",
+            city:[
+                 {id:11,name:"长沙"},
+                 {id:12,name:"株洲"},
+                 {id:13,name:"湘潭"},
+                 {id:14,name:"衡阳"}
+            ]
+        },
+        {id:2,name:"广东",
+            city:[
+                {id:21,name:"广州"},
+                {id:22,name:"深圳"},
+                {id:23,name:"佛山"},
+                {id:24,name:"清远"}
+            ]
+        },
+        {id:3,name:"上海",
+            city:[
+                {id:31,name:"黄埔区"},
+                {id:32,name:"松江区"},
+                {id:33,name:"闵行区"},
+                {id:34,name:"浦东新区"}
+            ]
+        },
+        {id:4,name:"湖北",
+            city:[
+                {id:41,name:"武汉"},
+                {id:42,name:"黄冈"},
+                {id:43,name:"十堰"},
+                {id:44,name:"黄石"}
+            ]
+        },
+        {id:5,name:"江西",
+            city:[
+                {id:51,name:"南昌"},
+                {id:52,name:"上饶"},
+                {id:53,name:"鹰潭"},
+                {id:54,name:"赣州"}
+            ]
+        }
+    ];
+
+    var sheng=document.getElementById("sheng");
+    var city=document.getElementById("city");
+
+    sheng.innerHTML="";
+
+    //pro就代表了data里的每个key
+    for(var i=0,len=data.length;i<len;i++){
+        //var op=new Option(data[i].id,data[i].name);
+        var op=document.createElement("option");
+        op.value=data[i].id;
+        op.innerHTML=data[i].name;
+        sheng.appendChild(op);
+    }
+
+    sheng.onchange=function(){
+        //情况city里的内容
+        city.innerHTML="";
+        //得到选中省份的ID
+        var proid=sheng.value;
+        //alert(proid);
+
+        for(var i=0,len=data.length;i<len;i++){
+            //找到了该省的城市列表
+            if(data[i].id==proid){
+                //该省份对应的城市列表
+                var gcity=data[i].city;
+                //遍历每个城市
+                for(var i=0,len=gcity.length;i<len;i++){
+                    var op=document.createElement("option");
+                    op.value=gcity[i].id;
+                    op.innerHTML=gcity[i].name;
+                    city.appendChild(op);
+                }
+                break;
+            }
+        }
+    }
+    </script>
+</body>
+</html>

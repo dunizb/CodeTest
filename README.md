@@ -11,7 +11,8 @@ project.update  = {[
         modelName: ['HTML & CSS','javascript'],
         update : [
             {time:'2016-09-22',content:['css|两列布局与等高布局']},
-            {time:'2016-09-25',content:['javascript|将字符串的每个单词的首字母大写']}
+            {time:'2016-09-25',content:['javascript|将字符串的每个单词的首字母大写']},
+            {time:'2016-09-26',content:['省市两级联动下拉列表1.html','省市两级联动下拉列表2.html']}
         ]
     },
     {
