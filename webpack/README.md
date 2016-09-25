@@ -1,4 +1,4 @@
-# webpack
+# 后期课程第7天 webpack
 
 ## 1.1.webpack是什么
   - gulp , 打包,压缩,混淆，合并,
@@ -187,5 +187,31 @@ https://www.sourcetreeapp.com/
 http://koala-app.com/
 
 
-### borower-sync
+### browser-sync
   - 自动同步
+    + `npm install -g browser-sync`
+    + `browser-sync start --server [项目根目录 ] --files "*.*,*.css"`
+  - 浏览器兼容性测试
+
+## 环境
+  - jdk 
+  - android sdk
+  - node
+  - vs2015 / c++ 编译器
+  - python 
+
+### reactNative本身
+  - `npm install -g react-native-cli`
+  - `react-native init MyApp`
+    // 如果时间长，可以切换淘宝的镜像源下载
+
+  - 编译
+    `react-native run-android`
+
+    第一次执行该命令会下载一个zip压缩,
+    [如图](./zip.png)
+    可以自动手动在浏览器中下载该文件，把它复制到C:\Users\isc\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0
+
+    复制之后再重新执行这个命令, 它会先解压该文件，解压之后还会下载很多少(这个过程中如果出现错误,重新执行这个命令)
+Build Success,看到这个字眼就表示成功了。
+
