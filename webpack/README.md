@@ -1,4 +1,4 @@
-# 后期课程第7天 webpack
+# webpack
 
 ## 1.1.webpack是什么
   - gulp , 打包,压缩,混淆，合并,
