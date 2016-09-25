@@ -36,34 +36,34 @@
             }];
 
         // 获取省份城市select
-    var proSelect = document.getElementById("province");
-    for (var i = 0; i < data.length; i++){
-        var json = data[i];
-        var option = new Option(json.name, json.code, false, false);
-        proSelect.add(option);
-    }
-    // 为proSelect绑定onChange事件
-    proSelect.onchange = function(){
-        var citySelect = document.getElementById("city");
-        // 清空城市下拉列表
-        for (var i = citySelect.length - 1; i > 0; i--){
-            citySelect.remove(i);
-        }
-
+        var proSelect = document.getElementById("province");
         for (var i = 0; i < data.length; i++){
             var json = data[i];
-            if (json.code == this.value){
-                // 取城市
-                var cities = json.cities;
-                for (var j = 0; j < cities.length; j++){
-                    // 获取其中的json
-                    var temp = cities[j];
-                    var option = new Option(temp.name, temp.code, false, false);
-                    citySelect.add(option);
+            var option = new Option(json.name, json.code, false, false);
+            proSelect.add(option);
+        }
+        // 为proSelect绑定onChange事件
+        proSelect.onchange = function(){
+            var citySelect = document.getElementById("city");
+            // 清空城市下拉列表
+            for (var i = citySelect.length - 1; i > 0; i--){
+                citySelect.remove(i);
+            }
+
+            for (var i = 0; i < data.length; i++){
+                var json = data[i];
+                if (json.code == this.value){
+                    // 取城市
+                    var cities = json.cities;
+                    for (var j = 0; j < cities.length; j++){
+                        // 获取其中的json
+                        var temp = cities[j];
+                        var option = new Option(temp.name, temp.code, false, false);
+                        citySelect.add(option);
+                    }
                 }
             }
-        }
-    };    
+        };    
                                         
     </script>
 </body>
