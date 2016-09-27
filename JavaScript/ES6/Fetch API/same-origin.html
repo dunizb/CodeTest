@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>same-origin|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <script type="text/javascript">
+        var reqUrl = 'http://duni.sinaapp.com/demo/app.json';
+        fetch(reqUrl,{
+            //该模式很简单，如果一个请求是跨域的，那么将返回一个 error，这样确保所有的请求遵守同源策略。
+            // mode: "same-origin",
+            
+            //该模式允许来自 CDN 的脚本、其他域的图片和其他一些跨域资源，但是首先有个前提条件，就是请求的 method 只能是HEAD、GET 或 POST.
+            // mode:"no-cors",
+            mode:"cors", 
+            method:'GET'
+        }).then(function(res){
+            console.log(res);
+            console.log("Response succeeded?", res.ok);
+        },function(error){
+            console.error("请输入一个同源的URL。");
+        });
+    </script>
+</head>
+<body>
+  
+</body>
+</html>

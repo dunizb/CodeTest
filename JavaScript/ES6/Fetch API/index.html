@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ES6 FetchAPI|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <script type="text/javascript">
+        fetch('data.json').then(function(res){
+            console.log(res); //Response
+            if(res.ok){
+                //console.log(res.json()); //Promise
+                return res.json();
+            }else{
+                console.log("貌似反应是不完美的,status：", res.status);
+            }
+        },function(error){
+            console.log("Fetch failed!", error);
+        }).then(function(json){
+            console.log(json);  //JSON对象
+        });
+    </script>
+</head>
+<body>
+  
+</body>
+</html>
