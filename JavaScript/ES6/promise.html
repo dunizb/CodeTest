@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>promise|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <script>
+        // promise解决了异步回调嵌套的问题.异步不仅是ajax
+        // 执行一个异步操作,正在执行，成功，失败.
+        // 回调中有两个参数,第一个表示成功，第二个表示失败
+        let promise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                // 执行了一些异步操作
+                // if()
+                console.log('我是在进行一些异步操作');
+                if(false){
+                    resolve(); //执行成功的话就调用该方法;
+                }else{
+                    reject();  // 执行的异步代码失败后执行;
+                }
+            },2000);
+        });
+
+        // 这个then方法里的参数是异步结果出来后的回调。
+        promise.then(function(){
+            console.log('我知道了，你执行成功了！！！');
+        },function(){
+            console.error('我知道你代码执行失败了！');
+        });
+        console.log(promise);
+    </script>
+</head>
+<body>
+  
+</body>
+</html>
