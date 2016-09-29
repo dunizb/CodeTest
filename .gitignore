@@ -1,4 +1,4 @@
-.idea
+.idea/
 .project
 /.project
 /nodejs/markdown/node_modules/
@@ -9,3 +9,4 @@
 .idea/CodeTest.iml
 .idea/workspace.xml
 React/node_modules/
+.idea/workspace.xml
