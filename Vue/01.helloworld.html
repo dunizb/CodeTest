@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hellow World!|Vue.js - Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="box">
+       <b>双向绑定</b>
+       <br />
+       <p>{{name}}</p>
+       <input type="text" v-model="name">
+       <hr />
+       <b>渲染列表</b>
+       <p v-for="item in todos">{{item.text}}</p>
+  </div>
+
+  <script>
+      new Vue({
+        el:'#box',
+        data:{
+            name:'小明',
+            todos: [
+              { text: 'Learn JavaScript' },
+              { text: 'Learn Vue.js' },
+              { text: 'Build Something Awesome' }
+            ]
+        }
+      });
+  </script>
+</body>
+</html>
