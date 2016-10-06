@@ -11,7 +11,10 @@ project.update  = {[
         modelName: 'HTML & CSS',
         update : [
             {time:'2016-09-22',content:['布局|两列布局与等高布局']},
-            {time:'2016-10-06',content:['css3|多行文本溢出加点']}
+            {time:'2016-10-06',content:[
+                'css3|多行文本溢出加点',
+                'javascript|移动端手势判断'
+            ]}
         ]
     },
     {
