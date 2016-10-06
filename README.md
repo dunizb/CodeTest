@@ -9,7 +9,10 @@ var project = {
 project.update  = {[
     {
         modelName: 'HTML & CSS',
-        update : [{time:'2016-09-22',content:['布局|两列布局与等高布局']}]
+        update : [
+            {time:'2016-09-22',content:['布局|两列布局与等高布局']},
+            {time:'2016-10-06',content:['css3|多行文本溢出加点']}
+        ]
     },
     {
         modelName: 'javascript',
