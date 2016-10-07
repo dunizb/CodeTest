@@ -33,22 +33,22 @@ app.use(express.static(path.join(__dirname,'www')))
 
 // 引入所有控制器 3.0方式 **
 glob.sync('./controllers/*.js').forEach((item) => {
-  // item就是匹配到的指定规则的文件的路径
- const tmp =   require(item)
- // 得到文件名
- // const prefix = path.basename(item,'.js')
+    // item就是匹配到的指定规则的文件的路径
+    const tmp =   require(item)
+    // 得到文件名
+    // const prefix = path.basename(item,'.js')
 
- // /home
- // app.use('/' + prefix ,tmp)
- // console.log(item.prefix);
- // console.log(tmp);
- app.use(tmp.prefix, tmp)
+    // /home
+    // app.use('/' + prefix ,tmp)
+    // console.log(item.prefix);
+    // console.log(tmp);
+    app.use(tmp.prefix, tmp)
 })
 
 
 
 // 监视服务
 app.listen(3001, (err) => {
-  if(err) throw err
-  console.log('http://127.0.0.1:3001');
+    if(err) throw err
+    console.log('http://127.0.0.1:3001');
 })
