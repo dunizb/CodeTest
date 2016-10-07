@@ -102,7 +102,9 @@ project.update  = {[
         modelName:'nodejs',
         update:[
             {time:'2016-10-07',content:[
-                'nodejs/mysql/nodejs操作数据库'
+                'nodejs/mysql/nodejs操作数据库',
+                'url模块常用方法',
+                'QueryString模块用法'
             ]}
         ]
     }
