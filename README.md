@@ -91,13 +91,21 @@ project.update  = {[
         ]
     },
     {
-            modelName:'Vue',
-            update:[
-                {time:'2016-09-29',content:[
-                    '01.hellowworld'
-                ]}
-            ]
-        }
+        modelName:'Vue',
+        update:[
+            {time:'2016-09-29',content:[
+                '01.hellowworld'
+            ]}
+        ]
+    },
+    {
+        modelName:'nodejs',
+        update:[
+            {time:'2016-10-07',content:[
+                'nodejs/mysql/nodejs操作数据库'
+            ]}
+        ]
+    }
 ]}
 ```
 
