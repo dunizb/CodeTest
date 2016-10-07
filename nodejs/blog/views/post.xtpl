@@ -1,0 +1,66 @@
+{{!-- 这是引入_layout.xtpl模板 --!}}
+{{extend ('./_layout.xtpl')}}
+
+
+{{!-- 相当于申明了一个变量 myposts ,block包裹的就是变量的值--!}}
+{{#block ('myposts')}}
+<div id="box">
+  {{#each(posts)}}
+    
+    <div class="post-preview">
+          <a href="post.html">
+            <h2 class="post-title">{{this.title}}</h2>
+            <h3 class="post-subtitle">{{this.excerpt}}</h3>
+          </a>
+          <p class="post-meta">Posted by <a href="#">{{this.user_id}}</a> on {{this.created}}</p>
+        </div>
+        <hr>
+  {{/each}}
+    </div>
+  <!-- Pager -->
+        <ul  class="pager">
+          <li class="previous">
+          <a ><span aria-hidden="true">&larr;</span> Newer</a></li>
+          <li class="next">
+          <a >Older <span aria-hidden="true">&rarr;</span></a></li>
+          <li class="previous">
+        </ul>
+{{/block}}
+
+<script>
+ $('.next').on('click',function(){
+  var arr = location.href.split('/')
+   var page = parseInt(arr[arr.length-1])
+   getData(page+1);
+ })
+ $('.previous').on('click',function(){
+  var arr = location.href.split('/')
+   var page = parseInt(arr[arr.length-1])
+   getData(page);
+ })
+
+ function getData(page){
+   var box = document.getElementById('box')
+   $.get('/indexpage/'+(page),function(data){
+      var tmpStr = ''
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var str = ' <div class="post-preview"> \
+          <a href="post.html"> \
+            <h2 class="post-title">'+item.title+'</h2> \
+            <h3 class="post-subtitle">'+item.excerpt+'</h3>\
+          </a>\
+    <p class="post-meta">Posted by \
+    <a href="#">'+item.user_id+'</a> on '+item.created+'</p>\
+        </div> \
+        <hr>';
+        tmpStr += str;
+      }
+
+      box.innerHTML=tmpStr
+      // location.href=xxx./8
+      // // 这个改变url不会刷新页面
+      window.history.pushState(null, null, "/index/"+(page));
+   },'json')
+ }
+</script>

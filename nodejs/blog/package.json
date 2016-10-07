@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "glob": "^7.1.0",
+    "xtemplate": "^4.6.0",
+    "xtpl": "^3.3.0"
+  }
+}
