@@ -105,6 +105,9 @@ project.update  = {[
                 'nodejs/mysql/nodejs操作数据库',
                 'url模块常用方法',
                 'QueryString模块用法'
+            ]},
+            {time:'2016-10-08',content:[
+                'imooc-crawler.js 爬取慕课网页面'
             ]}
         ]
     }
