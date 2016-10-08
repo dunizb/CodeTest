@@ -6,6 +6,17 @@
  *   ......
  */
 
+const mysql = require('mysql')
+
+// 创建连接池
+const pool = mysql.createPool({
+   connectionLimit:10,  // 设置连接池里数据库连接的个数,
+   host     : 'localhost', // 如果是远程服务器，就写成服务器ip
+   user     : 'root',        // 数据库用户名
+   password : '',    //  数据库密码
+   database : 'blog'
+})
+
  class Post{
    // 当我们new Post(title,author)时执行constructor
    constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id){
@@ -33,34 +44,57 @@
       // 有可能是从数据库读取.
       let obj = require('../controllers/posts.json')
       // console.log(typeof obj);
-      // let obj = tmp[0]
+      // let obj = tmp[0]  
       return obj //
       // return  new Post(obj.id,obj.slug,obj.title,obj.excerpt,obj.content,obj.type,obj.status,obj.comment_status,obj.comment_count,obj.view_count,obj.create,obj.modified,obj.user_id,obj.parent_id)
    }
 
 // 获取分页的数据,page:当前页
-  static findPage(page){
+  static findPage(page,callback){
+
+      let start= 0 // 从第几条数据开始选择
+      let pageSize = 2 // 每页显示的条数
       // reqiure有缓存，只读取一次,下一次直接从内存中获取
-      let obj = require('../controllers/posts.json')
+      // let obj = require('../controllers/posts.json')
+      // 现在要从数据库中读取数据
+
+      // # （page-1)*pageSize ,pageSize ,page 3,pageSize,2
+      //  
+      let sql = 'select * from posts  limit ?,?'
+
+      let tmp = []
+
+      pool.query(sql,[(page-1)*pageSize,pageSize],(err, rows) => {
+         // console.log(rows);
+
+         // 调用
+         callback(rows)
+      })
+
+      // forEach(function(item){
+      //    return item
+      // })
+
+
+
+
       // let tmpObj = obj
       // 深拷贝
 
-      let start= 0 // 从第几条数据开始选择
-      let pageSize = 5 // 每页显示的条数
       // page=1,  0  0,1,2,3,4
       // page=2,  5  5,6,7,8,9
       // page=3,  10 10,11,12,13,14
-      start = (page-1)*pageSize
-      // arr  1,2,3,4,5,6,7,8,9,10    3
-      // page = 1： 1,2,3      []
-      // let arr = obj.splice(0,3)
-      // console.log(obj.length);
-      // concat 拼接数据
-      // Object.assign
-      let tmpObj = [].concat(obj,[])
-      console.log(tmpObj);
-      let arr = tmpObj.splice(start,pageSize)
-      return arr
+      // start = (page-1)*pageSize
+      // // arr  1,2,3,4,5,6,7,8,9,10    3
+      // // page = 1： 1,2,3      []
+      // // let arr = obj.splice(0,3)
+      // // console.log(obj.length);
+      // // concat 拼接数据
+      // // Object.assign
+      // let tmpObj = [].concat(obj,[])
+      // console.log(tmpObj); //
+      // let arr = tmpObj.splice(start,pageSize)
+      // return arr
   }
  }
  

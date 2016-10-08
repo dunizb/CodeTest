@@ -9,7 +9,8 @@ const express = require('express')
 const home = module.exports =  new  express.Router()
 const Post = require('../models/post.js')
 
-// 设置访问前缀,只是一个/,相当于没有前缀
+
+// 设置访问前缀,只是一个,相当于没有前缀。
 home.prefix='/'
 
 // action
@@ -46,19 +47,26 @@ home.get('/index/:page' ,(req, res) =>{
   let page = parseInt(req.params.page)
   // console.log(page);
   // 调Model
-  let posts = Post.findPage(page)
-  // 拿到数据渲染模板,返回给用户
-  res.locals.posts = posts
-  res.locals.page = page
-  res.render('post') // 把模板转换为html字符返回
+  // let posts = Post.findPage(page)
+  Post.findPage(page,function(posts){
+      console.log(posts)
+        // 拿到数据渲染模板,返回给用户
+      res.locals.posts = posts
+      res.locals.page = page
+      res.render('post') // 把模板转换为html字符返回
+  })
+  console.log(121);
+  
 })
 
 home.get('/indexpage/:page',(req, res) => {
   let page = parseInt(req.params.page)
   // console.log(page);
   // 调Model
-  let posts = Post.findPage(page)
-  res.send(posts)
+  // 回调的意义,数据不是同步获取
+  let posts = Post.findPage(page,function(posts){
+    res.send(posts)
+  })
 })
 
 

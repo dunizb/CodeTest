@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "glob": "^7.1.0",
+    "mysql": "^2.11.1",
     "xtemplate": "^4.6.0",
     "xtpl": "^3.3.0"
   }
