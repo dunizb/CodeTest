@@ -6,18 +6,9 @@
  *   ......
  */
 
-const mysql = require('mysql')
+const db = require('./db.js')
 
-// 创建连接池
-const pool = mysql.createPool({
-   connectionLimit:10,  // 设置连接池里数据库连接的个数,
-   host     : 'localhost', // 如果是远程服务器，就写成服务器ip
-   user     : 'root',        // 数据库用户名
-   password : '',    //  数据库密码
-   database : 'blog'
-})
-
- class Post{
+class Post{
    // 当我们new Post(title,author)时执行constructor
    constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id){
       // super() // 如果继承某个父级，就必需加上super(),如果不也constructor这个函数，就可以不加super()
@@ -64,7 +55,7 @@ const pool = mysql.createPool({
 
       let tmp = []
 
-      pool.query(sql,[(page-1)*pageSize,pageSize],(err, rows) => {
+      db.query(sql,[(page-1)*pageSize,pageSize],(err, rows) => {
          // console.log(rows);
 
          // 调用
@@ -96,8 +87,37 @@ const pool = mysql.createPool({
       // let arr = tmpObj.splice(start,pageSize)
       // return arr
   }
+
+  // 用来创建实例对象
+  static create({id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id}){
+      return new Post(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id)
+  }
+  // 根据用户id和博客的slug得到数据
+  static findOne(user_id,slug , callback){
+    db.query(
+      'select * from posts where user_id = ? and slug = ?',
+      [user_id,slug] ,
+      (err, rows) => {
+        if(err) return typeof callback === 'function' && callback(err)
+
+        // if(rows.length <=0){
+        //   typeof callback === 'function' && callback(null, null)
+        //   22
+        // }else{
+        //   typeof callback === 'function' && callback(null , rows.map(Post.create))
+        //  }
+         // rows.map(function(item){
+         //   return Post.create(item)
+         // })
+         typeof callback === 'function' && (rows.length<=0 && callback(null, null) || rows.length==1 && callback(null, Post.create(rows[0])))
+         // var a=1 , b
+         // if(a==1 || b=2)
+      }
+      )
+  }
  }
  
+
 
 // function Post(title, author, data){
 //      this.title = title

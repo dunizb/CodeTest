@@ -9,7 +9,7 @@
   <meta name="description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
   <meta name="author" content="dunizb">
   <meta name="website" content="http://www.mybry.com">
-  <link type="image/x-icon" rel="shortcut icon" href="../www/favicon.ico"/>
+  <link type="image/x-icon" rel="shortcut icon" href="/www/favicon.ico"/>
   <title>Clean Blog</title>
   <!-- Bootstrap Core CSS -->
   <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
