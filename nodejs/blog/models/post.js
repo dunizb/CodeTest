@@ -62,30 +62,6 @@ class Post{
          callback(rows)
       })
 
-      // forEach(function(item){
-      //    return item
-      // })
-
-
-
-
-      // let tmpObj = obj
-      // 深拷贝
-
-      // page=1,  0  0,1,2,3,4
-      // page=2,  5  5,6,7,8,9
-      // page=3,  10 10,11,12,13,14
-      // start = (page-1)*pageSize
-      // // arr  1,2,3,4,5,6,7,8,9,10    3
-      // // page = 1： 1,2,3      []
-      // // let arr = obj.splice(0,3)
-      // // console.log(obj.length);
-      // // concat 拼接数据
-      // // Object.assign
-      // let tmpObj = [].concat(obj,[])
-      // console.log(tmpObj); //
-      // let arr = tmpObj.splice(start,pageSize)
-      // return arr
   }
 
   // 用来创建实例对象

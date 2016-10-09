@@ -34,9 +34,9 @@
           if(err) throw err
           if(!post) return res.status(404).send('没有数据')
           // 通过模板引擎返回博客的数据
-         res.locals.post = post
-         console.log(post);
-         res.render('postdetails')
+          res.locals.post = post
+          console.log(post);
+          res.render('postdetails')
         })
         
 
