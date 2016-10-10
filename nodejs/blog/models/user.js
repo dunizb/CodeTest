@@ -56,10 +56,10 @@ class User {
                           'insert into users set ?'
       db.query(sql,[this , this.id] , (err, result) =>{
       if(result.affectedRows>0){
-          this.id = this.id || result.insertId
-          callback(null,true)
+       this.id = this.id || result.insertId
+       callback(null,true)
       }else{
-          callback(null ,false)
+        callback(null ,false)
       }
     })
   }

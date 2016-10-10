@@ -9,6 +9,7 @@
  const User = require('../models/user.js')
  const Post = require('../models/post.js')
  const Comment  = require('../models/comment.js')
+ console.log(User);
 
  // 设置前缀
  router.prefix = '/'
@@ -34,9 +35,9 @@
           if(err) throw err
           if(!post) return next()
           // 通过模板引擎返回博客的数据
-          res.locals.post = post
-          console.log(post);
-          res.render('postdetails')
+         res.locals.post = post
+         console.log(post);
+         res.render('postdetails')
         })
      })
   })
@@ -61,10 +62,10 @@
           if(err) throw err
           if(!post) return next()
           // 通过模板引擎返回博客的数据
-          res.locals.post = post
-          console.log(post);
-          res.send(post)
-          // res.render('postdetails')
+         res.locals.post = post
+         console.log(post);
+         res.send(post)
+         // res.render('postdetails')
         })
      })
   })
@@ -75,7 +76,7 @@
   */
  router.get('/comments', (req, res,next) =>{
     // 1.调用评论对应的model,得到数据
-    // 404不是错误
+// 404不是错误
     Comment.find((err, comments) =>{
       if(err) throw err
       if(!comments) return next()

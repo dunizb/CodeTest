@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Node.js 博客系统 | 这世间唯有梦想和好姑娘不可辜负!</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
-  <meta name="description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
-  <meta name="author" content="dunizb">
-  <meta name="website" content="http://www.mybry.com">
-  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico"/>
+  <meta name="description" content="">
+  <meta name="author" content="">
   <title>Clean Blog</title>
   <!-- Bootstrap Core CSS -->
   <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

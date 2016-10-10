@@ -9,24 +9,24 @@
 const db = require('./db.js')
 
  class Post{
-  // 当我们new Post(title,author)时执行constructor
-  constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id){
+   // 当我们new Post(title,author)时执行constructor
+   constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id){
       // super() // 如果继承某个父级，就必需加上super(),如果不也constructor这个函数，就可以不加super()
-      this.id = id
-      this.slug = slug
-      this.title = title
-      this.excerpt = excerpt
-      this.content = content
-      this.type = type
-      this.status = status
-      this.comment_status = comment_status
-      this.comment_count = comment_count
-      this.view_count = view_count
-      this.created = created
-      this.modified = modified
-      this.user_id = user_id
-      this.parent_id = parent_id
-  }
+this.id = id
+this.slug = slug
+this.title = title
+this.excerpt = excerpt
+this.content = content
+this.type = type
+this.status = status
+this.comment_status = comment_status
+this.comment_count = comment_count
+this.view_count = view_count
+this.created = created
+this.modified = modified
+this.user_id = user_id
+this.parent_id = parent_id
+   }
 
    // 获取文章列表 , static find(){} 是定义一个find静态方法
    static find(){
@@ -64,6 +64,27 @@ const db = require('./db.js')
       // forEach(function(item){
       //    return item
       // })
+
+
+
+
+      // let tmpObj = obj
+      // 深拷贝
+
+      // page=1,  0  0,1,2,3,4
+      // page=2,  5  5,6,7,8,9
+      // page=3,  10 10,11,12,13,14
+      // start = (page-1)*pageSize
+      // // arr  1,2,3,4,5,6,7,8,9,10    3
+      // // page = 1： 1,2,3      []
+      // // let arr = obj.splice(0,3)
+      // // console.log(obj.length);
+      // // concat 拼接数据
+      // // Object.assign
+      // let tmpObj = [].concat(obj,[])
+      // console.log(tmpObj); //
+      // let arr = tmpObj.splice(start,pageSize)
+      // return arr
   }
 
   // 获取分页数据2

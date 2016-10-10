@@ -19,11 +19,14 @@ router.get('/index', (req, res) => {
     if (!req.session.userinfo) {
         return res.redirect('/sign.html')
     }
+    console.log(000);
     Post.findCount((err, count) => {
         if (err) throw err
         res.locals.count = Math.ceil(count / 10)
+        console.log(11);
         // 1.拿数据
         Post.findLimit(1, 10, (err, posts) => {
+            console.log(222);
             // 2.渲染模板
             res.locals.user = req.session.userinfo
             res.locals.posts = posts
@@ -81,6 +84,7 @@ router.post('/post/:id', (req, res) => {
         // })
         post.delete((err, result) => {
             if(err) throw err
+              console.log(result);
             result ? res.send({ err_msg: 'ok' }) : 
                      res.send({ 'err_msg': 'err' })
      })
