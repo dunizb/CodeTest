@@ -42,11 +42,11 @@ app.use(express.static(path.join(__dirname,'www')))
 // 设置session中间件
 // app.set('trust proxy', 1) // trust first proxy 
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  // cookie: { secure: true }
-  cookie:{maxAge:200000}
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    // cookie: { secure: true }
+    cookie:{maxAge:200000}
 }))
 
 // 动态网站/开头表示网站根目录
@@ -57,29 +57,29 @@ app.use(session({
 
 // 引入所有控制器 3.0方式 **
 glob.sync('./controllers/*.js').forEach((item) => {
-  // item就是匹配到的指定规则的文件的路径
- const tmp =   require(item)
- // 得到文件名
- // const prefix = path.basename(item,'.js')
+     // item就是匹配到的指定规则的文件的路径
+     const tmp =   require(item)
+     // 得到文件名
+     // const prefix = path.basename(item,'.js')
 
- // /home
- // app.use('/' + prefix ,tmp)
- // console.log(item.prefix);
- // console.log(tmp);
- // /account/sign
- app.use(tmp.prefix, tmp)
+     // /home
+     // app.use('/' + prefix ,tmp)
+     // console.log(item.prefix);
+     // console.log(tmp);
+     // /account/sign
+     app.use(tmp.prefix, tmp)
  
 })
 
 // 统一处理404
 app.use((req, res, next) => {
-  res.status(404)
-  //.send('我是404')
-  // res.render('')
-  // 跳转到新页面,让客户端重新请求一个指定的页面
-  // 其实是设置了Location:/404.html这个响应头.
-  res.redirect('/404.html')
-  // res.writeHeader(302,'Location','/404.html')
+    res.status(404)
+    //.send('我是404')
+    // res.render('')
+    // 跳转到新页面,让客户端重新请求一个指定的页面
+    // 其实是设置了Location:/404.html这个响应头.
+    res.redirect('/404.html')
+    // res.writeHeader(302,'Location','/404.html')
 })
 
 // 统一处理服务器端错误
@@ -89,6 +89,6 @@ app.use((req, res, next) => {
 
 // 监视服务
 app.listen(3001, (err) => {
-  if(err) throw err
-  console.log('http://127.0.0.1:3001');
+    if(err) throw err;
+    console.log('http://127.0.0.1:3001/index/1');
 })

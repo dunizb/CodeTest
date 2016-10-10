@@ -12,20 +12,20 @@ const db = require('./db.js')
    // 当我们new Post(title,author)时执行constructor
    constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id){
       // super() // 如果继承某个父级，就必需加上super(),如果不也constructor这个函数，就可以不加super()
-this.id = id
-this.slug = slug
-this.title = title
-this.excerpt = excerpt
-this.content = content
-this.type = type
-this.status = status
-this.comment_status = comment_status
-this.comment_count = comment_count
-this.view_count = view_count
-this.created = created
-this.modified = modified
-this.user_id = user_id
-this.parent_id = parent_id
+      this.id = id
+      this.slug = slug
+      this.title = title
+      this.excerpt = excerpt
+      this.content = content
+      this.type = type
+      this.status = status
+      this.comment_status = comment_status
+      this.comment_count = comment_count
+      this.view_count = view_count
+      this.created = created
+      this.modified = modified
+      this.user_id = user_id
+      this.parent_id = parent_id
    }
 
    // 获取文章列表 , static find(){} 是定义一个find静态方法

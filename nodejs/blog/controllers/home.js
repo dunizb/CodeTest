@@ -49,13 +49,11 @@ home.get('/index/:page' ,(req, res) =>{
   // 调Model
   // let posts = Post.findPage(page)
   Post.findPage(page,function(posts){
-  console.log(posts)
     // 拿到数据渲染模板,返回给用户
-  res.locals.posts = posts
-  res.locals.page = page
-  res.render('post') // 把模板转换为html字符返回
+    res.locals.posts = posts
+    res.locals.page = page
+    res.render('post') // 把模板转换为html字符返回
   })
-  console.log(121);
   
 })
 
