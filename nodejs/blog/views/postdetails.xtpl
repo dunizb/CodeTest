@@ -14,66 +14,13 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <hr>
-        <div class="media">
-          <div class="media-left">
-            <a href="#">
-              <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTZkNWQxNWZhMSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NmQ1ZDE1ZmExIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 64px; height: 64px;">
-            </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Space Ipsum</h4>
-            <p class="content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
-            <p class="meta">
-              <span><i class="fa fa-clock-o" aria-hidden="true"></i> <em>August 24, 2014</em></span>
-              <span class="pull-right">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 10</a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 10</a>
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="media">
-          <div class="media-left">
-            <a href="#">
-              <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTZkNWQxMTAzMSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NmQ1ZDExMDMxIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 64px; height: 64px;">
-            </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading</h4>
-            <p class="content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
-            <p class="meta">
-              <span><i class="fa fa-clock-o" aria-hidden="true"></i> <em>August 24, 2014</em></span>
-              <span class="pull-right">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 10</a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 10</a>
-              </span>
-            </p>
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTZkNWQxMmVjZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NmQ1ZDEyZWNmIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 64px; height: 64px;">
-                </a>
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading">Nested media heading</h4>
-                <p class="content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
-            <p class="meta">
-              <span><i class="fa fa-clock-o" aria-hidden="true"></i> <em>August 24, 2014</em></span>
-              <span class="pull-right">
-                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 10</a>
-                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 10</a>
-              </span>
-            </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="media_box"></div>
         <hr>
-        <form action="" class="row">
+        <form id="form" class="row">
           <div class="col-md-6 col-xs-12">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" name="name" id="name" class="form-control">
+              <input type="text" name="author" id="author" class="form-control">
             </div>
           </div>
           <div class="col-md-6 col-xs-12">
@@ -85,12 +32,12 @@
           <div class="col-xs-12">
             <div class="form-group">
               <label for="comment">Comment</label>
-              <textarea name="comment" id="comment" class="form-control" cols="80" rows="6"></textarea>
+              <textarea name="content" id="content" class="form-control" cols="80" rows="6"></textarea>
             </div>
           </div>
           <div class="col-xs-12">
             <div class="form-group">
-              <button class="btn btn-default btn-block">Submit</button>
+              <button id="sub" class="btn btn-default btn-block">Submit</button>
             </div>
           </div>
         </form>
@@ -99,3 +46,55 @@
   </div>
   <hr>
 {{/block}}
+
+<script>
+  // 加载评论
+  function loadComment(){
+    $.get('/comments',function(data){
+    var str = ''
+    for (var i = 0; i < data.length; i++) {
+      var item = data[i]
+      str += '<div class="media">\
+          <div class="media-left">\
+            <a href="#">\
+              <img class="media-object" data-src="holder.js/64x64" alt="\64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTZkNWQxNWZhMSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NmQ1ZDE1ZmExIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 64px; height: 64px;">\
+            </a>\
+          </div>\
+          <div class="media-body">\
+            <h4 class="media-heading">'+ item.author +'</h4>\
+            <p class="content">'+ item.content +'</p>\
+            <p class="meta">\
+              <span><i class="fa fa-clock-o" aria-hidden="true"></i> <em>'+ item.created +'</em></span>\
+              <span class="pull-right">\
+                <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"\></i>'+ item.support +'</a>\
+                <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="\true"></i> '+ item.oppose +'</a>\
+              </span>\
+            </p>\
+          </div>\
+        </div>'
+
+    }
+    var box = document.getElementById('media_box')
+    box.innerHTML = str
+  })
+  }
+  loadComment()
+  // 点击时提交评论
+  $('#sub').on('click',function(e){
+    e.preventDefault()
+    var author = $('#author').val()
+    var email = $('#email').val()
+    var content = $('#content').val()
+    //  /^\s*$/g
+    if(author.trim()==''){return alert('用户名不能为空')}
+    if(email.trim() == ''){return aler('邮箱不能为空')}
+    if(content.trim() == ''){return alert('评论内容不能为空')}
+    $.post('/comments',$('#form').serialize(),function(result){
+       if(result.err_msg=='ok'){
+         alert('评论成功')
+       }else{
+         alert('评论失败')
+       }
+    })
+  })
+</script>

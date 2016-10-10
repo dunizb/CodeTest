@@ -8,7 +8,7 @@
   {{#each(posts)}}
     
     <div class="post-preview">
-          <a href="post.html">
+          <a href="/{{this.user_id}}/{{this.slug}}.html">
             <h2 class="post-title">{{this.title}}</h2>
             <h3 class="post-subtitle">{{this.excerpt}}</h3>
           </a>
@@ -29,16 +29,19 @@
 
 <script>
  $('.next').on('click',function(){
-  var arr = location.href.split('/')
+   // 得到页码
+   var arr = location.href.split('/')
    var page = parseInt(arr[arr.length-1])
    getData(page+1);
  })
+
  $('.previous').on('click',function(){
-  var arr = location.href.split('/')
+   var arr = location.href.split('/')
    var page = parseInt(arr[arr.length-1])
    getData(page);
  })
 
+ // 根据页码，得到数据，然后把数据渲染到页面
  function getData(page){
    var box = document.getElementById('box')
    $.get('/indexpage/'+(page),function(data){
@@ -46,7 +49,7 @@
       for (var i = 0; i < data.length; i++) {
         var item = data[i];
         var str = ' <div class="post-preview"> \
-          <a href="post.html"> \
+          <a href="/'+ item.user_id +'/'+item.slug+'.html"> \
             <h2 class="post-title">'+item.title+'</h2> \
             <h3 class="post-subtitle">'+item.excerpt+'</h3>\
           </a>\

@@ -8,9 +8,9 @@
 
 const db = require('./db.js')
 
-class Post{
-   // 当我们new Post(title,author)时执行constructor
-   constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id){
+ class Post{
+  // 当我们new Post(title,author)时执行constructor
+  constructor(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id){
       // super() // 如果继承某个父级，就必需加上super(),如果不也constructor这个函数，就可以不加super()
       this.id = id
       this.slug = slug
@@ -22,11 +22,11 @@ class Post{
       this.comment_status = comment_status
       this.comment_count = comment_count
       this.view_count = view_count
-      this.create = create
+      this.created = created
       this.modified = modified
       this.user_id = user_id
       this.parent_id = parent_id
-   }
+  }
 
    // 获取文章列表 , static find(){} 是定义一个find静态方法
    static find(){
@@ -56,17 +56,45 @@ class Post{
       let tmp = []
 
       db.query(sql,[(page-1)*pageSize,pageSize],(err, rows) => {
-         // console.log(rows);
-
+         
          // 调用
          callback(rows)
       })
 
+      // forEach(function(item){
+      //    return item
+      // })
+  }
+
+  // 获取分页数据2
+  static findLimit(page,pageSize,callback){
+      // limit ?,? 第一个问号表示从第几条数据开始取，
+      //           第二个问题表示取几条
+     let sql = "select *  from posts where status ='published'  limit ?,?"
+     db.query(sql,[(page-1)*pageSize,pageSize] , (err , rows) =>{
+       if(err) typeof callback ==='function' && callback(err)
+       // 判断有没有数据,rows.lenght <= 0 ，给出null
+       // 如果有数据就把数据创建成Post实例 ，给出
+
+       typeof callback === 'function' && ( rows.length <=0 && callback(null,null) || rows.length >=1 && callback(null , rows.map(Post.create) )) 
+     })
+
+  }
+
+  // 获取总数据条数
+  static findCount(callback){
+    // let sql = 'select * from posts'
+    // count() 可以得到数据条数
+    let sql = 'select count(0) from posts '
+    db.query(sql,(err , rows ) =>{
+       if(err) typeof callback === 'function '&& callback(err)
+       typeof callback === 'function' && callback(null , rows[0]['count(0)'])
+    })
   }
 
   // 用来创建实例对象
-  static create({id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id}){
-      return new Post(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,create,modified,user_id,parent_id)
+  static create({id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id}){
+      return new Post(id,slug,title,excerpt,content,type,status,comment_status,comment_count,view_count,created,modified,user_id,parent_id)
   }
   // 根据用户id和博客的slug得到数据
   static findOne(user_id,slug , callback){
@@ -90,6 +118,50 @@ class Post{
          // if(a==1 || b=2)
       }
       )
+  }
+
+  // 根据博客id获取数据
+  static findOneById(id,callback){
+    db.query('select * from posts where id = ?',id,(err, rows) =>{
+      if(err) return typeof callback === 'function' && callback(err)
+         typeof callback === 'function' && (rows.length<=0 && callback(null, null) || rows.length==1 && callback(null, Post.create(rows[0])))
+    })
+  }
+
+  // 添加,或修改一条博客信息
+  save(callback){
+    // this 就指向当前的实例对象
+    // 添加和修改写在一起
+    // let sql = 'update posts set ?'
+    // 'insert into posts set ?' 
+    // db.query(sql,[])
+    // this.id 修改时是有id,修改是先获取数据，再修改
+    // this.id 添加时是没有id的。
+    let sql = this.id? ' update posts set ? where id = ?' :
+                      'insert into posts set ?'
+    db.query(sql,[this,this.id], (err , result) =>{
+       if(err) return  typeof callback=== 'function' && callback(err)
+       typeof callback==='function'&& (result.affectedRows>=1&&callback(null,true)|| result.affectedRows<=0 && callback(null ,false))
+    })
+  }
+  // 删除数据,根据id删除当前数据
+  delete(callback){
+      // 不推荐直接从数据库真实的删除数据, isdel=0，1表示删除
+      // 伪删除 , status 设置 delete 表示数据已经删除
+     // let sql ='delete from posts where id = ?'
+     let sql = "update posts set status = 'delete' where id =?"
+     db.query(sql, [this.id], (err, result) =>{
+        if(err) return typeof callback === 'function' && callback(err)
+        typeof callback==='function'&& (result.affectedRows>=1&&callback(null,true)|| result.affectedRows<=0 && callback(null ,false))
+     })
+  }
+
+  // serach方法，根据标题搜索文章
+  static search(title, callback){
+    db.query("select * from posts where title like '%"+title+"%'",(err , rows) =>{
+          if(err) return typeof callback === 'function' && callback(err)
+          typeof callback === 'function' && (rows.length<=0 && callback(null, null) || rows.length>=1 && callback(null, rows.map(Post.create)))
+    })
   }
  }
  
