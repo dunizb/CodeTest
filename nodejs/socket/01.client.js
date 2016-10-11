@@ -13,12 +13,12 @@ client.on('connect', () =>{
 
   //一定在连接建立之后才能给服务端传递数据
   console.log('连接成功了');
-  client.write('我是客户端:你好')
+  client.write('客户端：XXXX上线了.....')
   
   // 接收用户在命令行的输入
   process.stdin.on('data', (data) => {
     // console.log(data.toString());
-    client.write('客户端:'+data.toString())
+    client.write('张兵：'+data.toString())
   })
 
 })

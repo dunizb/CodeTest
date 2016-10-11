@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>websocket</title>
+</head>
+<body>
+  
+
+  <script>
+     // websocket不受跨域影响 
+     // 与服务器端建立webscoket连接 // http://  
+     var ws = new WebSocket('ws://192.168.22.22:3000')
+     // 这里需要手动建立连接,事件
+     ws.onopen= function(){
+       console.log('连接建立成功');
+       ws.send("我是中国人，我爱自己的祖国!")
+     }
+  </script>
+</body>
+</html>
