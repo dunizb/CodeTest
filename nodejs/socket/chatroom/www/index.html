@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>websocket</title>
+  <style>
+    #msg_list {
+        width: 550px;
+        height: 350px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+    }
+    #msg_list p{
+        color: #F04B4B;
+        font-size:16px;
+    }
+    .chat{
+      display: none
+    }
+  </style>
+</head>
+<body>
+   <h1>多人网络聊天</h1>
+
+   <div id="chat">
+     <input id="name" type="text">
+     <input type="button" id="setname" value="设置名字">
+   </div>
+
+   <div id="chatbox" class="chat">
+        <div id="msg_list"></div>
+        
+        <input id="msg" type="text">
+        <input id="send" type="button" value="发送">
+   </div>
+
+   <script src="client.js"></script>
+</body>
+</html>

@@ -108,6 +108,10 @@ project.update  = {[
             ]},
             {time:'2016-10-08',content:[
                 'imooc-crawler.js 爬取慕课网页面'
+            ]},
+            {time:'2016-10-11',content:[
+		'socket',
+                'chatroom 多人实时网络聊天'
             ]}
         ]
     }
