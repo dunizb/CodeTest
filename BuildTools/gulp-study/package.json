@@ -1,0 +1,20 @@
+{
+  "name": "gulp-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile-01.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-jasmine": "^2.4.2",
+    "gulp-mocha": "^3.0.1",
+    "node-sass": "^3.10.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
