@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用面向对象方式编写选项卡效果|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <style type="text/css">
+        div div {width: 300px;height: 200px;border: 1px solid green;}
+        input{border: 1px solid green;width: 97.5px;height: 35px;}
+        div div {display: none;}
+        .nowInput{font-weight: bold;background-color: green;color: #fff;}
+    </style>
+    
+</head>
+<body>
+  <div id="tab1">
+    <input type="button" value="社会">
+    <input type="button" value="科技">
+    <input type="button" value="数码">
+    <div>社会</div>
+    <div>科技</div>
+    <div>数码</div>
+  </div>
+
+  <div id="tab2">
+    <input type="button" value="军事">
+    <input type="button" value="国际">
+    <input type="button" value="娱乐">
+    <div>军事</div>
+    <div>国际</div>
+    <div>娱乐</div>
+  </div>
+
+<script type="text/javascript">
+        var Tab = function(id){
+            this.tab = document.getElementById(id);
+            this.aInput = this.tab.getElementsByTagName('input');
+            this.aDiv = this.tab.getElementsByTagName('div');
+            this.nowIndex = 0;
+        }
+        Tab.prototype.init = function(){
+            this.aInput[0].className = "nowInput";
+            this.aDiv[0].style.display = 'block';
+
+            var that = this;
+            for(var i=0; i<this.aInput.length; i++){
+                this.aInput[i].index = i;
+                this.aInput[i].onclick = function(){
+                    that.change(this);
+                }
+            }
+        }
+        Tab.prototype.change = function(obj){
+            for(var i=0; i< this.aInput.length; i++){
+                this.aInput[i].className= "";
+                this.aDiv[i].style.display = "none";
+            }
+            obj.className = "nowInput";
+            this.aDiv[obj.index].style.display = "block";
+        }
+        Tab.prototype.autoPlay = function(){
+            var that = this;
+            setInterval(function(){
+                if(that.nowIndex == that.aInput.length - 1){
+                    that.nowIndex = 0;
+                }else{
+                    that.nowIndex++;
+                }
+                var nowInput = that.aInput[that.nowIndex];
+                that.change(nowInput);
+            },2000);
+        }
+
+        var tab1 = new Tab("tab1");
+        tab1.init();
+        tab1.autoPlay();
+
+        var tab2 = new Tab("tab2");
+        tab2.init();
+    </script>
+</body>
+</html>
