@@ -17,7 +17,7 @@
       //表名
       var table = "new_name_list";
       //列标题
-      var columnTitle = ['name','phone','grade','subject','signup_date','contact_time','channel_id','update_date'];
+      var columnTitle = ['name','phone','grade','subject','signup_date','channel_id','update_date'];
       //插入的值
       var c1 = `李晨飒
 申懿博
@@ -204,9 +204,14 @@
       
       for(var i=0; i<35; i++){
             var sql = `-- ${i}<br/>insert into ${table} ( ${columnTitle.join(",")} ) values (
-                "${c1.split(/\n/)[i]}","${c2.split(/\n/)[i]}","${c3.split(/\n/)[i]},"${c4.split(/\n/)[i]}","${c5.split(/\n/)[i]}",${c6[i]},"${updateDate}"
+                '${c1.split(/\n/)[i]}','${c2.split(/\n/)[i]}','${c3.split(/\n/)[i]}','${c4.split(/\n/)[i]}','${convertDateTime(c5.split(/\n/)[i])}',${c6[i]},'${updateDate}'
             );<br/>`;
             document.writeln(sql);
+      }
+
+      function convertDateTime(str){
+        var arr = str.split("/");
+        return `${arr[0]}-${arr[1]}-${arr[2]} 00:00:00`;
       }
       // document.writeln(c1.split(/\n/).toString());
   </script>
