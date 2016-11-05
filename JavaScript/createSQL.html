@@ -204,8 +204,7 @@
       
       for(var i=0; i<35; i++){
             var sql = `-- ${i}<br/>insert into ${table} ( ${columnTitle.join(",")} ) values (
-                '${c1.split(/\n/)[i]}','${c2.split(/\n/)[i]}','${c3.split(/\n/)[i]}','${c4.split(/\n/)[i]}','${convertDateTime(c5.split(/\n/)[i])}',${c6[i]},'${updateDate}'
-            );<br/>`;
+                '${c1.split(/\n/)[i]}','${c2.split(/\n/)[i]}','${c3.split(/\n/)[i]}','${c4.split(/\n/)[i]}','${convertDateTime(c5.split(/\n/)[i])}',${c6[i]},'${updateDate}');<br/>`;
             document.writeln(sql);
       }
 
