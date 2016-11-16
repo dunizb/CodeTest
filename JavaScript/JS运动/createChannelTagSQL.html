@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>批量生成SQL|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<script type="text/javascript">
+    //INSERT INTO `channel` VALUES ('家长慧', 'A', 'W9L60WPLFD', '6', 'onlyhi.cn', '1', 'WX', '', '0', '2016-11-05 15:54:18', '2016-11-05 15:54:18');
+
+      //表名
+      var table = "channel";
+      //列标题
+      var columnTitle = ['name','level','adid','type','lp_page','put_link','platform','description','update_date'];
+      //插入的值
+      var name = '高中生学习,爸妈必读,中国好父母,方洲,优秀父母必读,哈尔滨中高考,家长慧,中学生读书,理想父母,潍坊教育,中国教育,个人客服,锐视界,学语文,班主任研究会,校长传媒,九流印象,河青家长会,名校家长通,家教智慧,萍语文,广州中考,高中学习,上海家长,上海中考,季-讲座测评,百师通城市号,资料库,百师通总号,百草园,高中生家长会,广东高考在线,高中说,WX-昂立在线,高考网,杭州百师通,数学好教师,海峡家教,物理好教师,智慧家长,教师俱乐部,星期六散文,秀妈,明智家庭教育,百师通,王补平,今日教育传媒,昂立在线,亲子家庭教育,家庭教育,人到中年,微家长,家长必读'.split(",");
+      var level = 'A';
+      var adid = '';
+      var type = '';
+      var lp_page = '';
+      var put_link = '';
+      var platform = '';
+      var description = '';
+      var updateDate = '2016-11-01 16:42:18';
+
+      for(var i=0; i<name.length; i++){
+            aidi = onlyTool.randomStrCode(10);
+            var sql = `-- ${i}<br/>insert into ${table} ( ${columnTitle.join(",")} ) values (
+                '${name[i]}','${level}','${aidi}','${aidi}','${type}','${lp_page}','${put_link}','${platform}','${description}','${updateDate}');<br/>`;
+            document.writeln(sql);
+      }
+
+      function convertDateTime(str){
+        var arr = str.split("/");
+        return `${arr[0]}-${arr[1]}-${arr[2]} 00:00:00`;
+      }
+      
+      window.onlyTool =
+(function(window,undefined){
+    return {
+        /**
+         * 生成UUID
+         */
+        uuid : function(){
+            console.log("uuid");
+            var d = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){
+                var r = (d + Math.random()*16)%16 | 0;
+                d = Math.floor(d/16);
+                return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        },
+        /**
+         * 生成随机字符码
+         * @param len 生成的字符串长度
+         */
+        randomStrCode : function( len ){
+            console.log("randomStrCode");
+            if(!len) len = 4;
+            var d,
+                e,
+                b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                c = "";
+            for (d = 0; len > d; d += 1){
+                e = Math.random() * b.length, e = Math.floor(e), c += b.charAt(e);
+            }
+            return c.toLocaleUpperCase();
+        }
+    }
+})(window);
+</script>
+</body>
+</html>
