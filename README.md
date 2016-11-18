@@ -32,8 +32,7 @@ project.update  = {[
             ]},
             {time:'2016-10-15',content:[
                 '面试题'
-            ]},
-            {time:'2016-11-12',content:['JS各种宽高的理解']}
+            ]}
         ]
     },
     {
