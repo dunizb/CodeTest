@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>批量生成SQL|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<script type="text/javascript">
+//INSERT INTO `channel` VALUES ('家长慧', 'A', 'W9L60WPLFD', '6', 'onlyhi.cn', '1', 'WX', '', '0', '2016-11-05 15:54:18', '2016-11-05 15:54:18');
+
+//表名
+var table = "forms_channel";
+//列标题
+var columnTitle = ['login_name','name','password','organization_id','posts_id','update_date'];
+//插入的值
+var channelName = `无锡百草园
+家长慧
+高考网
+今日教育传媒
+王补平
+数学好教师
+学语文
+高中生学习
+百师通
+家长必读
+萍语文
+微家长
+人到中年
+家庭教育
+高中说
+九流印象
+方洲
+高中生家长会
+广东高考在线
+班主任研究会
+亲子家庭教育
+昂立在线
+明智家庭教育
+秀妈代理
+星期六散文
+教师俱乐部
+物理好教师
+昂立姚老师
+昂立范老师
+昂立曹老师
+智慧家长
+海峡家教
+优秀父母必读
+上海家长
+潍坊教育
+河青家长会
+资料库
+季-讲座测评
+爸妈必读
+资料库
+哈尔滨中高考
+家教智慧
+中学生读书
+官网
+移动官网`;
+
+var adid = `6IXRORRXNW
+MEPQUYE5GH
+K0NHGYZN8N
+Z5Z2XHDXZM
+5VHCUWPDBU
+W8BABFHCFX
+QOKFIUG6BR
+AFSJV3SGZB
+ZUJDIWZGW8
+XNI1L9XFRX
+GHXXPOYTSQ
+D0IXI1NGMO
+2IWVQO6X1W
+BWVUZDKFE7
+1ZZLRZRMAW
+GVCWJRUUUA
+22NHPDJFTV
+SA57BWUDQX
+LCTSJWK7FP
+XNGJSV03FA
+XSOTFUA9RD
+FCKODVSXN5
+HC62EGLQPT
+CEPZTAYVGX
+K6PGKOK71O
+NL8EZH9VAK
+8WYN5FUMKC
+TAMKHEPJVC
+EQGENKC1CE
+3CVDSL91DS
+K10O38JVJC
+GJXU1OVI4B
+8YN7PEMOWN
+QFOMWEW3KD
+FMTXPIQRHJ
+B4D0QZRXKP
+AARHWMPLK0
+HJNFXO1D9L
+9F5WYLHUBR
+K3GMQKI7N5
+7TZVQELZSG
+3WIDZHFD7D
+DNNJUVWD6Q
+M2GZ249PH3
+H47Y30ZAOC`;
+
+var channelAdidObj = {"无锡百草园":"6IXRORRXNW","家长慧":"MEPQUYE5GH","高考网":"K0NHGYZN8N","今日教育传媒":"Z5Z2XHDXZM","王补平":"5VHCUWPDBU","数学好教师":"W8BABFHCFX","学语文":"QOKFIUG6BR","高中生学习":"AFSJV3SGZB","百师通":"ZUJDIWZGW8","家长必读":"XNI1L9XFRX","萍语文":"GHXXPOYTSQ","微家长":"D0IXI1NGMO","人到中年":"2IWVQO6X1W","家庭教育":"BWVUZDKFE7","高中说":"1ZZLRZRMAW","九流印象":"GVCWJRUUUA","方洲":"22NHPDJFTV","高中生家长会":"SA57BWUDQX","广东高考在线":"LCTSJWK7FP","班主任研究会":"XNGJSV03FA","亲子家庭教育":"XSOTFUA9RD","昂立在线":"FCKODVSXN5","明智家庭教育":"HC62EGLQPT","秀妈代理":"CEPZTAYVGX","星期六散文":"K6PGKOK71O","教师俱乐部":"NL8EZH9VAK","物理好教师":"8WYN5FUMKC","昂立姚老师":"TAMKHEPJVC","昂立范老师":"EQGENKC1CE","昂立曹老师":"3CVDSL91DS","智慧家长":"K10O38JVJC","海峡家教":"GJXU1OVI4B","优秀父母必读":"8YN7PEMOWN","上海家长":"QFOMWEW3KD","潍坊教育":"FMTXPIQRHJ","河青家长会":"B4D0QZRXKP","资料库":"AARHWMPLK0","季-讲座测评":"HJNFXO1D9L","爸妈必读":"9F5WYLHUBR","资料库":"K3GMQKI7N5","哈尔滨中高考":"7TZVQELZSG","家教智慧":"3WIDZHFD7D","中学生读书":"DNNJUVWD6Q","官网":"M2GZ249PH3","移动官网":"H47Y30ZAOC"};
+
+var channelNameArray = channelName.split(/\n/);
+var adidArray = adid.split(/\n/);
+
+function objSql(){  
+  channelAdidObj = "{";
+  for(var i=0; i<channelNameArray.length; i++){
+    channelAdidObj += `"${channelNameArray[i]}":"${adidArray[i]}",`;
+  }
+  channelAdidObj += "}";
+
+  return channelAdidObj;
+}
+//document.writeln(objSql());
+
+//UPDATE forms_channel SET channel_adid='MEPQUYE5GH' WHERE channel_name='家长慧';  
+function updateSQl(){
+    for(var j=0; j<channelNameArray.length; j++){
+      var adid = channelAdidObj[channelNameArray[j]];
+      var sql = `-- ${j}<br/>UPDATE ${table} SET channel_adid = '${adid}' WHERE channel_name='${channelNameArray[j]}';<br/>`;
+      document.writeln(sql);
+    }
+}
+
+updateSQl();
+    
+
+
+//['login_name','name','password','organization_id','posts_id','update_date'];
+function insetSQl(){
+    for(var j=0; j<loginNameArray.length; j++){
+      var organization_id = "";
+      var posts_id = postsObj[postsIdArray[j]];
+      var sql = `-- ${j}<br/>insert into ${table} (${columnTitle}) values ('${loginNameArray[j]}','${nameArray[j]}','${pwd}','${organizationId}','${posts_id}','2016-11-19 19:52:18');<br/>`;
+      document.writeln(sql);
+    }
+}
+
+//insetSQl();
+
+function insetSQl2(){
+    var columnTitle = ["user_id","team_id","status","update_date"];
+    for(var j=0; j<userIdArray.length; j++){
+      var organization_id = "";
+      var posts_id = postsObj[postsIdArray[j]];
+      var sql = `-- ${j}<br/>insert into ${user_team} (${columnTitle}) values ('${userIdArray[j]}','${nameArray[j]}','${pwd}','${organizationId}','${posts_id}','2016-11-19 19:52:18');<br/>`;
+      document.writeln(sql);
+    }
+}
+//insetSQl2();
+
+
+//channel_adid,channel_name,form_id,update_date
+// columnTitle = ['channel_adid','channel_name','form_id','update_date'];
+function insetFormsChannelSQl(){
+    for(var j=0; j<channelNameArray.length; j++){
+      var adid = channelObj[channelNameArray[j]];
+      var formId = getFormId(formUrlArray[j]);
+      var sql = `-- ${j}<br/>insert into forms_channel (${columnTitle}) values ('${adid}','${channelNameArray[j]}','${formId}','2016-11-01 16:42:18');<br/>`;
+      document.writeln(sql);
+    }
+}
+
+//insetFormsChannelSQl();
+
+
+
+function updateLevelSql(){
+  console.log(channelNameArray.length);
+  console.log(levalArray.length);
+    for(var i=0; i<channelNameArray.length; i++){
+      var sql = `-- ${i}<br/>UPDATE channel SET level = '${levalArray[i]}' WHERE name='${channelNameArray[i]}';<br/>`;
+      document.writeln(sql);
+    }
+}
+
+//updateLevelSql();
+
+function convertDateTime(str){
+  var arr = str.split("/");
+  return `${arr[0]}-${arr[1]}-${arr[2]} 00:00:00`;
+}
+
+function getFormId(url){
+    return url.split("/f/")[1];
+}
+
+function randomStrCode(len) {
+    if(!len) len = 4;
+    var d,
+        e,
+        b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        c = "";
+    for (d = 0; len > d; d += 1){
+        e = Math.random() * b.length, e = Math.floor(e), c += b.charAt(e);
+    }
+    return c.toLocaleUpperCase();
+}
+</script>
+</body>
+</html>
