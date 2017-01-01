@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+  <h2>Vue.js 计算属性</h2>
+  <div id="app">
+    <div>
+      正方形边长：{{ a }}m
+    </div>
+    <input type="range" v-model="a">
+    <div>
+      正方形面积：{{ s }}m<sup>2</sup>
+    </div>
+  </div>
+</div>
+<script src="./lib/vue.js"></script>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      a: 1
+    },
+    computed: {
+      s: function () {
+        return this.a * this.a
+      }
+    }
+  })
+</script>
+</body>
+</html>
