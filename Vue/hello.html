@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <div id="calc">
+        <p v-text="anotherMessage"></p>
+        {{a}}:<input type="button" v-on:click="incrementA" value="incrementA" /><br/>
+        {{b}}:<input type="button" v-on:click="incrementB" value="incrementB" /><br/>
+        {{c}}:<input type="button" v-on:click="incrementC" value="incrementC" /><br/>
+    </div>
+</div>
+
+<script src="./lib/vue.js"></script>
+<script>
+    var vm = new Vue({
+        //构造选项
+        el:'#app',
+        data: {
+            message: 'hello Vue.js',
+            anotherMessage: '张兵',
+            a: 1,
+            b: 2,
+            c: 3
+        },
+        methods: {
+            incrementA() {
+                this.a++;
+            },
+            incrementB(){
+                this.b++;
+            },
+            incrementC(){
+                this.c++;
+            }
+        }
+    });
+</script>
+</body>
+</html>
