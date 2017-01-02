@@ -96,8 +96,10 @@ project.update  = {[
     {
         modelName:'Vue',
         update:[
-            {time:'2016-09-29',content:[
-                '01.hellowworld'
+            {time:'2017-01-02',content:[
+                '类与样式绑定',
+                'computed',
+                'hello'
             ]}
         ]
     },
