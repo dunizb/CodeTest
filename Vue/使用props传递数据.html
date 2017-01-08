@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>使用props传递数据.html|emos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<child title="Vue.js权威指南" author="滴滴前端" price="89"></child>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script type="text/javascript">
+    //注册组建
+    var child = Vue.component('child',{
+        props: [
+            'title','author','price'
+        ],
+        template: `<span :title="title">{{title}}</span>
+                <span :author="author">{{author}}</span>
+                <span :price="price">{{price}}</span>`
+    });
+
+    //使用组建
+    new Vue({
+        el: 'body',
+        components: { child }
+    });
+</script>  
+</body>
+</html>
