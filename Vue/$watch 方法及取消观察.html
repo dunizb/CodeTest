@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Watcher 的使用</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+</div>
+<div class="container">
+  <h2>$watch 方法及取消观察</h2>
+  <div class="row">
+    <div class="col-md-12">
+      姓：<input type="text" v-model="passenger.lastName">
+    </div>
+    <div class="col-md-12">
+      名：<input type="text" v-model="passenger.firstName">
+    </div>
+    <div class="col-md-12">
+      <input type="radio" v-model="paxType" value="内宾"> 内宾
+      <input type="radio" v-model="paxType" value="外宾"> 外宾
+    </div>
+    <div class="col-md-12">
+      乘客姓名：{{ paxName}}
+    </div>
+    <div class="col-md-12">
+      <button onclick="unwatchPassenger()">不再观察数据变化</button>
+    </div>
+  </div>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+  var vm = new Vue({
+    el: 'body',
+    data: {
+      passenger: {
+        lastName: '宋',
+        firstName: '江'
+      },
+      paxName: '',
+      paxType: '内宾'
+    },
+    methods: {
+      setPaxName (val, oldVal) {
+        this.paxName = val
+      }
+    }
+  })
+
+  var unwatchPassenger = vm.$watch(function () {
+    return this.paxType === '内宾' ?
+      this.passenger.lastName + this.passenger.firstName :
+      this.passenger.firstName + ' ' + this.passenger.lastName
+  }, vm.setPaxName, {
+    immediate: true
+  })
+</script>
+</body>
+</html>

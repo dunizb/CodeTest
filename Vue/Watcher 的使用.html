@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Watcher 的使用</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+</div>
+<div class="container">
+  <h2>通过 watch 选项声明 watcher</h2>
+  <div class="row">
+    <div class="col-md-12">
+      姓：<input type="text" v-model="passenger.lastName">
+    </div>
+    <div class="col-md-12">
+      名：<input type="text" v-model="passenger.firstName">
+    </div>
+    <div class="col-md-12">
+      乘客姓名：{{ paxName }}
+    </div>
+  </div>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script>
+  var vm = new Vue({
+    el: 'body',
+    data: {
+      passenger: {
+        firstName: 'Barack',
+        lastName: 'Obama'
+      },
+      paxName: ''
+    },
+    methods: {
+      logVal (val, oldVal) {
+        console.log(`Now it is ${val}.`)
+      }
+    },
+    watch: {
+      'passenger.firstName + \' \' + passenger.lastName': [
+        function (val, oldVal) {
+          console.log(`The fullname was ${oldVal}.`)
+        },
+        'logVal',
+        {
+          handler: function (val, oldVal) {
+            this.paxName = val
+          },
+          immediate: true
+        }
+      ]
+    }
+  })
+</script>
+</body>
+</html>
