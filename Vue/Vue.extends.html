@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue.extends|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+    <Hello></Hello>
+
+    <template id="template-use">
+        <p>{{msg}}</p>
+        <p>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</p>
+    </template>  
+    
+    <Temp></Temp> 
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script type="text/javascript">
+        var Hello = Vue.extend({        //返回预设选项的Vue构造器（子类）
+            data: function() {
+                return {
+                    msg: 'Hello，Vue.js'
+                }
+            },
+            template: '<h1>{{msg}}</h1>'      
+        });
+
+        //template实例模版，用户替换或插入挂载元素，元素可以使用#选择子，使用匹配元素的innerHTML作为模板
+        var Temp = Vue.extend({
+            data: function() {
+                return {
+                    msg: '组件的注册与使用'
+                }
+            },
+            template: '#template-use'
+        });
+
+        Vue.component('Hello',Hello);
+
+        new Vue({
+            el: 'body',
+            components: {
+                // 'Hello': Hello,
+                'Temp': Temp
+            }
+        });
+  </script>
+</body>
+</html>
