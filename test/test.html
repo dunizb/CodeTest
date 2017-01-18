@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+
+<body>
+    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    var val = {
+        '一周二次': 5,
+        '一周三次': 3,
+        '一周一次': 8,
+        '一月一次': 4
+    };
+    var arr = [];
+    if (!$.isEmptyObject(val)) {
+        for (var item in val) {
+            if (arr.length <= 10) {
+                arr.push(item + ":" + val[item]);
+            }
+        }
+        console.log(arr);
+        var newArr = arr.sort(function(a, b) {
+            a = a.split(':')[1];
+            b = b.split(':')[1];
+            return b - a;
+        });
+        arr = [], len = newArr.length;
+        if (length > 10) len = 10;
+
+        for (var i = 0; i < newArr.length; i++) {
+            arr.push(newArr[i].split(':')[0]);
+        }
+        console.log(arr);
+    }
+    </script>
+</body>
+
+</html>

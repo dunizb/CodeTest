@@ -7,8 +7,7 @@ var project = {
 }
 
 project.update  = {
-    model: "Vue",
-    data: [
+    Vue: {
         date: "2017-01-08",
         content: [
             "使用props传递数据.html",
@@ -16,7 +15,14 @@ project.update  = {
             "$watch 方法及取消观察.html",
             "Vue.extends.html"
         ]
-    ]
+    },
+    test: {
+        date: "2017-01-18",
+        content: [
+            "小时分钟加减计算.html",
+            "test.html"
+        ]
+    }
 };
 ```
 
