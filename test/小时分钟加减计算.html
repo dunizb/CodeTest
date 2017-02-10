@@ -12,13 +12,12 @@
         //07:00,07:30,10:00,10:30
         let h = value.split(':')[0]; //小时，07
         let m = value.split(':')[1]; //分钟，00
-        let time = parseInt(len.split('.')[0]); //时间间隔
-        let ih = parseInt(h),
-            im = parseInt(m),
+        let time = Number.parseInt(len.split('.')[0]); //时间间隔
+        let ih = Number.parseInt(h),
+            im = Number.parseInt(m),
             nh = '',
             nm = '';
-        //小数，1.5
-        if (len.indexOf('.') !== -1) { //1.5
+        if (len.includes('.')) { //小数，1.5
             if (m === '00') { //整点
                 nm = '30';
             } else { //半点
@@ -30,10 +29,8 @@
             } else {
                 nh = '0' + (ih + time);
             }
-        }
-        //整数
-        if (len.indexOf('.') == -1) { //1,2,3
-            nm = '00';
+        } else {
+            nm = (m === '00') ? '00' : '30';
             if (ih + time > 9) {
                 nh = ih + time;
             } else {
@@ -42,7 +39,7 @@
         }
         return nh + ':' + nm;
     }
-    console.log(computedEndTime('2.5', '08:30'));
+    console.log(computedEndTime('3.5', '07:30'));
     </script>
 </body>
 
