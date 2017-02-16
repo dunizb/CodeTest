@@ -73,3 +73,61 @@ li {
     background-color: transparent;
     border: 0;
 }
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==============
+    浏览器更新提示
+   ============== */
+
+.browserupgrade {
+    margin: 0;
+    padding: 1rem;
+    background: #ccc;
+}   
+
+/* ==================
+    自定义页面样式
+   ============== */
+
+body {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    background-color: #f7f7f7;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #0ae;
+    text-decoration: underline;
+}
+
+/* 网站头部 */
+
+header {
+    width: 100%;
+}
+
+/* 网站主要内容 */
+
+.container {
+    width: 100%;
+}
+
+/* 网站底部导航 */
+
+.footer {
+    width: 100%;
+}
