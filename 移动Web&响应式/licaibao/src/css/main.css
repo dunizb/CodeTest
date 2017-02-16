@@ -120,6 +120,38 @@ header {
     width: 100%;
 }
 
+header .top {
+    line-height: 3rem;
+    padding: 0 1.5rem;
+    color: #fff;
+    background: #555;
+    border-bottom: 1px #ecc000 solid;
+}
+
+header .top .hottel {
+    float: left;
+}
+
+header .top ul {
+    text-align: right;
+}
+
+header .top ul li {
+    display: inline-block;
+}
+
+header .top ul li + li {
+    border-left: 1px solid #999;
+    margin-left: -3px;
+}
+
+header .top ul li a {
+    display: inline-block;
+    padding: 0 1.5rem;
+    color: #fff;
+}
+
+
 /* 网站主要内容 */
 
 .container {
