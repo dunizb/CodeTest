@@ -151,13 +151,29 @@ header .top ul li a {
     color: #fff;
 }
 
+@media only screen and (max-width: 50em) {
+    header .top {
+        background-color: red;
+    }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em) {
+    header .top {
+        background-color: green;
+    }
+}
+@media only screen and (max-width: 30em) {
+    header .top {
+        color: blue;
+    }
+}
+
 header .mian {
     padding: 0;
 }
 
 header .main .brand {
     float: left;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0;
 }
 
 header .main ul {
