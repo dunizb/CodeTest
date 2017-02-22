@@ -353,6 +353,35 @@ header .main ul li a:active {
     color: #999;
 }
 
+@media only screen and (max-width: 50em) {
+
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em) {
+    .feature .item h3,
+    .feature .item p {
+        display: block;
+        width: 100%;
+        font-size: 2.6rem;
+        text-align: center;
+    }
+    .feature .item p {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 30em) {
+    .feature {
+        width: 96%;
+        margin: 1rem auto;
+    }
+    .feature .item {
+        display: block;
+        width: auto;
+    }
+    .feature .item + .item {
+        margin: 1rem 0 0;
+    }
+}
+
 
 /* 最新公告 */
 .notice {
