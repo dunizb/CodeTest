@@ -420,6 +420,21 @@ header .main ul li a:active {
     color: #ff9900;
 }
 
+@media only screen and (max-width: 30em) {
+    .notice {
+        width: 96%;
+        margin: 1rem auto;
+        font-size: 1.2rem;
+    }
+    .notice a {
+        margin-left: 1rem;
+    }
+    .notice a span {
+        display: none;
+    }
+}
+
+
 /* 产品列表 */
 .product {
     width: 90%;
