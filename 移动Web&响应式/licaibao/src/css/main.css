@@ -152,18 +152,18 @@ header .top ul li a {
 }
 
 @media only screen and (max-width: 50em) {
-    header .top {
-        background-color: red;
+    header .top ul li a{
+        padding: 0 1rem;
     }
 }
 @media only screen and (min-width: 30.0625em) and (max-width: 50em) {
-    header .top {
-        background-color: green;
-    }
+    
 }
 @media only screen and (max-width: 30em) {
-    header .top {
-        color: blue;
+    header .top .hottel,
+    header .top ul li:nth-child(3),
+    header .top ul li:nth-child(4){
+        display: none;
     }
 }
 
@@ -187,7 +187,7 @@ header .main ul li {
 
 header .main ul li a {
     display: inline-block;
-    padding: 0 3rem;
+    padding: 0 2.5rem;
     line-height: 5.5rem;
     font-size: 1.6rem;
     font-weight: bold;
@@ -201,7 +201,43 @@ header .main ul li a:active {
     color: #ffb300;
     background-color: #f8f6f1;
 }
+@media only screen and (max-width: 50em) {
+    header .main .brand {
+        float: none;
+        display: block;
+        padding: 0;
+        margin: 1.5rem auto 0.5rem;
+        text-align: center;
+    }
 
+    header .main ul {
+        text-align: center;
+    }
+
+    header .main ul li {
+        border: none;
+    }
+
+    header .main ul li a {
+        padding: 0 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 30em) {
+
+    header .main ul li {
+        line-height: 3rem;
+    }
+
+    header .main ul li:first-child {
+        display: none;
+    }
+
+    header .main ul li a {
+        font-weight: normal;
+        padding: 0 0.5rem;
+    }
+}
 /* 网站主要内容 */
 
 .container {
@@ -245,6 +281,37 @@ header .main ul li a:active {
     padding: 1rem;
     line-height: 3rem;
     color: #fff;
+}
+@media only screen and (max-width: 50em) {
+    .trans-data {
+        padding: 1rem 0.5rem;
+    }
+    .trans-data span {
+        font-size: 1.2rem;
+    }
+    .trans-data span.trans-money {
+        font-size:1.6rem;
+        margin: 0;
+        padding: 0;
+        letter-spacing: inherit;
+        box-shadow: none;
+        background: transparent;
+    }
+    .trans-report a {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 30em) {
+    .transaction {
+        padding: 0.5rem 0;
+    }
+    .trans-data,.trans-report {
+        float: none;
+        text-align: center;
+    }
+    .trans-data, .trans-report a {
+        padding: 0;
+    }
 }
 /* 交易信息 */
 .ad {
