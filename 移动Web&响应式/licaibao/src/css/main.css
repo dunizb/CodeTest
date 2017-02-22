@@ -544,6 +544,77 @@ header .main ul li a:active {
     cursor: not-allowed;
 }
 
+@media only screen and (max-width: 50em) {
+    .product h2 {
+        float: none;
+        width: 100%;
+        margin-top: 2rem;
+        font-size: 2.2rem;
+    }
+    .product h2 em:first-child {
+        margin-top: 0;
+    }
+    .product h2 em {
+        display: inline;
+        font-size: 1.2rem;
+    }
+    .product .product-content {
+        float: none;
+        width: 100%;
+    }
+    .product .product-content .item h3 {
+        margin-bottom: 0
+    }
+     .product .product-content .item h3 em {
+        font-size: 2.4rem;
+    }
+    .product .product-content .item .info {
+        padding: 1rem 1rem 0;
+        font-size: 1.2rem;
+    }
+    .product .product-content .item .info p span {
+        font-size: 2rem;
+    }
+    .product .product-content .item .buy a {
+        margin: 0.5rem auto;
+    }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em) {
+    
+}
+@media only screen and (max-width: 30em) {
+    .product {
+        width: 96%;
+    }
+    .product h2 em:first-child:before {
+        content: " ";
+        display: table;
+    }
+     .product .product-content .item h3 em {
+        font-size: 2rem;
+        margin-right: 0;
+    }
+    .product .product-content .item .info {
+        float: right;
+        width: 70%;
+        padding: 1rem 0;
+        border: none;
+    }
+    .product .product-content .item .info p span {
+        font-size: 1.8rem;
+    }
+    .product .product-content .item .buy {
+        clear: both;
+        float: none;
+        width: 100%;
+        padding: 1rem 0 2rem;
+    }
+    .product .product-content .item .buy a {
+        margin-top: 0;
+        max-width: 26rem;
+    }
+}
+
 /* 网站底部导航 */
 .footer {
     padding: 3rem 0;
