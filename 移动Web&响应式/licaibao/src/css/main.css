@@ -643,6 +643,32 @@ header .main ul li a:active {
     line-height: 2.4rem;
 }
 
+@media only screen and (max-width: 50em) {
+    .footer-content .brand {
+        display: none;
+    }
+    .footer-content ul {
+        width: 20%;
+    }
+    .footer-content ul li {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .footer-content ul li.title {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+    }
+}
+@media only screen and (max-width: 30em) {
+    .footer-content {
+        width: 98%;
+    }
+    .footer-content ul li.title {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+}
+
 
 /* 底部 */
 footer {
@@ -715,4 +741,14 @@ footer ul li .icon_gs {
 footer p {
     text-align: center;
     color: #999;
+}
+
+@media only screen and (max-width: 50em) {
+
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em) {
+    
+}
+@media only screen and (max-width: 30em) {
+
 }
