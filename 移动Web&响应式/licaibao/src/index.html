@@ -64,13 +64,25 @@
     <div class="ad">
         <div class="owl-carousel owl-theme">
             <div class="item">
-                <img src="img/ad001.png" alt="">
+                <picture>
+                    <source srcset="img/ad001-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad001-m.png" media="(min-width:30em)">
+                    <img src="img/ad001.png" alt="2015年度报告">
+                </picture>
             </div>
             <div class="item">
-                <img src="img/ad002.png" alt="">
+                <picture>
+                    <source srcset="img/ad002-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad002-m.png" media="(min-width:30em)">
+                    <img src="img/ad002.png" alt="新年红包">
+                </picture>
             </div>
             <div class="item">
-                <img src="img/ad003.png" alt="">
+                <picture>
+                    <source srcset="img/ad003-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad003-m.png" media="(min-width:30em)">
+                    <img src="img/ad003.png" alt="新手秘籍">
+                </picture>
             </div>
         </div>
     </div>
@@ -265,6 +277,7 @@
 
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/vendor/OwlCarousel2/owl.carousel.min.js"></script>
+<script src="js/vendor/picturefill.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
