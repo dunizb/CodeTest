@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>隐藏任意个数字符串加星显示
+|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://www.dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+
+<body>
+    <script type="text/javascript">
+    var hideCharAtNumber = (number, startIndex = 3, endIndex = 6) => {
+        if (number) {
+            var hideLenth = (endIndex - startIndex) + 1;
+            var hideStr = '*'.repeat(hideLenth);
+            return number.substring(0, startIndex) + hideStr + number.substring(startIndex + hideLenth);
+        }
+    }
+
+    console.log(hideCharAtNumber('15921742210'));
+    console.log(hideCharAtNumber('15116816144', 7, 10));
+    console.log(hideCharAtNumber('15116816144', 6, 8));
+    </script>
+</body>
+
+</html>
