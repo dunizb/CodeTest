@@ -14,6 +14,7 @@
     <script type="text/javascript">
     var hideCharAtNumber = (str, startIndex = 3, endIndex = 6) => {
         if (str) {
+            str = str.toString();
             var hideLenth = (endIndex - startIndex) + 1;
             var hideStr = '*'.repeat(hideLenth);
             return str.substring(0, startIndex) + hideStr + str.substring(startIndex + hideLenth);
