@@ -1,3 +1,9 @@
 # 理财宝响应式页面
 
-[http://sandbox.runjs.cn/show/mg6h3xzy](http://sandbox.runjs.cn/show/mg6h3xzy)
+[http://jsrun.net/jnpKp/show](http://jsrun.net/jnpKp/show)
+
+手机显示：
+![手机显示](src/img/mobile.jpg)
+
+iPad：
+![iPad：](src/img/ipad.png)
