@@ -7,6 +7,9 @@ var project = {
 }
 
 project.update = {
+    "2017-03-18": {
+        "Vue": ['全局注册select组件','局部注册select组件']
+    },
     "2017-03-06": {
         "移动Web&响应式": {
             "licaibao": ['一个响应式页面实战']
