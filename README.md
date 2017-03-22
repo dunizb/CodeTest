@@ -8,7 +8,7 @@ var project = {
 
 project.update = {
     "2017-03-18": {
-        "Vue": ['全局注册select组件','局部注册select组件']
+        "Vue": ['全局注册select组件','局部注册select组件','全局注册select组件2']
     },
     "2017-03-06": {
         "移动Web&响应式": {
