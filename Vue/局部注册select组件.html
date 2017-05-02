@@ -1,37 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+    <title>局部注册select组建</title>
 </head>
 
 <body>
     <div id="app2">
-        <!--<ul>
-            <todo-item v-for="option in optionList" v-bind:option="option"></todo-item>
-        </ul>-->
-        <!--<select>
-            <select-item v-for="option in optionList" v-bind:option="option"></select-item>
-        </select>-->
         <i-select :data="options" selected="3"></i-select>
     </div>
 </body>
-<!-- <script src="vue.js"></script> -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script>
-// Vue.component('todo-item',{
-//     props:['option'],
-//     template:'<li>{{option.text}}</li>'
-// })
-
-// Vue.component('select-item', {    // 组件
-//     // select-item 组件现在接受一个
-//     // "prop"，类似于一个自定义属性
-//     // 这个属性名为 option。
-//     props: ['data'],    // 传递数据
-//     template: '<select v-model="data.selected" v-mi-select="name" name="{{ name }}"><option track-by="$index" v-for="option in data.options" v-bind:value="option.value">{{ option.text }}</option></select>'    // 模板
-// });
-
 var iSelect = Vue.component('iSelect', {
     props: {
         data: {
@@ -71,11 +50,5 @@ var app2 = new Vue({
     }
 
 });
-
-// $watch 是一个实例方法
-app2.$watch('message', function(newVal, oldVal) {
-    // 这个回调将在 `vm.a`  改变后调用
-});
 </script>
-
 </html>
