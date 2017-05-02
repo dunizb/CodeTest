@@ -7,6 +7,9 @@ var project = {
 }
 
 project.update = {
+    "2017-05-02": {
+        "Vue": ['dialog组件示例']
+    },
     "2017-03-18": {
         "Vue": ['全局注册select组件','局部注册select组件','全局注册select组件2']
     },
