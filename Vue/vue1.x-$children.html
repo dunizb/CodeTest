@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue1.x $children示例</title>
+</head>
+<body>
+<div id="app">
+    <parent-component></parent-component>
+</div>
+
+<template id="parent-component">
+    <child-component1></child-component1>
+    <child-component2></child-component2>
+    <button v-on:click="showChildComponentData">显示子组件的数据</button>
+</template>
+
+<script src="https://cdn.bootcss.com/vue/1.0.25/vue.js"></script>
+<script>
+    Vue.component('parent-component', {
+        template: '#parent-component',
+        components: {
+            'child-component1': {
+                template: '<h2>我是子组件1</h2>',
+                data() {
+                    return {
+                        msg: 'child component 111111'
+                    }
+                }
+            },
+            'child-component2': {
+                template: '<h2>我是子组件2</h2>',
+                data() {
+                    return {
+                        msg: 'child component 222222'
+                    }
+                }
+            }
+        },
+        methods: {
+            showChildComponentData() {
+                this.$children.forEach((value) => {
+                    alert(value.msg);
+                })
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
