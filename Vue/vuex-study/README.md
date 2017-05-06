@@ -1,4 +1,4 @@
-# digital
+# vuex-study
 
 > A Vue.js project
 
