@@ -1,8 +1,8 @@
 <template>
  <div>
-    <h1>I am banana</h1>
-    <button @click="addOne">add one</button>
-    <button @click="minusOne">minus one</button>
+    <h3>我是一个香蕉</h3>
+    <button @click="addOne">添加香蕉(+15)</button>
+    <button @click="minusOne">移除香蕉(-15)</button>
  </div>
 </template>
 

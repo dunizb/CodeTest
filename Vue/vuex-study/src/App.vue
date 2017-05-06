@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    {{totalPrice}}
+    <!-- <img src="./assets/logo.png"> -->
+    <h1>Vuex小示例</h1>
+    价格：{{totalPrice}}
     <apple></apple>
     <banana></banana>
   </div>

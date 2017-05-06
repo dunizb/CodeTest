@@ -1,8 +1,8 @@
 <template>
  <div>
-    <h1>I am apple</h1>
-    <button @click="addOne">add one</button>
-    <button @click="minusOne">minus one</button>
+    <h3>我是一个苹果</h3>
+    <button @click="addOne">添加苹果(+35.99)</button>
+    <button @click="minusOne">移除苹果(-35.99)</button>
  </div>
 </template>
 
@@ -10,7 +10,7 @@
 export default {
     data() {
         return {
-            price: 50
+            price: 35.99
         }
     },
     methods: {
