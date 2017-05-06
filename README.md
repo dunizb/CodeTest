@@ -8,6 +8,13 @@ var project = {
 
 project.update = [
     {
+        "date": "2017-05-05”,
+        "conetnt": {
+            "modal": “jQuery”,
+            "content": ["银行卡号4位空格.html”]
+        }
+    },
+    {
         "date": "2017-05-02",
         "conetnt": {
             "modal": "Vue",
