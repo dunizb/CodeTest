@@ -12,6 +12,11 @@ let store = new Vuex.Store({
   state: {
     totalPrice: 0
   },
+  getters: {
+    getTotal(state) {
+      return state.totalPrice;
+    }
+  },
   mutations: {
     increment(state, price) {
       state.totalPrice += price; 
