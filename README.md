@@ -1,12 +1,12 @@
-# JavaScript CodeTest
+# CodeTest
 
 > 个人平时学习、练习代码
 
 **2017-05-07**
-- HTML&CSS/css3/background-clip:text.html
+- [HTML&CSS/css3/background-clip:text.html](https://github.com/dunizb/CodeTest/blob/master/HTML%26CSS/css3/background-clip:text.html)
 
 **2017-05-05**
-- jQuery/银行卡号4位空格.html
+- [jQuery/银行卡号4位空格.html](https://github.com/dunizb/CodeTest/blob/master/jQuery/%E9%93%B6%E8%A1%8C%E5%8D%A1%E5%8F%B74%E4%BD%8D%E7%A9%BA%E6%A0%BC.html)
 
 **2017-05-02**
 - Vue/dialog组件示例
