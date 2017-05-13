@@ -3,7 +3,7 @@
 > 个人平时学习、练习代码
 
 **2017-05-14**
-- [JavaScript/找出一个字符串里最长的那一个单词并打印出来.html](https://github.com/dunizb/CodeTest/blob/master/JavaScript/面试题/找出一个字符串里最长的那一个单词并打印出来.html)
+- [JavaScript/面试题/找出一个字符串里最长的那一个单词并打印出来.html](https://github.com/dunizb/CodeTest/blob/master/JavaScript/面试题/找出一个字符串里最长的那一个单词并打印出来.html)
 
 **2017-05-07**
 - [HTML&CSS/css3/background-clip:text.html](https://github.com/dunizb/CodeTest/blob/master/HTML%26CSS/css3/background-clip:text.html)
