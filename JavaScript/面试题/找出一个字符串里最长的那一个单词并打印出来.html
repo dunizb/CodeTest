@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找出一个字符串里最长的那一个单词并打印出来|Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+<body>
+    <p>写一个函数，找出一个字符串里最长的那一个单词并打印出来</p>
+</body>
+<script>
+    function getMaxLengthWords(str) {
+        var strArr = str.split(/\s/);
+        strArr.sort(function(word, nextWord) {
+            return nextWord.length - word.length;
+        });
+        return strArr[0];
+    }
+
+    var str = "Write a function to find the longest word in a string and print it out.";
+    console.log(getMaxLengthWords(str));
+</script>
+</html>
