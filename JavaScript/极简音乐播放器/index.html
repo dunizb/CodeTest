@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>极简音乐播放器</title>
+</head>
+<body>
+
+    <pre>
+        它能做什么？
+        ------------------------------------------
+        1.控制音乐状态（播放、暂停）
+        2.灵活的音乐资源配置（当个、多个）
+        3.自动音乐列表（无选择列表、有列表）
+        4.可指定播放器所在容器（元素、页面）
+        5.可指定播放器所在容器位置（顶、左、右、下）
+        6.可自动加载音乐资源并播放（浏览器、微信网页等）
+        7.可自定义播放器皮肤（按钮、列表）
+        8.极简小巧（无图片资源、无CSS样式文件加载）
+        9.更友好的用户体验（手机、PC）
+
+        怎样去使用它？
+        ------------------------------------------
+        1.单个音乐
+          SMmuiscPlay({audioUrl: "muisc/xxxx.mp3"})
+          SMmuiscPlay({title:"xxxxxx",source: "muisc/xxxx.mp3"})
+        2.多个音乐
+          SMmuiscPlay({
+              audioUrl: [
+                  {
+                      title: "aaaaa",
+                      source: "muisc/aaaaa.mp3"
+                  },
+                  {
+                      title: "bbbbb",
+                      source: "muisc/bbbbbb.mp3"
+                  }
+              ]
+          })  
+        3.指定节点
+          SMmuiscPlay({
+              nodeId: "#div",
+              audioUrl: "muisc/xxxxx.mp3"
+          })
+        4.指定位置
+          SMmuiscPlay({
+              boxStyle: "top:10px;left:20px;opacity: 0.5",
+              audioUrl: "muisc/xxxxx.mp3"
+          })  
+        5.修改皮肤
+          按钮图（狂高比1:2）
+          SMmuiscPlay({
+              buttonSrc: "icon.png",
+              audioUrl: "muisc/xxxxx.mp3"
+          })  
+          播放器
+          SMmuiscPlay({
+              htmls: "<div>.............</div>",
+              audioUrl: "muisc/xxxxx.mp3"
+          }) 
+    </pre>
+
+    <div id="app"></div>
+</body>
+<script src="./muisc_play.js"></script>
+<script>
+   SMmuiscPlay({
+       nodeId: "#app"
+   }); 
+</script>
+</html>
