@@ -14,8 +14,6 @@
                 </audio>
                 <a style="width:24px;height:24px;">►</a>
                 <select>
-                    <option value="http://zhangmenshiting.baidu.com/data2/music/124574160/124574160.mp3?xcode=cbea75a9b0a1e3adc7d4e558c0a93524">独角戏</option>
-                    <option value="http://zhangmenshiting.baidu.com/data2/music/36a3ce90e63edffbc4d9b4c0be474595/257539192/257539192.mp3?xcode=94d2818c8415707f23407a79428c3f0f">大王叫我来巡山</option>	
                 </select>`
     };
     var PlayCode = function(options) {
@@ -31,8 +29,67 @@
         //插入节点
         audioDom.appendChild(audioBox);
 
-        var audioButton = audioBox.querySelectorAll("a");
+        var audioButton = audioBox.querySelectorAll("a")[0];
+        var audioList = audioBox.querySelectorAll("select")[0];
+        var audioTag = audioBox.querySelectorAll("audio")[0];
+
+        audioButton.state = true;
+
+        var audioFn = {
+            play: function(url) {
+                if(url) audioTag.src = url;
+                audioButton.innerHTML = "░";
+                audioTag.play();
+            },
+            stop: function() {
+                audioButton.innerHTML = "►";
+                audioTag.pause();
+            }
+        };
+
+        var _device = (/Android|iPhone|iPad|iPod|BlackBerry|webOS|Windows Phone|SymbianOS|IEMobile|Opera Mini/i.test(navigator.userAgent));
+        var clickEvtName = _device ? "touchstart" : "mousedown";
+        console.log(clickEvtName);
+        //给按钮绑定事件
+        audioButton.addEventListener(clickEvtName, function(e){
+            //判断播放状态
+            console.log(this.state);
+            if(this.state) {
+                this.state = false;
+                audioFn.play();
+            }else{
+                this.state = true;
+                audioFn.stop();
+            }
+
+            var _urlType = toString.apply(settings.audioUrl);
+            if(_urlType === '[object Object]'){
+                var _temp = [];
+                _temp.push(settings.audioUrl);
+                settings.audioUrl = _temp;
+            }
+
+            if(!settings.audioUrl.length){
+                console.error(__INFO__.plugins + '无音乐资源启动失败，请添加音乐资源 audioUrl：');
+                return;
+            }
+
+            if(typeof settings.audioUrl === 'object'){
+                console.log('array');
+                audioTag.src = settings.audioUrl[0].source;
+                for(var i=0; i<settings.audioUrl.length; i++){
+                    var _option = new Option(settings.audioUrl[i].title, settings.audioUrl[i].source);
+                    audioList.add(_option);
+                }
+            }else{
+                audioTag.src = settings.audioUrl;
+                audioList.style.display = 'none';
+            }
+
+
+        }, false);
     };
+    
 
     global[__INFO__.plugins] = PlayCode;
 
