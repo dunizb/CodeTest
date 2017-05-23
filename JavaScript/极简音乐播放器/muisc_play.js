@@ -2,13 +2,14 @@
     var __INFO__ = {
         plugins: "SMmuiscPlay",
         version: "0.0.1",
-        author: "Dunizb"
+        author: "Dunizb",
+        website: "http://dunizb.com"
     };
     var defualts = {
-        audioUrl: "",
+        audioList: "",
         el: "",
-        boxStyle: "",
-        buttonSrc: "",
+        position: "",
+        buttonImgSrc: "",
         htmls: `<audio autoplay loop style="width:0px;">
                     <source src="" type="audio/mpeg" />
                 </audio>
@@ -18,13 +19,12 @@
     };
     var PlayCode = function(options) {
         var settings = Object.assign({}, defualts, options);//缺省值合并
-        var audioDom = document.querySelector(settings.el);//获得用户传入的节点
+        var audioDom = settings.el ? document.querySelector(settings.el) : document.body;//获得用户传入的节点
         if(!audioDom) audioDom = document.body;
 
-        //创建节点
         var audioBox = document.createElement("div");
         audioBox.id = "musicControl";
-        audioBox.style = "opacity:0.5;overflow:hidden;position:absolute;z-index:999" + settings.boxStyle;
+        audioBox.style = "opacity:0.5;overflow:hidden;position:absolute;z-index:999;" + settings.position;
         audioBox.innerHTML = settings.htmls;
         //插入节点
         audioDom.appendChild(audioBox);
@@ -34,42 +34,41 @@
         var audioTag = audioBox.querySelectorAll("audio")[0];
 
         //跟换播放按钮图片
-        if(settings.buttonSrc) audioButton.style.backgroundImage = 'url('+settings.buttonSrc+')';
+        if(settings.buttonImgSrc) audioButton.style.backgroundImage = 'url('+settings.buttonImgSrc+')';
 
         audioButton.state = true;
 
-        var _urlType = toString.apply(settings.audioUrl);
+        var _urlType = toString.apply(settings.audioList);
         if(_urlType === '[object Object]'){
             var _temp = [];
-            _temp.push(settings.audioUrl);
-            settings.audioUrl = _temp;
+            _temp.push(settings.audioList);
+            settings.audioList = _temp;
         }
 
-        if(!settings.audioUrl.length){
-            console.error(__INFO__.plugins + '无音乐资源启动失败，请添加音乐资源 audioUrl：');
+        if(!settings.audioList.length){
+            console.error(__INFO__.plugins + '无音乐资源启动失败，请添加音乐资源 audioList');
             return;
         }
 
-        if(typeof settings.audioUrl === 'object'){
-            console.log('array');
-            audioTag.src = settings.audioUrl[0].source;
-            for(var i=0; i<settings.audioUrl.length; i++){
-                var _option = new Option(settings.audioUrl[i].title, settings.audioUrl[i].source);
+        if(typeof settings.audioList === 'object'){
+            audioTag.src = settings.audioList[0].source;
+            for(var i=0; i<settings.audioList.length; i++){
+                var _option = new Option(settings.audioList[i].title, settings.audioList[i].source);
                 audioList.add(_option);
             }
         }else{
-            audioTag.src = settings.audioUrl;
+            audioTag.src = settings.audioList;
             audioList.style.display = 'none';
         }
 
         var audioFn = {
             play: function(url) {
                 if(url) audioTag.src = url;
-                audioButton.innerHTML = "░";
+                audioButton.innerHTML = "►";
                 audioTag.play();
             },
             stop: function() {
-                audioButton.innerHTML = "►";
+                audioButton.innerHTML = "░";
                 audioTag.pause();
             }
         };
@@ -80,15 +79,14 @@
         //给按钮绑定事件
         audioButton.addEventListener(clickEvtName, function(e){
             //判断播放状态
-            console.log(this.state);
             if(this.state) {
                 this.state = false;
-                audioFn.play();
+                audioFn.stop();
             }else{
                 this.state = true;
-                audioFn.stop();
+                audioFn.play();
             }
-        }, false);
+        });
 
         //从下拉列表选择歌曲播放
         audioList.addEventListener("change", function(e){
@@ -98,7 +96,5 @@
         });
     };
     
-
     global[__INFO__.plugins] = PlayCode;
-
 })(typeof window !== 'undefined' ? window : this);
