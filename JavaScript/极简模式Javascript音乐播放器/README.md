@@ -7,9 +7,9 @@
 - [X] 可指定播放器所在容器（元素、页面）
 - [X] 可指定播放器所在容器位置（顶、左、右、下）
 - [X] 可自动加载音乐资源并播放（浏览器、微信网页等）
-- [ ] 可自定义播放器皮肤（按钮、列表）
+- [X] 可自定义播放器皮肤（按钮、列表）
 - [X] 极简小巧（无图片资源、无CSS样式文件加载）
-- [ ] 更友好的用户体验（手机、PC）
+- [X] 更友好的用户体验（手机、PC）
 
 ## 使用
 
@@ -21,7 +21,7 @@
 指定播放器所在容器（元素、页面）,不指定则默认挂载在`body`上
 ```js
 SMmuiscPlay({
-    el: "#app",
+    el: "app",
     audioUrl: "muisc/xxxx.mp3"
 });
 ```
@@ -32,7 +32,7 @@ SMmuiscPlay({
 - source: 音乐地址
 ```js
 SMmuiscPlay({
-    el: "#app",
+    el: "app",
     audioUrl: [
         {
             title: "aaaaaa",
@@ -50,17 +50,17 @@ SMmuiscPlay({
 播放器位置，CSS定位  
 ```js
 SMmuiscPlay({
-    el: "#app",
+    el: "app",
     position: "top:10px;left:10px",//左上角
     audioUrl: "muisc/xxxx.mp3"
 });
 ```
 
 **buttonImgSrc**
-播放按钮图片
+播放按钮图片,背景图片，大小为24X20
 ```js
 SMmuiscPlay({
-    el: "#app",
+    el: "app",
     buttonImgSrc: "icon.png",
     position: "top:10px;left:10px",//左上角
     audioUrl: "muisc/xxxx.mp3"
@@ -71,7 +71,7 @@ SMmuiscPlay({
 自定义
 ```js
 SMmuiscPlay({
-    el: "#app",
+    el: "app",
     buttonImgSrc: "icon.png",
     position: "top:10px;left:10px",//左上角
     htmls: "<div>....<div>"

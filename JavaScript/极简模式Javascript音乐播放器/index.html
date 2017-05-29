@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>极简模式JavaScript音乐播放器</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 320px;
+            height: 400px;
+            border: 1px solid #ccc;
+            display: list-item;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
-    <h1>极简模式JavaScript音乐播放器</h1>
     <div id="app"></div>
 </body>
 <script src="./js/muisc_play.js"></script>
 <script>
    SMmuiscPlay({
-       position: "top:10px;left:10px",
-       audioList:"./music/独角戏.mp3"
+       el: "app",
+       audioList:"./music/独角戏.mp3",
+       position: "top:10px;right:10px",//右上角
    }); 
 
 // {
