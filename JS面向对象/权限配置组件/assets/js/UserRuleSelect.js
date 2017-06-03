@@ -37,6 +37,9 @@ UserRuleSelect.prototype = {
     },
     bind: function() {
         var _this = this;
+        if(this.options.onOk) {
+            this.enter.onclick = this.options.onOk.bind(_this);
+        }
         this.close.onclick = function() {
             _this.hide();//隐藏组件
         }

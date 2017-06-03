@@ -16,6 +16,10 @@
         window.onload = function() {
             var userRuleSelect = new UserRuleSelect({
                 defaultShow: false,//默认不显示
+                onOk: function() {
+                    alert('success ok');
+                    this.hide();
+                }
             });
             document.getElementById('ToggleComponents').onclick = function() {
                 if(userRuleSelect.status){
