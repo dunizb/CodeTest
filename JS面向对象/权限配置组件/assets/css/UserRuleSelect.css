@@ -16,6 +16,14 @@ ul {
     padding: 0;
     margin: 0;
 }
+.mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.3);
+}
 .user-rule-select {
     display: flex;
     position: absolute;
@@ -26,35 +34,59 @@ ul {
     background-color: #fff;
     border-radius: 2px;
     padding: 50px 20px;
-}
-.container {
     width: 540px;
     height: 400px;
 }
-.container .data-list {
+.user-rule-select .data-list {
     width: 40%;
     height: 100%;
     background-color: #fafafa;
     border: 1px solid #e5e5e5;
+    float: left;
 }
-.container .data-list li {
-    padding: 5px 0;
+.user-rule-select .data-list li {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-indent: 10px;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
 }
-.container .data-list li:hover {
+.user-rule-select .data-list li:hover {
     background-color: dodgerblue;
     cursor: pointer;
 }
-.container .data-oper {
-    display: flex;
+.user-rule-select .data-list li.selected {
+    background-color: #666;
+    color: #fff;
+}
+.user-rule-select .data-oper {
+    width: 18%;
+    height: 100%;
+    float: left;
+    padding-top: 25%;
+    /*display: flex;
     flex-direction: column;
     padding: 0 5px;
-    justify-content: center;
+    justify-content: center;*/
 }
-.container .data-oper .button {
-    background-color: #fafafa;
+.user-rule-select .button {
+    width: 80px;
+    height: 36px;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+    line-height: 36px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f3f3f3;
+    font-size: 14px;
+    /*background-color: #fafafa;
     text-decoration: none;
     color: #000;
     border: 1px solid #e5e5e5;
     padding: 5px 10px;
-    margin: 5px 0;
+    margin: 5px 0;*/
 }
