@@ -1,6 +1,6 @@
 var UserRuleSelect = function(options) {
     this.init(options || {});//渲染DOM结构
-    this.render();//渲染DOM结构
+    this.bind();//绑定插件中DOM所需要的所有事件
 };
 
 var html = '<div class="user-rule-select">'
@@ -26,11 +26,20 @@ UserRuleSelect.prototype = {
         this.dom = document.createElement('div');
         this.dom.className = 'mask';
         this.dom.style.display = this.options.defaultShow ? 'flex' : 'none';//由用户决定是否初始化显示
+        this.dom.innerHTML = html;
+
         this.status = this.options.defaultShow ? 0 : 1;//0隐藏、1显示
         document.body.appendChild(this.dom);
+
+        this.enter = this.dom.querySelector('.button.enter');//寻找确定按钮
+        this.close = this.dom.querySelector('.button.close');//寻找取消按钮
+
     },
-    render: function() {
-        this.dom.innerHTML = html;
+    bind: function() {
+        var _this = this;
+        this.close.onclick = function() {
+            _this.hide();//隐藏组件
+        }
     },
     show: function() {
         this.dom.style.display = 'flex';
