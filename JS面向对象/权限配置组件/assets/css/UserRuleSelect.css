@@ -55,6 +55,7 @@ ul {
 }
 .user-rule-select .data-list li:hover {
     background-color: dodgerblue;
+    color: #fff;
     cursor: pointer;
 }
 .user-rule-select .data-list li.selected {
