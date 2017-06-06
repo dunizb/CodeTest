@@ -63,6 +63,14 @@ var UserRuleSelect = (function(){
             this.dom.style.display = 'none';
             this.status = 0;
         },
+        getValues: function() {
+            var values = [];
+            var selecteds = this.right.querySelectorAll('li');
+            for(var i=0; i<selecteds.length; i++) {
+                values.push(selecteds[i].getAttribute('data-value'));
+            }
+            return values;
+        },
         _operaClick: function(target) {
             var one,two;
             if(target.className.indexOf('add') !== -1) {
