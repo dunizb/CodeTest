@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2017-06-06**
+- [JS面向对象/权限配置组件](https://github.com/dunizb/CodeTest/tree/master/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6)
+
 **2017-05-24**
 - [JavaScript/极简模式Javascript音乐播放器](https://github.com/dunizb/CodeTest/tree/master/JavaScript/%E6%9E%81%E7%AE%80%E6%A8%A1%E5%BC%8FJavascript%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8)
 
