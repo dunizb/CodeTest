@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>省市两级级联下拉列表</title>
+</head>
+<body>
+    <select id="province">
+        <option>==请选择省份==</option>
+    </select>
+    <select id="city">
+        <option>==请选择城市==</option>
+    </select>
+</body>
+<script>
+    // 准备数据
+    var data = [
+        {"code" : "0001", "name" : "广东省",
+            "cities" : [
+                {"code" : "00010001", "name" : "广州市"},
+                {"code" : "00010002", "name" : "深圳市"},
+                {"code" : "00010003", "name" : "东莞市"}
+            ]
+        },
+        {"code" : "0002", "name" : "湖南省",
+            "cities" : [
+                {"code" : "00020001", "name" : "长沙市"},
+                {"code" : "00020002", "name" : "衡阳市"},
+                {"code" : "00020003", "name" : "郴州市"}
+            ]
+        },
+        {"code" : "0003", "name" : "江西省",
+            "cities" : [
+                {"code" : "00030001", "name" : "南昌市"},
+                {"code" : "00030002", "name" : "赣州市"},
+                {"code" : "00030003", "name" : "吉安市"}
+            ]
+        }
+    ];
+
+    window.onload = function(){
+        // 获取省份城市select
+        var proSelect = document.getElementById("province");
+        for (var i = 0; i < data.length; i++){
+            var json = data[i];
+            var option = new Option(json.name, json.code, false, false);
+            proSelect.add(option);
+        }
+        // 为proSelect绑定onChange事件
+        proSelect.onchange = function(){
+            var citySelect = document.getElementById("city");
+            // 在下次选择省份之前先清空城市下拉列表
+            for (var i = citySelect.length - 1; i > 0; i--){
+                citySelect.remove(i);
+            }
+            for (var i = 0; i < data.length; i++){
+                var json = data[i];
+                if (json.code == this.value){
+                    // 取城市
+                    var cities = json.cities;
+                    for (var j = 0; j < cities.length; j++){
+                        // 获取其中的json
+                        var temp = cities[j];
+                        var option = new Option(temp.name, temp.code, false, false);
+                        citySelect.add(option);
+                    }
+                }   
+            }
+        }
+    }
+</script>
+</html>
