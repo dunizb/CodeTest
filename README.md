@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2017-06-07**
+- [JavaScript/省市两级级联下拉列表](https://github.com/dunizb/CodeTest/blob/master/JavaScript/%E7%9C%81%E5%B8%82%E4%B8%A4%E7%BA%A7%E7%BA%A7%E8%81%94%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8.html)
+
 **2017-06-06**
 - [JS面向对象/权限配置组件](https://github.com/dunizb/CodeTest/tree/master/JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6)
 
