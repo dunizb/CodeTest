@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>框架核心之数据绑定系统</title>
+    <style>
+        .mypage {margin: 0;padding: 0}
+        .mypage li {list-style: none;}
+        a{margin: 2px;}
+        img{max-width: 30%;}
+    </style>
 </head>
 <body>
     <pre>
@@ -47,18 +53,63 @@
 
     <a href="javascript:ajaxgo()">模拟Ajax</a>
 
+    <div id="banner" style="margin: 0;padding: 0;">
+        <h1>标题</h1>
+        <div>
+            <img name="pic" src="http://dunizb.com/obook/duni-logo.png" alt="">
+        </div>
+        <h2 id="h2">标题<span>2</span></h2>
+        <p>
+            <a href="#" class="link">链接<b>小</b></a>
+            <a href="#" class="link">链接</a>
+            <a href="#" class="link">链接</a>
+            <a href="#" class="link">链接</a>
+        </p>
+        <ul class="mypage">
+            <li _style="background:#0ac2d2"><i>1</i><b>11</b></li>
+            <li _style="background:#7bbfa"><i>2</i><b>22</b></li>
+            <li _style="background:#60d7a9"><i>3</i><b>33</b></li>
+            <li _style="background:#fdc162"><i>4</i><b>44</b></li>
+            <li _style="background:#fd6a62"><i>5</i><b>55</b></li>
+            <li _style="background:#f68dbb"><i>6</i><b>66</b></li>
+        </ul>
+    </div>
+
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="./jquery.zb.view.js"></script>
     <script>
         var ajaxgo = function() {
-            // $('body').NBadd({h1: "标签、id、class、name、子元素"});    
-            $('body').NBadd({
+            $('#banner').NBadd({
+                h1: "标签、id、class、name、子元素<span>aaaa</span>",
+                h2: {
+                    title: "修改属性",
+                    id: "testId",
+                    span: "子元素内容"
+                },
+                // link: ["丰趣海淘 ","阿里巴巴 ","读你"],
                 link: [
                     {"0": "丰趣海淘", "href": "http://www.fengqu.com/"},
                     {"1": "阿里巴巴", "href": "http://www.alibaba.com/"},
                     {"2": "读你", "href": "http://dunizb.com/"}
+                ],
+                li: [
+                    {i: 23, b:"第一页", style: "background:#0ac2d2"},
+                    {i: 24, b:"第二页", style: "background:#fdc162"},
+                    {i: 25, b:"第三页", style: "background:#fd6a62"},
+                    {i: 26, b:"第四页", style: "background:#f68dbb"},
+                ],
+                pic: [
+                    {src: "https://images-cn.ssl-images-amazon.com/images/G/28/kindle/dp/2015/KM/feature-techspec._CB302853089_.jpg"},
+                    {src: "http://img12.360buyimg.com/n0/jfs/t2464/77/1201782331/324419/ae4bcdf6/564ad9f7N41bb02b3.jpg"}
                 ]
-            }); 
+            });    
+            // $('#banner').NBadd({
+            //     link: [
+            //         {"0": "丰趣海淘", "href": "http://www.fengqu.com/"},
+            //         {"1": "阿里巴巴", "href": "http://www.alibaba.com/"},
+            //         {"2": "读你", "href": "http://dunizb.com/"}
+            //     ]
+            // }); 
         }
     </script>
 </body>
