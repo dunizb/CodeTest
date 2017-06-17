@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>框架核心之数据绑定系统</title>
+</head>
+<body>
+    <pre>
+        能做到什么？
+        -----------------------------
+        1.渲染指定模板内容
+        2.渲染指定子模板的内容
+        3.设置模板以及子元素的属性
+        4.自动循环列表数据渲染模板
+        5.使用简单灵活
+        6.小体积和更友好的用户体验
+
+        怎么使用？
+        -----------------------------
+        1.渲染指定模板内容
+            $('#banner').NBadd();
+        2.渲染指定子模板的内容
+            $('#banner').NBadd({h1: "标签、id、class、name、子元素"});    
+        3.设置模板以及子元素的属性
+            $('#banner').NBadd({
+                h1: {
+                    "title":"标题",
+                    "id": "testId",
+                    "span": "子元素内容"
+                }
+            });
+        4.自动循环列表数据渲染模板   
+            $('#banner').NBadd({
+                link: ["丰趣海淘","阿里巴巴","读你"]
+            });
+
+            $('#banner').NBadd({
+                link: [
+                    {"0": "丰趣海淘", "href": "http://www.fengqu.com/"},
+                    {"1": "阿里巴巴", "href": "http://www.alibaba.com/"},
+                    {"2": "读你", "href": "http://dunizb.com/"}
+                ]
+            }); 
+    </pre>
+
+    <a href="javascript:ajaxgo()">模拟Ajax</a>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./jquery.zb.view.js"></script>
+    <script>
+        var ajaxgo = function() {
+            // $('body').NBadd({h1: "标签、id、class、name、子元素"});    
+            $('body').NBadd({
+                link: [
+                    {"0": "丰趣海淘", "href": "http://www.fengqu.com/"},
+                    {"1": "阿里巴巴", "href": "http://www.alibaba.com/"},
+                    {"2": "读你", "href": "http://dunizb.com/"}
+                ]
+            }); 
+        }
+    </script>
+</body>
+</html>
