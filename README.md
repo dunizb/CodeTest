@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2017-06-17**
+- [jQuery/框架核心之数据绑定系统](https://github.com/dunizb/CodeTest/tree/master/jQuery/框架核心之数据绑定系统)
+
 **2017-06-07**
 - [JavaScript/省市两级级联下拉列表](https://github.com/dunizb/CodeTest/blob/master/JavaScript/%E7%9C%81%E5%B8%82%E4%B8%A4%E7%BA%A7%E7%BA%A7%E8%81%94%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8.html)
 
