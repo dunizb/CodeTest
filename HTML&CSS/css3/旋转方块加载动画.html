@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转方块加载动画</title>
+</head>
+<body>
+    <style>
+	.logo {
+		width: 40px;
+		height: 40px;
+		background-color: #333;
+		margin: 100px auto;
+		animation: fanzhuan 1.2s infinite ease-in-out;
+	}
+
+	@keyframes fanzhuan{
+		0%{
+			transform: perspective(120px) rotateX(0deg)  rotateY(0deg);
+		}
+		50%{
+			transform: perspective(120px) rotateX(180deg)  rotateY(0deg);
+		}
+		100%{
+			transform: perspective(120px) rotateX(180deg)  rotateY(180deg);
+		}
+	}
+
+
+</style>
+
+
+<div class="logo"></div>
+
+
+
+
+
+
+
+<style>
+	.box{
+		width:40px;
+		height: 40px;
+		margin: 100px auto;
+	 }
+	 .box .sub{
+	 	width: 33%;
+	 	height: 33%;
+	 	background-color: #333;
+	 	float:left;
+
+	 	animation: boxshan 1.3s infinite ease-in-out;
+	 }
+
+	 @keyframes boxshan{
+	 	0%,70%,100%{
+	 		transform: scale(1);
+	 	}
+	 	35%{transform: scale(0);}
+	 }
+
+
+	 .box .sub:nth-child(7){
+
+	 }
+
+	 .box .sub:nth-child(4),.box .sub:nth-child(8){
+	 	animation-delay: 0.1s;
+	 }
+
+
+	 .box .sub:nth-child(1),.box .sub:nth-child(5),.box .sub:nth-child(9){
+	 	animation-delay: 0.2s;
+	 }
+
+	 .box .sub:nth-child(2),.box .sub:nth-child(6){
+	 	animation-delay: 0.3s;
+	 }
+
+	 .box .sub:nth-child(3){
+	 	animation-delay: 0.4s;
+	 }
+
+
+
+</style>
+
+
+
+<div class="box">
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+	<div class="sub"></div>
+</div>
+</body>
+</html>
