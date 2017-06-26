@@ -54,8 +54,8 @@
         //渲染个数不确定
         var flag = document.createDocumentFragment();
         var child;
-        while(child = node.firstChild) {
-            compile(child, vm);
+        while(child = node.firstChild) {//逐个渲染
+            compile(child, vm)//解析操作
             flag.append(child);
         }
         return flag;
@@ -63,27 +63,28 @@
 
     function compile(node, vm) {
         var reg = /\{\{(.*)\}\}/;   //正则匹配{{}}
+        var textType = 'input';
         if(node.nodeType === 1) { //v-model
             var attrs = node.attributes;
             for (var i = 0; i < attrs.length; i++) {
                 if(attrs[i].nodeName === 'v-model') {
                     var name = attrs[i].nodeValue;
                     node.addEventListener('input', function(e){
-                        vm[name] = e.target.value;
+                        vm[name] = e.target.value;//对数据更新，调用set方法
                     });
                     node.value = vm[name];
                     node.removeAttribute('v-model');
                 }
             }
-            new Watcher(vm, node, name, 'input');
         }
         if(node.nodeType === 3) {   //text
             if(reg.test(node.nodeValue)) {
                 var name = RegExp.$1;
                 name = name.trim();
-                new Watcher(vm, node, name, 'text');
+                textType = 'text';
             }
         }
+        new Watcher(vm, node, name, textType);
     }
 
     function Watcher(vm, node, name, nodeType) {
