@@ -98,14 +98,15 @@ div.hr{
         价格部分
 /******************************/
 .price-list{
-    height: 155px;
+    height: 128px;
     background-color: #fff;
     font-size: 12px;
     color: #646464;
+    padding: 8px 0;
 }
 .price-list ul li{
     width: 25%;
-    height: 77.5px;
+    height: 55.5px;
     float: left;
     text-align: center;
     display: flex;
