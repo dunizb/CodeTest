@@ -187,6 +187,7 @@ li .split{
 }
 .wrapper-ul li span{
     display: inline-block;
+    color:#7f7f7f;
 }
 .wrapper-ul li span.title{
     width: 28px;
@@ -195,9 +196,58 @@ li .split{
 .wrapper-ul li span.price{
     width: 60px;
 }
+.wrapper-ul li span.rate{
+    text-align: center;
+}
+.wrapper-ul li span.price{
+    text-align: right;
+}
 .wrapper-ul li span.red{
     color: red;
 }
 .wrapper-ul li span.green{
     color: green;
+}
+
+/******************************
+        xxxxx
+/******************************/
+.opear-tim{
+    padding: 10px 18px;
+}
+.opear-tim .wrapper-title{
+    padding: 10px 0 20px 0;
+}
+.opear-tim .wrapper-title .title{
+    font-weight: bold;
+    border-left: 2px solid red;
+    height: 14px;
+    line-height: 14px;
+    padding-left: 5px;
+}
+.opear-tim .opear-time-table{
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #e3e3e3;
+    border-collapse: collapse;
+}
+.opear-time-table thead th{
+    font-weight: normal;
+    color: #7f7f7f;
+}
+.opear-time-table thead tr{
+    height: 30px;
+}
+.opear-time-table tbody tr{
+    height: 44px;
+}
+.opear-time-table tr td{
+    border-top: 1px solid #e3e3e3;
+}
+.left{
+    text-align: left;
+}
+.opear-time-table tbody td.more{
+    color: #7f7f7f;
+    border-bottom: 0;
 }
