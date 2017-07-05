@@ -2,6 +2,12 @@
 
 > 个人平时学习、练习代码
 
+**2016-06-26**
+- [JavaScript/实现极简Vue.js双向数据绑定](https://github.com/dunizb/CodeTest/blob/master/JavaScript/实现极简Vue.js双向数据绑定.html)
+
+**2017-06-25**
+- [css3/旋转方块加载动画.html](https://github.com/dunizb/CodeTest/blob/master/HTML%26CSS/css3/旋转方块加载动画.html)
+
 **2017-06-17**
 - [jQuery/框架核心之数据绑定系统](https://github.com/dunizb/CodeTest/tree/master/jQuery/框架核心之数据绑定系统)
 

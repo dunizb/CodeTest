@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现极简Vue.js双向数据绑定</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="message">
+    {{message}}
+</div>
+
+<script>
+    function observer(obj, vm) {
+        Object.keys(obj).forEach(function(key){
+            defineReactive(vm, key, obj[key]);
+        });
+    }
+
+    function defineReactive(obj, key, val) {
+        var dep = new Dep();
+        Object.defineProperty(obj, key, {
+            get: function() {
+                console.log('Dep.target', Dep.target);
+                if(Dep.target) dep.addSub(Dep.target);
+                return val;
+            },
+            set: function(newVal) { //检测更新的时候，会自动调用并传入新值
+                if(newVal === val) return; //没有更新，直接返回
+                val = newVal;
+                dep.notify(); //发出通知
+            }
+        });
+    }
+
+    function Dep() {
+        this.subs = [];
+    }
+    Dep.prototype = {
+        addSub: function(sub) {
+            this.subs.push(sub);
+        },
+        notify: function() {
+            this.subs.forEach(function(sub) {
+                sub.update();//更新
+            });
+        }
+    };
+
+    function nodeToFrangment(node, vm) { //node:ID元素
+        //渲染个数不确定
+        var flag = document.createDocumentFragment();
+        var child;
+        while(child = node.firstChild) {//逐个渲染
+            compile(child, vm)//解析操作
+            flag.append(child);
+        }
+        return flag;
+    }
+
+    function compile(node, vm) {
+        var reg = /\{\{(.*)\}\}/;   //正则匹配{{}}
+        var textType = 'input';
+        if(node.nodeType === 1) { //v-model
+            var attrs = node.attributes;
+            for (var i = 0; i < attrs.length; i++) {
+                if(attrs[i].nodeName === 'v-model') {
+                    var name = attrs[i].nodeValue;
+                    node.addEventListener('input', function(e){
+                        vm[name] = e.target.value;//对数据更新，调用set方法
+                    });
+                    node.value = vm[name];
+                    node.removeAttribute('v-model');
+                }
+            }
+        }
+        if(node.nodeType === 3) {   //text
+            if(reg.test(node.nodeValue)) {
+                var name = RegExp.$1;
+                name = name.trim();
+                textType = 'text';
+            }
+        }
+        new Watcher(vm, node, name, textType);
+    }
+
+    function Watcher(vm, node, name, nodeType) {
+        Dep.target = this;
+        this.name = name;
+        this.vm = vm;
+        this.node = node;
+        this.nodeType = nodeType;
+        this.update();
+        Dep.target = null;
+    }
+
+    Watcher.prototype = {
+        update: function() {
+            this.get();
+            if(this.nodeType === 'text') {
+                this.node.nodeValue = this.value;
+            }
+            if(this.nodeType === 'input') {
+                this.node.value = this.value;
+            }
+        },
+        get: function() {//获取data中的属性值
+            this.value = this.vm[this.name];
+        }
+    };
+
+    function Vue(opt) { //更新数据  解析指令
+        this.data = opt.data;
+        var data = this.data;
+        observer(data, this); //监听数据
+        var id = opt.el;
+
+        var dom = nodeToFrangment(document.getElementById(id), this);
+        document.getElementById(id).appendChild(dom);
+    }
+
+    var v = new Vue({
+        el: 'app',
+        data: {
+            message: 'hello world'
+        }
+    });
+</script>    
+</body>
+</html>
