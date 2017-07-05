@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <title>哈哈，哎哟</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <!--整体布局盒子-->
+    <div class="layout">
+        <div class="header-img-box">
+            <div class="img">
+                <img src="./img/1.png" alt="1.jpg">
+            </div>
+            <div class="img-box-price">
+                <div>888元/秒</div>
+                <div>箭头</div>
+            </div>
+        </div>
+        <div class="price-list">
+            <ul>
+                <li>
+                    <div class="item">
+                        <p>最高</p>
+                        <p>0.35</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <p>最低</p>
+                        <p>0.19</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <p>均价</p>
+                        <p>0.30</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item b0">
+                        <p>成交额</p>
+                        <p>19131.55</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <p>最新</p>
+                        <p>972.00元/小时</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <p>委买</p>
+                        <p>169401</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <p>委卖</p>
+                        <p>24000</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="item b0">
+                        <p>总市值</p>
+                        <p>233280.00</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="charts">
+            <ul class="tab">
+                <li class="tab-item active">
+                    分时
+                    <div class="split"></div>
+                </li>
+                <li class="tab-item">日K</li>
+            </ul>
+            <div class="products">
+                <div class="main selected">
+                    <div class="kline-content" id="kline-time"></div>
+                </div>
+                <div class="main">
+                    <div class="kline-content" id="kline-day"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            sdasds
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".charts>.tab>li").mouseenter(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var index = $(this).index();
+            $(".charts>.products>div").eq(index).addClass("selected").siblings().removeClass("selected");
+        });
+    });
+
+    loadEchart1();
+    function loadEchart1() {
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        require([
+            'echarts',
+            'echarts/chart/bar' // 使用柱状图加载bar模块
+        ],
+        function (ec) {
+            var mychart = ec.init(document.getElementById('kline-time'));
+
+            var option = {
+                tooltip: {
+                    show: true
+                },
+                legend: {
+                    data: ['销量']
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+                }],
+                yAxis: [{
+                    type: 'value'
+                }],
+                series: [{
+                    'name': "销量",
+                    "type": "bar",
+                    "data": [15, 20, 3, 40, 20, 25]
+                }]
+            };
+
+            mychart.setOption(option);
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/*************************
+css  reset 重置默认样式
+**************************/
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    /*设置所有的盒子都是以边框开始计算  使用的都流式布局*/
+    -webkit-box-sizing: border-box;/*要求兼容主流浏览器 webkit内核的必须*/
+    box-sizing: border-box;
+    /*清除移动端默认的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+}
+html {height: 100%;}
+body{
+    font-size: 14px;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    min-width: 300px;
+}
+ul,ol{
+    list-style: none;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    color: #333;
+}
+
+input,textarea{
+    outline: none;
+    border: none;
+    resize: none;
+    /*清除移动端默认的输入框的默认样式*/
+    -webkit-appearance: none;
+}
+
+body {
+    background-color: #333;
+    height: 100%;
+}
+
+/******************************
+              layout
+/******************************/
+.layout {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    min-width: 300px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #e3e3e3;
+}
+
+/******************************
+        头部图片
+/******************************/
+.header-img-box {
+    height: 240px;
+    width: 100%;
+    position: relative;
+}
+.header-img-box img{
+    height: 240px;
+    width: 100%;
+}
+.img-box-price{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(227,227,227,.6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/******************************
+        价格部分
+/******************************/
+.price-list{
+    height: 155px;
+    background-color: #fff;
+    font-size: 12px;
+    color: #646464;
+}
+.price-list ul li{
+    width: 25%;
+    height: 77.5px;
+    float: left;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.price-list ul li p{
+    padding: 2px;
+}
+.price-list ul li .item{
+    border-right:1px solid #e3e3e3;
+}
+.b0{
+    border-right: 0 !important;
+}
+
+.content {
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 5px;
+}
+/******************************
+        echarts
+/******************************/
+.charts{
+    background-color: #fff;
+    margin-top: 5px;
+}
+.charts .tab {
+    height: 40px;
+}
+.tab .tab-item {
+    position: relative;
+    float: left;
+    width: 50%;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #e3e3e3;
+}
+li .split{
+    width: 1px;
+    display: inline-block;
+    background-color: #e3e3e3;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.tab-item.active{
+    color: red;
+    border-bottom: 1px solid red;
+}
+.products .main {
+    display: none;
+}
+.products .main.selected {
+    display: block;
+}
+.kline-content {
+    min-height: 200px;
+    width: 100%;
+}
