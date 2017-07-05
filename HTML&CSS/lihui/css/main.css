@@ -174,7 +174,7 @@ li .split{
 }
 .wrapper-ul ul{
     width: 50%;
-    margin: 10px;
+    padding: 10px;
 }
 .wrapper-ul ul:first-child{
     border-right:1px solid #e3e3e3;
