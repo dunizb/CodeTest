@@ -18,6 +18,7 @@ body{
     font-size: 14px;
     font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
     min-width: 300px;
+    height: 100%;
 }
 ul,ol{
     list-style: none;
@@ -39,11 +40,6 @@ input,textarea{
     -webkit-appearance: none;
 }
 
-body {
-    background-color: #333;
-    height: 100%;
-}
-
 /******************************
               layout
 /******************************/
@@ -54,9 +50,12 @@ body {
     min-width: 300px;
     margin: 0 auto;
     position: relative;
-    background-color: #e3e3e3;
 }
 
+div.hr{
+    height: 5px;
+    background-color: #e3e3e3;
+}
 /******************************
         头部图片
 /******************************/
@@ -126,21 +125,16 @@ body {
 .content {
     padding: 10px;
     background-color: #fff;
-    margin-top: 5px;
 }
 /******************************
         echarts
 /******************************/
-.charts{
-    background-color: #fff;
-    margin-top: 5px;
-}
-.charts .tab {
+ul.tab {
     height: 40px;
+    display: flex;
 }
 .tab .tab-item {
     position: relative;
-    float: left;
     width: 50%;
     line-height: 40px;
     text-align: center;
@@ -250,4 +244,52 @@ li .split{
 .opear-time-table tbody td.more{
     color: #7f7f7f;
     border-bottom: 0;
+}
+
+/******************************
+        xxxxx
+/******************************/
+.myinfo .tab-item{
+    width: 25%;
+}
+.myinfo .products .tags {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+.myinfo .products .tags span{
+    border: 1px solid red;
+    color: red;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+.myinfo .products .wrapper{
+    height: 44px;
+    line-height: 44px;
+    padding: 0 15px;
+}
+.myinfo .products .wrapper .title{
+    border-bottom: 1px solid #e3e3e3;
+}
+.myinfo .products .wrapper .title span{
+    border-left: 2px solid red;
+    padding-left: 5px;
+    font-weight: bold;
+}
+.myinfo .products .myinfo-content{
+    margin: 10px 15px;
+}
+.myinfo .products .myinfo-table{
+    width: 100%;
+}
+.myinfo .products .myinfo-table th{
+    text-align: left;
+    width: 70px;
+    height: 38px;
+    font-weight: normal;
+    color: #7f7f7f;    
+}
+.myinfo .products .myinfo-actives li{
+    line-height: 18px;
 }
