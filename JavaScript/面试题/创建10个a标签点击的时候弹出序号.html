@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>创建10个a标签点击的时候弹出序号 | Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!</title>
+    <meta name="Keyword" content="代码演示,代码片段,HTML5,CSS3,JavaScript,jQuery,Bootstrap,Angular,NodeJS,Node.js,ECMA2016,ES6,Promise,FetchAPI,Vue.js,React,React Native,webpack,gulp,ionic">
+    <meta name="Author" content="dunizb">
+    <meta name="website" content="http://dunizb.com">
+    <meta name="Description" content="Demos 代码演示、代码片段 - 读你 | 这世间唯有梦想和好姑娘不可辜负!">
+</head>
+<body>
+  <pre>
+      考察作用域、闭包应用
+  </pre>
+  <script>
+    var i;
+    for(i = 0; i<10; i++){
+        (function(i){
+            var a = document.createElement('a');
+            a.innerHTML = i + '<br/>';
+            a.addEventListener('click', function(e){
+                e.preventDefault();
+                alert(i);
+            });
+            document.body.appendChild(a);
+        })(i);
+    }
+  </script>
+</body>
+</html>
