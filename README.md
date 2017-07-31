@@ -3,7 +3,7 @@
 > 个人平时学习、练习代码
 
 **2017-07-10**
-- [JavaScript/面试题/创建10个a标签点击的时候弹出序号](https://github.com/dunizb/CodeTest/tree/master/JavaScript/%E9%9D%A2%E8%AF%95%E9%A2%98/创建10个a标签点击的时候弹出序号.html)
+- [面试题/创建10个a标签点击的时候弹出序号](https://github.com/dunizb/CodeTest/tree/master/%E9%9D%A2%E8%AF%95%E9%A2%98/创建10个a标签点击的时候弹出序号.html)
 
 **2017-06-26**
 - [JavaScript/实现极简Vue.js双向数据绑定](https://github.com/dunizb/CodeTest/blob/master/JavaScript/实现极简Vue.js双向数据绑定.html)
@@ -24,7 +24,7 @@
 - [JavaScript/极简模式Javascript音乐播放器](https://github.com/dunizb/CodeTest/tree/master/JavaScript/%E6%9E%81%E7%AE%80%E6%A8%A1%E5%BC%8FJavascript%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8)
 
 **2017-05-14**
-- [JavaScript/面试题/找出一个字符串里最长的那一个单词并打印出来.html](https://github.com/dunizb/CodeTest/blob/master/JavaScript/面试题/找出一个字符串里最长的那一个单词并打印出来.html)
+- [面试题/找出一个字符串里最长的那一个单词并打印出来.html](https://github.com/dunizb/CodeTest/blob/master/面试题/找出一个字符串里最长的那一个单词并打印出来.html)
 
 **2017-05-07**
 - [HTML&CSS/css3/background-clip:text.html](https://github.com/dunizb/CodeTest/blob/master/HTML%26CSS/css3/background-clip:text.html)
