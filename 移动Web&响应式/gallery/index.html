@@ -73,27 +73,50 @@ var loadImg = function(id){
         var paddingLeft = parseInt((winWidth - realw)/2);
         var realh = winWidth * h/w; // 图片展示的真实高度
         var paddingTop = parseInt((winHeight - realh)/2);
+        largeImg.css({
+            'width': 'auto',
+            'height': 'auto',
+            'padding-left': '0px',
+            'padding-top': '0px'
+        });
         if(h/w > 1.2){ // 竖图
-            largeImg.attr('src', imgSrc).css('height', winHeight).css('padding-left', paddingLeft);
+            largeImg.attr('src', imgSrc).css({
+                'height': winHeight,
+                'padding-left': paddingLeft
+            });
         }else{ // 横图
-            largeImg.attr('src', imgSrc).css('width', winWidth).css('padding-top', paddingTop);
+            largeImg.attr('src', imgSrc).css({
+                'width':winWidth,
+                'padding-top': paddingTop
+            });
         }
     }
     imgObj.src = imgSrc;
 }
 
 // 事件代理
+var cid;
 $("#container").delegate('li', 'tap', function(){
-    var _id = $(this).attr("data-id");
+    var _id = cid = $(this).attr("data-id");
     loadImg(_id);
 });
 
 $("#large_container").tap(function(){
     $(this).hide();
 }).swipeLeft(function(){
-
+    cid++;
+    if(cid > total) {
+        cid = total;
+    }else{
+        loadImg(cid);
+    }
 }).swipeRight(function(){
-
+    cid--;
+    if(cid < 1) {
+        cid = 1;
+    }else{
+        loadImg(cid);
+    }
 });
 </script>
 </body>
