@@ -12,18 +12,15 @@
         body{background-color: black;}
         ul{list-style: none}       
         li{float: left;width: 100px;height: 100px;overflow: hidden;} 
+        .large{width: 100%;height: 100%;position: absolute;top: 0;left:0;background-color: black;}
     </style>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 </head>
 <body>
-    <ul class="img-container" id="container">
-        <li><img src="./images/1.jpg" alt=""></li>
-        <li><img src="./images/1.jpg" alt=""></li>
-        <li><img src="./images/1.jpg" alt=""></li>
-        <li><img src="./images/1.jpg" alt=""></li>
-        <li><img src="./images/1.jpg" alt=""></li>
-        <li><img src="./images/1.jpg" alt=""></li>
-    </ul>
+    <ul class="img-container" id="container"></ul>
+    <div class="large" id="large_container" style="display:none;">
+        <img id="large_img" src="" alt="">
+    </div>
 
 <script>
 var total = 17;
@@ -37,8 +34,8 @@ var render = function() {
         var imgSrc = './images/'+ i +'.jpg';
         var pl = padding;
         if(i % 4 === 1) pl = 0;
-        tmpl += "<li class='animated bounceIn' style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'>"
-        +"<canvas id='cvs_"+i+"'></canvas></li>";
+        tmpl += "<li data-id='"+ i +"' class='animated bounceIn' style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'>"
+        +"<canvas id='cvs_"+ i +"'></canvas></li>";
 
         var imgObj = new Image();
         imgObj.index = i;
@@ -54,6 +51,41 @@ var render = function() {
     $("#container").html(tmpl);
 }
 render();
+
+var largeImg = $("#large_img");
+var loadImg = function(id){
+    $("#large_container").css({
+        wdith: zWin.width(),
+        height: zWin.height()
+    }).show();
+
+    var imgSrc = "./images/"+ id +".large.jpg";
+    var imgObj = new Image();
+    imgObj.onload = function() {
+        var w = this.width;
+        var h = this.height;
+        var winWidth = zWin.width();
+        var winHeight = zWin.height();
+
+        // 计算宽高比，为了知道是横图还是竖图
+        var realw = winHeight * w/h; // 图片展示的真实宽度
+        var paddingLeft = parseInt((winWidth - realw)/2);
+        var realh = winWidth * h/w; // 图片展示的真实高度
+        var paddingTop = parseInt((winHeight - realh)/2);
+        if(h/w > 1.2){ // 竖图
+            largeImg.attr('src', imgSrc).css('height', winHeight).css('padding-left', paddingLeft);
+        }else{ // 横图
+            largeImg.attr('src', imgSrc).css('width', winWidth).css('padding-top', paddingTop);
+        }
+    }
+    imgObj.src = imgSrc;
+}
+
+// 事件代理
+$("#container").delegate('li', 'click', function(){
+    var _id = $(this).attr("data-id");
+    loadImg(_id);
+});
 </script>
 </body>
 </html>
