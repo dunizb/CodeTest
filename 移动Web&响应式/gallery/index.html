@@ -36,7 +36,18 @@ var render = function() {
         var imgSrc = './images/'+ i +'.jpg';
         var pl = padding;
         if(i % 4 === 1) pl = 0;
-        tmpl += "<li style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'><img src='"+ imgSrc +"'/></li>";
+        tmpl += "<li style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'>"
+        +"<canvas id='cvs_"+i+"'></canvas></li>";
+
+        var imgObj = new Image();
+        imgObj.index = i;
+        imgObj.onload = function() {
+            var cvs = $("#cvs_" + this.index)[0].getContext('2d');
+            cvs.with = imgObj.width;
+            cvs.height = imgObj.height;
+            cvs.drawImage(this, 0, 0);//imgObj，偏移
+        }
+        imgObj.src = imgSrc;
     }
 
     $("#container").html(tmpl);
