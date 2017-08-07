@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的相册</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <style>
         /** CSS Rest **/
         body,ul,img,input,h1,h2,h3,h4,h5,h6,dd,dt,li,ol,p{padding: 0;margin: 0}
@@ -36,7 +37,7 @@ var render = function() {
         var imgSrc = './images/'+ i +'.jpg';
         var pl = padding;
         if(i % 4 === 1) pl = 0;
-        tmpl += "<li style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'>"
+        tmpl += "<li class='animated bounceIn' style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'>"
         +"<canvas id='cvs_"+i+"'></canvas></li>";
 
         var imgObj = new Image();
