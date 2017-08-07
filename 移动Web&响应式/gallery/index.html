@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的相册</title>
+    <style>
+        /** CSS Rest **/
+        body,ul,img,input,h1,h2,h3,h4,h5,h6,dd,dt,li,ol,p{padding: 0;margin: 0}
+        body{background-color: black;}
+        ul{list-style: none}       
+        li{float: left;width: 100px;height: 100px;overflow: hidden;} 
+    </style>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+</head>
+<body>
+    <ul class="img-container" id="container">
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/1.jpg" alt=""></li>
+    </ul>
+
+<script>
+var total = 17;
+var zWin = $(window);
+var render = function() {
+    var padding = 2;
+    var winWidth = zWin.width();
+    var picWidth = Math.floor((winWidth - padding*3)/4);
+    var tmpl = '';
+    for(var i = 1; i < total; i++){
+        var imgSrc = './images/'+ i +'.jpg';
+        var pl = padding;
+        if(i % 4 === 1) pl = 0;
+        tmpl += "<li style='width:"+ picWidth +"px;height:"+ picWidth +"px;padding-left:"+ pl +"px;padding-top:"+ padding +"px'><img src='"+ imgSrc +"'/></li>";
+    }
+
+    $("#container").html(tmpl);
+}
+render();
+</script>
+</body>
+</html>
