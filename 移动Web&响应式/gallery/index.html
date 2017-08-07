@@ -9,15 +9,20 @@
     <style>
         /** CSS Rest **/
         body,ul,img,input,h1,h2,h3,h4,h5,h6,dd,dt,li,ol,p{padding: 0;margin: 0}
-        body{background-color: black;}
+        body{background-color: black;max-width: 640px;}
         ul{list-style: none}       
         li{float: left;width: 100px;height: 100px;overflow: hidden;} 
         .large{width: 100%;height: 100%;position: absolute;top: 0;left:0;background-color: black;}
+        p{color: white;font-size: 24px;}
+        @media only screen and (max-width: 30em) {
+            p{display: none}
+        }
     </style>
     <script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="./lib/touch.js"></script>
 </head>
 <body>
+    <p>请用手机模式查看</p>
     <ul class="img-container" id="container"></ul>
     <div class="large animated fadeIn" id="large_container" style="display:none;">
         <img id="large_img" src="" alt="">
