@@ -14,7 +14,8 @@
         li{float: left;width: 100px;height: 100px;overflow: hidden;} 
         .large{width: 100%;height: 100%;position: absolute;top: 0;left:0;background-color: black;}
     </style>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="./lib/touch.js"></script>
 </head>
 <body>
     <ul class="img-container" id="container"></ul>
@@ -82,9 +83,17 @@ var loadImg = function(id){
 }
 
 // 事件代理
-$("#container").delegate('li', 'click', function(){
+$("#container").delegate('li', 'tap', function(){
     var _id = $(this).attr("data-id");
     loadImg(_id);
+});
+
+$("#large_container").tap(function(){
+    $(this).hide();
+}).swipeLeft(function(){
+
+}).swipeRight(function(){
+
 });
 </script>
 </body>
