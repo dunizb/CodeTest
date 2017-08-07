@@ -119,7 +119,7 @@ $("#large_container").tap(function(){
         loadImg(cid, function(){
             domLargeImg.addEventListener('webkitAnimationEnd', function(){
                 largeImg.removeClass('animated bounceInRight');
-                domLargeImg.removeEventListener('webkitAnimationEnd');
+                domLargeImg.removeEventListener('webkitAnimationEnd', function(){});
             }, false);
             largeImg.addClass('animated bounceInRight');
         });
@@ -132,7 +132,7 @@ $("#large_container").tap(function(){
         loadImg(cid, function(){
             domLargeImg.addEventListener('webkitAnimationEnd', function(){
                 largeImg.removeClass('animated bounceInLeft');
-                domLargeImg.removeEventListener('webkitAnimationEnd');
+                domLargeImg.removeEventListener('webkitAnimationEnd', function(){});
             }, false);
             largeImg.addClass('animated bounceInLeft');
         });
