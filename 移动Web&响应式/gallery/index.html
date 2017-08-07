@@ -19,7 +19,7 @@
 </head>
 <body>
     <ul class="img-container" id="container"></ul>
-    <div class="large" id="large_container" style="display:none;">
+    <div class="large animated fadeIn" id="large_container" style="display:none;">
         <img id="large_img" src="" alt="">
     </div>
 
@@ -54,7 +54,8 @@ var render = function() {
 render();
 
 var largeImg = $("#large_img");
-var loadImg = function(id){
+var domLargeImg = largeImg[0];
+var loadImg = function(id, callback){
     $("#large_container").css({
         wdith: zWin.width(),
         height: zWin.height()
@@ -90,6 +91,8 @@ var loadImg = function(id){
                 'padding-top': paddingTop
             });
         }
+
+        callback && callback();
     }
     imgObj.src = imgSrc;
 }
@@ -108,14 +111,26 @@ $("#large_container").tap(function(){
     if(cid > total) {
         cid = total;
     }else{
-        loadImg(cid);
+        loadImg(cid, function(){
+            domLargeImg.addEventListener('webkitAnimationEnd', function(){
+                largeImg.removeClass('animated bounceInRight');
+                domLargeImg.removeEventListener('webkitAnimationEnd');
+            }, false);
+            largeImg.addClass('animated bounceInRight');
+        });
     }
 }).swipeRight(function(){
     cid--;
     if(cid < 1) {
         cid = 1;
     }else{
-        loadImg(cid);
+        loadImg(cid, function(){
+            domLargeImg.addEventListener('webkitAnimationEnd', function(){
+                largeImg.removeClass('animated bounceInLeft');
+                domLargeImg.removeEventListener('webkitAnimationEnd');
+            }, false);
+            largeImg.addClass('animated bounceInLeft');
+        });
     }
 });
 </script>
