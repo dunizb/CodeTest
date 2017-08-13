@@ -10,8 +10,9 @@ function Vue(options){
     // 匹配v-bind指令
     regex = /(v\-bind:([\w\-]+)=\"([\w]+)\")/g;
     while(regex.exec(html)){    
-        console.log(RegExp.$1+" > "+RegExp.$2+" > "+RegExp.$3);
-        html = html.replace(new RegExp(RegExp.$1, "g"), RegExp.$2+"="+data[RegExp.$3]);// 只进来2次
+        var value = RegExp.$2+"='"+data[RegExp.$3]+"'";
+        html = html.replace(RegExp.$1, value);
+        regex.lastIndex -= RegExp.$1.length - value.length;
     }
 
     context.innerHTML = html;

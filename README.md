@@ -3,7 +3,11 @@
 > 个人平时学习、练习代码
 
 **2017-08**
-- 08.13 [Vue/模板语法/模板与数据绑定](https://github.com/dunizb/CodeTest/blob/master/Vue/模板与数据绑定/)
+- 08.13 
+  [Vue/模板与数据绑定](https://github.com/dunizb/CodeTest/blob/master/Vue/模板与数据绑定/)
+  + Vue指定数据绑定原理.html
+  + Vue模板语法绑定原理.html
+  + Vue模板语法绑定原理2.html
 
 **2017-07**
 - 07.10 [面试题/创建10个a标签点击的时候弹出序号](https://github.com/dunizb/CodeTest/tree/master/%E9%9D%A2%E8%AF%95%E9%A2%98/创建10个a标签点击的时候弹出序号.html)
