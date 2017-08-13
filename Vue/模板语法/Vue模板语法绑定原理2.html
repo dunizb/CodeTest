@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJS模板语法绑定原理手写实现</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <p>{{ pData }}</p>
+        <h1>{{ pData }}</h1>
+    </div>
+</body>
+<script src="./js/myVue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "hello message",
+            pData: "my name's pData"
+        }
+    });
+</script>
+</html>

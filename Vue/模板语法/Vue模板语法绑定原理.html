@@ -9,9 +9,8 @@
 <body>
     <div id="app">
         {{ message }}
-        <p>
-            {{ pData }}
-        </p>
+        <p>{{ pData }}</p>
+        <h1>{{ pData }}</h1>
     </div>
 </body>
 <script>
@@ -22,13 +21,15 @@
         });
     }
 
-    function vue(el, data){
-        var context = document.querySelector(el);
+    function vue(id, data){
+        var context = document.querySelector(id);
         var html = context.innerHTML;
         var regex = /(\{\{\s*([\w]+)\s*\}\})/g;
-        while(regex.exec(html)){
-            html = html.replace(RegExp.$1, data[RegExp.$2]);
-            console.log(RegExp.$1 + "："+ RegExp.$2);
+        while(regex.exec(html)){    
+            console.log("111222")
+            html = html.replace(new RegExp(RegExp.$1, "g"), data[RegExp.$2]);// 只进来2次
+            //html = html.replace(RegExp.$1, data[RegExp.$2]);// 进来3次
+            // console.log(RegExp.$1 + "："+ RegExp.$2);
         }
 
         context.innerHTML = html;

@@ -3,7 +3,7 @@
 > 个人平时学习、练习代码
 
 **2017-08**
-- 08.13 [Vue/Vue模板语法绑定原理.html](https://github.com/dunizb/CodeTest/blob/master/Vue/Vue%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86.html)
+- 08.13 [Vue/模板语法/Vue模板语法绑定原理等](https://github.com/dunizb/CodeTest/blob/master/Vue/模板语法/)
 
 **2017-07**
 - 07.10 [面试题/创建10个a标签点击的时候弹出序号](https://github.com/dunizb/CodeTest/tree/master/%E9%9D%A2%E8%AF%95%E9%A2%98/创建10个a标签点击的时候弹出序号.html)
