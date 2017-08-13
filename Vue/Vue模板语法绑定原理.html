@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJS模板语法绑定原理手写实现</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <p>
+            {{ pData }}
+        </p>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        vue("#app",{
+            message: "hello Vue",
+            pData: Date.now()
+        });
+    }
+
+    function vue(el, data){
+        var context = document.querySelector(el);
+        var html = context.innerHTML;
+        var regex = /(\{\{\s*([\w]+)\s*\}\})/g;
+        while(regex.exec(html)){
+            html = html.replace(RegExp.$1, data[RegExp.$2]);
+            console.log(RegExp.$1 + "："+ RegExp.$2);
+        }
+
+        context.innerHTML = html;
+    }
+</script>
+</html>
