@@ -3,6 +3,8 @@
 > 个人平时学习、练习代码
 
 **2017-08**
+
+- 08.14 [Vue/模板与数据绑定/VueJS双向绑定原理解析及实现.html](https://github.com/dunizb/CodeTest/blob/master/Vue/模板与数据绑定/)
 - 08.13 
   [Vue/模板与数据绑定](https://github.com/dunizb/CodeTest/blob/master/Vue/模板与数据绑定/)
   + Vue指定数据绑定原理.html

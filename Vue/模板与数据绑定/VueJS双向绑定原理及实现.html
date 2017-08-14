@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>VueJS双向绑定原理解析及实现</title>
+</head>
+
+<body>
+ <!--
+<div id="app-6">
+  <p id="text">{{ message }}</p>
+  <input type="text" id="inputText">
+</div>
+-->
+<div id="app">
+
+	<input type="text" v-model="text"/>
+	{{text}}
+</div>
+
+<!--<script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+<script>
+/*var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})*/
+//直出概念     优势：中小型项目      React：渲染、生态
+
+
+//双向绑定     vuejs   angular  backbone
+
+/*
+	脏值检查
+	发布者-订阅者模式  backbone.js
+	VUEJS：数据劫持+发布者-订阅者模式   Object.defineproperty;get set
+	
+var obj = {};
+Object.defineProperty(obj,"hello",{
+	get:function(){
+		console.log("get方法调用了");
+	},
+	set:function(newVal){
+		document.getElementById("text").innerHTML = newVal;
+		document.getElementById("inputText").value = newVal;
+	}
+});
+
+document.addEventListener("keyup",function(e){//事件监听
+	obj.hello = e.target.value;
+});
+
+*/
+function observe(obj,vm){
+	Object.keys(obj).forEach(function(key){
+		defineReactive(vm,key,obj[key]);
+	})
+}
+
+function defineReactive(obj,key,val){
+	var dep = new Dep();
+	Object.defineProperty(obj,key,{
+		get:function(){
+			console.log("get method");
+			if(Dep.target) dep.addSub(Dep.target);
+			return val;
+		},
+		set:function(newVal){//检测更新的时候，会自动调用并传入新值
+			console.log("set method");
+			if(newVal === val) return;//没有更新，返回
+			val = newVal;
+			dep.notify();//发出通知
+			
+		}
+	});
+}
+
+function Dep(){
+	this.subs = [];
+}
+Dep.prototype = {
+	addSub:function(sub){
+		this.subs.push(sub);
+	},
+	notify:function(){
+		this.subs.forEach(function(sub){
+			sub.update();//更新
+		});
+	}
+}
+
+function nodeToFragment(node,vm){//node : ID元素    拿到ＤＯＭ
+	//渲染个数不确定
+	//document.createElement()
+	var flag = document.createDocumentFragment();
+	var child;
+	while(child = node.firstChild){//逐个渲染
+		compile(child,vm);//解析操作
+		flag.append(child);
+	}
+	return flag;
+	
+}
+
+function compile(node,vm){
+
+	console.log("ccccc");
+	var reg = /\{\{(.*)\}\}/;//正则匹配
+	var textType = "input";
+	if (node.nodeType === 1) {//v-model
+		var attr = node.attributes;
+		for (var i = 0; i < attr.length; i++) {
+			if (attr[i].nodeName == 'v-model') {
+				var name = attr[i].nodeValue;
+				node.addEventListener('input', function (e) {
+					vm[name] = e.target.value;//对数据的更新，调用set方法
+				});
+				node.value = vm[name];
+				node.removeAttribute('v-model');
+			}
+		};
+		
+	}
+	if (node.nodeType === 3) {//text
+		if (reg.test(node.nodeValue)) {
+			var name = RegExp.$1;
+			name = name.trim();
+			textType = "text";
+		}
+	}
+	new Watcher(vm, node, name, textType);
+}
+
+function Watcher(vm,node,name,nodeType){
+	Dep.target = this;
+	this.name = name;
+	this.node = node;
+	this.vm = vm;
+	this.nodeType = nodeType;
+	this.update();
+	Dep.target = null;
+}
+
+Watcher.prototype = {
+	update:function(){
+		this.get();
+		if(this.nodeType == "text"){
+			this.node.nodeValue = this.value;
+		}
+		if(this.nodeType == "input"){
+			this.node.value = this.value;
+		}
+	},
+	get:function(){//获取data中的属性值
+		this.value = this.vm[this.name];
+	}
+}
+
+function Vue(opt){//监听数据     解析指令
+	this.data = opt.data;
+	var data = this.data;
+	observe(data,this);//监听数据
+	var id = opt.el;
+	var dom = nodeToFragment(document.getElementById(id),this);
+	document.getElementById(id).appendChild(dom);
+}
+
+var v = new Vue({
+	el:'app',
+	data:{
+		text:"Hello World"
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
