@@ -10,7 +10,6 @@
                 var fx = getMouseDirection(this);
                 if(fx === "top") {
                     $(this).find($childModal).css({
-						"display": "block",
 						"top": -$(this).height(),
 						"left": '0'
 					}).animate({
@@ -18,7 +17,6 @@
 					}, 200);
                 } else if(fx === "right") {
                     $(this).find($childModal).css({
-						"display": "block",
 						"top": "0",
 						"left": $(this).width()
 					}).animate({
@@ -26,7 +24,6 @@
 					}, 200);
                 } else if(fx === "bottom") {
                     $(this).find($childModal).css({
-						"display": "block",
 						"top": $(this).height(),
 						"left": 0
 					}).animate({
@@ -34,7 +31,6 @@
 					}, 200);
                 } else if(fx === "left") {
                     $(this).find($childModal).css({
-						"display": "block",
 						"top": "0",
 						"left": -$(this).width()
 					}).animate({
