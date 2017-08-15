@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>怎么让一个不定宽高的 DIV，垂直水平居中?</title>
+    <style>
+        .container{display: flex;flex-wrap: wrap}
+        .wrap {margin: 10px;}
+        .parent{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        .child{width: 300px; height:206.87px;border: 1px solid green;}
+
+        /********使用 CSS table-cel 方法********/
+        .div1{
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .div1 .child{
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /********使用 CSS3 transform********/
+        .div2{
+            position: relative;
+        }
+        .div2 .child{
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>怎么让一个不定宽高的 DIV，垂直水平居中?</h1>
+    <pre>
+        <b>使用 CSS table-cel 方法:</b>
+        父盒子设置:display:table-cell; text-align:center;vertical-align:middle; 
+        Div 设置: display:inline-block;vertical-align:middle;
+
+        <b>使用 CSS3 transform:</b>
+        父盒子设置:position:relative
+        Div 设置: transform: translate(-50%，-50%);position: absolute;top: 50%;left: 50%;
+    </pre>
+    <div class="container">
+        <div class="wrap">
+            <h2>使用 table-cel 方法</h2>
+            <div class="parent div1">
+                <div class="child"></div>
+            </div>
+        </div>
+        <div class="wrap">
+            <h2>使用 CSS3 transform</h2>
+            <div class="parent div2">
+                <div class="child"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
