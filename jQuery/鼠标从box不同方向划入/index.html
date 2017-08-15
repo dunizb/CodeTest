@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标从box不同方向划入,modal层划入的方向也不同</title>
+    <style>
+        *{box-sizing: border-box;}
+        .container{
+            padding-left: 50px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .box-hover-modal {
+            float: left;
+            width: 240px;
+            height: 480px;
+            position: relative;
+            background: #aaa;
+            overflow: hidden;
+        }
+        .box-hover-modal-con {
+            width: 100%;
+            height: 100%;
+        }
+        .box-hover-modal-con.con1{
+            background: url("http://www.onlyhi.cn/images/teacher/b5-2.jpg") no-repeat center;
+        }
+        .box-hover-modal-con.con2{
+            background: url("http://www.onlyhi.cn/images/teacher/b5-4.jpg") no-repeat center;
+        }
+        .box-hover-modal-con .info{
+            width: 210px;
+            height: 140px;
+            padding: 10px 5px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px; 
+            background-color: hsla(0,0%,100%,.8);
+            text-align: center;
+        }
+        .box-hover-modal-con .info p{font-size: 18px;margin: 0;}
+        .box-hover-modal-con .info hr{
+            border: 0;
+            width: 30px;
+            height: 5px;
+            background-color: #ff4019;
+            margin: 5px 0;
+            display: inline-block;
+        }
+        .box-hover-modal-con .info .t_c{text-align: center;}
+        .box-hover-modal-m {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #ff4019;
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            padding: 0 15px;
+            padding-top: 95px;
+        }
+        .box-hover-modal-m button{
+            width: 165px;
+            height: 34px;
+            border: 2px solid #fff;
+            margin-bottom: 20px;
+            background-color: transparent;
+            font-size: inherit;
+            color: #fff;
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
+        .box-hover-modal-m p{
+            line-height: 40px;
+            font-size: 18px;
+        }
+        .box-hover-modal-m span{
+            font-size: 150px;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<h2>鼠标从box不同方向划入,modal层划入的方向也不同</h2>
+		<hr>
+
+		<div class="box-hover-modal">
+			<div class="box-hover-modal-con con1" style="display: block; top: 0px; left: -240px;">
+                <div class="info">
+                    <p class="t_c">学科教师</p>
+                    <hr>
+                    <p class="t_l">根据孩子所在省份，匹配当地学科名师，进行在线1对1针对性辅导</p>
+                </div>
+            </div>
+			<div class="box-hover-modal-m" style="display: block; top: 0px; left: -240px;">
+                <button>班主任</button>
+                <p>进行在线课程管理，上课记录管理，全程课程跟踪辅导</p>
+                <span>02</span>
+            </div>
+		</div>
+
+		<div class="box-hover-modal">
+			<div class="box-hover-modal-con con2" style="display: block; top: 0px; left: -240px;">
+                <div class="info">
+                    <p class="t_c">心理辅导师</p>
+                    <hr>
+                    <p class="t_l">匹配私人专属心理教师，关注孩子情绪并进行疏导，激发学习自驱力</p>
+                </div>
+            </div>
+			<div class="box-hover-modal-m" style="display: block; top: 0px; left: -240px;">
+                <button>班主任</button>
+                <p>匹配私人专属心理教师，关注孩子情绪并进行疏导，激发学习自驱力</p>
+                <span>03</span>
+            </div>
+		</div>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="./js/boxhovermodal.js"></script>
+<script>
+    $(function(){
+        //调用插件boxhovermodal,一个操作元素,一个参数
+        //参数可以为空,默认为.box-hover-modal-m
+        $(".box-hover-modal").boxhovermodal();
+    });
+</script>
+</html>
