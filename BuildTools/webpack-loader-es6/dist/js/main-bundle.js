@@ -69,19 +69,28 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_layer_layer_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_common_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__ = __webpack_require__(2);
+
 
 
 const App = function (){
     const NUM = 1;
     alert(NUM);
-    console.log(__WEBPACK_IMPORTED_MODULE_0__components_layer_layer_js__["a" /* default */]);
-}
+    console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]);
+};
 
 new App();
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: /Users/zhangbing/github/CodeTest/BuildTools/webpack-loader-es6/src/css/common.css Unexpected token (1:9)\nYou may need an appropriate loader to handle this file type.\n| html,body{\n|     padding: 0;\n|     margin: 0;");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90,7 +99,7 @@ new App();
 function layer(){
     return {
         name: 'layer',
-        tpl: tpl
+        // tpl: tpl
     };
 }
 

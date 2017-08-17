@@ -3,7 +3,7 @@
 function layer(){
     return {
         name: 'layer',
-        tpl: tpl
+        // tpl: tpl
     };
 }
 
