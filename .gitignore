@@ -17,4 +17,5 @@ nodejs/blog/node_modules/
 nodejs/mysql/node_modules/
 nodejs/socket/chatroom/node_modules/
 BuildTools/gulp-study/node_modules/
-BuildTools/webpack-demo/node_modules/
+BuildTools/webpack-plugins/node_modules/
+BuildTools/webpack-loader-es6/node_modules/
