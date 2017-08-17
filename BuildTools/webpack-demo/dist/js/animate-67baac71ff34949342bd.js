@@ -76,7 +76,6 @@
  * @param {Object} attrs 要设置的样式对象
  * @param {Function} [fn] 回调函数
  */
-document.write("======animate=========")
 function animate(element, attrs,fn){
     //清除定时器
     if(element.timerId) {
