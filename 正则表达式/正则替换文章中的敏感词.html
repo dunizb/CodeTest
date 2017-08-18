@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则替换文章中的敏感词</title>
+</head>
+<body>
+    <pre>
+    假设现有一篇文章，var content = "...大量文字"，
+    文章中触及到一些敏感词汇,如 ["习近平","周永康","中共","6.4"] 等内容。
+    如何有效率的和谐这些词？
+    来源：<a target="_blank" href="https://segmentfault.com/q/1010000010738131">https://segmentfault.com/q/1010000010738131</a>
+
+    代码：
+    <code>
+        var news = "习近平在慰问电中表示，惊悉8月17日下午贵国巴塞罗那市发生货车冲撞人群恐怖袭击事件，造成大量人员伤亡。我谨代表中国政府和中国人民，并以我个人的名义，向遇难者表示深切的哀悼，向遇难者家属和伤者表示诚挚慰问，祝愿伤者早日康复。中方坚决反对一切形式的恐怖主义，愿同包括西班牙在内的国际社会一道，加强反恐合作，共同维护地区和世界和平稳定。";
+
+        var blacklist = ["习近平","巴塞罗那","西班牙","反恐"];
+        var strategy = "*";//处理策略，*号替换
+
+        function checke(news,blacklist,strategy){
+            if(!news) return;
+            if(!strategy) return;
+            strategy = strategy || "";
+
+            blacklist = blacklist.map(function(item){
+                return "("+ item +")";
+            }).join("|");
+            
+            var regex = new RegExp(blacklist,"g");
+            return news.replace(regex, strategy);
+        }
+        console.log(checke(news,blacklist,strategy));
+    </code>    
+    </pre>
+</body>
+<script>
+    var news = "习近平在慰问电中表示，惊悉8月17日下午贵国巴塞罗那市发生货车冲撞人群恐怖袭击事件，造成大量人员伤亡。我谨代表中国政府和中国人民，并以我个人的名义，向遇难者表示深切的哀悼，向遇难者家属和伤者表示诚挚慰问，祝愿伤者早日康复。中方坚决反对一切形式的恐怖主义，愿同包括西班牙在内的国际社会一道，加强反恐合作，共同维护地区和世界和平稳定。";
+
+    var blacklist = ["习近平","巴塞罗那","西班牙","反恐"];
+    var strategy = "*";//处理策略，*号替换
+
+    function checke(news,blacklist,strategy){
+        if(!news) return;
+        if(!strategy) return;
+        strategy = strategy || "";
+
+        blacklist = blacklist.map(function(item){
+            return "("+ item +")";
+        }).join("|");
+        
+        var regex = new RegExp(blacklist,"g");
+        return news.replace(regex, strategy);
+    }
+    console.log(checke(news,blacklist,strategy));
+</script>
+</html>
