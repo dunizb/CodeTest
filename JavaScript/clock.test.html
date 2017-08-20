@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+ <meta name="keywords" content="clock">
+ <meta name="description" content="This is a clock">
+ <title>Clock</title>
+ </head>
+ <body>
+ <audio id="ticktock">
+ <source = src="ticktock.mp3" type="audio/mp3">
+ </audio>
+ <script type="text/javascript">
+ /*
+ 年(y)可以用 1-4 个占位符
+ 月(M)、日(d)、时(H,24时)、时(h,12时)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符
+ 毫秒(S)只能用 1 个占位符(是 1-3 位数字) 
+ AM或PM只能用 1 个占位符(是 2 位英文)
+ 上午或下午(T)只能用 1 个占位符(是 2 位中文)
+ 星期(E)可以用 1-3 个占位符
+ 季度(q)只能用 1 个占位符(是 1 位数字)
+ */
+ Date.prototype.format = function(fmt) {
+ var map = {
+  "M+" : this.getMonth() + 1, //月
+  "d+" : this.getDate(), //日
+  "H+" : this.getHours(), //24时
+  /*
+  上午12时只代表当天上午的12时,下午的12时代表当天下午的12时,
+  0时代表第二天的开始,即前面一天12时已过0时开始计算新一天的时间,
+  虽然说时间上跟前面那一天下午12时重合,但日期已经发生更改,所以不能说0时就是12时
+  */
+  "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12,//12时
+  "m+" : this.getMinutes(), //分
+  "s+" : this.getSeconds(), //秒
+  "S" : this.getMilliseconds(), //毫秒
+  "t" : this.getHours() < 12 ? "AM" : "PM",
+  "T" : this.getHours() < 12 ? "上午" : "下午",
+ };
+ var week = {
+  "0" : "日",
+  "1" : "一",
+  "2" : "二",
+  "3" : "三",
+  "4" : "四",
+  "5" : "五",
+  "6" : "六",
+ }
+ var quarter = {
+  "0" : "一",
+  "1" : "二",
+  "2" : "三",
+  "3" : "四",
+ }
+ if(/(y+)/.test(fmt)) {
+  fmt = fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+ }
+ if(/(E+)/.test(fmt)) {
+  var weekPreStr;
+  switch(RegExp.$1.length) {
+  case 1:
+  weekPreStr = "";
+  break;
+  case 2:
+  weekPreStr = "周";
+  break;
+  default:
+  weekPreStr = "星期";
+  break;
+  }
+  fmt = fmt.replace(RegExp.$1, weekPreStr + week[this.getDay()]);
+ }
+ if(/(q)/.test(fmt)) {
+  fmt = fmt.replace(RegExp.$1, quarter[Math.floor(this.getMonth() / 3)]);
+ }
+ for(var key in map) {
+  if(new RegExp("(" + key + ")").test(fmt)) {
+  fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? map[key] : ("00" + map[key]).substr((map[key]+"").length));
+  }
+ }
+ return fmt;
+ }
+ </script>
+ <script>
+ var canvas = document.createElement("canvas");
+ document.body.appendChild(canvas);
+ var ctx = canvas.getContext("2d");
+ var halfPI = Math.PI / 2;
+ var doublePI = Math.PI * 2;
+ //阴影级别
+ var shadowBlur = 10;
+ //阴影宽度
+ var shadowWidth = 8;
+ //阴影在X方向上的偏移
+ var shadowOffsetX = 5;
+ //阴影在Y方向上的便宜
+ var shadowOffsetY = 5;
+ //深色阴影
+ var shadowDarkColor = "rgba(0,0,0,0.8)";
+ //浅色阴影
+ var shadowLightColor = "rgba(0,0,0,0.1)";
+ //画布中心到边缘的内切圆半径
+ var canvasRadius = 250;
+ canvas.width = canvasRadius * 2;
+ canvas.height = canvasRadius * 2;
+ //获取画布中心的坐标
+ var cx = canvasRadius;
+ var cy = canvasRadius;
+ //时钟外圈的贝塞尔花纹个数
+ var bezierPatternCount = 36;
+ //时钟外圈的贝塞尔花纹波峰处半径
+ var bezierPeakRadius = canvasRadius - 10;
+ //时钟外圈的贝塞尔花纹一半的角度
+ var bezierHalfSpan = doublePI / bezierPatternCount / 2;
+ //时钟外圈的贝塞尔花纹底部半径
+ var bezierRadius = bezierPeakRadius - 20;
+ //时钟外圈的贝塞尔花纹颜色
+ var bezierPatternColor = "Plum";
+ //时钟外圈半径
+ var clockBorderRadius = bezierRadius - 10;
+ //时钟外圈宽度
+ var clockBorderWidth = 10;
+ //时钟外圈颜色
+ var clockBorderColor = "Aqua";
+ //时钟外圈阴影半径
+ var clockBorderShadowRadius = clockBorderRadius - shadowWidth + 1;
+ //时钟整数时间刻度线宽
+ var clockScaleWidth = 2;
+ //时钟整数时间刻度外半径
+ var clockScaleOuterRadius = clockBorderRadius - shadowWidth;
+ //时钟整数时间刻度内半径
+ var clockScaleInnerRadius = clockScaleOuterRadius - 20;
+ //时钟刻度颜色
+ var clockScaleColor = "Black";
+ //时钟非整数时间处半径
+ var clockScaleMiddleRadius = clockScaleOuterRadius - 10;
+ //时钟数字半径
+ var clockNumRadius = clockBorderShadowRadius - 40;
+ //时钟数字字体
+ var clockNumFont = "25px Arial";
+ //时钟数字颜色
+ var clockNumColor = "black";
+ //数字日期距中心的垂直距离
+ var digitalDateMarginCenter = 50;
+ //数字日期颜色
+ var digitalDateColor = "Black";
+ //数字日期字体
+ var digitalDateFont = "bold 18px Arial";
+ //数字时间距中心的垂直距离
+ var digitalTimeMarginCenter = 100;
+ //数字时间颜色
+ var digitalTimeColor = "white";
+ //数字时间背景颜色
+ var digitalTimeBgColor = "DarkSlateBlue";
+ //数字时间字体
+ var digitalTimeFont = "bold 25px Arial";
+ //数字时间高度的一半
+ var digitalTimeHeight = 40;
+ //数字时间分隔线宽度
+ var digitalTimeSpanLineWidth = 2;
+ //时钟中心点内圆的半径
+ var clockCenterInnerDotRadius = 7;
+ //时钟中心点内圆的颜色
+ var clockCenterInnerDotColor = "FireBrick";
+ //时钟中心点外圆的半径
+ var clockCenterOuterDotRadius = 10;
+ //时钟中心点外圆的颜色
+ var clockCenterOuterDotColor = "Maroon";
+ //时针线宽
+ var clockNeedleWidth = 5;
+ //时针半径
+ var clockHourNeedleRadius = clockBorderShadowRadius - 120;
+ //时针颜色
+ var clockHourNeedleColor = "DarkGreen";
+ //分针半径
+ var clockMinuteNeedleRadius = clockBorderShadowRadius - 80;
+ //分针颜色
+ var clockMinuteNeedleColor = "DarkSlateGray";
+ //秒针半径
+ var clockSecondNeedleRadius = clockBorderShadowRadius - 40;
+ //秒针尾部半径
+ var clockSecondNeedleBottomRadius = -20;
+ //秒针颜色
+ var clockSecondNeedleColor = "FireBrick";
+ //画圆环
+ function strokeCircle(cx, cy, r) {
+ ctx.beginPath();
+ ctx.arc(cx, cy, r, 0, doublePI);
+ ctx.stroke();
+ }
+ //画圆
+ function fillCircle(cx, cy, r) {
+ ctx.beginPath();
+ ctx.arc(cx, cy, r, 0, doublePI);
+ ctx.fill();
+ }
+ //绘制线条
+ function strokeLine(x1, y1, x2, y2) {
+ ctx.beginPath();
+ ctx.moveTo(x1, y1);
+ ctx.lineTo(x2, y2);
+ ctx.stroke();
+ }
+ //根据角度和半径计算圆上相应位置的坐标(最右侧为起始角度,顺时针方向为正)
+ function circlePos(cx, cy, theta, radius) {
+ var pos = {
+  x: cx + radius * Math.cos(theta),
+  y: cy + radius * Math.sin(theta),
+ };
+ return pos;
+ }
+ //在圆环上绘制刻度线
+ function strokeCircleLine(cx, cy, theta, r1, r2) {
+ var pos1 = circlePos(cx, cy, theta, r1);
+ var pos2 = circlePos(cx, cy, theta, r2);
+ strokeLine(pos1.x, pos1.y, pos2.x, pos2.y);
+ }
+ //设置默认阴影
+ function setShadow(type) {
+ ctx.lineWidth = shadowWidth;
+ ctx.shadowBlur = shadowBlur;
+ ctx.shadowOffsetX = shadowOffsetX;
+ ctx.shadowOffsetY = shadowOffsetY;
+ if(type === 1) {
+  ctx.shadowColor = shadowLightColor;
+ } else {
+  ctx.shadowColor = shadowDarkColor;
+ }
+ }
+ //取消阴影
+ function clearShadow() {
+ ctx.shadowColor = "rgba(0,0,0,0)";
+ ctx.shadowBlur = 0;
+ ctx.shadowOffsetX = 0;
+ ctx.shadowOffsetY = 0;
+ }
+ //绘制时钟外圈的贝塞尔花纹
+ function renderBezierPattern() {
+ ctx.fillStyle = bezierPatternColor;
+ ctx.beginPath();
+ var theta = 0;
+ //由于circlePos是顺时针方向正, 故圈也是顺时针方向
+ var beginPos = circlePos(cx, cy, theta, bezierRadius);
+ ctx.moveTo(beginPos.x, beginPos.y);
+ while(theta < doublePI) {
+  //贝塞尔曲线控制点
+  var controlTheta = theta + bezierHalfSpan;
+  var controlPos = circlePos(cx, cy, controlTheta, bezierPeakRadius);
+  //贝塞尔曲线终止点
+  var endTheta = controlTheta + bezierHalfSpan;
+  var endPos = circlePos(cx, cy, endTheta, bezierRadius);
+  ctx.quadraticCurveTo(controlPos.x, controlPos.y, endPos.x, endPos.y);
+  theta = endTheta;
+ }
+ //绘制圆counterclockwise=false, 即默认是顺时针方向
+ ctx.arc(cx, cy, clockBorderRadius, 0, doublePI, true);
+ //注意: 两个相反方向的路径内部为填充范围
+ ctx.fill();
+ }
+ //绘制时钟边框
+ function renderClockBorder() {
+ //画外框
+ ctx.strokeStyle = clockBorderColor;
+ ctx.lineWidth = clockBorderWidth;
+ strokeCircle(cx, cy, clockBorderRadius);
+ //画外框的内阴影
+ ctx.strokeStyle = shadowLightColor;
+ setShadow(1);
+ strokeCircle(cx, cy, clockBorderShadowRadius);
+ clearShadow();
+ }
+ //绘制时钟圆周上的数字和刻度部分
+ function renderClockNums() {
+ ctx.textAlign = "center";
+ ctx.textBaseline = "middle";
+ ctx.font = clockNumFont;
+ var span = doublePI / 60;
+ for(var i = 1, radian = -halfPI + span; i <= 60; i++, radian += span) {
+  if(i % 5 == 0) {
+  //绘制刻度
+  ctx.strokeStyle = clockScaleColor;
+  ctx.lineWidth = clockScaleWidth;
+  strokeCircleLine(cx, cy, radian, clockScaleInnerRadius, clockScaleOuterRadius);
+  //绘制数字
+  var pos = circlePos(cx, cy, radian, clockNumRadius);
+  var num = i / 5;
+  ctx.fillStyle = clockNumColor;
+  ctx.fillText(num, pos.x, pos.y);
+  } else {
+  ctx.strokeStyle = clockScaleColor;
+  ctx.lineWidth = clockScaleWidth;
+  strokeCircleLine(cx, cy, radian, clockScaleMiddleRadius, clockScaleOuterRadius);
+  }
+ }
+ }
+ //绘制数字时钟
+ function renderDigital(date) {
+ //绘制日期
+ ctx.textAlign = "center";
+ ctx.textBaseline = "middle";
+ ctx.font = digitalDateFont;
+ ctx.fillStyle = digitalDateColor;
+ var text = date.format("yyyy年MM月dd日 EEE");
+ ctx.fillText(text, cx, cy + digitalDateMarginCenter);
+ //绘制时间
+ ctx.font = digitalTimeFont;
+ text = date.format(" HH mm ss ");
+ ctx.fillStyle = digitalTimeBgColor;
+ var textWidth = ctx.measureText(text).width;
+ var textBgX = cx - textWidth / 2;
+ var textBgY = cy + digitalTimeMarginCenter - digitalTimeHeight / 2;
+ ctx.fillRect(textBgX, textBgY, textWidth, digitalTimeHeight);
+ ctx.fillStyle = digitalTimeColor;
+ ctx.fillText(text, cx, cy + digitalTimeMarginCenter);
+ //绘制事件中间的分隔线
+ ctx.lineWidth = digitalTimeSpanLineWidth;
+ ctx.strokeStyle = digitalTimeColor;
+ var textSpan = textWidth / 6;
+ var leftLineX = cx - textSpan;
+ strokeLine(leftLineX, textBgY, leftLineX, textBgY + digitalTimeHeight);
+ var rightLineX = cx + textSpan;
+ strokeLine(rightLineX, textBgY, rightLineX, textBgY + digitalTimeHeight);
+ }
+ //绘制时钟中心最下方红点
+ function renderClockCenterOuterDot() {
+ ctx.fillStyle = clockCenterOuterDotColor;
+ fillCircle(cx, cy, clockCenterOuterDotRadius);
+ }
+ //绘制时钟中心最上方红点
+ function renderClockCenterInnerDot() {
+ ctx.fillStyle = clockCenterInnerDotColor;
+ fillCircle(cx, cy, clockCenterInnerDotRadius);
+ }
+ //绘制时钟指针
+ function renderClockNeedle(date) {
+ var hourRadian = date.getHours() % 12 / 12 * doublePI - halfPI;
+ var minuteRadian = date.getMinutes() / 60 * doublePI - halfPI;
+ var secondRadian = date.getSeconds() / 60 * doublePI - halfPI;
+ setShadow();
+ ctx.lineCap = "round";
+ ctx.lineWidth = clockNeedleWidth;
+ ctx.strokeStyle = clockHourNeedleColor;
+ strokeCircleLine(cx, cy, hourRadian, 0, clockHourNeedleRadius);
+ ctx.strokeStyle = clockMinuteNeedleColor;
+ strokeCircleLine(cx, cy, minuteRadian, 0, clockMinuteNeedleRadius);
+ ctx.strokeStyle = clockSecondNeedleColor;
+ strokeCircleLine(cx, cy, secondRadian, clockSecondNeedleBottomRadius, clockSecondNeedleRadius);
+ ctx.lineCap = "square";
+ clearShadow();
+ }
+ function render(date) {
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ renderBezierPattern();
+ renderClockBorder();
+ renderClockNums();
+ renderDigital(date);
+ renderClockCenterOuterDot();
+ renderClockNeedle(date);
+ renderClockCenterInnerDot();
+ }
+ var lastTime = 0;
+ var audio = document.getElementById("ticktock");
+ function loop() {
+ var date = new Date();
+ var currentTime = date.getTime();
+ if(currentTime - lastTime >= 1000) {
+  lastTime = currentTime;
+  //注意：这里设0非常关键，否则虽然会循环播放，但会从上一次暂停的地方开始播放，造成延迟
+  audio.currentTime = 0;
+  audio.play();
+  render(date);
+ }
+ requestAnimationFrame(loop);
+ }
+ loop();
+ </script>
+ </body>
+</html>
