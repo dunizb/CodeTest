@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>前端路由实现</title>   
+</head>
+<body>
+<ul>
+    <li><a href="#/">默认页</a></li>
+    <li><a href="#/home">主页</a></li>
+    <li><a href="#/about">详情页</a></li>
+</ul>
+<div id="content"></div>
+<script type="text/javascript" src="router.js"></script>
+<script type="text/javascript">
+    var content = document.querySelector('#content');
+    Router.route('/', function() {
+        content.innerHTML = "这是默认页";
+    });
+    Router.route('/home', function() {
+        content.innerHTML = "这是主页";
+    });
+    Router.route('/about', function() {
+        content.innerHTML = "这是详情页";
+    });
+</script>
+</body>
+</html>
