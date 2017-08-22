@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>左中右三栏布局，中间自适应，5种布局方法</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        } 
+        /**  FlexBox  **/
+        .container{display: flex;}
+        .container div{min-height: 100px;}
+        .container .left,
+        .container .right{width: 300px; background-color: orange;}
+        .container .center{flex:1;background-color: #ccc;}
+
+        /**  Float  **/
+        .container2 div{min-height: 100px;}
+        .container2 .left,
+        .container2 .right{background-color: palegreen;width: 300px;}
+        .container2 .center{background-color: #ccc}
+        .container2 .left{float: left;}
+        .container2 .right{float: right;}
+
+        /**  absolute  **/
+        .container3{min-height: 100px;}
+        .container3 div{min-height: 100px;position: absolute;}
+        .container3 .left,
+        .container3 .right{background-color: palegreen;width: 300px;}
+        .container3 .center{background-color: #ccc;left: 300px;right: 300px;}
+        .container3 .left{left: 0;}
+        .container3 .right{right: 0;}
+
+        /**  table  **/
+        .container4{width: 100%;height: 100px;display: table;}
+        .container4 div{display: table-cell;}
+        .container4 .left,
+        .container4 .right{background-color: palegreen;width: 300px;}
+        .container4 .center{background-color: #ccc;}
+
+        /**  CSS Grid  **/
+        .container5{
+            width: 100%;
+            display: grid;
+            grid-template-rows: 100px;
+            grid-template-columns: 300px auto 300px;
+        }
+        .container5 div{min-height: 100px;}
+        .container5 .left,
+        .container5 .right{background-color: palegreen;}
+        .container5 .center{background-color: #ccc;}
+    </style>
+</head>
+<body>
+    
+    <!-- 假设高度已知，左右宽度各位三百，中间自适应 -->
+    <h1>左中右三栏布局，中间自适应</h1>
+    <h2>左中右三栏布局，中间自适应，FlexBox方案</h2>
+    <div class="container">
+        <div class="left"></div>
+        <div class="center">
+            左中右三栏布局，中间自适应，FlexBox方案左中右三栏布局，中间自适应，FlexBox方案左中右三栏布局，
+            中间自适应，FlexBox方案左中右三栏布局，中间自适应，FlexBox方案左中右三栏布局，中间自适应，FlexBox方案
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <h2>左中右三栏布局，中间自适应，Float方案</h2>
+    <div class="container2">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="center">
+            左中右三栏布局，中间自适应，Float方案左中右三栏布局，中间自适应，Float方案左中右三栏布局，中间自适应，
+            Float方案左中右三栏布局，中间自适应，Float方案左中右三栏布局，中间自适应，Float方案左中右三栏布局，中间自适应
+        </div>
+    </div>
+
+    <h2>左中右三栏布局，中间自适应，绝对定位方案</h2>
+    <div class="container3">
+        <div class="left"></div>
+        <div class="center">
+            左中右三栏布局，中间自适应，绝对定位方案左中右三栏布局，中间自适应，绝对定位方案左中右三栏布局，
+            中间自适应，绝对定位方案左中右三栏布局，中间自适应，绝对定位方案左中右三栏布局，中间自适应，绝对定位方案
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <h2>左中右三栏布局，中间自适应，表格布局方案</h2>
+    <div class="container4">
+        <div class="left"></div>
+        <div class="center">
+            左中右三栏布局，中间自适应，表格布局方左中右三栏布局，中间自适应，表格布局方左中右三栏布局，中间自适应
+            左中右三栏布局，中间自适应，表格布局方左中右三栏布局，中间自适应，表格布局方左中右三栏布局，中间自适应，
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <h2>左中右三栏布局，中间自适应，网格布局方案</h2>
+    <div class="container5">
+        <div class="left"></div>
+        <div class="center">
+            左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案
+            左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
