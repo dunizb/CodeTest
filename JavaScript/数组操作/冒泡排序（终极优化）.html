@@ -11,9 +11,10 @@
 	<script type="text/javascript">
 		var arr = [6,5,4,3,2,1];
 		document.write("原始数组："+arr);
+		console.time('2.改进后冒泡排序耗时');
 		var m = 0;	//轮数
 		var n = 0;	//次数
-		for(var i=0; i<arr.length-1; i++){
+		for(var i=0; i<arr.length-1; i++){ //arr.length-1 最后一个不需要排
 			var flag = true;
 			for(var j=0; j<arr.length-1-i; j++){
 				if(arr[j] > arr[j+1]){
@@ -29,6 +30,7 @@
 				break;
 			}
 		}
+		console.timeEnd('2.改进后冒泡排序耗时');
 		document.write("<br/>排序后的数组："+arr);
 		document.write("<br/>轮数："+m);
 		document.write("<br/>次数："+n);

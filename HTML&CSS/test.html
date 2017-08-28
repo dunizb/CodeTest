@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        #sec{
+            background-color: #f00;
+        }
+        .left {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .right{
+            height: 110px;
+            background-color: #ccc;
+            overflow: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="sec">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </section>
+</body>
+<script>
+var array1 = [12 , "foo" , {name:"Joe"} , -2458];
+var array2 = ["Doe" , 555 , 100];
+Array.prototype.push.apply(array1, array2);
+//array1 值为 [12 , "foo" , {name "Joe"} , -2458 , "Doe" , 555 , 100] 
+</script>
+</html>

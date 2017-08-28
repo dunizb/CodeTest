@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid palevioletred;
+        }
+        th,td{
+            height: 30px;
+            text-align: center;
+            border: 1px solid deeppink;
+        }
+        .evenRow1{background: yellow;}
+        .oddRow1{background: green;}
+        .curRow1{background: blue;}
+    </style>
+</head>
+<body>
+<table id="tab">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>身高</th>
+        <th>体重</th>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>22</td>
+        <td>178cm</td>
+        <td>79kg</td>
+    </tr>
+    <tr>
+        <td>美美</td>
+        <td>34</td>
+        <td>167cm</td>
+        <td>60kg</td>
+    </tr>
+    <tr>
+        <td>小青</td>
+        <td>23</td>
+        <td>170cm</td>
+        <td>55kg</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>22</td>
+        <td>178cm</td>
+        <td>79kg</td>
+    </tr>
+    <tr>
+        <td>美美</td>
+        <td>34</td>
+        <td>167cm</td>
+        <td>60kg</td>
+    </tr>
+    <tr>
+        <td>小青</td>
+        <td>23</td>
+        <td>170cm</td>
+        <td>55kg</td>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>22</td>
+        <td>178cm</td>
+        <td>79kg</td>
+    </tr>
+    <tr>
+        <td>美美</td>
+        <td>34</td>
+        <td>167cm</td>
+        <td>60kg</td>
+    </tr>
+    <tr>
+        <td>小青</td>
+        <td>23</td>
+        <td>170cm</td>
+        <td>55kg</td>
+    </tr>
+</table>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="jquery.tablehover.js"></script>
+<script>
+    $(function(){
+        $('#tab').tablehover({
+            evenRowClass:'evenRow1',
+            oddRowClass:'oddRow1',
+            curRowClass:'curRow1',
+            eventType1:'click'
+        });
+    });
+</script>
+</html>

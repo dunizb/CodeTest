@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重1</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arry1 = [1,1,2,"1",2,3,3]
+    var unique1 = function(arr) {
+        var res = [];// 定义一个变量数组 res 保存结果
+
+        for(var i = 0, len = arr.length; i < len; i++){
+            var item = arr[i];
+            if(res.indexOf(item) === -1) res.push(item);//ES5
+        }
+        return res;
+    }
+    console.log("unique1",unique1(arry1));
+
+    function unique2(a) {
+        var res = a.filter(function(item, index, array) {
+            return array.indexOf(item) === index;
+        });
+    
+        return res;
+    }
+    console.log("unique2",unique2(arry1));
+
+    function unique3(a) {
+        var seen = {};
+        
+        return a.filter(function(item) {
+            return seen[item] ? false : (seen[item] = true);
+        });
+    }
+    console.log("unique3",unique3(arry1));
+
+    function unique4(a) {
+        return Array.from(new Set(a));
+    }
+    var a = [{name: "hanzichi"}, {age: 30}, new String(1), new Number(1)];
+    console.log("unique4",unique4(arry1));
+
+</script>
+</html>

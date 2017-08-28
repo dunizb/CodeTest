@@ -52,13 +52,22 @@
         .container5 .left,
         .container5 .right{background-color: palegreen;}
         .container5 .center{background-color: #ccc;}
+
+        /**  双飞翼（浮动）  **/
+        .container6{
+            
+        }
+        .container6 div{min-height: 100px;}
+        .container6 .left,
+        .container6 .right{background-color: palegreen;}
+        .container6 .center{background-color: #ccc;}
     </style>
 </head>
 <body>
     
     <!-- 假设高度已知，左右宽度各位三百，中间自适应 -->
     <h1>左中右三栏布局，中间自适应</h1>
-    <h2>左中右三栏布局，中间自适应，FlexBox方案</h2>
+    <h2>1. FlexBox方案</h2>
     <div class="container">
         <div class="left"></div>
         <div class="center">
@@ -68,7 +77,7 @@
         <div class="right"></div>
     </div>
 
-    <h2>左中右三栏布局，中间自适应，Float方案</h2>
+    <h2>2. Float方案</h2>
     <div class="container2">
         <div class="left"></div>
         <div class="right"></div>
@@ -78,7 +87,7 @@
         </div>
     </div>
 
-    <h2>左中右三栏布局，中间自适应，绝对定位方案</h2>
+    <h2>3. 绝对定位方案</h2>
     <div class="container3">
         <div class="left"></div>
         <div class="center">
@@ -88,7 +97,7 @@
         <div class="right"></div>
     </div>
 
-    <h2>左中右三栏布局，中间自适应，表格布局方案</h2>
+    <h2>4. 格布局方案</h2>
     <div class="container4">
         <div class="left"></div>
         <div class="center">
@@ -98,13 +107,25 @@
         <div class="right"></div>
     </div>
 
-    <h2>左中右三栏布局，中间自适应，网格布局方案</h2>
+    <h2>5. 网格布局方案</h2>
     <div class="container5">
         <div class="left"></div>
         <div class="center">
             左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案
             左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案左中右三栏布局，中间自适应，网格布局方案
         </div>
+        <div class="right"></div>
+    </div>
+
+    <h2>6. 双飞翼（浮动）布局方案</h2>
+    <div class="container6">
+        <div class="main">
+            <div class="center">
+            双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案
+            双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案双飞翼（浮动）布局方案
+        </div>
+        </div>
+        <div class="left"></div>
         <div class="right"></div>
     </div>
 </body>

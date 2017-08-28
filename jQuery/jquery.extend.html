@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浅拷贝深拷贝之jQuery中的$.extend分析</title>
+</head>
+<body>
+    <pre>
+        var object1 = {
+            apple: 0,
+            banana: {
+                weight: 52,
+                price: 100
+            },
+            cherry: 97
+        };
+        var object2 = {
+            banana: {
+                price: 200
+            },
+            durian: 100
+        };  
+    </pre>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        var object1 = {
+            apple: 0,
+            banana: {
+                weight: 52,
+                price: 100
+            },
+            cherry: 97
+        };
+        var object2 = {
+            banana: {
+                price: 200
+            },
+            durian: 100
+        };  
+
+        $.extend(object1, object2);
+
+        console.log(object1);
+        console.log(object2);
+    });
+</script>    
+</body>
+</html>
