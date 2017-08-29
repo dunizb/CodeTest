@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ab变量交换，不是用中间变量</title>
+</head>
+<body>
+    <script>
+        //方法一，巧用数组
+        function swap1(){
+            var a = 1, b = 2;
+            a=[b,b=a][0]
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        console.log("=======方法一，巧用数组=========");
+        swap1();
+
+        //方法二，解构赋值
+        function swap2(){
+            let a = 1,b = 2;
+            [a,b] = [b,a];
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        console.log("=======方法二，解构赋值=========");
+        swap2();
+
+        //方法三，数学运算
+        function swap3(){
+            let a = 1,b = 2;
+            a = a + b;//a=3,b=2
+            b = a - b;//a=3,b=1
+            a = a - b;//a=2,b=1
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        console.log("=======方法三，数学运算=========");
+        swap3();
+
+        //方法四，位运算符
+        function swap4(){
+            let a = 1,b = 2;
+            a = (b^=a^=b)^a;
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        console.log("=======方法四，位运算符=========");
+        swap4();
+    </script>
+</body>
+</html>
