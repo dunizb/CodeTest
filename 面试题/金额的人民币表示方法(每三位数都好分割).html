@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>金额的人民币表示方法(每三位数都好分割)</title>
+</head>
+<body>
+    <pre>
+        var money = 1003450.89
+        var res = convert(money); // 1,003,450.89
+    </pre>
+</body>
+<script>
+    /* var money = 1003450.89
+     * var res = convert(money); // 1,003,450.89
+     */
+    function convert(money){
+        money = money.toString();
+        var integer = money.slice(0, money.indexOf(".")); // 1003450
+        var decimal = money.slice(money.indexOf(".")); //89
+        var integerArray = integer.split("");
+
+        var res = "", m = 1;
+        for(var i = integerArray.length - 1; i >= 0; i--){
+            res += integerArray[i];
+            if(m === 3) {
+                m = 0;
+                res += ",";
+            }
+            m++;
+        }
+        return res.split("").reverse().join("") + decimal;
+    }
+    console.log(convert(1003457678770.089));
+</script>
+</html>
