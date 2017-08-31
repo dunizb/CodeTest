@@ -16,7 +16,8 @@
     /* var money = 1003450.89
      * var res = convert(money); // 1,003,450.89
      */
-    function convert(money){
+    //方法一 
+    function convert1(money){
         money = money.toString();
         var integer = money.slice(0, money.indexOf(".")); // 1003450
         var decimal = money.slice(money.indexOf(".")); //89
@@ -33,6 +34,15 @@
         }
         return res.split("").reverse().join("") + decimal;
     }
-    console.log(convert(1003457678770.089));
+    console.log(convert1(1003457678770.089));// 1,003,457,678,770.089
+
+    //方法二
+    function convert2(money){
+        return parseFloat(money).toLocaleString();
+    }
+    console.log(convert2(1003457678770.089));// 1,003,457,678,770.089
+
+    //方法三
+    console.log((1003457678770.089).toLocaleString());
 </script>
 </html>
