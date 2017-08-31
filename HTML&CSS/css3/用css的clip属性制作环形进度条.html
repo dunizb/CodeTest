@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用css的clip属性制作环形进度条</title>
+    <style>
+        .leftDiv,.rightDiv{
+            float: left;
+            position: relative;
+            width: 50px;
+            height: 100px;
+            overflow: hidden;
+        }
+        .leftInnerDiv,.rightInnerDiv{
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            border: 5px solid yellowgreen;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        .leftInnerDiv{
+            clip: rect(0,100px,100px,50px);
+            animation: rotate 2s 2s linear forwards;
+        }
+        .rightInnerDiv{
+            left: -100%;
+            clip: rect(0,50px,100px,0);
+            animation: rotate 2s linear forwards;
+        }
+        @keyframes rotate{
+            from{transform: rotate(0deg)}
+            to{transform: rotate(180deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="outDiv">
+        <div class="leftDiv">
+            <div class="leftInnerDiv"></div>
+        </div>
+        <div class="rightDiv">
+            <div class="rightInnerDiv"></div>
+        </div>
+    </div>
+</body>
+</html>
