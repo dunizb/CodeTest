@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS实现全景图移动效果</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 200px;
+            border: 2px solid pink;
+            background-image: url("https://goss1.vcg.com/creative/vcg/800/version23/VCG213a9f4d559.jpg");
+            background-size: auto 100%;
+            cursor: pointer;
+
+            -webkit-animation: full 10s linear infinite alternate;
+            -o-animation: full 10s linear infinite alternate;
+            animation: full 10s linear infinite alternate;
+
+            /*设置动画状态为暂停*/
+            -webkit-animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+        /*鼠标移入后，动画开始*/
+        .container:hover,
+        .container:focus{
+            -webkit-animation-play-state: running;
+            -moz-animation-play-state: running;
+            -o-animation-play-state: running;
+            animation-play-state: running;
+        }
+
+        @-webkit-keyframes full{
+            100%{
+                background-position: 100% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <p>鼠标移上去试试 <a href="https://github.com/dunizb/CodeTest/blob/master/HTML&CSS/css3/CSS实现全景图移动效果.html" target="_blank">查看源码</a></p>
+</body>
+</html>
