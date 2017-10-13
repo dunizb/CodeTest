@@ -17,6 +17,10 @@
             display: list-item;
             position: relative;
         }
+        @keyframes muiscIconRotate{
+            from{transform: rotate(0deg);}
+            to{transform: rotate(360deg);}
+        }
     </style>
 </head>
 <body>
@@ -26,8 +30,9 @@
 <script>
    SMmuiscPlay({
        el: "app",
-       audioList:"./music/独角戏.mp3",
+       audioList:"./music/大王叫我来巡山.mp3",
        position: "top:10px;right:10px",//右上角
+       animaClass: "muiscIconRotate"
    }); 
 
 // {
