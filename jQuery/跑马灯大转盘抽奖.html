@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .lottery .lottery-ul{position:relative;width:360px;height:360px;margin:0;padding:0;float:left;background:#ffeabc;}
+    .lottery .lottery-ul li {width:120px;height:120px;line-height:90px;color:#ff5152;;text-align:center;list-style-type: none;}
+    .lottery .lottery-ul li .beans{color:#ff5152;;font-size:20px;font-weight:bold;}
+    .lottery .lottery-ul li.lottery-unit-1{position:absolute;top:0;left:0;background:url("http://www.sinacloud.com/static/special/image/lottery_bg1.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-2{position:absolute;top:0;left:120px;background:url("http://www.sinacloud.com/static/special/image/lottery_bg2.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-3{position:absolute;top:0;left:240px;background:url("http://www.sinacloud.com/static/special/image/lottery_bg1.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-4{position:absolute;top:120px;left:240px;background:url("http://www.sinacloud.com/static/special/image/lottery_bg2.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-5{position:absolute;top:240px;left:240px;background:url("http://www.sinacloud.com/static/special/image/lottery_bg1.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-6{position:absolute;top:240px;left:120px;background:url("http://www.sinacloud.com/static/special/image/lottery_bg2.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-7{position:absolute;top:240px;left:0;background:url("http://www.sinacloud.com/static/special/image/lottery_bg1.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-unit-8{position:absolute;top:120px;left:0;background:url("http://www.sinacloud.com/static/special/image/lottery_bg2.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.active{
+        background:url("http://www.sinacloud.com/static/special/image/lottery_bg_active.png") 0 0 no-repeat;}
+    .lottery .lottery-ul li.lottery-btn{position:absolute;top:120px;left:120px;width:120px;height:120px;background:#ffeabc;}
+    .lottery .lottery-ul li.lottery-btn a{display:inline-block;width:120px;height:120px;line-height:120px;text-align:center;font-size:30px;color:#fff;text-decoration:none;background:#fe8145;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
+    .lottery .lottery-ul li.has-lottery a{padding:0;border:none;}
+    .hide{display:none;}
+    </style>
+</head>
+<body>
+    <div class="lottery">
+    <ul class="lottery-ul">
+        <li class="lottery-unit lottery-unit-1" data-id="1"><span class="beans">20</span>云豆</li>
+        <li class="lottery-unit lottery-unit-2" data-id="2"><span class="beans">50</span>云豆</li>
+        <li class="lottery-unit lottery-unit-3" data-id="3"><span class="beans">100</span>云豆</li>
+        <li class="lottery-btn"><a class="lottery-start" href="javascript:void(0);">抽   奖</a></li>
+        <li class="lottery-btn has-lottery hide"><a class="btn" href="#" disabled>已 抽 奖</a></li>
+        <li class="lottery-unit lottery-unit-4" data-id="4"><span class="beans">1000</span>云豆</li>
+        <li class="lottery-unit lottery-unit-5" data-id="5"><span class="beans">2000</span>云豆</li>
+        <li class="lottery-unit lottery-unit-6" data-id="6"><span class="beans">5000</span>云豆</li>
+        <li class="lottery-unit lottery-unit-7" data-id="7"><span class="beans">10000</span>云豆</li>
+        <li class="lottery-unit lottery-unit-8" data-id="8"><span class="beans">20000</span>云豆</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    //抽奖 
+    var lottery={
+        index:0,   //当前转动到哪个位置，起点位置
+        count:0,    //总共有多少个位置
+        timer:0,    //setTimeout的ID，用clearTimeout清除
+        speed:20,   //初始转动速度
+        times:0,    //转动次数
+        cycle:50,   //转动基本次数：即至少需要转动多少次再进入抽奖环节
+        prize:-1,
+        end:5,   //中奖位置
+        init:function(id){
+            if ($("."+id).find(".lottery-unit").length>0) {
+                $lottery = $("."+id);
+                $units = $lottery.find(".lottery-unit");
+                this.obj = $lottery;
+                this.count = $units.length;
+                console.log($units.length);
+                $lottery.find(".lottery-unit-"+this.index).addClass("active");
+            };
+        },
+        roll:function(num){
+            var index = this.index;
+            var count = this.count;
+            var lottery = this.obj;
+            console.log(count);
+            $(lottery).find(".lottery-unit-"+index).removeClass("active");
+            index += 1;
+            if (index>count) {
+                index = 1;
+            };
+            $(lottery).find(".lottery-unit-"+index).addClass("active");
+            this.index=index;
+            return false;
+        },
+        stop:function(index){
+            this.prize=index;
+            return false;
+        }
+    };
+
+    function roll(){
+        lottery.times += 1;
+        lottery.roll();
+        //确定抽奖，重置参数
+        if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+            clearTimeout(lottery.timer);   //大于基本转动次数+10，并转动到获奖位置，停止转动
+            lottery.prize=-1;
+            lottery.times=0;
+            click=false;
+        }else{
+            if (lottery.times<lottery.cycle) {
+                lottery.speed -= 10;   //小于基本转动次数 转动加速
+            }else if(lottery.times==lottery.cycle) {
+                var index = lottery.end;
+                lottery.prize = index;   //确定中奖位置
+            }else{
+                lottery.speed += 20;   //大于基本转动次数 转动减速
+            }
+            if (lottery.speed<40) {
+                lottery.speed=40;
+            };
+            lottery.timer = setTimeout(roll,lottery.speed);
+        }
+        return false;
+    }
+    var click=false;
+
+    window.onload=function(){
+        lottery.init('lottery');
+        $(".lottery-btn a.lottery-start").click(function(e){
+            var target = $(e.target);
+            if (click) {
+                return false;
+            }else{  
+                //此处应该是ajax请求，由于跨域，暂省略
+                    lottery.speed=100;
+                lottery.end = 5;
+                roll();
+                click=true;
+                target.parents('.lottery-btn').addClass('hide');
+                $('.has-lottery').removeClass('hide');
+                return false;                                   
+            }
+        });
+    };
+});
+</script>
+</body>
+</html>

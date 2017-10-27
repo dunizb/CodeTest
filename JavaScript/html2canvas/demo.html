@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html2canvas demo</title>
+    <style>
+    #card{
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid rebeccapurple;
+        border-radius: 10px;
+        background-color: yellowgreen;
+        text-align: center;
+    }
+    h1{
+        color: red;
+    }
+    .test{
+        margin-top: 10px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div id="card">
+        <h1>Dunizb</h1>
+        <h3><a href="http://dunizb.com">http://dunizb.com</a></h3>
+        <spna>这世间唯有梦想和好姑娘不可辜负！</spna>
+    </div>
+    <div class="test">
+        <button onclick="saveImage()">保存为图片</button>
+        <button onclick="saveImage(150,150)">保存为图片150X150</button>
+    </div>
+</body>
+<script src="html2canvas.min.js"></script>
+<script>
+    function saveImage(x, y) {
+        if (!x && !y) {
+            console.log(1)
+            html2canvas(document.getElementById('card'), {
+                onrendered: function(canvas) {
+                    document.body.appendChild(canvas);
+                }
+            });
+        } else {
+            console.log(x, y)
+            html2canvas(document.getElementById('card'), {
+                onrendered: function(canvas) {
+                    document.body.appendChild(canvas);
+                },
+                width: x,
+                height: y
+            });
+        }
+    }
+</script>
+</html>
