@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2017-10**
+- HTML网页保存为图[JavaScript/html2canvas](https://github.com/dunizb/CodeTest/blob/master/JavaScript/html2canvas/demo.html)
+
 **2017-09**
 - 09.11 [HTML&CSS/css3/CSS实现全景图移动效果](https://github.com/dunizb/CodeTest/blob/master/HTML&CSS/css3/CSS实现全景图移动效果.html)
 
