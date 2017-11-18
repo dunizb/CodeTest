@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2017-11**
+- [用Vue.js写一个Checklist组件](https://github.com/dunizb/CodeTest/blob/master/Vue/components/checklist/)
+
 **2017-10**
 - HTML网页保存为图[JavaScript/html2canvas](https://github.com/dunizb/CodeTest/blob/master/JavaScript/html2canvas/demo.html)
 
