@@ -8,12 +8,12 @@
 
     <checklist ref="checklist"
                :data-list="data"
-               :max="2" @on-change="changeKaochangValue"></checklist>
+               :max="3" @on-change="getKaochangValue"></checklist>
   </div>
 </template>
 
 <script>
-  import checklist from '@components/checklist/checklist'
+  import checklist from '@components/checklist/checklist2.0'
   export default {
     data () {
       return {
@@ -60,7 +60,7 @@
       openChecklist () {
         this.$refs['checklist'].show()
       },
-      changeKaochangValue (val) {
+      getKaochangValue (val) {
         this.kaochangVal = val
       }
     },
