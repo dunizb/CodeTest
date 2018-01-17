@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2018-01-17**
+- [ES6/generator](https://github.com/dunizb/CodeTest/blob/master/ES6/generator/)
+
 **2018-01-14**
 - [nodejs/20180114](https://github.com/dunizb/CodeTest/blob/master/nodejs/20180114/)
 
