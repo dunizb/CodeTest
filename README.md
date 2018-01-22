@@ -2,6 +2,9 @@
 
 > 个人平时学习、练习代码
 
+**2018-01-21**
+- [Java生成图书分享图](https://github.com/dunizb/CodeTest/tree/master/JavaScript/bookbanner)
+
 **2018-01-17**
 - [ES6/generator](https://github.com/dunizb/CodeTest/blob/master/ES6/generator/)
 

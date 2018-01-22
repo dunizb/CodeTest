@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="keywords" content="前端开发,响应式,HTML5秘籍,跨境电商,二手,二手书,丰趣海淘,淘宝,图灵图书,图灵">
+    <meta name="description" content="图书HTML5秘籍 跨境电商,介绍、书评、论坛及推荐 ">
+    <title>二手书籍自营商店-个人自营，诚信经营、生活不易、多多支持！</title>
+    <link rel="shortcut icon" href="https://blog.dunizb.com/favicon.ico">
+    <title>生成图书分享图</title>
     <style>
         *{box-sizing: border-box;}
         body{
             /* background: #000; */
+            /* display: flex; */
         }
         .container{
             max-width: 320px;
-            margin: 0 auto;
             background:#fff;
             overflow: hidden;
             color: #000;
             border-radius: 5px;
+            float: left;
         }
         .store-brand{
             text-align: center;
@@ -124,7 +129,7 @@
         }
         #html2canvas{
             width:320px;
-            margin:0 auto;
+            float: left;
         }
         #html2canvas canvas{
             width: 320px;
@@ -160,10 +165,12 @@
             <div class="url">store.dunizb.com</div>
         </div>
     </div>
-    <div style="text-align:center;">
+    
+    <div style="text-align:center;margin:0 10px;float:left;">
         <button id="saveImg" onclick="saveToImage()">生成图片</button>
     </div>
-    <div id="html2canvas" style=""></div>
+    
+    <div id="html2canvas"></div>
 </body>
 <script src="static/html2canvas.js"></script>
 <script>
