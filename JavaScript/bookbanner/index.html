@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            /* background: #000; */
+        }
+        .container{
+            max-width: 320px;
+            margin: 0 auto;
+            background:#fff;
+            overflow: hidden;
+            color: #000;
+            border-radius: 5px;
+        }
+        .store-brand{
+            text-align: center;
+            padding: 5px 0;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+            background: #fff;
+        }
+        .store-brand img{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .book-img{
+            /* width: 320px; */
+            text-align: center;
+            background: #fff;
+        }
+        .book-img img{
+            display: inline-block;
+            /* border: 1px solid red; */
+        }
+        .book-wrapper{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0 15px;
+            background: #fff;
+        }
+        .book-wrapper .book-price{
+            flex: 1;
+            font-size: 38px;
+            color: red;
+            font-weight: bold;
+            margin-right: 3px;
+        }
+        .book-wrapper .book-price span{
+            font-size: 14px;
+        }
+        .book-wrapper .book-name{
+            display: flex;
+            flex-direction: column;
+            flex: 4;
+        }
+        .book-wrapper .book-name .name{
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .book-wrapper .book-name .star{
+            font-size: 12px;
+            color: #999;
+        }
+        .book-desc{
+            font-size: 12px;
+            margin-bottom: 5px;
+            padding: 0 10px 10px 17px;
+            background: #fff;
+        }
+        .ercode{
+            display: flex;
+            align-items: center;
+            padding: 18px 20px 10px 16px;
+            border-top: 1px dashed #999;
+            position: relative;
+            background: #fff;
+        }
+        .ercode::after{
+            content: ' ';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            top: -8px;
+            left: -8px;
+        }
+        .ercode::before{
+            content: ' ';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+        .ercode .img{
+            flex: 3;
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+        }
+        .ercode img{
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-right: 5px;
+        }
+        .ercode .url{
+            font-size: 12px;
+        }
+        #html2canvas{
+            width:320px;
+            margin:0 auto;
+        }
+        #html2canvas canvas{
+            width: 320px;
+            margin:0 auto;
+        }
+        #html2canvas img{
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="store-brand">
+            <img src="head.gif" alt="">
+            码农闲置物品交易商店
+        </div>
+        <div class="book-img">
+            <img src="js.jpg" alt="" style="width:90%;">
+        </div>
+        <div class="book-wrapper">
+            <div class="book-price">20<span>￥</span></div>
+            <div class="book-name">
+                <div class="name">JavaScript忍者秘籍</div>
+                <div class="star">豆瓣8.3分</div>
+            </div>
+        </div>
+        <div class="book-desc">jQuery之父经典力作，JavaScript高手修炼必备指南，深入地了解JavaScript的神奇，充分展示JavaScript语言的各种特性</div>
+        <div class="ercode">
+            <div class="img">
+                <img src="ercode.png" alt="">
+                长按识别二维码<br/>进入商店购买
+            </div>
+            <div class="url">store.dunizb.com</div>
+        </div>
+    </div>
+    <div style="text-align:center;">
+        <button id="saveImg" onclick="saveToImage()">生成图片</button>
+    </div>
+    <div id="html2canvas" style=""></div>
+</body>
+<script src="static/html2canvas.js"></script>
+<script>
+  //定义查找元素方法
+  function get(id) {
+    return document.getElementById(id);
+  }
+  var canvasBox = get('html2canvas');
+  var imageUrl = '';
+  var main = {
+    //获取像素密度
+    getPixelRatio:function(context){
+      var backingStore = context.backingStorePixelRatio ||
+        context.webkitBackingStorePixelRatio ||
+        context.mozBackingStorePixelRatio ||
+        context.msBackingStorePixelRatio ||
+        context.oBackingStorePixelRatio ||
+        context.backingStorePixelRatio || 1;
+      return (window.devicePixelRatio || 1) / backingStore;
+    },
+    //绘制dom 元素，生成截图canvas
+    html2Canvas: function () {
+      var shareContent = get("container");// 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
+      var width = shareContent.offsetWidth;  // 获取(原生）dom 宽度
+      var height = shareContent.offsetHeight; // 获取(原生）dom 高
+      var offsetTop = shareContent.offsetTop;  //元素距离顶部的偏移量
+
+      var canvas = document.createElement('canvas');  //创建canvas 对象
+      var context = canvas.getContext('2d');
+      var scaleBy = main.getPixelRatio(context);  //获取像素密度的方法 (也可以采用自定义缩放比例)
+      canvas.width = width * scaleBy;   //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
+      canvas.height = (height * scaleBy) + offsetTop;  // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
+      context.scale(scaleBy, scaleBy);
+
+      var opts = {
+        allowTaint:true,//允许加载跨域的图片
+        tainttest:false, //检测每张图片都已经加载完成
+        scale:scaleBy, // 添加的scale 参数
+        canvas:canvas, //自定义 canvas
+        logging: false, //日志开关，发布的时候记得改成false
+        width:width, //dom 原始宽度
+        height:height //dom 原始高度
+      };
+      html2canvas(shareContent, {
+        allowTaint: true,
+        width:width, //dom 原始宽度
+        height:height, //dom 原始高度
+        scale:scaleBy, // 添加的scale 参数
+        canvas:canvas, //自定义 canvas
+        taintTest: false,
+        onrendered: function(canvas) {
+          var image = new Image()
+          image.crossOrigin="anonymous"; //关键
+          imageUrl = canvas.toDataURL('image/png');
+          image.src = imageUrl;
+          image.onload = function () {
+            canvasBox.appendChild(image);
+          }
+        }
+      })
+    }
+  }
+
+  function saveToImage () {
+    main.html2Canvas();
+  }
+</script>  
+</html>
