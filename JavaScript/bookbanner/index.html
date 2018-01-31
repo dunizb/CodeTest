@@ -55,7 +55,7 @@
         .book-wrapper .book-price{
             flex: 1;
             font-size: 38px;
-            color: red;
+            color: #f01400;
             font-weight: bold;
             margin-right: 3px;
         }
@@ -71,14 +71,28 @@
             font-size: 14px;
             font-weight: bold;
         }
+        .book-wrapper .book-name .star .tag{
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 10px;
+            color: #fff;
+        }
         .book-wrapper .book-name .star{
-            font-size: 12px;
-            color: #999;
+            line-height: 17px;
+        }
+        .book-wrapper .book-name .star .tag.baoyou{
+            background-color: #f01400;
+        }
+        .book-wrapper .book-name .star .tag.isnew{
+            background-color:#3183f9;
+        }
+        .book-wrapper .book-name .star .tag.douban{
+            background-color:#5cb85c;
         }
         .book-desc{
             font-size: 12px;
             margin-bottom: 5px;
-            padding: 0 10px 10px 17px;
+            padding: 0 10px 10px 15px;
             background: #fff;
         }
         .ercode{
@@ -143,20 +157,25 @@
 <body>
     <div id="container" class="container">
         <div class="store-brand">
-            <img src="head.gif" alt="">
-            码农闲置物品交易商店
+            <img src="head.gif" alt="">码农闲置物品交易商店
         </div>
         <div class="book-img">
-            <img src="js.jpg" alt="" style="width:90%;">
+            <img src="book.jpg" alt="" style="width:90%;">
         </div>
         <div class="book-wrapper">
-            <div class="book-price">20<span>￥</span></div>
+            <div class="book-price">30<span>￥</span></div>
             <div class="book-name">
-                <div class="name">JavaScript忍者秘籍</div>
-                <div class="star">豆瓣8.3分</div>
+                <div class="name">Java编程思想（第4版）</div>
+                <div class="star">
+                    <span class="tag baoyou">全国包邮</span>
+                    <span class="tag isnew">9成新</span>
+                    <span class="tag douban">豆瓣9.1分</span>
+                </div>
             </div>
         </div>
-        <div class="book-desc">jQuery之父经典力作，JavaScript高手修炼必备指南，深入地了解JavaScript的神奇，充分展示JavaScript语言的各种特性</div>
+        <div class="book-desc">
+            全球程序员广泛赞誉，Java扛鼎经典之作，讲授面向对象程序设计语言以及Java语言的绝佳教材和参考书
+        </div>
         <div class="ercode">
             <div class="img">
                 <img src="ercode.png" alt="">
