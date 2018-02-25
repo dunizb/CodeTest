@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据初始化绑定</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="text">
+        {{ text }}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            text: 'hello world'
+        }
+    });
+
+    /**
+     * 构造器
+     */ 
+    function Vue(option){
+        this.data = option.data;
+        let data = this.data;
+        obsever(data,this);// 监听数据
+        let id = option.el;
+        let dom = nodeToFragment(document.querySelector(id), this);
+        document.querySelector(id).appendChild(dom);  
+    }
+
+    /**
+     * 劫持挂载元素到虚拟dom
+     */
+    function nodeToFragment (node, vm) {
+        const flag = document.createDocumentFragment();
+        let child;
+        while (child = node.firstChild){
+            compile(child, vm);
+            flag.appendChild(child);
+        }
+        return flag;
+    }
+
+    /**
+     * 编译HTML模板 
+     */
+    function compile (node, vm) {
+        let regex = /\{\{(.*)}}/;
+        // 元素节点
+        if(node.nodeType === 1) { 
+            const attrs = node.attributes;
+            for (let i = 0; i < attrs.length; i++) {
+                let attr = attrs[i]
+                if (attr.nodeName === 'v-model') {
+                    let name = attr.nodeValue;
+                    node.addEventListener('input', function (e) {
+                        vm[name] = e.target.value;//对数据的更新，调用set方法
+                    });
+                    node.value = vm.data[name];
+                    node.removeAttribute('v-model');
+                }
+            }
+        }
+
+        // 文本节点
+        if (node.nodeType === 3) { 
+            if (regex.test(node.nodeValue)) {
+                let name = RegExp.$1;
+                name = name.trim()
+                node.nodeValue = vm.data[name];
+            }
+        }
+        new Watcher(vm, node, name);
+    }
+
+    function defineReactive (obj, key, val) {
+        var dep = new Dep();
+        Object.defineProperty(obj, key, {
+            get: function (val) {
+                if (Dep.target) dep.addSub(Dep.target);
+                return val;
+            },
+            set: function (newVal, oldVal) {
+                if (newVal === val) return;
+                val = newVal;
+                dep.notify();
+            }
+        });
+    }
+
+    /**
+     * 监听数据
+     */
+    function obsever (obj, vm) {
+        Object.keys(obj).forEach(function(key) {
+            defineReactive(vm.data, key, obj[key]);
+        });
+    }
+
+    /**
+     * 一个主题发布器
+     */ 
+    function Dep () {
+        this.subs = [];
+    }
+    Dep.prototype = {
+        addSub: function (sub) { // 添加订阅
+            this.subs.push(sub);
+        },
+        notify: function () { // 通知变化
+            this.subs.forEach(function(sub) {
+                //更新
+                sub.update();
+            });
+        }
+    };
+
+    /**
+     * 每一个属性节点的watcher 
+     */ 
+    function Watcher(vm, node, name) {
+        Dep.target = this;
+        this.name = name;
+        this.node = node;
+        this.vm = vm;
+        this.update();
+        Dep.target = null;
+    }
+    Watcher.prototype = {
+        get: function(){
+            this.value = this.vm.data[name];
+        },
+        update: function() {
+            this.get();
+            this.node.nodeValue = this.value;
+        }
+    }
+</script>
+</html>
