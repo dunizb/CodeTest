@@ -6,13 +6,6 @@
 })
 <body>
 <div class="small_page">
-	<!--头部 -->
-	<div class="small_head whitehd">
-		<a href="javascript:history.back();" class="go-back"></a>
-		<div class="head-title">首页</div>
-		<div class="tool-box"><img src="./images/amore3.png" alt="" style="width:22px;"></div>
-	</div>
-	<!-- 页面主体 -->
 	<div id="app">
 		<div class="m cj-wrap">
 			<div class="cj-box">
@@ -70,7 +63,9 @@
 			</div>
 		</div>	
 	</div>
-	
+	<div style="text-align:center;">
+		<a href="https://github.com/dunizb/CodeTest/tree/master/Vue/lottery" target="_blank">Github源码</a>
+	</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -182,13 +177,19 @@
 				}
 			},
 			resetData: function(){
+				console.log(vm.lottery.end);
 				const items = document.querySelector('.cj-box-lis').children;
 				vm.index = 1;
 				vm.lottery.timer = 0;
 				vm.lottery.times = 0;
 				vm.lottery.cycle = 50;
 				vm.lottery.speed = 20;
-				items[vm.lottery.end - 1].className = '';
+				for(var i = 0; len = items.length, i < len; i++){
+					if(items[i].className === 'active'){
+						items[i].className = '';
+						return;
+					}
+				}
 			}
 		}
 	});
