@@ -1,0 +1,80 @@
+@import "mixin";
+
+body{
+    min-width: 320px;
+    margin: 0 auto;
+}
+#app{
+    display:relative;
+}
+.m{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cj-wrap{
+    background-image: url("../images/lottery_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+    .cj-box{
+        height: 4.60rem;
+        padding: .26rem .40rem;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            width: 4.7rem;
+            height: 4.43rem;
+            padding-left: .16rem;
+            padding-top: .05rem;
+            box-sizing: border-box;
+            li{
+                display: flex;
+                width: 1.36rem;
+                height: 1.30rem;
+                margin: 2px 3px;
+                background-color: #fed2d9;
+                border-radius: 10px;
+                position: relative;
+                .inner{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 1.16rem;
+                    border-radius: 10px;
+                    background-color: #feefed;
+                }
+                img{
+                    width: 100%;
+                    padding-top: 8px;
+                }
+                &.active{
+                    background-color: #0042ad;
+                    .active-border{
+                        width: 1.33rem;
+                        height: 1.24rem;
+                        position: absolute;
+                        top: -1px;
+                        left: -3px;
+                        border-radius: 12px;
+                    }
+                    .inner{
+                        background-color: #0065fd;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 750px) and (-webkit-device-pixel-ratio: 2){
+    .cj-wrap{
+        .cj-box{
+            ul{
+                padding-left: .23rem;
+            }
+        }
+    }
+}

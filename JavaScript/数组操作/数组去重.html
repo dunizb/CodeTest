@@ -21,12 +21,12 @@
      * 进一步，这个方法顺便还得到了重复次数最多的数据
      * ********************/
     function unique(array){
-        var o = {};
+        var o = {},
+            newArray = [],
+            item;
         for(var i=0; i<array.length; i++){
-            var item = array[i];
-            //判断字典中是否已经存在该值
-            //如果不存在  = 1
-            //如果存在  + 1
+            item = array[i];
+            //判断字典中是否已经存在该值，如果不存在 = 1，如果存在 + 1
             if(o[item]){
                 o[item]++;
             }else{
@@ -36,7 +36,6 @@
         // 删掉原来的数组
         array = null;
         // 去重后的新数组
-        var newArray = [];
         for(var key in o) {
             newArray.push(key);
         }
