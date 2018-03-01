@@ -149,6 +149,7 @@
 			startGo: function(){
 				// 模拟抽奖逻辑
 				// 抽中的编码
+				if (vm.prize !== '') return;
 				var prizeIndex = parseInt(Math.random() * vm.lottery.count,10)+1,
 					prize = vm.prizeList[prizeIndex],
 					prizeCode = prize['id'];
@@ -213,6 +214,7 @@
 				console.log(vm.lottery.end);
 				const items = document.querySelector('.cj-box-lis').children;
 				vm.index = 1;
+				vm.prize = '';
 				vm.lottery.timer = 0;
 				vm.lottery.times = 0;
 				vm.lottery.cycle = 50;
