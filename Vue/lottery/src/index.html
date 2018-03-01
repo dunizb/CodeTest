@@ -117,20 +117,21 @@
 				// 模拟抽奖逻辑
 				// 抽中的编码
 				if (vm.prize !== '') return;
-				var prizeIndex = parseInt(Math.random() * vm.lottery.count,10)+1,
-					prize = vm.prizeList[prizeIndex],
-					prizeCode = prize['id'];
-				console.log(prizeCode);
+				setTimeout(function(){
+					var prizeIndex = parseInt(Math.random() * vm.lottery.count,10)+1,
+						prizeCode = vm.prizeList[prizeIndex]['id'];
 
-				vm.prizeId = prizeIndex;
-				vm.prize = prizeCode;
-				var end = vm.getIndex(prizeCode);
-				if (end !== -1) {
-					vm.lottery.end = end;
-              		vm.rolling();
-				} else {
-					console.error('找不到中奖位置，返回 -1');
-				}
+					console.log(prizeCode);
+					vm.prizeId = prizeIndex;
+					vm.prize = prizeCode;
+					var end = vm.getIndex(prizeCode);
+					if (end !== -1) {
+						vm.lottery.end = end;
+						vm.rolling();
+					} else {
+						throw Error('找不到中奖位置，返回 -1');
+					}
+				}, 800);		
 			},
 			getIndex: function(prize){
 				var items = document.querySelector('.cj-box-lis').children,
