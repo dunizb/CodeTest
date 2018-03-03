@@ -78,8 +78,22 @@
         function jiechen ( n ){
             if(n == 1 ) return 1;
             return n * jiechen(n - 1);
+
+            // while循环
+            // var i = 1, jc = 1;
+            // while( i <= n ) {
+            //     jc *= i++;
+            // }
+            // return jc;
+
+            // for循环
+            // var jc = 1;
+            // for(var i = 1; i <= n; i++){
+            //     jc *= i;
+            // }
+            // return jc;
         }
-        console.log('第 5 项的值:', jiechen(5));
+        console.log('5的阶乘是:', jiechen(5));
     </script>
 </body>
 </html>
