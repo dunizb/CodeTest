@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    统计字符串”aaaabbbccccddfgh”中字母个数或统计最多字母数。
+<script>
+    var str = 'aaaabbbccccddfgh';
+    function countStr( str ){
+        var o = {},
+            item,
+            tempArr = [];
+        if (str) tempArr = str.split('');    
+        for(var i = 0; i < tempArr.length; i++){
+            item = tempArr[i];
+            if(o[item]){
+                o[item]++;
+            } else {
+                o[item] = 1;
+            }
+        }
+        return o;
+    }
+
+    console.log('字符出现的次数：', countStr(str));
+
+    function getArrMaxCountStr ( obj ) {
+        // ES6
+        var ks = Object.keys(obj),
+            vs = Object.values(obj);
+        var max = Math.max.apply(Math, vs);
+        return ks[vs.indexOf(max)];
+    }
+
+    console.log('出现最多次的字符：', getArrMaxCountStr(countStr(str)));
+    
+</script>
+</body>
+</html>
