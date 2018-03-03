@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clone</title>
+</head>
+<body>
+    实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制。
+    <script>
+        function clone( obj ) {
+            var o;
+            switch(typeof obj){
+                case 'string':
+                    o = obj + '';
+                    break;
+                case 'number':
+                    o = obj - 0;
+                    break;    
+                case 'boolean':
+                    o = obj;
+                    break;    
+                case 'undefined': break;
+                case 'object': // null array object
+                    if(obj == null) {
+                        o = null;
+                    } else {
+                        // [object Array]
+                        if (Object.prototype.toString.call(obj) === '[object Array]'){
+                            o = [];
+                            for(var i = 0; i < obj.length; i++){
+                                o.push(clone(obj[i]));
+                            }
+                        } else { // Object
+                            o = {};
+                            for(var k in obj){
+                                o[k] = clone[obj[k]];
+                            }
+                        }
+                    }        
+                    break;    
+                default: 
+                    o = obj;
+                    break;
+            }
+            return o;
+        }
+    </script>
+</body>
+</html>

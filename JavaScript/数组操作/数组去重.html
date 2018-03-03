@@ -49,21 +49,16 @@
      * 如果没有，则放入 res 中。本质上跟方法一一样
      * 如果不考虑浏览器兼容，我们可以用 ES5 提供的 Array.prototype.indexOf 方法来简化代码
      * ********************/
-    function unique2(array){
-        var res = [];
-
-        for(var i =0; i<array.length;i++){
-            var item = array[i];
-            for(var j= 0; j < res.length; j++){
-                if(res[j] === item){
-                    break;
-                }
+    function unique2 (arr) {
+        var temp = [];
+        for(var i = 0; i < arr.length; i++){
+            var item = arr[i];
+            for(var j = 0; j < temp.length; j++){
+                if(item === temp[j]) break;
             }
-            if(j === res.length){
-                res.push(item);
-            }
+            if(j === temp.length) temp.push(item);
         }
-        return res;
+        return temp;
     }
     //console.log(unique2(arr));
 	
@@ -76,6 +71,50 @@
 		}
 		return tempArray;
 	}
+
+     /***********************
+     * 2. ES6 Array.form、Set
+     * ********************/
+     function unique4 (arr) {
+         return Array.from(new Set(arr));
+     }
+     //console.log(unique4(arr));
+
+     function unique5 () {
+        var arr1 = [{
+            'id':1,
+            'text':'hello'
+        },{
+            'id':2,
+            'text':'world'
+        },{
+            'id':1,
+            'text':'hahah'
+        },{
+            'id':3,
+            'text':'我问问'
+        }];
+        var arr2 = [{
+            'id':1,
+            'text':'uuu'
+        },{
+            'id':4,
+            'text':'dunizb.com'
+        }];
+        var newArr = arr1.concat(arr2);
+        var res = []; 
+        for(var i = 0; i < newArr.length; i++){
+            var tempId = newArr[i]['id'];
+            for(var j = 0; j < res.length; j++){
+                if(tempId === res[j]['id']) break;
+            }
+            if(j === res.length) res.push(newArr[i]);
+        }
+        console.log(res);
+        return res;
+     }
+     unique5();
+
 </script>
 </body>
 </html>
