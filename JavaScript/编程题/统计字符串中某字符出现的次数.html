@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>统计字符串”aaaabbbccccddfgh”中字母个数或统计最多字母数。</title>
 </head>
 <body>
     统计字符串”aaaabbbccccddfgh”中字母个数或统计最多字母数。
@@ -28,10 +28,21 @@
 
     console.log('字符出现的次数：', countStr(str));
 
+    // ES6
+    // function getArrMaxCountStr ( obj ) {
+    //     var ks = Object.keys(obj),
+    //         vs = Object.values(obj);
+    //     var max = Math.max.apply(Math, vs);
+    //     return ks[vs.indexOf(max)];
+    // }
+
+    // ES5
     function getArrMaxCountStr ( obj ) {
-        // ES6
-        var ks = Object.keys(obj),
-            vs = Object.values(obj);
+        var ks = [], vs = [];
+        for(var key in obj){
+            ks.push(key);
+            vs.push(obj[key]);
+        }
         var max = Math.max.apply(Math, vs);
         return ks[vs.indexOf(max)];
     }

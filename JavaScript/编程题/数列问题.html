@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数列问题</title>
+</head>
+<body>
+    <p>1. 求 1, 3, 5, 7, 9, ... 第 n 项的结果与前 n 项和</p>
+    <script>
+        console.log('----------- 1 ---------')
+        // 求第 n 项的值
+        function fn( n ) {
+            if ( n == 0 ) return 1;
+            return fn( n-1 ) + 2;
+        }
+        console.log('第 4 项的值:', fn(4));
+        // 前 N 项的和
+        function sum( n ) {
+            if ( n == 0 ) return 1;
+            return fn( n ) + sum( n - 1 );
+        }
+        console.log('前 4 项的和:', sum(4));
+    </script>
+
+    <p>2. 求 2, 4, 6, 8, 10, ... 第 n 项与 前 n 项和</p>
+    <script>
+        console.log('----------- 2 ---------')
+        // 求第 n 项的值
+        function fn( n ) {
+            if ( n == 0) return 2;
+            return fn(n - 1) + 2;
+        }
+        console.log('第 4 项的值:', fn(4));
+        // 前 N 项的和
+        function sum( n ) {
+            if ( n === 0) return 2;
+            return fn( n ) + sum(n - 1);
+        }
+        console.log('前 4 项的和:', sum(4));
+    </script>
+    <p>3. 求 1, 1, 4, 7, 11, 16, ... 第 n 项与 前 n 项和</p>
+    <script>
+        console.log('----------- 3 ---------')
+        // 求第 n 项的值
+        function fn ( n ){
+            if( n == 0 ) return 1;
+            return fn( n - 1 ) + n - 1;
+        }
+        console.log('第 7 项的值:', fn(7));
+        // 前 N 项的和
+        function sum( n ) {
+            if ( n == 1) return 0;
+            return fn( n ) + sum(n - 1);
+        }
+        console.log('前 7 项的和:', sum(7));
+    </script>
+    <p>4. 斐波那契数列为：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, …，求第 N 项和钱 N 项和</p>
+    <script>
+        console.log('----------- 4 ---------')
+        // 求第 n 项的值
+        function fibo ( n ){
+            if( n == 0 || n == 1 ) return 1;
+            return fibo( n - 1 ) + fibo(n - 2);
+        }
+        console.log('第 9 项的值:', fibo(9));
+        // 前 N 项的和
+        function sum( n ) {
+            if (n == 0) return 1;
+            return fibo( n ) + sum(n - 1);
+        }
+        console.log('前 9 项的和:', sum(9));
+    </script>
+    <p>5. 计算5的阶乘</p>
+    <script>
+        console.log('----------- 5---------')
+        function jiechen ( n ){
+            if(n == 1 ) return 1;
+            return n * jiechen(n - 1);
+        }
+        console.log('第 5 项的值:', jiechen(5));
+    </script>
+</body>
+</html>

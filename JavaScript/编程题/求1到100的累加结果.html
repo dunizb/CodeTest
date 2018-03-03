@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>求1+....+100的结果</title>
+    <title>求1到100的累加结果</title>
 </head>
 <body>
-        求1+....+100的结果
+    求1到100的累加结果
     <script>
         /**
          * 方法一,for循环
          */
-        function sum( max ) {
+        function sum( n ) {
             var sum = 0;
-            for(var i = 1; i <= max; i++) {
+            for(var i = 1; i <= n; i++) {
                 sum += i;
             }    
             return sum;
@@ -24,14 +24,30 @@
         /**
          * 方法二,while循环
          */
-        function sum2 ( max ) {
-            var i = 0, sum = 0;
-            while (i <= max) {
+        function sum2 ( n ) {
+            var i = 1, sum = 0;
+            while (i <= n) {
                 sum += i++;
             }
             return sum;
         }
         console.log(sum2(100));
+
+        /**
+         * 方法三,递归
+         */
+        function sum3 ( n ) {
+            if ( n == 1 ) return 1;
+            return n + sum3( n - 1 );
+        }
+
+        function sum4 (n) {
+            if (n == 1) return 1;
+            return n + arguments.callee(n - 1);
+        }
+        console.log(sum3(100));
+        console.log(sum4(100));
+
     </script>
 </body>
 </html>
