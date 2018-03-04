@@ -48,6 +48,20 @@
         console.log(sum3(100));
         console.log(sum4(100));
 
+        /**
+         * 方法四,reduce
+         */
+        function sum5 (n) {
+            var arr = [];
+            for(var i = 1; i <= n; i++){
+                arr.push(i);
+            }
+            return arr.reduce(function(accumulator, currentValue){
+                return accumulator + currentValue;
+            });
+        }
+        console.log(sum5(100));
+
     </script>
 </body>
 </html>
