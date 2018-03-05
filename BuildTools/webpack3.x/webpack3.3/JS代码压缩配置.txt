@@ -1,4 +1,4 @@
-const uglify = require('uglifyjs-webpack-plugin');
+const uglify = require('uglifyjs-webpack-plugin'); // 不需要安装
 
 plugins: [
     new uglify()
