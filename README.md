@@ -2,6 +2,10 @@
 
 **2018**
 
++ 03.06，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
+  - 7.CSS分离
+  - 8.HTML中图片处理
+  - 9.打包和分离Less
 + 03.05，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
   - 1.基本配置，入库出口配置
   - 2.服务和热更新
@@ -9,8 +13,6 @@
   - 4.JS代码压缩配置
   - 5.HTML文件打包
   - 6.CSS中的图片处理
-  - 7.CSS分离
-  - 8.HTML中图片处理
 - 03.03，[几道JS编程题](https://github.com/dunizb/CodeTest/tree/master/JavaScript/%E7%BC%96%E7%A8%8B%E9%A2%98)
 - 03.01，[Vue.js实现九宫格跑马灯抽奖效果](https://github.com/dunizb/CodeTest/tree/master/Vue/lottery)
 - 01.21，[Java生成图书分享图](https://github.com/dunizb/CodeTest/tree/master/JavaScript/bookbanner)
