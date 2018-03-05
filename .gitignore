@@ -19,4 +19,5 @@ nodejs/socket/chatroom/node_modules/
 BuildTools/gulp-study/node_modules/
 BuildTools/webpack-plugins/node_modules/
 BuildTools/webpack-loader-es6/node_modules/
+BuildTools/webpack3/node_modules/
 Vue/viplottery/node_modules/
