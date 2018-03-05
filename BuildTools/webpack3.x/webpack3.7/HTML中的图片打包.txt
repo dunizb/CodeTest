@@ -1,8 +1,0 @@
-loader: html-withimg-loader
-
-rules: [
-    {
-        test: /\.(html|htm)$/i,
-        use: ['html-withimg-loader']
-    }
-]
