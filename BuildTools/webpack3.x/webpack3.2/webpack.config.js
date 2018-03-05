@@ -9,7 +9,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].js"
     },
-    module: {},
+    module: {
+        rules: [
+            {
+                test: /\.css$/, 
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    },
     plugins: [],
     devServer: {
         contentBase: path.join(__dirname, "dist"),

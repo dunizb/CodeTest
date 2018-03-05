@@ -1,1 +1,2 @@
-document.getElementById("title").innerHTML = "Hello www.dunizb.com";
+import css from './css/index.css';
+document.getElementById("title").innerHTML = "Loders 打包CSS www.dunizb.com";
