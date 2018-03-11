@@ -2,9 +2,15 @@
 
 **2018**
 
++ 03.11，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
+  - 10.处理和分离sass
+  - 11.消除无用的CSS
+  - 12.用postcss自动添加css3前缀
+  - 13.source-map支持
+  - 14.增加babel支持
 + 03.06，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
-  - 7.CSS分离
-  - 8.HTML中图片处理
+  - 7.CSS分离与图片路径处理
+  - 8.处理HTML中的图片
   - 9.打包和分离Less
 + 03.05，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
   - 1.基本配置，入库出口配置
