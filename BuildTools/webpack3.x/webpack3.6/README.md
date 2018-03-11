@@ -1,4 +1,4 @@
-## css分离及引入的图片地址问题
+## 图片迈坑：CSS分离与图片路径处理
 
 依赖
 for webpack 3：`npm i --save-dev extract-text-webpack-plugin@3.0.2`
