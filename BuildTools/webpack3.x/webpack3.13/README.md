@@ -6,10 +6,7 @@ Loader配置：
 ```js
 test: '/\.(jsx|js)$/',
 use: {
-    loader: 'babel-loader',
-    options: {
-        presets: ['es2015', 'react']
-    }
+    loader: 'babel-loader'
 },
 exclude: /node_modules/
 ```
@@ -18,5 +15,15 @@ exclude: /node_modules/
 ```js
 {
     "presets":["react","es2015"]
+}
+```
+
+**新的渲染器：babel-presets-env**
+```
+npm i -D bael-presets-env
+```
+```js
+{
+    "presets":["react","env"]
 }
 ```
