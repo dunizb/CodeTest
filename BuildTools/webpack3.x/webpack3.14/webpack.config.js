@@ -5,8 +5,15 @@ const htmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
-var website = {
-    'publicPath': 'http://127.0.0.1:8081/'
+var website = {};
+if(process.env.type== "build"){
+    website = {
+        publicPath:"http://127.0.0.1:8081/"
+    }
+}else{
+    website = {
+        publicPath:"http://cdn.jspang.com/"
+    }
 }
 
 module.exports = {

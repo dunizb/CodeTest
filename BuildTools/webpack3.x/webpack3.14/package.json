@@ -1,11 +1,12 @@
-f{
+{
   "name": "webpack3.2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open",
-    "build": "webpack"
+    "server": "webpack-dev-server --open",
+    "dev":"export type=dev&&webpack",
+    "build": "export type=build&&webpack"
   },
   "author": "",
   "license": "ISC",
