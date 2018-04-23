@@ -95,5 +95,23 @@
         }
         console.log('5的阶乘是:', jiechen(5));
     </script>
+    <p>6. 递归求和1，2，3，..., n，..., 3，2，1?</p>
+    <script>
+        console.log('----------- 6---------')
+        function fn(n) {
+            if (n==1) return 1; // 终点
+            return fn(n-1) + n-1 + n; // 递归关系
+        }
+        console.log('fn', fn(5)); // 16
+
+        function sum(n) {
+            function calc(n) {
+                if (n==1) return 1; 
+                return calc(n - 1) + n;
+            }
+            return 2*calc(n) - n;
+        }
+        console.log('sum fn', sum(5)); // 16
+    </script>
 </body>
 </html>
