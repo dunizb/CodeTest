@@ -2,9 +2,10 @@
 
 **2018**
 
-+ 05.12,[Vue/components](https://github.com/dunizb/CodeTest/tree/master/Vue/components)
++ 05.12,[Vue/components](https://github.com/dunizb/CodeTest/tree/master/Vue/components)，[Vue/directive](https://github.com/dunizb/CodeTest/tree/master/Vue/directive)
   - 数字输入框组件
   - 选项卡切换组件
+  - 时间转换指令
 + 03.11，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
   - 10.处理和分离sass
   - 11.消除无用的CSS
