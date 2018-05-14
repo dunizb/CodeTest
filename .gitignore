@@ -6,6 +6,5 @@ React/node_modules/
 /react-native/**/node_modules/
 nodejs/**/node_modules/
 BuildTools/**/node_modules/
-BuildTools/**/node_modules/
 Vue/**/node_modules/
 **.DS_Store
