@@ -2,6 +2,9 @@
 
 **2018**
 
++ 05.12,[Vue/components](https://github.com/dunizb/CodeTest/tree/master/Vue/components)
+  - 数字输入框组件
+  - 选项卡切换组件
 + 03.11，[Webpack3.6.0](https://github.com/dunizb/CodeTest/tree/master/BuildTools/webpack3.x)
   - 10.处理和分离sass
   - 11.消除无用的CSS
@@ -21,7 +24,6 @@
   - 6.CSS中的图片处理
 - 03.03，[几道JS编程题](https://github.com/dunizb/CodeTest/tree/master/JavaScript/%E7%BC%96%E7%A8%8B%E9%A2%98)
 - 03.01，[Vue.js实现九宫格跑马灯抽奖效果](https://github.com/dunizb/CodeTest/tree/master/Vue/lottery)
-- 01.21，[Java生成图书分享图](https://github.com/dunizb/CodeTest/tree/master/JavaScript/bookbanner)
 - 01.17，[ES6/generator](https://github.com/dunizb/CodeTest/blob/master/ES6/generator/)
 - 101.14，[nodejs/20180114](https://github.com/dunizb/CodeTest/blob/master/nodejs/20180114/)
 
