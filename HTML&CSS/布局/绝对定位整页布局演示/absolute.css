@@ -1,0 +1,258 @@
+/* wechat.css */
+
+body {
+	margin: 0;
+	-webkit-user-select: none;
+	user-select: none;
+	-ms-touch-action: none;
+}
+
+/* construction */
+
+html, body, .page {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.page {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+body {
+	background-color: #ebebeb;
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: 400;
+}
+
+ul, ol {
+	margin: 0;
+	list-style-type: none;
+}
+
+.header, .footer, .content {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.header {
+	height: 48px;
+	padding: 0 5px;
+	background-color: #21292B;
+	color: #fff;
+	top: 0;
+	z-index: 1;
+}
+
+.header>h1 {
+	line-height: 48px;
+	margin: 0 0 0 10px;
+	font-size: 18px;
+	float: left;
+}
+
+.header>a {
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	background-size: 48px 144px;
+	text-indent: -9em;
+	overflow: hidden;
+}
+
+.header>.icon-search, .header>.icon-add {
+	float: right;
+}
+
+.footer {
+	height: 52px;
+	border-top: 1px solid #dfdfdf;
+	background-color: #fcfcfc;
+	bottom: 0;
+	z-index: 1;
+}
+
+.footer>a {
+	width: 25%;
+	text-align: center;
+	color: #999;
+	float: left;
+	font-size: 14px;
+}
+
+.footer>a>i {
+	display: block;
+	height: 35px;
+	margin-bottom: -3px;
+	background-size: 35px 280px;
+}
+
+.footer>.active {
+	color: #45c018;
+}
+
+.content {
+	top: 48px;
+	bottom: 53px;
+	overflow: auto;
+}
+
+.icon-search, .icon-back, .icon-add {
+	background: url(http://img.mukewang.com/547d339b000188bb00960288.png) no-repeat;
+}
+
+.icon-back {
+	background-position: 0 -96px;
+}
+
+.icon-add {
+	background-position: 0 -48px;
+}
+
+.icon-wechat, .icon-contacts, .icon-finds, .icon-mes {
+	background: url(http://img.mukewang.com/547d33970001444d00700560.png) no-repeat center top;
+}
+
+.active .icon-wechat {
+	background-position: center -35px;
+}
+
+.icon-contacts {
+	background-position: center -70px;
+}
+
+.active .icon-contacts {
+	background-position: center -105px;
+}
+
+.icon-finds {
+	background-position: center -140px;
+}
+
+.active .icon-finds {
+	background-position: center -175px;
+}
+
+.icon-mes {
+	background-position: center -210px;
+}
+
+.active .icon-mes {
+	background-position: center -245px;
+}
+
+.icon-find {
+	background: url(icon-find.png) no-repeat;
+	background-size: 28px 210px;
+}
+
+.icon-find-2 {
+	background-position: 0 -30px;
+}
+
+.icon-find-3 {
+	background-position: 0 -60px;
+}
+
+.icon-find-4 {
+	background-position: 0 -90px;
+}
+
+.icon-find-5 {
+	background-position: 0 -120px;
+}
+
+.icon-find-6 {
+	background-position: 0 -150px;
+}
+
+.icon-find-7 {
+	background-position: 0 -180px;
+}
+
+.icon-me {
+	background: url(icon-me.png) no-repeat;
+	background-size: 28px 120px;
+}
+
+.icon-me-2 {
+	background-position: 0 -30px;
+}
+
+.icon-me-3 {
+	background-position: 0 -60px;
+}
+
+.icon-me-4 {
+	background-position: 0 -90px;
+}
+
+.wechat-list {
+	display: block;
+	height: 64px;
+	padding: 8px 12px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #d7d7d7;
+	background-color: #fff;
+}
+
+.wechat-list:last-child {
+	border-bottom: 0;
+}
+
+.wechat-list>img {
+	width: 48px;
+	height: 48px;
+	float: left;
+}
+
+.wechat-list>.cell {
+	padding-left: 58px;
+	line-height: 24px;
+	color: #333;
+}
+
+.wechat-h-time {
+	overflow: hidden;
+}
+
+.wechat-h-time>h5 {
+	font-size: 100%;
+	float: left;
+}
+
+.wechat-h-time>time {
+	font-size: 12px;
+	color: #b9b9b9;
+	float: right;
+}
+
+.wechat-h-time .business {
+	color: #54688D;
+}
+
+.wechat-h-time+p {
+	margin: 0 20px 0 0;
+	font-size: 14px;
+	color: #a8a8a8;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.wechat-detail {
+	position: relative;
+	z-index: 1;
+}
