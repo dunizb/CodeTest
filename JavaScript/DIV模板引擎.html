@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DIV模板引擎</title>
+</head>
+
+<body>
+    <h1>DIV模板引擎</h1>
+    <script>
+        var Template = function (tempstr, data) {
+            var re = /<%([^%>]+)?%>/g,
+                cursor = 0, // 字符串的查找位置
+                reExp = /^\s*(for|if|else|switch|case|break|continue|{|})(.*)?/g,
+                code = 'var arr = [];\n';   
+            var add = function (line, flag) { //flag --> 判断是否是JS代码
+                // 第一次：line ==> 我的名字是：
+                code += flag ? line.match(reExp) ? line : 'arr.push(' + line + ');\n'
+                    : 'arr.push("' + line.replace(/"/, '\\"') + '");\n';
+            }
+            while (item = re.exec(tempstr)) {
+                add(tempstr.slice(cursor, item.index));
+                add(item[1], true);
+                cursor = item.index + item[0].length;
+            }
+            add(tempstr.substring(cursor));
+            code += 'return arr.join("");';
+            return new Function(code.replace(/[\r\n\t]/g, '')).apply(data);
+        }
+        
+        // var str = '我的名字是：<%this.name%>，年龄是：<%this.profile.age%>，Over！！！';
+        // var res = Template(str, {
+        //   name: 'Dunizb',
+        //   profile: {
+        //     age: 22
+        //   }
+        // });
+        // console.log(res);
+        
+        var str = '我的爱好：<%for(var i in this.hobby){%>'
+            + '<p><%this.hobby[i]%></p>'
+            + '<%}%>';
+        var res = Template(str, {
+            hobby: ['php', 'java', 'javascript', 'linux', 'python']
+        });
+        document.write(res);
+    </script>
+</body>
+
+</html>
