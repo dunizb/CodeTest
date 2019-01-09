@@ -1,0 +1,15 @@
+{
+  "name": "move-prevue",
+  "version": "1.0.0",
+  "description": "Koa.js,Node,move,douban,demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "http://www.dunizb.com",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.6.2"
+  }
+}
