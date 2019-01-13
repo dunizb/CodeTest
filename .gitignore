@@ -8,4 +8,5 @@ React/node_modules/
 nodejs/**/node_modules/
 BuildTools/**/node_modules/
 Vue/**/node_modules/
+dunizb-webpack-core-back/node_modules/
 **.DS_Store
