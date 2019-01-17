@@ -2,7 +2,7 @@ const cp = require('child_process')
 const { resolve } = require('path')
 
 ;(async () => {
-    const script = resolve(__dirname, '../crawler/video')
+    const script = resolve(__dirname, '../crawler/video.js')
     const child = cp.fork(script, [])
     let invoked = false
 
@@ -20,6 +20,7 @@ const { resolve } = require('path')
     })
 
     child.on('message', data => {
-        console.log('data', data)
+        // https://img3.doubanio.com/view/photo/l_ratio_poster/public/p2543846884.jpg
+        console.log(data)
     })
 })()

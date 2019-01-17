@@ -14,8 +14,10 @@
     "koa": "^2.6.2",
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.5",
+    "nanoid": "^2.0.1",
     "pug": "^2.0.3",
     "puppeteer": "^1.11.0",
+    "qiniu": "^7.2.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   }
