@@ -1,7 +1,13 @@
 const Koa = require('koa')
-const app = new Koa()
 const { resolve } = require('path')
 const views = require('koa-views')
+const { connect } = require('./databse/init')
+
+;(async () => {
+    await connect()
+})();
+
+const app = new Koa()
 
 app.use(views(resolve(__dirname, './views'), {
     extension: 'pug'
