@@ -1,10 +1,16 @@
+const mongoose = require('mongoose')
 const Koa = require('koa')
 const { resolve } = require('path')
 const views = require('koa-views')
-const { connect } = require('./databse/init')
+const { connect, initSchemas } = require('./databse/init')
 
 ;(async () => {
     await connect()
+    initSchemas()
+
+    const Movies = mongoose.model('Movie')
+    const movies = await Movies.find({})
+    console.log('movies', movies)
 })();
 
 const app = new Koa()
