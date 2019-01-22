@@ -6,11 +6,11 @@ const { connect, initSchemas } = require('./databse/init')
 
 ;(async () => {
     await connect()
+
     initSchemas()
 
-    const Movies = mongoose.model('Movie')
-    const movies = await Movies.find({})
-    console.log('movies', movies)
+    // require('./task/movie')
+    require('./task/api')
 })();
 
 const app = new Koa()
