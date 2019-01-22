@@ -60,7 +60,6 @@ userSchema.pre('save', function (next) {
     } else {
         this.meta.updatedAt = Date.now()
     }
-    next()
 })
 
 userSchema.methods = {

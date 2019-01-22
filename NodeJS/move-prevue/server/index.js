@@ -2,17 +2,19 @@ const mongoose = require('mongoose')
 const Koa = require('koa')
 const { resolve } = require('path')
 const views = require('koa-views')
-const { connect, initSchemas } = require('./databse/init')
+const { connect, initSchemas, initAdmin } = require('./databse/init')
 
 ;(async () => {
     await connect()
 
     initSchemas()
 
+    await initAdmin()
+
     // require('./task/movie')
     // require('./task/api')
     // require('./task/trailer')
-    require('./task/qiniu')
+    // require('./task/qiniu')
 })();
 
 const app = new Koa()
