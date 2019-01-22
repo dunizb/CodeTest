@@ -2,6 +2,9 @@ const qiniu = require('qiniu')
 const nanoid = require('nanoid')
 const config = require('../config')
 
+const mongoose = require('mongoose')
+const Movie = mongoose.model('Movie')
+
 const bucket = config.qiniu.bucket
 const mac = new qiniu.auth.digest.Mac(config.qiniu.AK, config.qiniu.SK)
 
@@ -25,13 +28,15 @@ const uploadToQiniu = async (url, key) => {
 }
 
 ;(async () => {
-    const movies = [{
-        video: 'http://vt1.doubanio.com/201901160256/0c57479f568e0ad927479c2fc932f64a/view/movie/M/402390189.mp4',
-        doubanId: '27110296',
-        poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p2543846884.jpg',
-        cover: 'https://img3.doubanio.com/img/trailer/medium/2539667252.jpg?'
-    }]
-    movies.map(async movie => {
+    let movies = await Movie.find({
+        $or: [
+            { videoKey: { $exists: false } },
+            { videoKey: null },
+            { videoKey: '' }
+        ]
+    })
+    for (let i = 0; i < [movies[0]].length; i++) {
+        let movie = movies[i]
         if (movie.video && !movie.key) {
             try {
                 console.log('开始传 video')
@@ -52,18 +57,10 @@ const uploadToQiniu = async (url, key) => {
                 }
                 console.log(movie)
 
-                { 
-                    video: 'http://vt1.doubanio.com/201901160256/0c57479f568e0ad927479c2fc932f64a/view/movie/M/402390189.mp4',
-                    doubanId: '27110296',
-                    poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p2543846884.jpg',
-                    cover: 'https://img3.doubanio.com/img/trailer/medium/2539667252.jpg?',
-                    videoKey: 'http://plfdk2i72.bkt.clouddn.com/v5iGhAMqWqvoCqeqxnKO_.mp4',
-                    coverKey: 'http://plfdk2i72.bkt.clouddn.com/i_-t31-D9gW1vB7AO4cWr.png',
-                    posterKey: 'http://plfdk2i72.bkt.clouddn.com/IY9Zl6oFqAKmXw0wblqch.png' 
-                }
+                await movie.save()
             } catch (error) {
                 console.log(error)
             }
         }
-    })
+    }
 })()

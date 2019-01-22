@@ -10,7 +10,9 @@ const { connect, initSchemas } = require('./databse/init')
     initSchemas()
 
     // require('./task/movie')
-    require('./task/api')
+    // require('./task/api')
+    // require('./task/trailer')
+    require('./task/qiniu')
 })();
 
 const app = new Koa()

@@ -1,14 +1,12 @@
 const puppeteer = require('puppeteer')
 
-let doubanId = '27110296'
 const base = `https://movie.douban.com/subject/`
-const videoBase = `https://movie.douban.com/trailer/${doubanId}/#content`
 
 const sleep = time => new Promise(resolve => {
   setTimeout(resolve, time)
 })
 
-;(async () => {
+process.on('message', async movies => {
   console.log('Start visit the target page')
 
   const browser = await puppeteer.launch({
@@ -17,53 +15,56 @@ const sleep = time => new Promise(resolve => {
   })
 
   const page = await browser.newPage()
-  await page.goto(base + doubanId, {
-    waitUntil: 'networkidle2'
-  })
 
-  await sleep(1000)
-  const result = await page.evaluate(() => {
-    console.log('进入了')
-    let $ = window.$
-    let it = $('.related-pic-video')
-    if (it && it.length > 0) {
+  for (let i = 0; i < movies.length; i++) {
+    let doubanId = movies[i].doubanId
+    await page.goto(base + doubanId, {
+      waitUntil: 'networkidle2'
+    })
+
+    await sleep(1000)
+    const result = await page.evaluate(() => {
+      let $ = window.$
+      let it = $('.related-pic-video')
+      if (it && it.length > 0) {
         let link = it.attr('href')
         // background-image:url(https://img3.doubanio.com/img/trailer/medium/2539667252.jpg?)
         let cover = it.attr('style').slice(21, -1)
-        return { 
-            link,
-            cover
+        return {
+          link,
+          cover
         }
-    } else {
+      } else {
         return {}
-    }
-  })
+      }
+    })
 
-  let video
-  if (result.link) {
+    let video
+    if (result.link) {
       await page.goto(result.link, {
         waitUntil: 'networkidle2'
       })
       await sleep(2000)
 
       video = await page.evaluate(() => {
-          let $ = window.$
-          let it = $('source')
-          if (it && it.length > 0) {
-              return it.attr('src')
-          }
-          return null
+        let $ = window.$
+        let it = $('source')
+        if (it && it.length > 0) {
+          return it.attr('src')
+        }
+        return null
       })
-  }
+    }
 
-  const data = {
+    const data = {
       video,
       doubanId,
       cover: result.cover
+    }
+    //  console.log(result)
+    process.send(data)
   }
 
   browser.close()
-//   console.log(result)
-  process.send(data)
   process.exit(0)
-})()
+})
