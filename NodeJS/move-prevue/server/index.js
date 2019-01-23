@@ -3,6 +3,7 @@ const Koa = require('koa')
 const { resolve } = require('path')
 const views = require('koa-views')
 const { connect, initSchemas, initAdmin } = require('./databse/init')
+const router = require('./routes')
 
 ;(async () => {
     await connect()
@@ -18,6 +19,9 @@ const { connect, initSchemas, initAdmin } = require('./databse/init')
 })();
 
 const app = new Koa()
+app
+    .use(router.routes())
+    .use(router.allowedMethods())
 
 app.use(views(resolve(__dirname, './views'), {
     extension: 'pug'
