@@ -46,7 +46,7 @@ const Utils = {
         /**
          * 统计一个字符串出现最多的字母
          * @param {String} str 
-         * @return {String} 出现最多的字符
+         * @return {Object} 出现最多的字符和出现的次数
          */
         findMaxDuplicateChar: function (str) {
             if (!str) return
@@ -70,6 +70,22 @@ const Utils = {
                 value: maxChar,
                 count: maxValue
             }
+        },
+        /**
+         * 随机生成指定长度的字符串
+         * @param {Number} n 指定长度
+         * @param {Boolean} upper 是否大写，默认小写
+         * @return {String} 指定长度的字符串
+         */
+        randomString: function (n, upper = false) {
+            let str = 'abcdefghijklmnopqrstuvwxyz9876543210'
+            let temp = '',
+                i = 0,
+                l = str.length
+            for (let i = 0; i < n; i++) {
+                temp += str.charAt(Math.floor(Math.random() * l))
+            }
+            return upper ? temp.toUpperCase() : temp
         }
     },
     arrays: {}
