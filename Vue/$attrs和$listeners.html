@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>$attrs和$listeners</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <base-input label="姓名" class="username-input" vmiddle placeholder="Enter your username" data-date-picker="activated"></base-input>
+    </div>
+    <script>
+        Vue.component("base-input", {
+            inheritAttrs: true, //此处设置禁用继承特性
+            props: ["label"],
+            template: `
+            <div> 
+                {{label}}<br/>
+                {{$attrs.placeholder}}<br/>
+                {{$attrs["data-date-picker"]}}<br/>
+                <input v-bind="$attrs"/>
+            </div>`,
+            mounted: function() {
+                console.log(this.$attrs);
+                console.log(this.$attrs['vmiddle'] !== undefined)
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {} 
+        });
+    </script>
+</body>
+</html>
