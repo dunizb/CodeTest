@@ -98,17 +98,62 @@ const Utils = {
             if (!Array.isArray(array)) {
                 throw TypeError('参数不是一个数组')
             }
-            let len = array.length
-            for (let i = 0; i < len; i++) {
-                for (let j = 0; j < len - 1 - i; j++ ) {
-                    if (array[j] > array[j + 1]) { // 相邻元素两两对比
-                        let temp = array[j + 1] // 元素交换
-                        array[j + 1] = array[j]
-                        array[j] = temp
+            // let len = array.length
+            // for (let i = 0; i < len; i++) {
+            //     for (let j = 0; j < len - 1 - i; j++ ) {
+            //         if (array[j] > array[j + 1]) { // 相邻元素两两对比
+            //             let temp = array[j + 1] // 元素交换
+            //             array[j + 1] = array[j]
+            //             array[j] = temp
+            //         }
+            //     }
+            // }
+            // return array
+            // 高性能写法
+            let i = array.length - 1
+            while (i > 0) {
+                let pos= 0 //每趟开始时,无记录交换
+                for (let j = 0; j < i; j++) {
+                    if (array[j] > array[j + 1]) {
+                        pos= j; //记录交换的位置
+                        let temp = array[j]
+                        array[j] = array[j + 1]
+                        array[j + 1] = temp
                     }
                 }
+                i = pos;  //为下一趟排序作准备
             }
             return array
+        },
+        /**
+         * 快速排序
+         * @param {Array} array 排序前的数组
+         * @return {Array} array 排序后的数组
+         */
+        quickSort (array) {
+            if (!Array.isArray(array)) {
+                throw TypeError('参数不是一个数组')
+            }
+            // 当被分的数组只剩一个时，退出递归
+            if (array.length <= 1) {
+                return array
+            }
+            // 中间基准值的index
+            let pivotIndex = Math.floor(array.length / 2)
+            let pivot = array.splice(pivotIndex, 1)[0]
+            let left = []
+            let right = []
+            // 小的放左边，大的放右边
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] < pivot) {
+                    left.push(array[i])
+                } else {
+                    right.push(array[i])
+                }
+            }
+            // 递归
+            // 把数组合并在一起
+            return this.quickSort(left).concat([pivot], this.quickSort(right))
         }
     }
 }
