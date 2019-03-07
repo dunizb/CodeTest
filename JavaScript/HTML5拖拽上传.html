@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML5拖拽上传</title>
+    <style>
+        .upload-arae { 
+            min-width: 300px; 
+            min-height: 150px; 
+            border: 1px dashed #ccc; 
+            border-radius:3px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        .tip {
+            text-align: center;
+        }
+        .dragover {
+            border: 1px dashed blue; 
+        }
+        .button {
+            color: #fff;
+            background-color: #20a0ff;
+            border-color: #20a0ff;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5拖拽上传及本地预览</h1>
+    <div id="rate" class="upload-arae">
+        <div class="tip">
+            <p>将文件拖拽到此处开始上传！</p>
+            <label for="inputFile" class="button">选择文件</label>
+            <input type="file" name="file" id="inputFile" onchange="changeUpload(event)" style="display:none">
+        </div>
+    </div>
+    <div id="viewImg">
+    </div>
+</body>
+<script>
+    var rate = document.getElementById('rate');
+    var viewImg = document.getElementById('viewImg');
+    document.addEventListener('dragenter', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        rate.classList.add('dragover')
+    }, false)
+    document.addEventListener('dragover', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }, false);
+    document.addEventListener('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        sendFile(e || window.event);
+        rate.classList.remove('dragover')
+    }, false);
+
+    function sendFile(e) {
+        var files = e.dataTransfer.files;
+        console.log('files', files)
+        if (!files || files.length < 1) {
+            return;
+        }
+        toViewImg(files[0])
+    }
+
+    function changeUpload(ev) {
+        let files = ev.target.files;
+        toViewImg(files[0])
+    }
+
+    function toViewImg(file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file)
+        reader.onload = function (e) {
+            viewImg.innerHTML = '上传中...'
+            var img = this.result
+            setTimeout(function(){
+                viewImg.innerHTML = '<img src="' + img + '" />'
+            }, 2000)
+        }
+    }
+</script>
+</html>
