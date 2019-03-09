@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现一个红绿灯</title>
+    <style>
+        #traffic-light {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #000; 
+        }
+        .traffic-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .traffic {
+            width: 50px;
+            height: 50px;
+            margin: 5px 0;
+            border-radius: 50%;
+            border: 1px solid #000; 
+        }
+        .red { background-color: red;}
+        .yellow { background-color: yellow;}
+        .green { background-color: green;}
+    </style>
+</head>
+<body>
+    <h1>实现一个红绿灯，把一个圆形 div 按照绿色 3 秒，黄色 1 秒，红色 2 秒循环改变背景色</h1>
+    <div id="traffic-light"></div>
+    <hr/>
+    <div class="traffic-box">
+        <div id="traffic-red" class="traffic"></div>
+        <div id="traffic-yellow" class="traffic"></div>
+        <div id="traffic-green" class="traffic"></div>
+    </div>
+    <script>
+        function sleep(duration) {
+            return new Promise(function(reslove){
+                setTimeout(reslove, duration);
+            })
+        }
+
+        async function changeColor(duration, color) {
+            document.getElementById("traffic-light").style.background = color;
+            await sleep(duration);
+        }
+
+        async function main(){
+            while(true){
+                await changeColor(3000,"green");
+                await changeColor(1000, "yellow");
+                await changeColor(2000, "red");
+            }
+        }
+        main()
+
+        //***************************************************************
+        var red = document.getElementById('traffic-red')
+        var yellow = document.getElementById('traffic-yellow')
+        var green = document.getElementById('traffic-green')
+        async function changeColor2(duration, color) {
+            console.log(duration, color)
+            if (color === 'red') {
+                red.classList.add('red');
+                yellow.classList.remove('yellow')
+                green.classList.remove('green')
+            } else if (color === 'yellow') { 
+                yellow.classList.add('yellow');
+                red.classList.remove('red')
+                green.classList.remove('green')
+            } else {
+                green.classList.add('green');
+                red.classList.remove('red')
+                yellow.classList.remove('yellow')
+            } 
+            await sleep(duration);
+        }
+        async function main2(){
+            while(true){
+                await changeColor2(3000,"green");
+                await changeColor2(1000, "yellow");
+                await changeColor2(2000, "red");
+            }
+        }
+        main2()
+    </script>
+</body>
+</html>
