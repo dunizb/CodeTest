@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创邻科技笔试题-2</title>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        td {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>创邻科技笔试题-2</h1>
+        <p>1. 生成n * n的格子（n从输入框输入），格子默认背景样色为白色</p>
+        <p>2. 当鼠标移入格子，格子背景颜色显示红色，移除显示白色</p>
+        <p>3. 当鼠标点击格子后，格子固定显示蓝色，鼠标移入也不变色，再次点击格子恢复成初始状态，鼠标再次移入变红色</p>
+    </header>
+    <input type="number" id="count" placeholder="输入格子数量">
+    <button onclick="build()">生成格子</button>
+    <br>
+    <div id="result"></div>
+</body>
+<script>
+    let result = document.getElementById('result');
+
+    function render (n) {
+        let frag = document.createDocumentFragment()
+        for (let i = 0; i < n; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < n; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            frag.appendChild(tr)
+        }
+
+        let table = document.createElement('table');
+        table.appendChild(frag)
+        result.appendChild(table);
+    }
+    function build () {
+        let count = document.getElementById('count').value
+        result.innerHTML = '';
+        render(count);
+        bindEvent();
+    }
+
+    function bindEvent () {
+        let tds = document.getElementsByTagName('td');
+        let td
+        for (let i = 0; i < tds.length; i++) {
+            td = tds[i]
+            td.addEventListener('mouseover', mouseoverFn)
+            td.addEventListener('mouseout', mouseoutFn)
+            td.addEventListener('click', clickFn)
+        }
+    }
+
+    function mouseoverFn (event) {
+        let td = event.target;
+        console.log('td.name', td.name);
+        if (!td.name) td.style.backgroundColor = 'red';
+    }
+
+    function mouseoutFn (event) {
+        let td = event.target;
+        console.log('td.name', td.name);
+        if (!td.name) td.style.backgroundColor = 'white';
+    }
+
+    function clickFn (event) {
+        let td = event.target;
+        if (td.name) {
+            td.name = '';
+            td.style.backgroundColor = 'white'
+        } else {
+            td.name = 'click';
+            td.style.backgroundColor = 'blue'
+        }
+    }
+</script>
+</html>

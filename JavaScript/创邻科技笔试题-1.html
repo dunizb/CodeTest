@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创邻科技笔试题-1</title>
+</head>
+<body>
+    <header>
+        <h1>创邻科技笔试题-1</h1>
+        <p>1. 生成n * n的格子（n从输入框输入），格子默认背景样色为白色</p>
+        <p>2. 当鼠标移入格子，格子背景颜色显示红色，移除显示白色</p>
+        <p>3. 当鼠标点击格子后，格子固定显示蓝色，鼠标移入也不变色，再次点击格子恢复成初始状态，鼠标再次移入变红色</p>
+    </header>
+    <input type="number" id="total" placeholder="预算金额">
+    <br/>
+    <input type="text" id="prices" placeholder="每种物品的价格，用空格隔开" style="width:300px">
+    <br/>
+    <button onclick="calc()">计算</button>
+    <p id="result"></p>
+</body>
+<script>
+    function calc () {
+        let total = document.getElementById('total').value; // 预算
+        let prices = document.getElementById('prices').value; // 每种物品的价格
+        let result = document.getElementById('result');
+
+        if (!total) {
+            alert('请输入预算金额！')
+            return
+        }
+        if (!prices) {
+            alert('请输入每种物品的价格！')
+            return
+        }
+
+        let priceArray = prices.split(/\s+/)
+        let sum = 0
+        priceArray.forEach(function(item) {
+            sum += Number(item)
+        });
+        if (sum > total) {
+            result.innerText = '超出预算'+ (sum - total) +'元了！'
+        } else {
+            result.innerText = sum
+        }
+    }
+</script>
+</html>
