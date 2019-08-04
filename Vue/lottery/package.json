@@ -19,7 +19,7 @@
     "gulp-load-plugins": "^1.5.0",
     "gulp-postcss": "^7.0.0",
     "gulp-uglify": "^3.0.0",
-    "open": "0.0.5",
+    "open": ">=6.0.0",
     "postcss-px2rem": "^0.3.0"
   },
   "scripts": {
