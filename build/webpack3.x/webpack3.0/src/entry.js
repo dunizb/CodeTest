@@ -1,1 +1,0 @@
-document.getElementById("title").innerHTML = "Hello Dunizb.com";
