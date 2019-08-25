@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DatePicker-imooc</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .datepicker {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            height: 24px; 
+            line-height: 24px;
+            width: 230px;
+        }
+        .datepicker:focus {
+            outline: 0 none;
+            border: 1px solid #1abc9c;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="datepicker">
+    <!-- <div class="ui-datepicker-wrapper"></div> -->
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+    <script>
+        // let monthDate = datepicker.getMonthData(2016, 12);
+        // console.log(monthDate)
+        // const rootDom = document.querySelector('.datepicker')
+        datepicker.init('.datepicker')
+    </script>
+</body>
+</html>
