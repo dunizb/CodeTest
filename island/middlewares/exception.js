@@ -11,6 +11,13 @@ const catchError = async (ctx, next) => {
                 request: `${ctx.method} ${ctx.path}`,
             },
             ctx.status = error.status
+        } else {
+            ctx.body = {
+                msg: '出现了未知异常~~~！',
+                code: 999,
+                request: `${ctx.method} ${ctx.path}`,
+            }
+            ctx.status = 500
         }
     }
 }
