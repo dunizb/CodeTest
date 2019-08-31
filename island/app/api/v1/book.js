@@ -1,8 +1,6 @@
 const Router = require('koa-router')
 const router = new Router()
 
-const { HttpException } = require('../../../core/http-exception')
-
 router.get('/book/:id', (ctx, next) => {
     ctx.body = {
         id: ctx.params.id,
@@ -15,20 +13,14 @@ router.post('/book/:id', async (ctx, next) => {
     const query = ctx.request.query
     const headers = ctx.request.header
     const body = ctx.request.body
-    if (!query.version) {
+    if (true) {
         console.log('error')
-        const error = new HttpException('为什么出错误', 10001, 400)
-        // error.requestUrl = `${ctx.method} ${ctx.path}`
+        const error = new global.errs.ParameterException()
         throw error
     }
     ctx.body = {
-        data: 'JavaScript权威指南',
-        path,
-        query,
-        headers,
-        body
+        data: 'JavaScript权威指南'
     }
-    // throw new Error('API Exception!!')
 })
 
 module.exports = router

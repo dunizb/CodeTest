@@ -5,6 +5,7 @@ class InitManager {
     static initCore(app) {
         // 人口方法
         InitManager.initLoadRoutes(app)
+        InitManager.loadHttpException()
     }
 
     static initLoadRoutes(app) {
@@ -18,6 +19,11 @@ class InitManager {
                 app.use(obj.routes())
             }
         }
+    }
+
+    static loadHttpException() {
+        const errors = require('./http-exception')
+        global.errs = errors
     }
 }
 
