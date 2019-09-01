@@ -10,12 +10,12 @@ const { User } = require('../../models/user')
 router.post('/register/', async (ctx, next) => {
     const v = await new RegisterValidator().validate(ctx)
     // 加密的盐
-    const salt = bcryptjs.genSaltSync(10)
-    const safePwd = bcryptjs.hashSync(v.get('body.password1'), salt)
+    // const salt = bcryptjs.genSaltSync(10)
+    // const safePwd = bcryptjs.hashSync(v.get('body.password1'), salt)
     const user = {
         email: v.get('body.email'),
         nickname: v.get('body.nickname'),
-        password: safePwd
+        password: v.get('body.password1')
     }
     User.create(user)
 })
