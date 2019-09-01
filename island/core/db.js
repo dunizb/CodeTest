@@ -25,7 +25,7 @@ const sequelize = new Sequelize(dbName, user, password, {
 })
 
 sequelize.sync({
-    force: true // 先删除再更新
+    force: false // 先删除再更新
 })
 
 module.exports = {
