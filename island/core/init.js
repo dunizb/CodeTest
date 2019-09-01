@@ -6,6 +6,13 @@ class InitManager {
         // 人口方法
         InitManager.initLoadRoutes(app)
         InitManager.loadHttpException()
+        InitManager.loadConfig()
+    }
+
+    static loadConfig(path = '') {
+        const configPath = path || process.cwd() + 'config/config.js'
+        const config = require(configPath)
+        global.config = config
     }
 
     static initLoadRoutes(app) {

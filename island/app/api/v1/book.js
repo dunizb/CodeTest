@@ -1,6 +1,8 @@
 const Router = require('koa-router')
 const router = new Router()
 
+const {PositiveIntegerValidator} = require('../../validators/validator')
+
 router.get('/book/:id', (ctx, next) => {
     ctx.body = {
         id: ctx.params.id,
@@ -14,11 +16,7 @@ router.post('/book/:id', async (ctx, next) => {
     const headers = ctx.request.header
     const body = ctx.request.body
 
-    if (true) {
-        console.log('error')
-        const error = new global.errs.ParameterException()
-        throw error
-    }
+    const v = new PositiveIntegerValidator().validate(ctx)
     ctx.body = {
         data: 'JavaScript权威指南'
     }
