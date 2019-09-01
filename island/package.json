@@ -9,10 +9,18 @@
   "author": "Dunizb",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "basic-auth": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.4.0",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.11",
+    "module-alias": "^2.2.0",
     "mysql2": "^1.7.0",
+    "npm-check": "^5.9.0",
     "require-directory": "^2.1.1",
     "sequelize": "^5.18.0"
   }
