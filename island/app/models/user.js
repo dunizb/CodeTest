@@ -19,7 +19,7 @@ User.init({
         set(val) {
             const salt = bcryptjs.genSaltSync(10)
             const safePwd = bcryptjs.hashSync(val, salt)
-            this.setDataValue(safePwd)
+            this.setDataValue('password', safePwd)
         }
     },
     openid: {
