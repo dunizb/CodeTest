@@ -32,9 +32,18 @@ class NotFound extends HttpException{
     }
 }
 
+class AuthFailed extends HttpException {
+    constructor(msg, code) {
+        super()
+        this.msg = msg || '授权失败'
+        this.code = this.status = 401
+    }
+}
+
 module.exports = {
     HttpException,
     ParameterException,
     Success,
-    NotFound
+    NotFound,
+    AuthFailed
 }

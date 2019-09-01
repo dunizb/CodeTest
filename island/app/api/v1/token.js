@@ -16,8 +16,7 @@ router.post('/', async (ctx) => {
     let token;
     switch (v.get('body.type')) {
         case LoginType.USER_EMAIL:
-            token = await emailLogin(v.get('body.account'),
-                v.get('body.secret'))
+            token = await emailLogin(v.get('body.account'), v.get('body.secret'))
             break
         case LoginType.USER_MINI_PROGRAM:
             token = await WXManager.codeToToken(v.get('body.account'))
@@ -31,3 +30,11 @@ router.post('/', async (ctx) => {
         token
     }
 })
+
+async function emailLogin(account, secret) {
+    console.log(account, secret)
+    const user = await User.verifyEmailPassword(account, secret)
+    // return token = generateToken(user.id, Auth.USER)
+}
+
+module.exports = router
