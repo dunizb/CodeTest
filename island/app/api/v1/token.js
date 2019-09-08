@@ -31,6 +31,15 @@ router.post('/', async (ctx) => {
     }
 })
 
+router.post('/verify', async (ctx)=>{
+    // token
+    const v =await new NotEmptyValidator().validate(ctx)
+    const result = Auth.verifyToken(v.get('body.token'))
+    ctx.body = {
+        is_valid:result
+    }
+})
+
 async function emailLogin(account, secret) {
     console.log(account, secret)
     const user = await User.verifyEmailPassword(account, secret)
