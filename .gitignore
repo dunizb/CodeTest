@@ -9,5 +9,6 @@ nodejs/**/node_modules/
 build/**/node_modules/
 Vue/**/node_modules/
 island/node_modules/
+Node-Koa/upload-demo/node_modules/
 dunizb-webpack-core-back/node_modules/
 **.DS_Store
