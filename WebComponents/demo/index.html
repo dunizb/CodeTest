@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <template id="geekbang-t">
+        <style>
+            p {
+                background-color: brown;
+                color: cornsilk;
+            }
+            div {
+                width: 200px;
+                background-color: bisque;
+                border: 3px solid red;
+                border-radius: 10px;
+            }
+        </style>
+        <div>
+            <p>time.geekbang.org</p>
+            <p>time1.geekbang.org</p>
+        </div>
+        <script>
+            function foo() {
+                console.log('foo')
+            }
+        </script>
+    </template>
+
+    <script>
+        class Geekbang extends HTMLElement {
+            constructor() {
+                super();
+                // 获取组件模板
+                const content = document.getElementById('geekbang-t').content
+                // 创建影子DOM节点
+                const shadowDOM = this.attachShadow({ mode: 'open' })
+                // 将模板添加到影子DOM上
+                shadowDOM.appendChild(content.cloneNode(true))
+            }
+        }
+        customElements.define('geek-bang', Geekbang)
+    </script>
+
+    <geek-bang></geek-bang>
+    <geek-bang></geek-bang>
+    <div>
+        <p>time.geekbang.org</p>
+        <p>time1.geekbang.org</p>
+    </div>
+</body>
+</html>
