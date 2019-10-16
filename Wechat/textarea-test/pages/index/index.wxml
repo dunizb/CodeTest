@@ -1,0 +1,10 @@
+<view class="intro">
+
+  <view class="tip">请上下滑动体验，可在真机上预览</view>
+  <textarea auto-height value="请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验请上下滑动体验"/>
+  <!-- <cover-view> -->
+  <button class="submit-cls" id='button' bindtap="onClick"> Button z-index: 10 </button>
+  <!-- </cover-view> -->
+  <cover-view class="cover-view-clas" id='cover-view' bindtap="onClick"> cover-view z-index: 10 </cover-view>
+
+</view>

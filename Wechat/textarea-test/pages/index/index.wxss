@@ -1,0 +1,44 @@
+page {
+  padding-top: 300px;
+  height: 600px;
+}
+.intro {
+  margin: 30px;
+}
+.tip {
+  text-align: center;
+  line-height: 30px;
+  position: fixed;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+}
+textarea {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.submit-cls {
+  position: fixed;
+  left: 30px;
+  right: 30px;
+  bottom: 300px;
+  text-align: center;
+  background-color: green;
+  color: #fff;
+  z-index: 100;
+}
+.cover-view-clas {
+  position: fixed;
+  height: 40px;
+  line-height: 40px;
+  left: 30px;
+  right: 30px;
+  bottom: 250px;
+  text-align: center;
+  background-color: orangered;
+  color: #fff;
+  z-index: 10;
+}
