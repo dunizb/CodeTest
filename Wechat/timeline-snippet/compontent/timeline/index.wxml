@@ -1,0 +1,3 @@
+<view class="pps-timeline custom-class {{reverse?'desc':'asc'}}">
+  <slot />
+</view>

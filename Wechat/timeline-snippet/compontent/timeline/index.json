@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pps-timeline-item": "./timeline-item/index"
+  }
+}

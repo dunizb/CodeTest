@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="mode-title">默认，倒序</view>
+  <view class="pd-l-r">
+    <pps-timeline>
+      <pps-timeline-item 
+        wx:for="{{activity}}"
+        wx:key="{{index}}" 
+        timestamp="{{item.timestamp}}">
+        {{item.content}}
+      </pps-timeline-item>  
+    </pps-timeline>
+  </view>
+
+  <view class="mode-title">正序和dotStyle</view>
+  <view class="pd-l-r">
+    <pps-timeline reverse="{{false}}">
+      <pps-timeline-item 
+        wx:for="{{activity}}" 
+        wx:key="{{index}}"
+        timestamp="{{item.timestamp}}"
+        dotStyle="border-color: #33cd5f; background-color: #33cd5f">
+          {{item.content}}
+      </pps-timeline-item>
+    </pps-timeline>
+  </view>
+  
+  <view class="mode-title">slot="operation"</view>
+  <view class="pd-l-r">
+    <pps-timeline>
+      <pps-timeline-item 
+        wx:for="{{activity}}" 
+        wx:key="{{index}}"
+        timestamp="{{item.timestamp}}">
+        {{item.content}}
+        <text slot="operation" bindtap="onEdit">编辑</text>
+      </pps-timeline-item>  
+    </pps-timeline>
+  </view>
+
+  <view class="mode-title">第一个节点slot和内容slot</view>
+  <view class="pd-l-r">
+    <pps-timeline>
+      <pps-timeline-item 
+        wx:for="{{activity3}}" 
+        wx:key="{{index}}" 
+        timestamp="{{item.timestamp}}"
+        timestamp-class="{{index === 0?'timestamp-class':''}}"
+        custom-dot="{{index === 0}}">
+          <text slot="dot">🏆</text>
+          <view wx:if="{{!m.isArray(item.content)}}">{{item.content}}</view>
+          <block wx:else>
+            <view wx:for="{{item.content}}" wx:for-item="itemName" wx:for-index="idx" wx:key="{{idx}}">{{idx + 1}}. {{itemName}}</view>
+          </block>
+      </pps-timeline-item>
+    </pps-timeline>
+  </view>
+</view>
+
+<wxs module="m">
+var isArray = function(obj) {
+  return obj.constructor === 'Array'
+}
+module.exports.isArray = isArray
+</wxs>

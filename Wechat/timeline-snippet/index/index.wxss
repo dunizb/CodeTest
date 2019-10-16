@@ -1,0 +1,19 @@
+.mode-title {
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  background: #f5f5f5;
+  padding-left: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #888;
+}
+.pd-l-r{
+  padding: 0 40rpx;
+}
+.mt20 {
+  margin-top: 40rpx;
+}
+.timestamp-class {
+  color: black;
+  font-weight: 700;
+}

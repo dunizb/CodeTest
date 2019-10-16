@@ -1,0 +1,8 @@
+.pps-timeline.desc{
+  display: flex;
+  flex-direction: column;
+}
+.pps-timeline.asc{
+  display: flex;
+  flex-direction: column-reverse;
+}

@@ -1,0 +1,45 @@
+.pps-timeline-item {
+  font-size: 28rpx;
+}
+
+.item-wrapper .item-timestamp {
+  display: flex;
+  justify-content: space-between;
+  font-family: PingFangSC-Regular;
+  color: #888;
+}
+.item-wrapper .dot {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #fff;
+  border: 2px solid #bcc1cc;
+  border-radius: 50%;
+}
+.item-wrapper .timestamp {
+  margin-left: 20rpx;
+}
+.item-wrapper .item-desc {
+  /* border-left: 2rpx dashed #BCC0CC; */
+  position: relative;
+  line-height: 44rpx;
+  padding-bottom: 44rpx;
+  margin-left: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 30rpx;
+  word-wrap:break-word;
+}
+.item-wrapper .item-desc::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rpx;
+  border-left: 2rpx dashed #BCC0CC;
+  /* transform: translateX(-50%); */
+}
+.item-wrapper .item-desc.hiddenBorder::after {
+  border-left: 0rpx;
+}

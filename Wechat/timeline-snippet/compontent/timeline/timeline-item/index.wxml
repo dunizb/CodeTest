@@ -1,0 +1,18 @@
+<view class="pps-timeline-item">
+  <view class="item-wrapper"> 
+    <view class="item-timestamp">
+      <view class="timestamp-class">
+        <slot wx:if="{{customDot}}" name="dot"></slot>
+        <text wx:else class="dot" style="{{ extStyle }}"></text>
+        <text class="timestamp" style="color:{{color}}">{{timestamp}}</text>
+      </view>
+      <slot name="operation" />
+    </view>
+    <view wx:if="{{reverse}}" class="item-desc content-class {{isLast?'hiddenBorder':''}}">
+      <slot />
+    </view>
+    <view wx:else class="item-desc content-class {{index == 0?'hiddenBorder':''}}">
+      <slot />
+    </view>
+  </view>
+</view>
