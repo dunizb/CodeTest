@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .current {
+        color: red;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        window.onload = function() {
+            var allLis = document.getElementsByTagName('li');
+            // 记录移动前选中的li对应的索引
+            var preSelectLiIndex = 0;
+            for(var i = 0; i < allLis.length; i++) {
+                (function(i){
+                    var li = allLis[i];
+                    li.onmouseover = function() {
+                        // 清除
+                        allLis[preSelectLiIndex].className = '';
+                        // 设置
+                        this.className = 'current';
+                        // 赋值
+                        preSelectLiIndex = i;
+                    }
+                })(i);
+            }
+        }
+    </script>
+</body>
+</html>

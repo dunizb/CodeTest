@@ -16,7 +16,7 @@ f();
 console.log('======2. 将函数的形参作为实参传递给另一个函数调用======')
 function logMsgDelay(msg, timeout) {
     setTimeout(() => {
-        console.log('msg = ', msg);
+        console.log('2. msg = ', msg);
     }, timeout);
 }
 logMsgDelay('哈哈哈', 1200);
