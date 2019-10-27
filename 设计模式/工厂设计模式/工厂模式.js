@@ -31,6 +31,7 @@ function FruitMaker() {}
 FruitMaker.prototype.make = function(type, meta) {
     // 1. 判断工厂是否具备生产的能力
     // 如果是函数说明有该类型生产线
+    console.log(this)
     if (typeof this[type] === 'function') {
         var func = this[type];
         console.log(func.name + ' 生产线~~~')
@@ -42,15 +43,17 @@ FruitMaker.prototype.make = function(type, meta) {
     }
 }
 
-// 扩展生产线
+// 扩展生产线的机器
 FruitMaker.prototype.extend = function(obj) {
     for(var key in obj) {
         this[key] = obj[key]
     }
 }
 
-// 苹果汁、梨子汁
-FruitMaker.prototype.extend({
+// 1. 实例化 苹果
+var maker = new FruitMaker();
+// 2. 创建果汁生产线
+maker.extend({
     'Apple': function(meta) {
         console.log('造了一杯苹果汁，材料有：', meta.toString());
     },
@@ -59,8 +62,6 @@ FruitMaker.prototype.extend({
     },
 })
 
-// 1. 实例化 苹果
-var maker = new FruitMaker();
 var appleObj = maker.make('Apple', ['一个苹果','一斤水']);
 console.log('生产的工厂： ', appleObj.constructor.name, '\n')
 // 梨子
