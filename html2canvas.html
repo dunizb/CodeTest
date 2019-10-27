@@ -1,0 +1,77 @@
+<style>
+.banner{
+  width:865px;
+  height:1155px;
+  background:red;
+  position:relative;
+  background-color: #3B97FF;
+  background-image: linear-gradient(180deg,#3B97FF 50%,#0CC1A9 14%);
+  background-image: -webkit-linear-gradient(180deg,#3B97FF 50%,#0CC1A9 14%);
+  background-image: -moz-linear-gradient(180deg,#3B97FF 50%,#0CC1A9 14%);
+  background-image: -o-linear-gradient(180deg,#3B97FF 50%,#0CC1A9 14%);
+}
+#intro {
+  position:absolute;
+  width: 450px;
+  height: 450px;
+  background: red;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%, -50%);
+  padding: 20px;
+  text-align:center;
+  border-radius: 50%;
+  box-shadow: 1px 1px 30px;
+}
+p {
+  color:yellow;
+  font-weight:bold;
+}
+p.title{
+  position:absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -30%);
+  font-size: 34px;
+}
+p.sub{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-family: cursive;
+  width: 314px;
+}
+canvas {
+    box-shadow: 1px 1px 10px;
+}
+</style>
+
+<div class="banner">
+    <div id="intro">
+        <p class="title">Web前端开发</p>
+        <p class="sub">知识体系和要点精华总结</p>
+    </div>
+</div>
+<input type="button" onclick="buildImg()" value="Build" />
+
+<div id="res"></div>
+
+<script src="//html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+function buildImg() {
+    var intro = document.body;
+    html2canvas(intro, {
+        allowTaint: true,
+        useCORS: true
+    }).then(function(canvas) {
+        // var img = document.createElement('img');
+        // img.style.width = '865px';
+        // img.style.height = '1155px';
+        // img.src = canvas.toDataURL();
+        // // console.log(canvas.toDataURL())
+        document.body.appendChild(canvas);
+    });
+}
+</script>
