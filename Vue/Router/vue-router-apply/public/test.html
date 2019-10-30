@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <a href="#/home">首页</a>
+    <a href="#/about">关于页</a>
+    <div id="app"></div> -->
+    <a href="javascript:;" onclick="go('/home')">首页</a>
+    <a href="javascript:;" onclick="go('/about')">关于页</a>
+    <div id="app"></div>
+    <script>
+        // hash 原理
+        // window.addEventListener('load', () => {
+        //     app.innerHTML = window.location.hash.slice(1);
+        // })
+        // window.addEventListener('hashchange', () => {
+        //     app.innerHTML = location.hash.slice(1);
+        // })
+
+        // history API 原理 会发生404
+        function go(pathname) {
+            history.pushState({}, null, pathname)
+            app.innerHTML = pathname
+        }
+
+        window.addEventListener('popstate', () => {
+            go(location.pathname)
+        })
+
+    </script>
+</body>
+</html>
