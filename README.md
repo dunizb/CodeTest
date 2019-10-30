@@ -12,7 +12,7 @@
 + [实现一个红绿灯](https://github.com/dunizb/CodeTest/tree/master/JavaScript/red-yellow-green.html)
 + [前端rouer实现](https://github.com/dunizb/CodeTest/tree/master/框架/router)
 + [前端常用设计模式](https://github.com/dunizb/CodeTest/tree/master/设计模式/)
-+ [实现VueRouter一样的路由](https://github.com/dunizb/CodeTest/tree/master/Router/vue-router-apply/)
++ [实现VueRouter一样的路由](https://github.com/dunizb/CodeTest/tree/master/Vue/Router/vue-router-apply/)
 + [HTML5拖拽上传、预览示例](https://github.com/dunizb/CodeTest/tree/master/JavaScript/HTML5拖拽上传.html)
 
 **2018**  
