@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test my-promise</title>
+</head>
+<body>
+    <script src="./3-promise-es5.js"></script>
+    <script>
+        const p = new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve(1)
+                reject(2)
+            }, 100);
+        })
+        p.then(
+            value => {
+                console.log('onResolved1()', value);
+            },
+            reason => {
+                console.log('onRejected1()', reason);
+            }
+        )
+        p.then(
+            value => {
+                console.log('onResolved2()', value);
+            },
+            reason => {
+                console.log('onRejected2()', reason);
+            }
+        )
+    </script>
+</body>
+</html>
