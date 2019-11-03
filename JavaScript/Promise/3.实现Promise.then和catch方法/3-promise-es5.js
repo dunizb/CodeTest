@@ -83,7 +83,7 @@
      */
     Promise.prototype.then = function(onResolved, onRejected) {
         // 指定失败的默认回调，向后传递成功的value
-        onResolved = typeof onRejected === 'function' ? onResolved : value => value
+        onResolved = typeof onResolved === 'function' ? onResolved : value => value
         // 指定失败的默认回调(实现异常传透的关键点)，向后传递失败的reason
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
 
@@ -112,7 +112,8 @@
                         // 简写方式
                         // result.then(resolve, reject)
                     } else { 
-                        // 3. 如果回调函数执行返回非Promise，return的Promise就回成功，成功的value就是返回的值
+                        // 3. 返回一个一般值(undefined) ===> 将这个值作为返回的 promise 的成功值
+                        resolve(result)
                     }
                 } catch (error) {
                     // 1. 如果执行抛出异常，return 的 Promise就会失败, reason就是Error

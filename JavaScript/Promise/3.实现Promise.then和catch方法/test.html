@@ -14,21 +14,34 @@
                 // resolve(1)
                 reject(2)
             }, 100);
-        })
-        p.then(
+        }).then(
             value => {
                 console.log('onResolved1()', value);
             },
             reason => {
                 console.log('onRejected1()', reason);
+                // return 3
+                // throw 4
+                return new MyPromise((resolve, reject) => reject(5))
             }
-        )
-        p.then(
+        ).then(
             value => {
                 console.log('onResolved2()', value);
             },
             reason => {
                 console.log('onRejected2()', reason);
+                throw 6
+            }
+        ).catch(reason => {
+            console.log('onRejected3()', reason);
+            return new MyPromise(() => {}) // 中断Promise链
+        }).then(
+            value => {
+                console.log('onResolved4()', value);
+            },
+            reason => {
+                console.log('onRejected4()', reason);
+                throw 6
             }
         )
     </script>
