@@ -162,7 +162,14 @@
      * @param {*} value 成功的返回值
      */
     Promise.resolve = function(value) {
-
+        // 返回一个成功/失败的Promise
+        return new Promise((resolve, reject) => {
+            if (value instanceof Promise) { // value 是Promise => 使用value的结果作为当然Promise的结果
+                value.then(resolve, reject);
+            } else { // value 不是Promise => Promise变为成功，数据是value
+                resolve(value)
+            }
+        })
     }
 
     /**
@@ -171,7 +178,10 @@
      * @param {*} reason 失败的返回值
      */
     Promise.reject = function(reason) {
-
+        // 返回一个失败的Promise
+        return new Promise((resolve, reject) => {
+            reject(reason)
+        })
     }
 
      /**

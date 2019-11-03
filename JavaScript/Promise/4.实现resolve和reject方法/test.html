@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test my-promise</title>
+</head>
+<body>
+    <script src="./4-promise-es5.js"></script>
+    <script>
+        const p1 = MyPromise.resolve(1) // 如果是一般值，promise成功，value就是这个值
+        const p2 = MyPromise.resolve(MyPromise.resolve(2)) // 如果是成功的promise，p2成功，value就是这个Promise的value
+        const p3 = MyPromise.resolve(MyPromise.reject(3))  // 如果是失败的promise，p3失败，reason就是这个Promise的reason
+
+        p1.then(value => { console.log('p1', value) }) // 1
+        p2.then(value => { console.log('p2', value) }) // 2
+        p3.catch(reason => { console.log('p3', reason) }) // 3
+    </script>
+</body>
+</html>
