@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test my-promise</title>
+</head>
+<body>
+    <script src="./5-promise-es5.js"></script>
+    <script>
+        const p1 = MyPromise.resolve(1) // 如果是一般值，promise成功，value就是这个值
+        const p2 = MyPromise.resolve(MyPromise.resolve(2)) // 如果是成功的promise，p2成功，value就是这个Promise的value
+        const p3 = MyPromise.resolve(MyPromise.reject(3))  // 如果是失败的promise，p3失败，reason就是这个Promise的reason
+        const p4 = new MyPromise((resolve) => {
+            setTimeout(() => {
+                resolve(4)
+            }, 1000);
+        })
+        const p5 = MyPromise.reject(5)
+        // const pAll = MyPromise.all([p1, 7, p2])
+        // pAll.then(
+        //     values => {
+        //         console.log('all onResoved()', values); // [1, 7 ,2]
+        //     },
+        //     reason => {
+        //         console.log('all onReject', reason);
+        //     }
+        // )
+
+        const pRace = MyPromise.race([p4, 7, p5, p2, p3])
+        pRace.then(
+            values => {
+                console.log('all onResoved()', values);
+            },
+            reason => {
+                console.log('all onReject', reason);
+            }
+        )
+    </script>
+</body>
+</html>
