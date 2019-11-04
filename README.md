@@ -6,8 +6,6 @@
 + [Koa.js中文件上传示例](https://github.com/dunizb/CodeTest/tree/master/Node-Koa/upload-demo)
 + [js-webpack-babel-template](https://github.com/dunizb/CodeTest/tree/master/js-webpack-babel-template)
 + [JavaScript DatePicker](https://github.com/dunizb/CodeTest/tree/master/JavaScript/DatePicker)
-+ [创邻科技笔试题-1](https://github.com/dunizb/CodeTest/tree/master/JavaScript/创邻科技笔试题-1.html)
-+ [创邻科技笔试题-2](https://github.com/dunizb/CodeTest/tree/master/JavaScript/创邻科技笔试题-2.html)
 + [WebComponents demo](https://github.com/dunizb/CodeTest/tree/master/WebComponents/demo)
 + [实现一个红绿灯](https://github.com/dunizb/CodeTest/tree/master/JavaScript/red-yellow-green.html)
 + [前端rouer实现](https://github.com/dunizb/CodeTest/tree/master/框架/router)
