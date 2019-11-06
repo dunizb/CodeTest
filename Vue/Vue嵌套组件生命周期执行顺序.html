@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <comp></comp>
+        </div>
+    </div>
+    <script>
+        Vue.component('comp', {
+            template: '<div><children-a></children-a></div>',
+            beforeCreate() {
+                console.log('Comp beforeCreate')
+            },
+            created() {
+                console.log('Comp created')
+            },
+            beforeMount() {
+                console.log('Comp beforeMount')
+            },
+            mounted() {
+                console.log('Comp mounted')
+            },
+        })
+
+        Vue.component('childrenA', {
+            template: '<div><children-b></children-b></div>',
+            beforeCreate() {
+                console.log('--childrenA beforeCreate')
+            },
+            created() {
+                console.log('--childrenA created')
+            },
+            beforeMount() {
+                console.log('--childrenA beforeMount')
+            },
+            mounted() {
+                console.log('--childrenA mounted')
+            },
+        })
+        Vue.component('childrenB', {
+            template: '<div>{{text}}</div>',
+            data() {
+                return {
+                    text: 'childrenB'
+                }
+            },
+            beforeCreate() {
+                console.log('----childrenB beforeCreate')
+            },
+            created() {
+                console.log('----childrenB created')
+            },
+            beforeMount() {
+                console.log('----childrenB beforeMount')
+            },
+            mounted() {
+                console.log('----childrenB mounted')
+            },
+        })
+        new Vue({
+            el: '#app'
+        })  
+
+        
+    </script>
+</body>
+</html>
