@@ -24,3 +24,18 @@ var bar = function(){
 bar(); // undefined
 var func = bar.myBind(foo);
 func(); // 1
+
+
+const queuedObservers = new Set();
+const observe = function(fn){
+    queuedObservers.add(fn)
+}
+const observable = function(obj) {
+    return new Proxy(obj, {
+        set(target, key, value, receiver) {
+            const result = Reflect.set(target, key, value, receiver);
+            queuedObservers.forEach(observer => observer());
+            return result;
+        }
+    })
+}
