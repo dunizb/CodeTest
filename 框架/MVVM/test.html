@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MVVM</title>
+    <script src="MVVM.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="school.name">
+        <div>{{school.name}}</div>
+        <div>{{school.age}}</div>
+        <!-- 如果数据不变化，视图就不更新 -->
+        {{newName}}
+        <ul>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+        <button v-on:click="changeName">changeName</button>
+        <div v-html="message"></div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                school: {
+                    name: '北京大学',
+                    age: 100
+                },
+                message: '<h1>v-html 欢迎大家</h1>'
+            },
+            computed: {
+                newName() {
+                    return this.school.name + '中国第一'
+                }
+            },
+            methods: {
+                changeName() {
+                    this.school.name = '清华大学'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
