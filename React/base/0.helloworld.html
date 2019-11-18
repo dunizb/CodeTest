@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0.helloworld</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 1. 创建虚拟DOM元素对象
+        var vDom = <h1>Hello React!</h1>    // 不是字符串
+        // 2. 将虚拟DOM渲染到页面真实DOM容器中
+        ReactDOM.render(vDom, test)
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1.onClick-state</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    
+    <script type="text/babel">
+        /**
+         * 需求：自定义组件，需求说明如下
+         * 1. 显示h2标题，初始文本为：你喜欢我
+         * 2. 点击标题更新为：我喜欢你
+         */ 
+        // 组件Like必须以大写开头
+        class Like extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { 
+                    isLikeMe: false
+                }
+                // 将新增方法的this强制绑定为组件对象
+                this.handleClick = this.handleClick.bind(this)
+            }
+            // 新添加方法：内部this默认不是组件对象，而是undefined
+            handleClick() {
+                this.setState({
+                    isLikeMe: !this.state.isLikeMe
+                })
+            }
+            render() {
+                const {isLikeMe} = this.state
+                return (
+                    <h2 onClick={this.handleClick}>
+                        {isLikeMe?'你喜欢我':'我喜欢你'}
+                    </h2> 
+                )
+            }
+        }
+        
+
+        ReactDOM.render(<Like />, app)
+    </script>
+</body>
+</html>
