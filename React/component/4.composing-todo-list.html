@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.composing-todo-list</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    
+    <script type="text/babel">
+        /**
+         * 功能: 组件化实现此功能
+         * 1. 显示所有todo列表
+         * 2. 输入文本, 点击按钮显示到列表的首位, 并清除输入的文本
+         */ 
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    todos: ['吃饭', '睡觉', '打代码']
+                }
+                this.addTodo = this.addTodo.bind(this)
+            }
+            addTodo(todo) {
+                const { todos } = this.state
+                todos.unshift(todo)
+                this.setState({ todos })
+            }
+            render() {
+                const { todos } = this.state
+                return (
+                    <div>
+                        <h1>Simple Todo List</h1>
+                        <Add count={todos.length} addTodo={this.addTodo} />
+                        <List todos={todos} />
+                    </div>
+                )
+            }
+        }
+
+        class Add extends React.Component {
+            constructor(props) {
+                super(props)
+                this.handleClick = this.handleClick.bind(this)
+            }
+            handleClick() {
+                const todo = this.input.value.trim()
+                if (todo) {
+                    this.props.addTodo(todo)
+                    this.input.value = ''
+                }
+            }
+            render() {
+                const { count } = this.props
+                return (
+                    <div>
+                        <input type="text" ref={input => this.input = input} />
+                        <button onClick={this.handleClick}>添加 #{count + 1}</button>
+                    </div>
+                )
+            }
+        }
+        Add.propTypes = {
+            count: PropTypes.number.isRequired,
+            addTodo: PropTypes.func.isRequired
+        }
+
+        class List extends React.Component {
+            render() {
+                const { todos } = this.props
+                return (
+                    <ul>
+                        {
+                            todos.map((todo, index) => <li key={index}>{todo}</li>)
+                        }
+                    </ul>    
+                )
+            }
+        }
+        List.propTypes = {
+            todos: PropTypes.array.isRequired
+        }
+
+        ReactDOM.render(<App />, app)
+    </script>
+</body>
+</html>
