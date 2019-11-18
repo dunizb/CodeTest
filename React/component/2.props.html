@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.props</title>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    
+    <script type="text/babel">
+        /**
+         * 需求：自定义用来显示一个人员信息的组件
+         * 1. 姓名必须指定
+         * 2. 如果性别没有指定, 默认为男
+         * 3. 如果年龄没有指定, 默认为18
+         */ 
+        // function Person(props) {
+        //     return (
+        //         <ul>
+        //             <li>姓名：{props.name}</li>
+        //             <li>性别：{props.gender}</li>
+        //             <li>年龄：{props.age}</li>
+        //         </ul>
+        //     )
+        // }
+
+        class Person extends React.Component {
+            render() {
+                return (
+                    <ul>
+                        <li>姓名：{this.props.name}</li>
+                        <li>性别：{this.props.gender}</li>
+                        <li>年龄：{this.props.age}</li>
+                    </ul>
+                )
+            }
+        }
+
+        // 指定属性默认值
+        Person.defaultProps = {
+            gender: '男',
+            age: 18
+        }
+
+        // 指定属性值的类型和必要性
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            age: PropTypes.number
+        }
+
+        const p1 = {
+            name: 'Sara'
+        }
+
+        ReactDOM.render(<Person name={p1.name} />, app)
+
+        const p2 = {
+            name: 'Yamei',
+            gender: '女',
+            age: 30
+        }
+        // ReactDOM.render(<Person name={p2.name} gender={p2.gender} age={p2.age} />, app2)
+        ReactDOM.render(<Person {...p2} />, app2)
+    </script>
+</body>
+</html>
