@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6.lifecycle</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    
+    <script type="text/babel">
+        /**
+         * 需求: 自定义组件
+         * 1. 让指定的文本做显示/隐藏的渐变动画
+         * 2. 切换持续时间为2S
+         * 3. 点击按钮从界面中移除组件界面
+         */ 
+        class Animation extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    opacity: 1
+                }
+                this.distoryComponent = this.distoryComponent.bind(this)
+            }
+            componentDidMount() {
+                this.timerId = setInterval(() => {
+                    console.log('定时器')
+                    let { opacity } = this.state
+                    opacity -= 0.1
+                    if(opacity <= 0) {
+                        opacity = 1
+                    }
+                    this.setState({ opacity })
+                }, 200);
+            }
+            distoryComponent() {
+                ReactDOM.unmountComponentAtNode(app)
+            }
+            componentWillUnmount() {
+                clearInterval(this.timerId)
+            }
+            render() {
+                const { opacity } = this.state
+                return (
+                    <div>
+                        <h1 style={{ opacity }}>{this.props.msg}</h1>
+                        <button onClick={this.distoryComponent}>不活了</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Animation msg="React学不会，怎么办？" />, app)
+    </script>
+</body>
+</html>
