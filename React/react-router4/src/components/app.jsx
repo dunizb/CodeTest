@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 
 import './app.css'
-import MyNavLink from '../components/MyNavLink'
+import MyNavLink from './my-nav-link'
 import Home from '../views/home'
 import About from '../views/about'
 
