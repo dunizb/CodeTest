@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import {NavLink, Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import './app.css'
+import MyNavLink from '../components/MyNavLink'
 import Home from '../views/home'
 import About from '../views/about'
 
@@ -12,8 +13,8 @@ class App extends Component {
                 <h1>React Router Demo</h1>
                 <div className="links">
                     <ul>
-                        <li><NavLink to="/home">Home</NavLink></li>
-                        <li><NavLink to="/about">About</NavLink></li>
+                        <li><MyNavLink to="/home">Home</MyNavLink></li>
+                        <li><MyNavLink to="/about">About</MyNavLink></li>
                     </ul>
                 </div>
                 <div className="main">
