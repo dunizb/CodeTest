@@ -1,32 +1,36 @@
 import React, { Component } from 'react'
-
-import * as actions from '../redux/actions'
-
-export default class App extends Component {
+import PropTypes from 'prop-types'
+ 
+export default class Counter extends Component {
+    static propTypes = {
+        count: PropTypes.number.isRequired,
+        increment: PropTypes.func.isRequired,
+        increment: PropTypes.func.isRequired
+    }
     increment = () => {
         let number = this.select.value*1
         // 调用store的方法更新状态
-        this.props.store.dispatch(actions.increment(number))
+        this.props.increment(number)
     }
     decrement = () => {
         let number = this.select.value*1
-        this.props.store.dispatch(actions.decrement(number))
+        this.props.decrement(number)
     }
     incrementIfOdd = () => {
         let number = this.select.value*1
-        let count = this.props.store.getState()
+        let count = this.props.count
         if(count % 2 === 1) {
-            this.props.store.dispatch(actions.increment(number))
+            this.props.increment(number)
         }
     }
     incrementAsync = () => {
         let number = this.select.value*1
         setTimeout(() => {
-            this.props.store.dispatch(actions.increment(number))
+            this.props.increment(number)
         }, 1000);
     }
     render() {
-        const count = this.props.store.getState()
+        const {count} = this.props
         return (
             <div>
                 <p>clikc {count} items</p>
