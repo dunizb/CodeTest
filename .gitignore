@@ -8,6 +8,7 @@ React/node_modules/
 nodejs/**/node_modules/
 build/**/node_modules/
 Vue/**/node_modules/
+Webpack/**/node_modules/
 island/node_modules/
 Node-Koa/upload-demo/node_modules/
 dunizb-webpack-core-back/node_modules/
