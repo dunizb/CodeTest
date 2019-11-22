@@ -2,6 +2,7 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
     mode: 'development',
@@ -13,8 +14,20 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devServer: {
+        contentBase: './dist',
+        port: 8090, // 运行服务的端口，默认为8080
+        open: true,  // 自动打开浏览器运行
+        hot: true,
+        hotOnly: true
+    },
     module: {
         rules:[
+            { 
+                test: /\.js$/, 
+                exclude: /node_modules/, 
+                loader: "babel-loader" 
+            },
             {
                 test: /\.(jpg|png|gif)$/,
                 use: {
@@ -39,6 +52,14 @@ module.exports = {
                     "sass-loader", // 将 Sass 编译成 CSS，默认使用 Node Sass
                     "postcss-loader"
                 ],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader", // 将 JS 字符串生成为 style 节点
+                    "css-loader",
+                    "postcss-loader"
+                ]
             }
         ]
     },
@@ -48,7 +69,8 @@ module.exports = {
             template: 'src/index.html'
         }),
         // 打包前清理dist目录
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
 
