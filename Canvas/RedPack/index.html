@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas红包</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #blur-div {
+            width: 672px;
+            height: 966px;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+        }
+        #blur-image {
+            width: 672px;
+            height: 966px;
+            display: block;
+            margin: 0 auto;
+            filter: blur(20px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+        }
+        #canvas{
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+        .button-div {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content:space-around;
+            z-index: 200;
+        }
+        .button {
+            border: 1px solid #ccc;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.button-reset {
+            background-color: #058;
+        }
+        .button.button-reset:hover {
+            background-color: #047;
+        }
+        .button.button-show {
+            background-color: #085;
+        }
+        .button.button-show:hover {
+            background-color: #074;
+        }
+    </style>
+</head>
+<body>
+    <div id="blur-div">
+        <img id="blur-image" src="image.jpg" alt="我的照片">
+        <canvas id="canvas"></canvas>
+        <div class="button-div">
+            <button class="button button-reset" onclick="reset()">RESET</button>
+            <button class="button button-show" onclick="show()">SHOW</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
