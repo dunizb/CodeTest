@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.js":
+/***/ "./src/index.ts":
 /*!**********************!*\
-  !*** ./src/index.js ***!
+  !*** ./src/index.ts ***!
   \**********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log('hello webapck')\nconsole.log('http://blog.dunizb.com')\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("var message = 'hello world';\nconsole.log(message);\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ })
 
