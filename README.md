@@ -1,6 +1,7 @@
 # 个人平时学习、练习代码
 
 **2019**
++ [Typescript Demo study](https://github.com/dunizb/CodeTest/tree/master/Typescript/ts-study)
 + [小程序 textarea 的高层级问题演示](https://github.com/dunizb/CodeTest/tree/master/Wechat/textarea-test)
 + [小程序时间轴组件代码片段](https://github.com/dunizb/CodeTest/tree/master/Wechat/timeline-snippet)
 + [Koa.js中文件上传示例](https://github.com/dunizb/CodeTest/tree/master/Node-Koa/upload-demo)
