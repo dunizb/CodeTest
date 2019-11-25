@@ -19,7 +19,18 @@ function buildName(firstName: string, lastName?: string) {
 }
 let result1 = buildName("Bob");                  // 正常
 console.log('result1', result1)                  // result1 Bob
-let result2 = buildName("Bob", "Adams", "Sr.");  // 错误，参数过多
-console.log('result2', result2)                  // result2 Bob Adams
+// let result2 = buildName("Bob", "Adams", "Sr.");  // 错误，参数过多
+// console.log('result2', result2)                  // result2 Bob Adamss
 let result3 = buildName("Bob", "Adams");         // 正好
 console.log('result3', result3)                  // result2 Bob Adams
+
+// 不定参数
+function foo2(...rest:string[]):string {
+    let res:string = ''
+    rest.forEach(item => {
+        res += item + '、'
+    })
+    res = res.substring(0, res.length - 1)
+    return res
+}
+console.log('foo2', foo2('哈哈', '呵呵', '么么哒'));    // 哈、呵呵、么么哒
