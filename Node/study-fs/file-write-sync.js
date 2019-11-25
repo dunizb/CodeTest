@@ -13,6 +13,8 @@ const fs = require('fs')
  *      fs.writeSync(fd, string[, position[, encoding]])
  *      - fd 文件描述符，需要传递要写入的文件描述符
  *      - string 要写入的内容
+ *      - position 写入的起始为知
+ *      - encoding 写入的编码，默认UTF-8
  * 3. 保存并关闭文件
  *      fs.closeSync(fd)
  */
