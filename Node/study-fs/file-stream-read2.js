@@ -13,20 +13,17 @@ const writeStream = fs.createWriteStream('Vue-3-Cheat-Sheet-zh.pdf')
 readStream.once('open', function() {
     console.log('可读流打开~~~')
 })
-writeStream.once('open', function() {
-    console.log('可写流打开~~~')
-})
-
 readStream.once('close', function() {
     console.log('可读流关闭~~~')
     // 数据读取完毕，关闭可写流
     writeStream.end()
 })
-
-// 如果要读取一个可读流中的数据，必须要为可读流绑定一个data事件，data事件绑定完毕会自动开始读取数据
-// 不能用once
-readStream.on('data', function(data) {
-    console.log('读取数据....', data)
-    // 再写文件
-    writeStream.write(data)
+writeStream.once('open', function() {
+    console.log('可写流打开~~~')
 })
+writeStream.once('close', function() {
+    console.log('可写流关闭~~~')
+})
+
+// pipe 将可读流中的内容写入到可写流中
+readStream.pipe(writeStream)
