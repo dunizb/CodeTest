@@ -1,10 +1,11 @@
-import './index.css'
+function getComponent() {
+    return import(/* webpackChunkName:"lodash" */ 'lodash').then(({ default: _ }) => {
+        const element = document.createElement('div')
+        element.innerHTML = _.join(['Bing', 'Zhang'], '-')
+        return element
+    })
+}
 
-const dom = document.getElementById('root')
-dom.innerHTML = '<div class="calcimg">HtmlWebpackPlugin</div>'
-
-console.log('hello world ****')
-
-const arr = [1,2,3]
-const arrMap = arr.map(item => item+'*')
-console.log('arrMap', arrMap)
+getComponent().then(element => {
+    document.body.appendChild = element
+})

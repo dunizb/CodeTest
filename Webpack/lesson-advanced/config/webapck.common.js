@@ -56,6 +56,15 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        splitChunksPlugin: {
+            chunks: 'all',
+            cacheGroups: {
+                vendors: false,
+                default: false
+            }
+        }
+    },
     plugins: [
         // 打包后运行
         new HtmlWebpackPlugin({
