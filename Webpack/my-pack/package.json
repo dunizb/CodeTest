@@ -1,0 +1,18 @@
+{
+  "name": "my-pack",
+  "version": "1.0.0",
+  "description": "编写自己的webpack",
+  "main": "bundler.js",
+  "bin": {
+    "my-pack": "./bin/my-pack.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/generator": "^7.7.7",
+    "@babel/traverse": "^7.7.4",
+    "@babel/types": "^7.7.4",
+    "babylon": "^6.18.0"
+  }
+}
