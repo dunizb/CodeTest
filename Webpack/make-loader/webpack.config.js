@@ -15,20 +15,27 @@ module.exports = {
             test: /\.js$/,
             use: [
                 {
-                    // loader: path.resolve(__dirname, './loaders/replaceLoaderAsync.js'),
-                    loader: 'replaceLoaderAsync',
-                    options: {
-                        name: 'https'
-                    }
+                    // loader: path.resolve(__dirname, './loaders/replaceLoader.js'),
+                    loader: 'replaceLoaderAsync'
                 },
                 {
-                    // loader: path.resolve(__dirname, './loaders/replaceLoader.js'),
+                    // loader: path.resolve(__dirname, './loaders/replaceLoaderAsync.js'),
                     loader: 'replaceLoader',
                     options: {
-                        name: '你好'
+                        origin: 'http',
+                        replace: 'https'
                     }
                 }
             ]
         }]
     }
 }
+
+// {
+//     // loader: path.resolve(__dirname, './loaders/replaceLoaderAsync.js'),
+//     loader: 'replaceLoaderAsync',
+//     options: {
+//         origin: 'http',
+//         replace: 'https'
+//     }
+// },
