@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.less'
-
+import { Button, Alert } from 'antd';
 export default class Life extends React.Component {
     constructor(props) {
         super(props)
@@ -15,8 +15,8 @@ export default class Life extends React.Component {
     }
     render() {
         return <div className="content">
-            <h1>React 生命周期</h1>
-            <button onClick={this.handleAdd}>点击一下</button>
+            <Alert message="React 生命周期" type="success" />
+            <Button type="primary" onClick={this.handleAdd}>点击一下</Button>
             <p>{this.state.count}</p>
         </div>
     }
