@@ -3,9 +3,7 @@
 .project
 /ionic/SM/node_modules/
 /ionic/SM/plugins/
-React/node_modules/
-/react-native/**/node_modules/
-nodejs/**/node_modules/
+React/**/node_modules/
 build/**/node_modules/
 Vue/**/node_modules/
 Webpack/**/node_modules/
