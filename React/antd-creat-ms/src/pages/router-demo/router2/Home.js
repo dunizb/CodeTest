@@ -16,6 +16,9 @@ export default class Home extends React.Component {
                     <li>
                         <Link to="/topics">Topics1</Link>
                     </li>
+                    <li>
+                        <Link to="/404">404</Link>
+                    </li>
                 </ul>
                 <hr />
                 {this.props.children}
