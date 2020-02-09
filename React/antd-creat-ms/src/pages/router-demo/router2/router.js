@@ -11,6 +11,7 @@ export default class IRouter extends React.Component {
     render() {
         return (
             <Router>
+                <h1>嵌套路由</h1>
                 <Home>
                     <Route path="/main" render={()=>
                         <Main>

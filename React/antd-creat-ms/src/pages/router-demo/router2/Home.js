@@ -5,7 +5,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <h1>router-demo/router2</h1>
+                <h2>router-demo/router2</h2>
                 <ul>
                     <li>
                         <Link to="/main">Home1</Link>
