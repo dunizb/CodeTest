@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 import './index.css'
 // import Admin from './admin'
-import Router from './pages/router-demo/router2/router'
+import Router from './router'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Router />, document.getElementById('root'));
