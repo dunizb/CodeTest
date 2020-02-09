@@ -10,6 +10,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <HashRouter>
+                <h1>router-demo/router1</h1>
                 <div>
                     <ul>
                         <li>
