@@ -4,44 +4,6 @@ const menuList = [
         key: '/admin/home'
     },
     {
-        title: 'UI',
-        key: '/ui',
-        children: [
-            {
-                title: '按钮',
-                key: '/admin/ui/buttons',
-            },
-            {
-                title: '弹框',
-                key: '/ui/modals',
-            },
-            {
-                title: 'Loading',
-                key: '/ui/loadings',
-            },
-            {
-                title: '通知提醒',
-                key: '/ui/notification',
-            },
-            {
-                title: '全局Message',
-                key: '/ui/messages',
-            },
-            {
-                title: 'Tab页签',
-                key: '/ui/tabs',
-            },
-            {
-                title: '图片画廊',
-                key: '/ui/gallery',
-            },
-            {
-                title: '轮播图',
-                key: '/ui/carousel',
-            }
-        ]
-    },
-    {
         title: '表单',
         key: '/form',
         children: [
