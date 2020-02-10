@@ -4,6 +4,10 @@ const menuList = [
         key: '/admin/home'
     },
     {
+        title: '画廊',
+        key: '/admin/gallery'
+    },
+    {
         title: '表单',
         key: '/form',
         children: [
