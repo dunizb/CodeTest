@@ -5,8 +5,8 @@ import App from './App'
 import Admin from './admin'
 import Home from './pages/home'
 import Gallery from './pages/gallery'
-import Login from './pages/form/login'
-import Register from './pages/form/register'
+import FormLogin from './pages/form/login'
+import FormRegister from './pages/form/register'
 import NoMatch from './pages/nomatch'
 
 export default class IRouter extends React.Component{
@@ -21,8 +21,8 @@ export default class IRouter extends React.Component{
                                 <Route path="/admin/home" component={Home} />
                                 <Route path="/admin/gallery" component={Gallery} />
                                 <Route path="/admin/gallery" component={Gallery} />
-                                <Route path="/admin/form/login" component={Login} />
-                                <Route path="/admin/form/reg" component={Register} />
+                                <Route path="/admin/form/formLogin" component={FormLogin} />
+                                <Route path="/admin/form/formRegister" component={FormRegister} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>

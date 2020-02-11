@@ -13,11 +13,11 @@ const menuList = [
         children: [
             {
                 title: '登录',
-                key: '/admin/form/login',
+                key: '/admin/form/formLogin',
             },
             {
                 title: '注册',
-                key: '/admin/form/reg',
+                key: '/admin/form/formRegister',
             }
         ]
     },
