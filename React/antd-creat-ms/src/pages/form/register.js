@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import {Card,Form,Button,Input,Checkbox,Radio,Select,Switch,DatePicker,TimePicker,Upload,Icon,message, InputNumber} from 'antd'
 
@@ -189,7 +190,7 @@ class FormRegister extends React.Component{
                                         action="//jsonplaceholder.typicode.com/posts/"
                                         onChange={this.handleChange}
                                     >
-                                    {this.state.userImg?<img src={this.state.userImg}/>:<Icon type="plus"/>}
+                                    {this.state.userImg ? <img src={this.state.userImg}/> : <Icon type="plus"/>}
                                     </Upload>
                                 )
                             }
@@ -197,6 +198,7 @@ class FormRegister extends React.Component{
                         <FormItem {...offsetLayout}>
                             {
                                 getFieldDecorator('userImg')(
+                                   // eslint-disable-next-line jsx-a11y/anchor-is-valid
                                    <Checkbox>我已阅读过<a href="#">慕课协议</a></Checkbox>
                                 )
                             }

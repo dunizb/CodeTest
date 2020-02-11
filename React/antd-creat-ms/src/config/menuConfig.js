@@ -1,11 +1,11 @@
 const menuList = [
     {
         title: '首页',
-        key: '/admin/home'
+        key: '/home'
     },
     {
         title: '画廊',
-        key: '/admin/gallery'
+        key: '/gallery'
     },
     {
         title: '表单',
@@ -13,11 +13,11 @@ const menuList = [
         children: [
             {
                 title: '登录',
-                key: '/admin/form/formLogin',
+                key: '/form/formLogin',
             },
             {
                 title: '注册',
-                key: '/admin/form/formRegister',
+                key: '/form/formRegister',
             }
         ]
     },

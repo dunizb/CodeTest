@@ -8,6 +8,7 @@ import Gallery from './pages/gallery'
 import FormLogin from './pages/form/login'
 import FormRegister from './pages/form/register'
 import NoMatch from './pages/nomatch'
+import TableBasic from './pages/table/basicTable'
 
 export default class IRouter extends React.Component{
 
@@ -15,14 +16,14 @@ export default class IRouter extends React.Component{
         return (
             <HashRouter>
                  <App>
-                    <Route path="/admin" render={() => 
+                    <Route path="/" render={() => 
                         <Admin>
                             <Switch>
-                                <Route path="/admin/home" component={Home} />
-                                <Route path="/admin/gallery" component={Gallery} />
-                                <Route path="/admin/gallery" component={Gallery} />
-                                <Route path="/admin/form/formLogin" component={FormLogin} />
-                                <Route path="/admin/form/formRegister" component={FormRegister} />
+                                <Route path="/home" component={Home} />
+                                <Route path="/gallery" component={Gallery} />
+                                <Route path="/form/formLogin" component={FormLogin} />
+                                <Route path="/form/formRegister" component={FormRegister} />
+                                <Route path="/table/basic" component={TableBasic} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>
