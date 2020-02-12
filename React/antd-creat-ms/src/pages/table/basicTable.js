@@ -1,9 +1,11 @@
 import React from 'react';
-import { Card, Table } from 'antd';
+import { Card, Table, Modal, Button } from 'antd';
 
 export default class BasicTable extends React.Component{
     state = {
-        dataSource: []
+        dataSource: [],
+        selectedRowKeys: [],
+        selectedRows: []
     }
 
     componentDidMount(){
@@ -39,10 +41,32 @@ export default class BasicTable extends React.Component{
                 time: '09:00'
             },
         ]
-        data.map((item,index) => item.key = index)
         this.setState({
             dataSource: data
         })
+    }
+
+    onRowClick = (record, index) => {
+        Modal.info({
+            title:'信息',
+            content:`用户名：${record.userName},用户爱好：${record.interest}`
+        })
+    }
+
+    onRowClick2 = (record, index) => {
+        let selectKey = [index];
+        Modal.info({
+            title:'信息',
+            content:`用户名：${record.userName},用户爱好：${record.interest}`
+        })
+        this.setState({
+            selectedRowKeys: selectKey,
+            selectedRows: record
+        })
+    }
+
+    onClickMe = () => {
+        console.log(this.state.selectedRowKeys)
     }
 
 
@@ -115,13 +139,59 @@ export default class BasicTable extends React.Component{
                 dataIndex: 'time'
             }
         ]
+        const rowSelection = {
+            onChange: (selectedRowKeys, selectedRows) => {
+                this.setState({ selectedRowKeys, selectedRows })
+            }
+        }
+        const selectedCount = this.state.selectedRowKeys.length;
+
+        const rowSelection2 = {
+            type: 'radio',
+            selectedRowKeys: this.state.selectedRowKeys,
+            onChange: (selectedRowKeys, selectedRows) => {
+                this.setState({ selectedRowKeys, selectedRows })
+            }
+        }
+        const selectedRows = this.state.selectedRows || [];
         return (
             <div>
-                <Card title="基础表格">
+                <Card title="基础表格-复选框">
+                    <div style={{ marginBottom: 16 }}>
+                        <Button type="primary" onClick={this.onClickMe}>Click Me</Button>&nbsp;
+                        Selected {selectedCount} items
+                    </div>
                     <Table 
                         bordered
                         columns={columns}
                         dataSource={this.state.dataSource}
+                        rowSelection={rowSelection}
+                        onRow={(record, index) => {
+                            return {
+                                onClick: () => {
+                                    this.onRowClick(record, index)
+                                }
+                            }
+                        }}
+                        rowKey="id"
+                        pagination={false}
+                    />
+                </Card>
+                <Card title="基础表格-单选框" style={{margin:'10px 0'}}>
+                    <p>选择的用户：{selectedRows.length > 0 ? selectedRows[0].userName : ''}</p>    
+                    <Table 
+                        bordered
+                        columns={columns}
+                        dataSource={this.state.dataSource}
+                        rowSelection={rowSelection2}
+                        onRow={(record, index) => {
+                            return {
+                                onClick: () => {
+                                    this.onRowClick2(record, index)
+                                }
+                            }
+                        }}
+                        rowKey="id"
                         pagination={false}
                     />
                 </Card>
