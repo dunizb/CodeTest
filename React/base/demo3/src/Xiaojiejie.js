@@ -1,5 +1,6 @@
 import React from 'react';
 import XiaojiejieItem from './XiaojiejieItem'
+import Boss from './Boss'
 
 class Xiaojiejie extends React.Component {
 
@@ -67,6 +68,8 @@ class Xiaojiejie extends React.Component {
             })
           }
         </ul>
+
+        <Boss />
       </div>
     );
   }
