@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 
 class XiaojiejieItem extends PureComponent {
     constructor(props) {
@@ -15,6 +16,12 @@ class XiaojiejieItem extends PureComponent {
         console.log(this.props.index);
         this.props.deleteItem(this.props.index)
     }
+}
+
+XiaojiejieItem.propTypes = {
+    content: PropTypes.string,
+    index: PropTypes.number,
+    deleteItem: PropTypes.func
 }
 
 export default XiaojiejieItem

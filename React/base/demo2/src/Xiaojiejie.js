@@ -11,9 +11,9 @@ class Xiaojiejie extends React.Component {
     }
   }
 
-  handleChange = (e) => {
+  handleChange = () => {
     this.setState({
-      inputValue: e.target.value
+      inputValue: this.input.value
     })
   }
 
@@ -35,7 +35,13 @@ class Xiaojiejie extends React.Component {
         <h1>小姐姐的服务</h1>
         <div>
           <label htmlFor="jspang">加入服务：</label>
-          <input id="jspang" type="text" value={this.state.inputValue} onChange={this.handleChange} />
+          <input 
+            id="jspang" 
+            type="text" 
+            value={this.state.inputValue} 
+            onChange={this.handleChange} 
+            ref={(input) => {this.input = input}}
+          />
           <button onClick={this.addList}>添加服务</button>
         </div>
         <ul>
