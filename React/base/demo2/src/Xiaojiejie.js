@@ -29,6 +29,15 @@ class Xiaojiejie extends React.Component {
     this.setState({ list })
   }
 
+  // 性能优化
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextProps.content !== this.props.content){
+      return true
+    }else{
+      return false
+    }
+  }
+
   render() {
     return (
       <div>
