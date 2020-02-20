@@ -1,11 +1,13 @@
 import React from 'react';
+import XiaojiejieItem from './XiaojiejieItem'
+
 class Xiaojiejie extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       inputValue: '',
-      list: []
+      list: ['基础按摩', '精油推背']
     }
   }
 
@@ -21,8 +23,7 @@ class Xiaojiejie extends React.Component {
     })
   }
 
-  deleteItem(index) {
-    // console.log(e.target.dataset)
+  deleteItem = (index) => {
     const list = this.state.list;
     list.splice(index, 1);
     this.setState({ list })
@@ -41,11 +42,12 @@ class Xiaojiejie extends React.Component {
           {
             this.state.list.map((item, index) => {
               return (
-                <li 
-                  key={index+item} 
-                  onClick={this.deleteItem.bind(this, index)}
-                  dangerouslySetInnerHTML={{__html: item}}>
-                </li>
+                <XiaojiejieItem 
+                  key={item+index} 
+                  index={index} 
+                  content={item}
+                  deleteItem={this.deleteItem}
+                />
               )
             })
           }
