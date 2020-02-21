@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {Input,Button,List} from 'antd'
+import {Input,Button,List,Icon} from 'antd'
 import store from './store'
 
 class TodoList extends PureComponent {
@@ -12,7 +12,7 @@ class TodoList extends PureComponent {
     render() { 
         return (
             <div style={{margin:'10px', width: '600px'}}>
-                <h1>TodoList</h1>
+                <h1>React and Redux TodoList</h1>
                 <div style={{marginBottom:'10px'}}>
                     <Input 
                         placeholder={this.state.inputValue} 
@@ -28,8 +28,12 @@ class TodoList extends PureComponent {
                     header={<div>任务列表</div>}
                     bordered
                     dataSource={this.state.list}
-                    renderItem={item => (
-                        <List.Item> 📌 {item} </List.Item>
+                    renderItem={(item, index) => (
+                        <List.Item
+                            actions={[<Icon type="close-circle" theme="filled" key="delete-item" onClick={this.deleteItem.bind(this, index)} />]}
+                        > 
+                            {index}-{item}
+                        </List.Item>
                     )}
                 />
             </div>
@@ -37,11 +41,10 @@ class TodoList extends PureComponent {
     }
 
     changeInputValue(e){
-        const action = {
+        store.dispatch({
             type: 'changeInput',
             value: e.target.value
-        }
-        store.dispatch(action);
+        });
     }
 
     storeChange = () => {
@@ -49,8 +52,14 @@ class TodoList extends PureComponent {
     }
 
     handleClick = () => {
-        const action = { type: 'addItem' }
-        store.dispatch(action);
+        store.dispatch({ type: 'addItem' });
+    }
+
+    deleteItem(index) {
+        store.dispatch({ 
+            type: 'deleteItem',
+            index 
+        });
     }
 }
  
