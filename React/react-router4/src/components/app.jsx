@@ -24,6 +24,9 @@ class App extends Component {
                         <Redirect to='/about' />
                     </Switch>
                 </div>
+                <div style={{marginTop: '10px', background: 'pink'}}>
+                    <a href="https://github.com/dunizb/CodeTest/tree/master/React/react-router4" rel="noopener noreferrer" target="_blank">查看源代码</a>
+                </div>
             </div>
         )
     }
