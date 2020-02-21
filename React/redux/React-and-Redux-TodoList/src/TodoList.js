@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
 import {Input,Button,List,Icon} from 'antd'
-import axios from 'axios'
 import store from './store'
-import {getListAction, changeInputAction, addItemAction, deleteItemAction} from './store/actionCreatores'
+import {
+    getTodoList, 
+    changeInputAction, 
+    addItemAction, 
+    deleteItemAction
+} from './store/actionCreatores'
 
 class TodoList extends PureComponent {
     constructor(props) {
@@ -21,17 +25,12 @@ class TodoList extends PureComponent {
                         onChange={this.changeInputValue}
                         value={this.state.inputValue}
                         style={{width: '250px',marginRight:'10px'}}/>
-                    <Button 
-                        type="primary"
-                        onClick={this.handleClick}
-                    >增加</Button>
-                    <Button 
-                        type="link"
-                        onClick={this.handleMockData}
-                    >Mock数据</Button>
+                    <Button type="primary" onClick={this.handleClick}>增加</Button>
+                    <Button type="link" onClick={this.handleMockData}>Mock数据</Button>
                 </div>
                 <List
-                    header={<div>任务列表</div>}
+                    header={<strong>任务列表</strong>}
+                    footer={<a href="https://github.com/dunizb/CodeTest/tree/master/React/redux/React-and-Redux-TodoList" rel="noopener noreferrer" target="_blank">查看代码</a>}
                     bordered
                     dataSource={this.state.list}
                     loading={this.state.loading}
@@ -49,27 +48,28 @@ class TodoList extends PureComponent {
 
     handleMockData = () => {
         this.setState({ loading: true })
-        axios.get('https://www.fastmock.site/mock/6099b9719bd59b55a0f21894438cc412/react/list').then(res => {
-            const list = res.data.data.list
-            store.dispatch(getListAction(list))
-            this.setState({ loading: false })
-        })
+        const action = getTodoList(() => this.setState({ loading: false }));
+        store.dispatch(action);
     }
 
     changeInputValue(e){
-        store.dispatch(changeInputAction(e.target.value));
+        const action = changeInputAction(e.target.value);
+        store.dispatch(action);
     }
 
     storeChange = () => {
-        this.setState(store.getState());
+        const action = store.getState();
+        this.setState(action);
     }
 
     handleClick = () => {
-        store.dispatch(addItemAction());
+        const action = addItemAction();
+        store.dispatch(action);
     }
 
     deleteItem(index) {
-        store.dispatch(deleteItemAction(index));
+        const action = deleteItemAction(index);
+        store.dispatch(action);
     }
 }
  
