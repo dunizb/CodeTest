@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import {Input,Button,List,Icon} from 'antd'
+import axios from 'axios'
 import store from './store'
-import {changeInputAction, addItemAction, deleteItemAction} from './store/actionCreatores'
+import {getListAction, changeInputAction, addItemAction, deleteItemAction} from './store/actionCreatores'
 
 class TodoList extends PureComponent {
     constructor(props) {
@@ -39,6 +40,13 @@ class TodoList extends PureComponent {
                 />
             </div>
         );
+    }
+
+    componentDidMount() {
+        axios.get('https://www.fastmock.site/mock/6099b9719bd59b55a0f21894438cc412/react/list').then(res => {
+            const list = res.data.data.list
+            store.dispatch(getListAction(list))
+        })
     }
 
     changeInputValue(e){
