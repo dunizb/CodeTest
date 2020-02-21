@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.css","my-nav-link.css"],"names":[],"mappings":"AAAA,OACI,eACJ,CCFA,QACI,SACJ","file":"main.2fdc6e33.chunk.css","sourcesContent":[".links {\n    background: #ccc;\n}",".active {\n    color: red;\n}"]}
