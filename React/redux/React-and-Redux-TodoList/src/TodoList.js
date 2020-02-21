@@ -25,11 +25,16 @@ class TodoList extends PureComponent {
                         type="primary"
                         onClick={this.handleClick}
                     >增加</Button>
+                    <Button 
+                        type="link"
+                        onClick={this.handleMockData}
+                    >Mock数据</Button>
                 </div>
                 <List
                     header={<div>任务列表</div>}
                     bordered
                     dataSource={this.state.list}
+                    loading={this.state.loading}
                     renderItem={(item, index) => (
                         <List.Item
                             actions={[<Icon type="close-circle" theme="filled" key="delete-item" onClick={this.deleteItem.bind(this, index)} />]}
@@ -42,10 +47,12 @@ class TodoList extends PureComponent {
         );
     }
 
-    componentDidMount() {
+    handleMockData = () => {
+        this.setState({ loading: true })
         axios.get('https://www.fastmock.site/mock/6099b9719bd59b55a0f21894438cc412/react/list').then(res => {
             const list = res.data.data.list
             store.dispatch(getListAction(list))
+            this.setState({ loading: false })
         })
     }
 
