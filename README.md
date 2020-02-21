@@ -1,6 +1,6 @@
 # 个人平时学习、练习代码
 
-**2019**
+
 + [TypeScript Demo study](https://github.com/dunizb/CodeTest/tree/master/TypeScript/ts-study)
 + [小程序 textarea 的高层级问题演示](https://github.com/dunizb/CodeTest/tree/master/Wechat/textarea-test)
 + [小程序时间轴组件代码片段](https://github.com/dunizb/CodeTest/tree/master/Wechat/timeline-snippet)
@@ -19,8 +19,7 @@
     - [myWebpack](https://github.com/dunizb/CodeTest/tree/master/Webpack/myWebpack/)
     - [Webpack Loader](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-loader/)
     - [Webpack Plugin](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-plugin/)
-
-**2018**  
+  
 ...
 
 + [JavaScript/DIV模板引擎.html](https://github.com/dunizb/CodeTest/tree/master/JavaScript/DIV模板引擎.html)

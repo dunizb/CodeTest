@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import {Input,Button,List,Icon} from 'antd'
 import store from './store'
+import {changeInputAction, addItemAction, deleteItemAction} from './store/actionCreatores'
 
 class TodoList extends PureComponent {
     constructor(props) {
@@ -32,7 +33,7 @@ class TodoList extends PureComponent {
                         <List.Item
                             actions={[<Icon type="close-circle" theme="filled" key="delete-item" onClick={this.deleteItem.bind(this, index)} />]}
                         > 
-                            {index}-{item}
+                            {item}
                         </List.Item>
                     )}
                 />
@@ -41,10 +42,7 @@ class TodoList extends PureComponent {
     }
 
     changeInputValue(e){
-        store.dispatch({
-            type: 'changeInput',
-            value: e.target.value
-        });
+        store.dispatch(changeInputAction(e.target.value));
     }
 
     storeChange = () => {
@@ -52,14 +50,11 @@ class TodoList extends PureComponent {
     }
 
     handleClick = () => {
-        store.dispatch({ type: 'addItem' });
+        store.dispatch(addItemAction());
     }
 
     deleteItem(index) {
-        store.dispatch({ 
-            type: 'deleteItem',
-            index 
-        });
+        store.dispatch(deleteItemAction(index));
     }
 }
  
