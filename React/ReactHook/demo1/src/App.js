@@ -6,6 +6,7 @@ import ExampleHook2 from './ExampleHook2'
 import UseEffectTest from './UseEffectTest'
 import UseEffectTest2 from './UseEffectTest2'
 import UseContextTest from './UseContextTest'
+import ReducerDemo from './ReducerDemo'
 
 import './App.css'
 
@@ -33,6 +34,8 @@ function App() {
       <UseEffectTest2 />
       <hr />
       <UseContextTest />
+      <hr />
+      <ReducerDemo />
     </div>
   );
 }
