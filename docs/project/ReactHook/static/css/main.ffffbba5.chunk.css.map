@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,MACI,YAAa,CACb,6BACJ","file":"main.ffffbba5.chunk.css","sourcesContent":[".flex {\n    display: flex;\n    justify-content: space-between\n}\n"]}
