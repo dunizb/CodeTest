@@ -1,5 +1,8 @@
 # 个人平时学习、练习代码
 
+部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
+
+更新：
 
 + [TypeScript Demo study](https://github.com/dunizb/CodeTest/tree/master/TypeScript/ts-study)
 + [小程序 textarea 的高层级问题演示](https://github.com/dunizb/CodeTest/tree/master/Wechat/textarea-test)
@@ -14,11 +17,14 @@
 + [实现VueRouter一样的路由](https://github.com/dunizb/CodeTest/tree/master/Vue/Router/vue-router-apply/)
 + [实现MVVM](https://github.com/dunizb/CodeTest/tree/master/框架/MVVM/)
 + [HTML5拖拽上传、预览示例](https://github.com/dunizb/CodeTest/tree/master/JavaScript/HTML5拖拽上传.html)
-+ [React](https://github.com/dunizb/CodeTest/tree/master/React/)
++ [React](https://github.com/dunizb/CodeTest/tree/master/React)
+  - [React Hook](https://github.com/dunizb/CodeTest/tree/master/React/ReactHook)
+  - [React Router](https://github.com/dunizb/CodeTest/tree/master/React/react-router4)
+  - [React Redux](https://github.com/dunizb/CodeTest/tree/master/React/redux)
 + [Webapck](https://github.com/dunizb/CodeTest/tree/master/Webpack/)
-    - [myWebpack](https://github.com/dunizb/CodeTest/tree/master/Webpack/myWebpack/)
-    - [Webpack Loader](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-loader/)
-    - [Webpack Plugin](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-plugin/)
+  - [myWebpack](https://github.com/dunizb/CodeTest/tree/master/Webpack/myWebpack/)
+  - [Webpack Loader](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-loader/)
+  - [Webpack Plugin](https://github.com/dunizb/CodeTest/tree/master/Webpack/make-plugin/)
   
 ...
 
