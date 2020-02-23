@@ -5,7 +5,7 @@ class Example extends Component {
     render() { 
         return (
             <div>
-                <h3>传统写法</h3>
+                <h3>计数器 Class 写法</h3>
                 <p>You clicked {this.state.count} times.</p>
                 <button onClick={this.addCount}>Click me</button>
             </div>

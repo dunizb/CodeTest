@@ -7,7 +7,7 @@ function ExampleHook2(){
     const [work, setWork] = useState('React Dev');
     return (
         <div>
-            <h3>useState 多状态声明</h3>
+            <h3>计数器 useState 多状态声明</h3>
             <p>姓名：{userName}，性别：{gender}，工作：{work}</p>
             <button onClick={() => changeUser(setUserName, setGender, setWork)}>Change</button>
         </div>
