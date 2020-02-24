@@ -8,6 +8,7 @@ import UseEffectTest2 from './UseEffectTest2'
 import UseContextTest from './UseContextTest'
 import ReducerDemo from './ReducerDemo'
 import Example3 from './example3/Example3'
+import WinResize from './WinResize'
 
 import './App.css'
 
@@ -39,6 +40,8 @@ function App() {
       <ReducerDemo />
       <hr />
       <Example3 />
+      <hr />
+      <WinResize />
     </div>
   );
 }
