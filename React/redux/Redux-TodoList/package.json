@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://dunizb.github.io/CodeTest/project/",
+  "homepage": "https://dunizb.github.io/CodeTest/project/Redux-TodoList/",
   "browserslist": {
     "production": [
       ">0.2%",
