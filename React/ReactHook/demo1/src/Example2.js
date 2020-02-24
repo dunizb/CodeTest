@@ -13,11 +13,11 @@ class Example2 extends Component {
     }
 
     componentDidMount() {
-        console.log(`componentDidMount => You clicked ${this.state.count} times.`)
+        document.title = `You clicked ${this.state.count} times`;
     }
 
     componentDidUpdate() {
-        console.log(`componentDidUpdate => You clicked ${this.state.count} times.`)
+        document.title = `You clicked ${this.state.count} times`;
     }
 
     addCount = () => {
