@@ -17,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://dunizb.github.io/CodeTest/project/ReactHook",
   "eslintConfig": {
     "extends": "react-app"
   },
