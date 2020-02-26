@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className="header">
             <Row type="flex" justify="center">
-                <Col xs={24} sm={24} md={10} lg={10} xl={10}>
+                <Col xs={24} sm={24} md={10} lg={15} xl={12}>
                     <span className="header-logo">杜尼卜</span>
                     <span className="header-text">聚焦大前端技术、全栈开发、程序员成长学习。</span>
                 </Col>

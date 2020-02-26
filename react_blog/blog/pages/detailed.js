@@ -1,12 +1,12 @@
+import React from 'react'
 import Head from 'next/head'
+import {Row, Col} from 'antd'
 import Header from '../components/Header'
-import {Row,Col} from 'antd'
 
-const Home = () => (
-  <div className="container">
+const Detailed = () => (
+  <>
     <Head>
-      <title>我的博客</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Detailed</title>
     </Head>
     <Header />
     <Row className="common-main" type="flex" justify="center">
@@ -18,7 +18,8 @@ const Home = () => (
         右侧
       </Col>
     </Row>
-  </div>
+
+ </>
 )
 
-export default Home
+export default Detailed
