@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import {Row, Col} from 'antd'
 import Header from '../components/Header'
+
 const List = () => (
   <>
     <Head>

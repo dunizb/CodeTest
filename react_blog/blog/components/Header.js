@@ -10,7 +10,7 @@ const Header = () => {
                     <span className="header-logo">杜尼卜</span>
                     <span className="header-text">聚焦大前端技术、全栈开发、程序员成长学习。</span>
                 </Col>
-                <Col xs={0} sm={0} md={14} lg={8} xl={6}>
+                <Col xs={0} sm={0} md={14} lg={8} xl={6} className="text-r">
                     <Menu mode="horizontal">
                         <Menu.Item key="home">
                             <Icon type="home"/>
