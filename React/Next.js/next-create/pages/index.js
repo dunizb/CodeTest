@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import ShowName from '../components/showName'
 
 const Home = () => (
   <div className="container">
@@ -14,6 +15,10 @@ const Home = () => (
 
       <p className="description">
         Get started by editing <code>pages/index.js</code>
+      </p>
+
+      <p className="description">
+        <ShowName>我的组件</ShowName>
       </p>
 
       <div className="grid">
