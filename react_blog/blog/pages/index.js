@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import './index.css'
-import {Button} from 'antd'
+import Header from '../components/Header'
 
 const Home = () => (
   <div className="container">
     <Head>
-      <title>Create Next App</title>
+      <title>我的博客</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <h1 className="h1">Blog</h1>
-    <Button>Button</Button>
+    <Header />
   </div>
 )
 
