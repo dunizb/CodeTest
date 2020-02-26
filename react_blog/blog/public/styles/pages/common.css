@@ -15,14 +15,16 @@ body {
     padding: .3rem;
     border-radius: .3rem;
     border-bottom: 1px solid #eee;
+    background: #f6f6f6;
 }
 
 .common-box{
     background-color: #FFF;
-    margin-left: .5rem;
+    /* margin-left: .5rem; */
     padding:.3rem;
     border-radius: .3rem;
     border:1px solid #eee;
+    margin-bottom: 10px;
 }
 
 .common-main {

@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import { Row, Col, List, Icon } from 'antd'
 import '../public/styles/pages/index.css'
 import Author from '../components/Author'
+import Advert from '../components/Advert'
 
 const Home = () => {
   const [mylist, setMylist] = useState([
@@ -21,7 +22,7 @@ const Home = () => {
       </Head>
       <Header />
       <Row className="common-main" type="flex" justify="center">
-        <Col className="common-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+        <Col className="common-left" xs={24} sm={24} md={15} lg={18} xl={14}  >
           <List
             header={<div>最新日志</div>}
             itemLayout="vertical"
@@ -40,8 +41,9 @@ const Home = () => {
           />
         </Col>
 
-        <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Col className="common-right" xs={0} sm={0} md={10} lg={5} xl={5}>
           <Author/>
+          <Advert/>
         </Col>
       </Row>
     </div>
