@@ -14,7 +14,7 @@ body {
     margin-left: .5rem;
     padding: .3rem;
     border-radius: .3rem;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     background: #f6f6f6;
 }
 
@@ -27,8 +27,34 @@ body {
     margin-bottom: 10px;
 }
 
+/******** 文件列表 start *******/
 .common-main {
     margin-top: .5rem;
+}
+
+.list-title{
+    font-size:1.3rem;
+    color: #1e90ff;
+    padding: 0 0.5rem;
+}
+.list-context{
+    color:#777;
+    padding:.5rem;
+}
+.list-icon{
+    padding:.5rem 0;
+    color:#AAA;
+}
+.list-icon span{
+    display: inline-block;
+    padding: 0 10px;
+}
+/******** 文件列表 end *******/
+
+.breadcrumb {
+    padding: .5rem;
+    border-bottom: 1px solid #eee;
+    background-color: #e1f0ff;
 }
 
 .text-r { text-align: right;}

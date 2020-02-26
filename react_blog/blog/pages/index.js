@@ -5,6 +5,7 @@ import { Row, Col, List, Icon } from 'antd'
 import '../public/styles/pages/index.css'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
+import Footer from '../components/Footer'
 
 const Home = () => {
   const [mylist, setMylist] = useState([
@@ -46,6 +47,8 @@ const Home = () => {
           <Advert/>
         </Col>
       </Row>
+      
+      <Footer/>
     </div>
   )
 }
