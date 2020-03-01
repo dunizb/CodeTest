@@ -1,0 +1,281 @@
+@charset "UTF-8";
+/*nav部分start*/
+.nav {
+    height: 44px;
+    border-bottom: 2px solid #B1191A;
+}
+.nav-shortcut {
+    width: 210px;
+    height: 44px;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+.nav-shortcut-all a {
+    display: block;
+    height: 44px;
+    padding-left: 10px;
+    color: #fff;
+    background-color: #B1191A;
+    font: 400 15px/44px "microsoft yahei";
+}
+.nav-shortcut-one {
+    height: 465px;
+    margin-top: 2px;
+    border-left: 1px solid #B1191A;
+    border-bottom: 1px solid #B1191A;
+    background-color: #C81623;
+    color: #fff;
+}
+.nav-shortcut-one div {
+    height: 31px;
+    padding: 0 15px 0 10px;
+    font: 400 14px/31px "microsoft yahei";
+}
+.nav-shortcut-one div:hover {
+    background-color: #fff;
+}
+.nav-shortcut-one div:hover a {
+    color: #C81623;
+}
+.nav-shortcut-one h3 {
+    float: left;
+}
+.nav-shortcut-one h3 a {
+    color:#fff;
+}
+.nav-shortcut-one i {
+    float: right;
+    font: 600 12px/31px "consolas";
+    color: #fff;
+}
+.nav-items,
+.nav-items li {
+    float: left;
+}
+.nav-items a {
+    display: inline-block;
+    height: 44px;
+    padding: 0 20px;
+    font: 16px/44px "微软雅黑";
+    color: #333;
+}
+.nav-items a:hover {
+    color: #C81623;
+}
+/*nav部分end*/
+
+/*subanner部分start*/
+.subbanner {
+    position: relative;
+    z-index: -1;
+}
+.subbanner a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 613px;
+    background: url(../images/subbanner.jpg) no-repeat center top;
+    cursor: default;
+}
+/*subanner部分end*/
+
+/*main部分start*/
+.main-slider {
+    float: left;
+    margin: 12px 0 0 220px;
+    position: relative;
+}
+.main-slider:hover .arrow a {
+    display: block;
+}
+.main-slider ul {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -66px;
+}
+.main-slider li {
+    float: left;
+    width: 18px;
+    height: 18px;
+    background-color: #3E3E3E;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.main-slider li.cur {
+    background-color: #C81623;
+}
+.main-slider .arrow a {
+    display: none;
+}
+.arrow a {
+    width: 28px;
+    height: 62px;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    font: 400 22px/62px "SimSun";
+    background: rgba(0, 0, 0, 0.3);
+}
+.arrow .arrow-l {
+    left: 0;
+}
+.arrow .arrow-r {
+    right: 0;
+}
+.arrow a:hover {
+    background: rgba(0, 0, 0, .5);
+}
+.main-faster {
+    width: 250px;
+    height: 454px;
+    margin-top: 12px;
+    float: right;
+}
+.main-faster-wrap {
+    width: 248px;
+    height: 372px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    border: 1px solid #E4E4E4;
+}
+.main-faster-wrap .news {
+    height: 163px;
+    border-bottom: 1px solid #E4E4E4;      /*dashed--大使的--虚线*/
+}
+.main-faster-wrap .news-title {
+    height: 32px;
+    padding: 0 15px;
+    border-bottom: 1px dotted #E4E4E4;      /*dotted--刀替的--点线*/
+}
+.main-faster-wrap .news-title h2 {
+    float: left;
+    font: 400 16px/32px "microsoft yahei";
+}
+.main-faster-wrap .news-title a {
+    float: right;
+    font: 400 12px/32px "consolas";
+}
+.main-faster-wrap .news-content {
+    padding: 5px 0 0 15px;
+}
+.main-faster-wrap .news-content li {
+    line-height: 24px;
+}
+.main-faster-wrap .news-content span {
+    font-weight: 700;
+    margin-right: 5px;
+}
+.main-faster-wrap .news-content li.strong a {
+    font-weight: 700;
+    color: #C81623;
+}
+.main-faster-wrap .shortcut-opera ul {
+    width: 265px;
+}
+.main-faster-wrap .shortcut-opera li {
+    float: left;
+    width: 62px;
+    height: 70px;
+    border: 1px solid #E4E4E4;
+    margin-left: -1px;
+    margin-top: -1px;
+    border-top: 0;
+    position: relative;
+}
+.main-faster-wrap .shortcut-opera i {
+    position: absolute;
+    top: 14px;
+    left: 17px;
+    width: 25px;
+    height: 25px;
+    background: url(../images/fly.png) no-repeat;
+}
+.main-faster-wrap .shortcut-opera a {
+    display: block;
+    width: 62px;
+    height: 25px;
+    text-align: center;
+    padding-top: 45px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-jp {
+    background-position: 0 -25px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-move {
+    background-position: 0 -50px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-game {
+    background-position: 0 -75px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-cp {
+    background-position: 0 -100px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-tg {
+    background-position: 0 -125px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-jd {
+    background-position: 0 -150px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-hcp {
+    background-position: 0 -175px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-zc {
+    background-position: 0 -250px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-lc {
+    background-position: 0 -200px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-lpk {
+    background-position: 0 -272px;
+}
+.main-faster-wrap .shortcut-opera .opera-icon-bt {
+    background-position: 0 -225px;
+}
+.main-faster-wrap .shortcut-opera b {
+    position: absolute;
+    width: 12px;
+    height: 15px;
+    top: 0;
+    right: 3px;
+}
+.main-faster-wrap .shortcut-opera b.jb-mian {
+    background: url("../images/mian.png") no-repeat;
+}
+.main-faster-wrap .shortcut-opera b.jb-jiang {
+    background: url("../images/jiang.png") no-repeat;
+}
+/*main部分end*/
+
+/*go部分start*/
+.go {
+    margin: 10px auto 30px;
+    overflow: hidden;
+}
+.go-l {
+    float: left;
+    width: 210px;
+}
+.go-r {
+    float: left;
+    width: 1000px;
+    position: relative;
+}
+.go-r ul {
+    width: 600%;
+}
+.go-r li {
+    float: left;
+    margin-right: 1px;
+}
+/*go部分end*/
