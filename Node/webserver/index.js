@@ -1,9 +1,11 @@
 const http = require('http')
 const fs = require('fs')
-const path = require('path')
 const url = require('url')
 
 const {getMimie} = require('./filetype')
+
+const testJson = require('./test.json')
+console.log('testJson', testJson.love);
 
 const staticBase = 'static/'
 http.createServer((req, res) => {

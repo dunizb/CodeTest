@@ -1,5 +1,8 @@
 const path = require('path')
 
+/**
+ * 根据文件后缀名获取MIME
+ */
 exports.getMimie = function(pathname) {
     const extname = path.extname(pathname)
     switch(extname) {
