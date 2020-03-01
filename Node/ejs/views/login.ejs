@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EJS模板引擎页面</h1>
+    <p>姓名：<%= name %></p>
+    <p>性别：<%= gender %></p>
+    <p>年龄：<%= age %></p>
+    <p>爱好：
+        <ul>
+            <% for(let item in likes) { %>
+                <li><%= likes[item].text %>：<%= likes[item].value.join('--') %></li>
+            <% } %>
+        </ul>
+    </p>
+</body>
+</html>
