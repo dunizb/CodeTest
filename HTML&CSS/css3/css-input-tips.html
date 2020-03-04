@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        .cs-tips {
+            color: gray;
+            margin-left: 15px;
+            position: absolute;
+            visibility: hidden;
+        }
+        :focus + .cs-tips {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+   用户名：<input><span class="cs-tips">不超过10个字符</span>
+</body>
+</html>
