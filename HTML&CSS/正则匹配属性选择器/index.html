@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS正则匹配属性选择器</title>
+    <style>
+        [href] { padding-left: 18px; }
+        /* 链接地址 */
+        [href^="https"],
+        [href^="ftp"],
+        [href^="//"] {
+            background: url("./images/link.png") no-repeat left;
+        }
+        /* 网页内锚链 */
+        [href^="#"] {
+            background: url("./images/anchor.png") no-repeat left;
+        }
+        /* 手机和邮箱 */
+        [href^="tel:"] {
+            background: url("./images/tel.png") no-repeat left;
+        }
+        [href^="mailto:"] {
+            background: url("./images/e-mail.png") no-repeat left;
+        }
+        /* 指向PDF文件 */
+        [href$=".pdf"] {
+            background: url("./images/pdf.png") no-repeat left;
+        }
+        /* 下载zip压缩文件 */
+        [href$=".zip"] {
+            background: url("./images/zip.png") no-repeat left;
+        }
+        /* 图片链接 */
+        [href$=".png"],
+        [href$=".gif"],
+        [href$=".jpg"],
+        [href$=".jpeg"],
+        [href$=".webp"] {
+            background: url("./images/image.png") no-repeat left;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS正则匹配属性选择器</h1>
+    <p>显示超链接的小图标</p>
+    <ul>
+        <li><a href="https://zhangbing.site">https://zhangbing.site</a></li>
+        <li><a href="//coding.zhangbing.site">//coding.zhangbing.site</a></li>
+        <li><a href="#level1">#level1</a></li>
+        <li><a href="tel:13173786224">拨打：13173786224</a></li>
+        <li><a href="mailto:dunizb@foxmail.com">邮箱：dunizb@foxmail.com</a></li>
+    </ul>
+    <p>文件类型图标</p>
+    <ul>
+        <li><a href="https://zhangbing.site/xxxx.pdf">https://zhangbing.site/xxxx.pdf</a></li>
+        <li><a href="https://zhangbing.site/xxxx.zip">https://zhangbing.site/xxxx.zip</a></li>
+        <li><a href="https://zhangbing.site/xxxx.png">https://zhangbing.site/xxxx.png</a></li>
+        <li><a href="https://zhangbing.site/xxxx.webp">https://zhangbing.site/xxxx.webp</a></li>
+    </ul>
+    <hr />
+    <h1>CSS属性选择器搜索过滤技术</h1>
+    <input type="search" id="input" placeholder="输入城市名称或拼音" style="width: 200px;" />
+    <ul>
+        <li data-search="重庆市 chongqing">重庆市</li>
+        <li data-search="哈尔滨市 haerbin">哈尔滨市</li>
+        <li data-search="长春市 changchun">长春市</li>
+        <li data-search="长沙市 changsha">长沙市</li>
+        <li data-search="上海市 shanghai">上海市</li>
+        <li data-search="杭州市 hangzhou">杭州市</li>
+    </ul>
+
+    <script>
+        var eleStyle = document.createElement('style');
+        document.head.appendChild(eleStyle);
+        // 文本输入框
+        input.addEventListener('input', function() {
+            var value = this.value.trim();
+            eleStyle.innerHTML = value ? '[data-search]:not([data-search*="' + value +'"]) { display: none; } ' : '';
+        });
+    </script>
+</body>
+</html>

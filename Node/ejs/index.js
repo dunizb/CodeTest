@@ -4,7 +4,6 @@ const querystring = require('querystring')
 
 const ejs = require('ejs')
 
-const staticBase = 'static/'
 http.createServer((req, res) => {
     let pathname = url.parse(req.url).pathname
 
@@ -31,7 +30,7 @@ http.createServer((req, res) => {
         }
     }
     const method = req.method
-    console.log(method)
+
     if(pathname === '/demo1') {
         ejs.renderFile('./views/demo1.ejs', dbData, (err, data) => {
             res.end(data)
