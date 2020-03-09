@@ -1,0 +1,27 @@
+{
+  "name": "zhuhu-api",
+  "version": "1.0.0",
+  "description": "immoc zhuhu-api koa and restful api study",
+  "main": "app/index.js",
+  "scripts": {
+    "production": "cross-env NODE_ENV=production node app/index.js",
+    "dev": "nodemon app/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dunizb",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.8.2",
+    "koa-body": "^4.1.1",
+    "koa-json-error": "^3.1.2",
+    "koa-jwt": "^3.6.0",
+    "koa-parameter": "^3.0.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.7.3"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.2"
+  }
+}
