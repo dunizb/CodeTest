@@ -7,4 +7,5 @@ Webpack/**/node_modules/
 Typescript/**/node_modules/
 island/node_modules/
 Node/**/node_modules/
+projects/**/node_modules/
 **.DS_Store
