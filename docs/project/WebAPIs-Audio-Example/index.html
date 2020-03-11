@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+<meta name="title" content="Web Audio API">
+<meta name="description" content="API for synthesizing and addding effects to audio.">
+<meta name="image" content="">
+<meta name="site" content="">
+
+<title>Web APIs Audio Example</title>
+
+<style>
+    audio {
+        width: 100%;
+        height: inherit;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Web APIs：Audio Demo<h1>
+    </header>
+    <main>
+        <div class="web-api-card-body">
+            <div id="error" style="color: red;"></div>
+            <div>
+                <audio controls src="./outfoxing.mp3" id="audio"></audio>
+            </div>
+
+            <div>
+                <button onclick="audioFromAudioFile.play()">Play</button>
+                <button onclick="audioFromAudioFile.pause()">Pause</button>
+                <button onclick="audioFromAudioFile.stop()">Stop</button>
+            </div>
+            <div>
+                <div>
+                    音量（Vol）: 小
+                    <input onchange="audioFromAudioFile.changeVolume()" type="range" id="vol" min="1" max="2"
+                        step="0.01" value="1" />大
+                </div>
+                <div>
+                    声道（Pan）: 左声道
+                    <input onchange="audioFromAudioFile.changePan()" type="range" id="panner" min="-1" max="1"
+                        step="0.01" value="0" />右声道
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    const l = console.log
+    let audioFromAudioFile = (function () {
+        var audioContext
+        var volNode
+        var pannerNode
+        var mediaSource
+
+        function init() {
+            l("Init")
+            try {
+                audioContext = new AudioContext()
+                mediaSource = audioContext.createMediaElementSource(audio)
+                volNode = audioContext.createGain()
+                volNode.gain.value = 1
+                pannerNode = new StereoPannerNode(audioContext, { pan: 0 })
+
+                mediaSource.connect(volNode).connect(pannerNode).connect(audioContext.destination)
+            }
+            catch (e) {
+                error.innerHTML = "The Web Audio API is not supported in this device."
+                error.classList.remove("close")
+            }
+        }
+
+        function play() {
+            audio.play()
+        }
+
+        function pause() {
+            audio.pause()
+        }
+
+        function stop() {
+            audio.pause()
+            audio.currentTime = 0.0
+        }
+
+        function changeVolume() {
+            volNode.gain.value = vol.value
+            l("Vol Range:", vol.value)
+        }
+
+        function changePan() {
+            pannerNode.pan.value = panner.value
+            l("Pan Range:", panner.value)
+        }
+
+        init()
+
+        return {
+            init,
+            play,
+            pause,
+            stop,
+            changePan,
+            changeVolume
+        }
+    })()
+</script>
+
+</html>
