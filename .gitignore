@@ -1,6 +1,7 @@
 .idea/
 .vscode
 .project
+.history
 React/**/node_modules/
 Vue/**/node_modules/
 Webpack/**/node_modules/

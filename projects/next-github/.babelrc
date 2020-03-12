@@ -1,11 +1,19 @@
 {
-    "presets": ["next/babel"],
+    "presets": [
+        "next/babel"
+    ],
     "plugins": [
         [
-            "import", 
+            "import",
             {
                 "libraryName": "antd"
             }
         ]
+        // [
+        //     "styled-components",
+        //     {
+        //         "ssr": true
+        //     }
+        // ]
     ]
 }

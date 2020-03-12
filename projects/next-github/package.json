@@ -8,13 +8,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.0.2",
     "@zeit/next-css": "^1.0.1",
     "antd": "^4.0.2",
+    "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "ioredis": "^4.16.0",
     "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "koa-session": "^5.13.1",
     "next": "^9.2.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1"
   }
 }
