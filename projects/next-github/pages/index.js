@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react'
-import { Layout, Menu, Breadcrumb, Input, Avatar } from 'antd'
+import { Layout, Input, Avatar } from 'antd'
 import { GithubOutlined, UserOutlined } from '@ant-design/icons'
 import 'antd/dist/antd.css'
+
+import Container from '../components/Container'
 
 const { Header, Content, Footer } = Layout;
 
@@ -14,6 +16,8 @@ const footerStyle = {
   textAlign: 'center'
 }
 
+const Comp = ({ color, children, style }) => <div style={{ color, ...style }}>{children}</div>
+
 export default ({ children }) => {
 
   const [search, setSearch] = useState('')
@@ -25,7 +29,7 @@ export default ({ children }) => {
   return (
     <Layout>
       <Header>
-        <div className="header-inner">
+        <Container renderer={<div className="header-inner" />}>
           <div className="header-left">
             <div className="logo">
               <GithubOutlined style={githubIconStyle} />
@@ -45,15 +49,13 @@ export default ({ children }) => {
               <Avatar icon={<UserOutlined />} />
             </div>
           </div>
-        </div>
+        </Container>
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="site-layout-content">Content</div>
+        <Container>
+          {children}
+          Content
+        </Container>
       </Content>
       <Footer style={footerStyle}>Ant Design ©2018 Created by Ant UED</Footer>
       <style jsx>{`
@@ -74,6 +76,10 @@ export default ({ children }) => {
         }
         .ant-layout {
           height: 100%;
+        }
+        .ant-layout-header {
+          padding-left: 0;
+          padding-right: 0;
         }
       `}</style>
     </Layout>
