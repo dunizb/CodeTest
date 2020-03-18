@@ -14,7 +14,7 @@ button {
 body {
   overflow: hidden;
   display: flex;
-  height: 100vh;
+  height: 400px;
   align-items: center;
   justify-content: center;
 }
