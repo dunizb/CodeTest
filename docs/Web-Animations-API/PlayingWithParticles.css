@@ -1,0 +1,20 @@
+particle {
+  border-radius: 50%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+}
+
+button {
+  padding: 10px;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
