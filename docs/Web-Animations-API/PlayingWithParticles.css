@@ -14,7 +14,6 @@ button {
 body {
   overflow: hidden;
   display: flex;
-  height: 400px;
   align-items: center;
   justify-content: center;
 }
