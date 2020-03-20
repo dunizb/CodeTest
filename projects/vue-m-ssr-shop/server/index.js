@@ -1,8 +1,16 @@
 const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const mongoose = require('mongoose')
 
 const app = new Koa()
+
+const users = require('./api/users')
+
+const { database } = require('./dbs/config')
+mongoose.connect(database, {
+  useNewUrlParser: true
+})
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -23,6 +31,7 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+  app.use(users.routes()).use(users.allowedMethods())
 
   app.use((ctx) => {
     ctx.status = 200

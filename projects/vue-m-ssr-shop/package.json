@@ -18,6 +18,9 @@
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^8.0.8",
+    "mongoose": "^5.9.5",
     "nuxt": "^2.0.0",
     "vant": "^2.5.5"
   },
