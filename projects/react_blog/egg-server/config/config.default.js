@@ -43,6 +43,17 @@ module.exports = appInfo => {
     agent: false,
   };
 
+  config.security = {
+    csrf: {
+      enable: true,
+    },
+    domainWhiteList: ['*'],
+  };
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,POST,HEAD,UPDATE,DELETE,PATCH,OPTIONS',
+  };
+
   return {
     ...config,
     ...userConfig,
