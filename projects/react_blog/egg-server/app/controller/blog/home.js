@@ -30,7 +30,7 @@ class HomeController extends Controller {
     console.log('id', id);
     const sql = `
     select 
-      article.id,article.title,article.type_id,article.introduce,
+      article.id,article.title,article.type_id,article.introduce,article.content,
       DATE_FORMAT(article.create_time,'%Y-%m-%d %H:%i') as create_time,article.view_count,
       article_type.name as type_name
     FROM article 
