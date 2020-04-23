@@ -14,6 +14,7 @@ import '../public/styles/pages/detailed.css'
 import 'markdown-navbar/dist/navbar.css'
 import 'highlight.js/styles/monokai-sublime.css'
 import Tocify from '../components/tocify.tsx'
+import servicePath from '../config/apiConfig'
 
 const Detailed = (props) => {
   const tocify = new Tocify()
@@ -92,7 +93,7 @@ Detailed.getInitialProps = async (ctx) => {
   const id = ctx.query.id
   console.log('query.id', id)
   const promise = new Promise((resolve) => {
-    axios(`http://127.0.0.1:7002/blog/articleDetail?id=${id}`).then(
+    axios(`${servicePath.articleDetail}?id=${id}`).then(
       (res) => {
         console.log(res.data)
         resolve(res.data.data[0])
