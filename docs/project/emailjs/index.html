@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailJS Demo</title>
+  <style>
+    .form__input {
+      display: block;
+      width: 300px;
+      margin: 10px 0;
+    }
+
+    .form__input--textarea {
+      height: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>EmailJS Demo</h1>
+    <strong>作者：<a href="https://zhangbing.site">Dunizb</a></strong>
+    <p>一个简单的纯前端邮件发送项目，项目来自我的公众号《前端外文精选》</p>
+  </header>
+  <form class="form">
+    <input name='to' type="text" placeholder="收件人" class="form__input" />
+    <input name='name' type="text" placeholder="你的名字" class="form__input" />
+    <input name='topic' type="text" placeholder="主题" class="form__input" />
+    <textarea name='message' type="text" placeholder="你的消息" class="form__input form__input--textarea"></textarea>
+
+    <input type="submit" value="发送" class="form__input--button">
+  </form>
+<script src="main.js"></script></body>
+
+</html>
