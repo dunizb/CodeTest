@@ -3,6 +3,7 @@
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
 
 更新：
++ [使用JavaScript直接从前端发送电子邮件](https://github.com/dunizb/CodeTest/tree/master/projects/emailjs-demo)
 + [HTML页面生成器：使用JavaScript和Node创建CLI](https://github.com/dunizb/CodeTest/tree/master/Node/html-generator-cli)
 + [使用TypeScript和ES模块发布Node模块](https://github.com/dunizb/CodeTest/tree/master/TypeScript/typescript-es-modules)
 + [从零开始创建一个CLI](https://github.com/dunizb/CodeTest/tree/master/Node/my-cli)
