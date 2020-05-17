@@ -6,6 +6,8 @@
 
 ## 使用
 
+运行前请按照配套文章获取apikey。
+
 运行：`npm run dev`
 
 build：`npm run build`
