@@ -17,8 +17,7 @@ class HomeController extends Controller {
       article_type.name as type_name
     FROM article 
     LEFT JOIN article_type 
-    ON article_type.id = article.type_id
-    `;
+    ON article_type.id = article.type_id`;
 
     const results = await this.app.mysql.query(sql);
     ctx.body = { data: results };
@@ -36,8 +35,7 @@ class HomeController extends Controller {
     FROM article 
     LEFT JOIN article_type 
     ON article_type.id = article.type_id
-    WHERE article.id = ${id}
-    `;
+    WHERE article.id = ${id}`;
     const results = await this.app.mysql.query(sql);
     ctx.body = { data: results };
   }
