@@ -54,7 +54,7 @@ const Detailed = (props) => {
             </div>
 
             <div>
-              <div className="detailed-title">React实战视频教程-技术胖Blog开发(更新08集)</div>
+              <div className="detailed-title">{props.title}</div>
 
               <div className="list-icon center">
                 <span><Icon type="calendar" /> {props.create_time}</span>
