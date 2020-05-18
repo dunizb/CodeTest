@@ -54,7 +54,7 @@ class HomeController extends Controller {
       'article.introduce,' +
       "DATE_FORMAT(article.create_time,'%Y-%m-%d %H:%i:%s' ) as create_time," +
       'article.view_count,' +
-      'article_type.name ' +
+      'article_type.name as type_name ' +
       'FROM article LEFT JOIN article_type ON article.type_id = article_type.id ' +
       'WHERE article_type.id=' + id;
     const result = await this.app.mysql.query(sql);

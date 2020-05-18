@@ -13,6 +13,7 @@ const BlogList = (list) => {
   const [myList, setMyList] = useState(list.data)
 
   useEffect(() => {
+    console.log(list)
     setMyList(list.data)
   })
 
@@ -28,7 +29,7 @@ const BlogList = (list) => {
           <div className="breadcrumb">
             <Breadcrumb>
               <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-              <Breadcrumb.Item>视频教程</Breadcrumb.Item>
+              <Breadcrumb.Item>{myList.length > 0 ? myList[0].type_name : ''}</Breadcrumb.Item>
             </Breadcrumb>
           </div>
           <List
@@ -45,7 +46,7 @@ const BlogList = (list) => {
                 <div className="list-icon">
                   <span><Icon type="calendar" /> {item.create_time}</span>
                   <span><Icon type="folder" /> {item.type_name}</span>
-                  <span><Icon type="fire" /> {item.view_count}</span>
+                  <span><Icon type="fire" /> {item.view_count}阅读</span>
                 </div>
                 <div className="list-context">{item.context}</div>
               </List.Item>
