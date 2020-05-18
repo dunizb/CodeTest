@@ -33,7 +33,7 @@ const Header = () => {
       <Row type="flex" justify="center">
         <Col xs={24} sm={24} md={6} lg={10} xl={10}>
           <span className="header-logo">杜尼卜</span>
-          <span className="header-text">聚焦大前端技术、全栈开发、程序员成长学习。</span>
+          <span className="header-text">做工程师不做码农</span>
         </Col>
         <Col xs={0} sm={0} md={14} lg={16} xl={10} className="text-r">
           <Menu mode="horizontal" onClick={handleClick}>

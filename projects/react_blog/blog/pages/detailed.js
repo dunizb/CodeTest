@@ -48,8 +48,8 @@ const Detailed = (props) => {
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-                <Breadcrumb.Item>视频列表</Breadcrumb.Item>
-                <Breadcrumb.Item>xxxx</Breadcrumb.Item>
+                <Breadcrumb.Item>{props.type_name}</Breadcrumb.Item>
+                {/* <Breadcrumb.Item>xxxx</Breadcrumb.Item> */}
               </Breadcrumb>
             </div>
 
@@ -57,9 +57,9 @@ const Detailed = (props) => {
               <div className="detailed-title">React实战视频教程-技术胖Blog开发(更新08集)</div>
 
               <div className="list-icon center">
-                <span><Icon type="calendar" /> 2019-06-28</span>
-                <span><Icon type="folder" /> 视频教程</span>
-                <span><Icon type="fire" /> 5498人</span>
+                <span><Icon type="calendar" /> {props.create_time}</span>
+                <span><Icon type="folder" /> {props.type_name}</span>
+                <span><Icon type="fire" /> {props.view_count}人</span>
               </div>
 
               <div className="detailed-content" dangerouslySetInnerHTML={{ __html: html }} >
