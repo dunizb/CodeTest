@@ -6,6 +6,7 @@ export default function ComponentIncrement() {
   const [counter, setCounter] = useRecoilState(counterAtom);
   function onIncrementClick() {
     setCounter((current) => current + 1);
+
   }
   return (
     <div>

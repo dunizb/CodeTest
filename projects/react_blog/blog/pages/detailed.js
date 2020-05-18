@@ -91,9 +91,9 @@ const Detailed = (props) => {
 
 Detailed.getInitialProps = async (ctx) => {
   const id = ctx.query.id
-  console.log('query.id', id)
+  console.log('Detailed.id', id)
   const promise = new Promise((resolve) => {
-    axios(`${servicePath.articleDetail}?id=${id}`).then(
+    axios(`${servicePath.articleDetail}/${id}`).then(
       (res) => {
         console.log(res.data)
         resolve(res.data.data[0])
