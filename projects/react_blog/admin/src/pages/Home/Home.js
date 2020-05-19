@@ -7,6 +7,9 @@ import {
   ContainerOutlined,
 } from '@ant-design/icons';
 import './home.css'
+import { Route } from "react-router-dom";
+
+import AddArticle from '../AddArticle/AddArticle'
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -48,7 +51,11 @@ function Home() {
             <Breadcrumb.Item>工作台</Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            博客工作台.
+            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+              <div>
+                <Route path="/home/" exact component={AddArticle} />
+              </div>
+            </div>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>zhangbing.site</Footer>
