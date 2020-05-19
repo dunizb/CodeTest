@@ -5,12 +5,27 @@ import Header from '../components/Header'
 import { Row, Col, List, Icon } from 'antd'
 import '../public/styles/pages/index.css'
 import axios from 'axios'
+import marked from 'marked'
+import highlight from 'highlight.js'
 import Author from '../components/Author/index'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import servicePath from '../config/apiConfig'
+import 'highlight.js/styles/monokai-sublime.css'
 
 const Home = (list) => {
+  const renderer = new marked.Renderer();
+  marked.setOptions({
+    renderer: renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: false,
+    highlight: code => highlight.highlightAuto(code).value
+  });
   const [articleList, setArticleList] = useState(list.data)
 
   return (
@@ -38,7 +53,7 @@ const Home = (list) => {
                   <span><Icon type="folder" /> {item.type_name}</span>
                   <span><Icon type="fire" /> {item.view_count}人</span>
                 </div>
-                <div className="list-context">{item.introduce}</div>
+                <div className="list-context" dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}></div>
               </List.Item>
             )}
           />

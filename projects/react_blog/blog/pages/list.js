@@ -8,12 +8,27 @@ import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import axios from 'axios'
 import servicePath from '../config/apiConfig'
+import marked from 'marked'
+import highlight from 'highlight.js'
+import 'highlight.js/styles/monokai-sublime.css'
 
 const BlogList = (list) => {
+  const renderer = new marked.Renderer();
+  marked.setOptions({
+    renderer: renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: false,
+    highlight: code => highlight.highlightAuto(code).value
+  });
+
   const [myList, setMyList] = useState(list.data)
 
   useEffect(() => {
-    console.log(list)
     setMyList(list.data)
   })
 
@@ -48,7 +63,7 @@ const BlogList = (list) => {
                   <span><Icon type="folder" /> {item.type_name}</span>
                   <span><Icon type="fire" /> {item.view_count}阅读</span>
                 </div>
-                <div className="list-context">{item.context}</div>
+                <div className="list-context" dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}></div>
               </List.Item>
             )}
           />
