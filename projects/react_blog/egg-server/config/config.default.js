@@ -45,12 +45,13 @@ module.exports = appInfo => {
 
   config.security = {
     csrf: {
-      enable: true,
+      enable: false,
     },
     domainWhiteList: ['*'],
   };
   config.cors = {
-    origin: '*',
+    origin: 'http://localhost:3001',
+    credentials: true, // 允许Cookie跨域
     allowMethods: 'GET,POST,HEAD,UPDATE,DELETE,PATCH,OPTIONS',
   };
 
