@@ -2,6 +2,7 @@
 
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/admin/home', controller.admin.main.home);
+  const auth = app.middleware.adminauth();
+  router.get('/admin/home', auth, controller.admin.main.home);
   router.post('/admin/checkLogin', controller.admin.main.checkLogin);
 };
