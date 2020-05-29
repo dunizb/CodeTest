@@ -28,6 +28,21 @@ class MainController extends Controller {
     }
   }
 
+  // 后台文章分类信息
+  async getTypeInfo() {
+    const resType = await this.app.mysql.select('article_type');
+    this.ctx.body = { data: resType };
+  }
+
+  // 添加文章
+  async addArticle() {
+    const tmpArticle = this.ctx.request.body;
+    const result = await this.app.mysql.insert('article', tmpArticle);
+    const isSuccess = result.affectedRows === 1;
+    const insertId = result.insertId;
+    this.ctx.body = { isSuccess, insertId };
+  }
+
 }
 
 module.exports = MainController;

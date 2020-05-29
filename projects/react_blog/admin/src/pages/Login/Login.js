@@ -35,7 +35,7 @@ function Login(props) {
     }).then(
       res => {
         setIsLoading(false)
-        if (res.data.data == '登录成功') {
+        if (res.data.data === '登录成功') {
           localStorage.setItem('openId', res.data.openId)
           props.history.push('/home')
         } else {
