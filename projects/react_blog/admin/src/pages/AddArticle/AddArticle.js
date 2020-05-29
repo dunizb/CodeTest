@@ -8,17 +8,19 @@ import servicePath from '../../config/apiUrl'
 const { Option } = Select;
 const { TextArea } = Input
 
+const TYPE = '文章类别'
+
 function AddArticle(props) {
   const [articleId, setArticleId] = useState(0)  // 文章的ID，如果是0说明是新增加，如果不是0，说明是修改
   const [articleTitle, setArticleTitle] = useState('')   //文章标题
   const [articleContent, setArticleContent] = useState('')  //markdown的编辑内容
   const [markdownContent, setMarkdownContent] = useState('预览内容') //html内容
-  const [introducemd, setIntroducemd] = useState()            //简介的markdown内容
-  const [introducehtml, setIntroducehtml] = useState('等待编辑') //简介的html内容
+  const [introduceMD, setIntroduceMD] = useState()            //简介的markdown内容
+  const [introduceHtml, setIntroduceHtml] = useState('等待编辑') //简介的html内容
   const [showDate, setShowDate] = useState()   //发布日期
   const [updateDate, setUpdateDate] = useState() //修改日志的日期
   const [typeInfo, setTypeInfo] = useState([]) // 文章类别信息
-  const [selectedType, setSelectType] = useState('文章类别') //选择的文章类别
+  const [selectedType, setSelectType] = useState(TYPE) //选择的文章类别
   marked.setOptions({
     renderer: marked.Renderer(),
     gfm: true,
@@ -36,9 +38,9 @@ function AddArticle(props) {
   }
 
   const changeIntroduce = (e) => {
-    setIntroducemd(e.target.value)
+    setIntroduceMD(e.target.value)
     let html = marked(e.target.value)
-    setIntroducehtml(html)
+    setIntroduceHtml(html)
   }
 
   //从中台得到文章类别信息
@@ -62,14 +64,24 @@ function AddArticle(props) {
 
   useEffect(() => {
     getTypeInfo()
-  }, [])
+  }, []);
+
+  const convertType = value => {
+    if (value == TYPE) {
+      return 1
+    }
+    return value
+  }
 
   //选择类别后的便哈
   const selectTypeHandler = (value) => {
-    setSelectType(value)
+    setSelectType(convertType(value))
   }
 
+
   const saveArticle = () => {
+    // markedContent();  //先进行转换
+
     if (!selectedType) {
       message.error('必须选择文章类别')
       return false
@@ -79,14 +91,43 @@ function AddArticle(props) {
     } else if (!articleContent) {
       message.error('文章内容不能为空')
       return false
-    } else if (!introducemd) {
+    } else if (!introduceMD) {
       message.error('简介不能为空')
       return false
     } else if (!showDate) {
       message.error('发布日期不能为空')
       return false
     }
-    message.success('检验通过')
+    // message.success('检验通过')
+
+    let dataProps = {}   //传递到接口的参数
+    dataProps.type_id = Number.parseInt(convertType(selectedType))
+    dataProps.title = articleTitle
+    dataProps.content = articleContent
+    dataProps.introduce = introduceMD
+    // let dateText = showDate.replace('-', '/') //把字符串转换成时间戳
+    dataProps.create_time = showDate
+
+    if (articleId === 0) {
+      console.log('articleId=:' + articleId)
+      dataProps.view_count = Math.ceil(Math.random() * 100) + 1000
+      axios({
+        method: 'post',
+        url: servicePath.addArticle,
+        data: dataProps,
+        withCredentials: true
+      }).then(
+        res => {
+          console.log('res.data', res.data)
+          setArticleId(res.data.insertId)
+          if (res.data.isSuccess) {
+            message.success('文章保存成功')
+          } else {
+            message.error('文章保存失败');
+          }
+        }
+      )
+    }
   }
 
   return (
@@ -138,11 +179,11 @@ function AddArticle(props) {
               <br />
               <TextArea
                 rows={4}
-                value={introducemd}
+                value={introduceMD}
                 onChange={changeIntroduce}
                 placeholder="文章简介" />
               <br /><br />
-              <div className="introduce-html" dangerouslySetInnerHTML={{ __html: '文章简介：' + introducehtml }} ></div>
+              <div className="introduce-html" dangerouslySetInnerHTML={{ __html: '文章简介：' + introduceHtml }} ></div>
             </Col>
             <Col span={12}>
               <div className="date-select">
