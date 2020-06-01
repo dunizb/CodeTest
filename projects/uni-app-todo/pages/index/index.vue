@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="todo-header" v-if="list.length !== 0">
+		<view class="todo-header" v-if="list.length !== 0 || finishList.length !== 0">
       <!-- 状态栏左侧 -->
 		  <view class="todo-header__left">
 		    <text class="active-text">全部</text>
@@ -15,7 +15,7 @@
 		</view>
     
     <!-- 没有数据的状态 -->
-    <view v-if="list.length == 0" class="default">
+    <view v-if="list.length === 0 && finishList.length === 0" class="default">
       <view class="image-default">
         <image src="../../static/default.png" mode="aspectFit"></image>
       </view>
@@ -27,9 +27,19 @@
     
     <!-- 内容 -->
     <view v-else class="todo-content">
-      <view class="todo-list todo--finish" v-for="(item, index) in list" :key="index">
+      <!-- 未完成的todo -->
+      <view class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
         <view class="todo-list__checkbox">
-          <view class="checkbox"></view>
+          <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
+        </view>
+        <view class="todo-list__context">
+          {{item.content}}
+        </view>
+      </view>
+      <!-- 已完成的todo -->
+      <view class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
+        <view class="todo-list__checkbox">
+          <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
         </view>
         <view class="todo-list__context">
           {{item.content}}
@@ -39,7 +49,7 @@
     
     <!-- 创建按钮 -->
     <view class="create-todo" @click="create">
-      <text class="iconfont icon-add1"></text>
+      <text class="iconfont icon-add1" :class="{'active': active}"></text>
     </view>
     
     <!-- 输入框 -->
@@ -60,23 +70,57 @@
 	export default {
 		data() {
 			return {
-				list: [],
+				list: [],       // 未完成的todo
+        finishList: [], // 已完成的todo
         active: false,
         value: ""
 			}
 		},
 		onLoad() {
-
+      this.list = uni.getStorageSync('todo') || [];
+      this.finishList = uni.getStorageSync('todo-finish') || [];
 		},
 		methods: {
       create() {
-        this.active = true;
+        this.active = !this.active;
       },
       add() {
+        if(this.value === "") {
+          uni.showToast({
+            title: '请输入内容',
+            icon: 'none'
+          })
+          return;
+        }
         this.list.unshift({
-          content: this.value
+          id: 'id' + Date.now(),
+          content: this.value,
+          checked: false
         });
+        uni.setStorageSync('todo', this.list);
+        uni.setStorageSync('todo-finish', this.finishList);
         this.value = '';
+      },
+      changeFinish(id, checked) {
+        // debugger
+        let todo = null
+        let index = null
+        // 状态已完成，从finishList中移出，再插入list中
+        if(checked) {
+          todo = this.finishList.find(item => id === item.id);
+          index = this.finishList.findIndex(item => id === item.id);
+          todo.checked = !todo.checked
+          this.list.unshift(todo);
+          this.finishList.splice(index, 1);
+        } else {
+          todo = this.list.find(item => id === item.id);
+          index = this.list.findIndex(item => id === item.id);
+          todo.checked = !todo.checked
+          this.finishList.unshift(todo);
+          this.list.splice(index, 1);
+        }
+        uni.setStorageSync('todo', this.list);
+        uni.setStorageSync('todo-finish', this.finishList);
       }
 		}
 	}

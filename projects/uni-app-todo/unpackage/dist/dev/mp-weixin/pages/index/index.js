@@ -135,7 +135,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -197,24 +207,59 @@ var _default =
 {
   data: function data() {
     return {
-      list: [],
+      list: [], // 未完成的todo
+      finishList: [], // 已完成的todo
       active: false,
       value: "" };
 
   },
   onLoad: function onLoad() {
-
+    this.list = uni.getStorageSync('todo') || [];
+    this.finishList = uni.getStorageSync('todo-finish') || [];
   },
   methods: {
     create: function create() {
-      this.active = true;
+      this.active = !this.active;
     },
     add: function add() {
-      this.list.unshift({
-        content: this.value });
+      if (this.value === "") {
+        uni.showToast({
+          title: '请输入内容',
+          icon: 'none' });
 
+        return;
+      }
+      this.list.unshift({
+        id: 'id' + Date.now(),
+        content: this.value,
+        checked: false });
+
+      uni.setStorageSync('todo', this.list);
+      uni.setStorageSync('todo-finish', this.finishList);
       this.value = '';
+    },
+    changeFinish: function changeFinish(id, checked) {
+      // debugger
+      var todo = null;
+      var index = null;
+      // 状态已完成，从finishList中移出，再插入list中
+      if (checked) {
+        todo = this.finishList.find(function (item) {return id === item.id;});
+        index = this.finishList.findIndex(function (item) {return id === item.id;});
+        todo.checked = !todo.checked;
+        this.list.unshift(todo);
+        this.finishList.splice(index, 1);
+      } else {
+        todo = this.list.find(function (item) {return id === item.id;});
+        index = this.list.findIndex(function (item) {return id === item.id;});
+        todo.checked = !todo.checked;
+        this.finishList.unshift(todo);
+        this.list.splice(index, 1);
+      }
+      uni.setStorageSync('todo', this.list);
+      uni.setStorageSync('todo-finish', this.finishList);
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 17 */,

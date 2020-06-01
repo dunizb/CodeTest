@@ -115,6 +115,10 @@ todo-header__left{
 .icon-add1{
   font-size: 30px;
   color: #add8e6;
+  transition: all .5s;
+}
+.icon-add1.active {
+  transform: rotate(45deg);
 }
 .create-content{
   position: fixed;

@@ -146,6 +146,12 @@ todo-header__left{
 .icon-add1{
   font-size: 30px;
   color: #add8e6;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+.icon-add1.active {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .create-content{
   position: fixed;
