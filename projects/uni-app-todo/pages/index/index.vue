@@ -13,7 +13,7 @@
         <view class="todo-header__right-item">已完成</view>
       </view>
 		</view>
-    <view class="todo-context">
+    <view class="todo-content">
       <view class="todo-list todo--finish">
         <view class="todo-list__checkbox">
           <view class="checkbox"></view>
@@ -31,7 +31,18 @@
         </view>
       </view>
     </view>
-	</view>
+    <view class="create-todo">
+      <text class="iconfont icon-add1"></text>
+    </view>
+    <view class="create-content">
+      <view class="create-content-box">
+        <view class="create-input">
+          <input type="text" value="" placeholder="请输入要创建的todo" />
+        </view>
+        <view class="create-button">创建</view>
+      </view>
+    </view>
+  </view>
 </template>
 
 <script>
@@ -51,6 +62,7 @@
 </script>
 
 <style>
+  @import "../../common/icon.css";
 	.todo-header{
     display: flex;
     justify-content: space-between;
@@ -79,7 +91,7 @@
   .active-tab {
     color: #279abf;
   }
-  .todo-context {
+  .todo-content {
     position: relative;
   }
   .todo-list{
@@ -148,5 +160,88 @@
   }
   .todo--finish.todo-list::after{
     background-color: #ccc;
+  }
+  .create-todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #deeff5;
+    box-shadow: -1px 1px 5px 2px rgba(0,0,0,.1), 0px 0px 0px 2px #FFFFFF inset;
+  }
+  .icon-add1{
+    font-size: 30px;
+    color: #add8e6;
+  }
+  .create-content{
+    position: fixed;
+    bottom: 95px;
+    left: 20px;
+    right: 20px;
+  }
+  .create-content-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 95px;
+    left: 20px;
+    right: 20px;
+    padding: 0 15px;
+    padding-right: 0;
+    border-radius: 50px;
+    background-color: #DEEFF5;
+    box-shadow: -1px 1px 5px 2px rgba(0,0,0,.1), -1px 1px 1px 0 #FFFFFF inset;
+    z-index: 2;
+  }
+  .create-input{
+    width: 100%;
+    padding-right: 15px;
+    color: #add8e6;
+  }
+  .create-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 50px;
+    width: 80px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: #88d4ec;
+    box-shadow: -2px 0 2px 1px rgba(0,0,0,.1);
+  }
+  .create-content::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -8px;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #DEEFF5;
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.1);
+    z-index: -1;
+  }
+  .create-content-box::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -8px;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #DEEFF5;
+    transform: rotate(45deg);
   }
 </style>
