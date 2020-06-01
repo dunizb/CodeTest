@@ -13,7 +13,6 @@
 }
 .todo-header{
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
   display: -webkit-box;
@@ -31,7 +30,7 @@
   height: 45px;
   box-shadow: -1px 1px 5px 0px rgba(0,0,0,.1);
   background-color: #FFFFFF;
-  z-index: 2;
+  z-index: 10;
 }
 todo-header__left{
   width: 100%;

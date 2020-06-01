@@ -17,7 +17,7 @@
 		</view>
     
     <!-- 没有数据的状态 -->
-    <scroll-view scroll-y="true">
+    <scroll-view :scroll-y="true">
       <view v-if="list.length === 0 && finishList.length === 0" class="default">
         <view class="image-default">
           <image src="../../static/default.png" mode="aspectFit"></image>
@@ -32,7 +32,7 @@
       <view v-else class="todo-content">
       <!-- 未完成的todo -->
       <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" show="true" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
+        <uniSwipeActionItem :options="swipeOptions" :show="true" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
           <view class="todo-list__checkbox">
             <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
           </view>
@@ -44,7 +44,7 @@
       
       <!-- 已完成的todo -->
       <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" show="true" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
+        <uniSwipeActionItem :options="swipeOptions" :show="true" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
           <view class="todo-list__checkbox">
             <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
           </view>
