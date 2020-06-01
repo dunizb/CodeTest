@@ -1,5 +1,10 @@
 @import "../../common/icon.css";
+
 .todo-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items:center;
@@ -9,6 +14,7 @@
   height: 45px;
   box-shadow: -1px 1px 5px 0px rgba(0,0,0,.1);
   background-color: #FFFFFF;
+  z-index: 2;
 }
 todo-header__left{
   width: 100%;
@@ -22,13 +28,15 @@ todo-header__left{
 .active-text {
   font-size: 14px;
   color: #279abf;
-  padding-right: 10px;
+  padding: 0 5px;
 }
 .active-tab {
   color: #279abf;
 }
 .todo-content {
   position: relative;
+  padding-top: 45px;
+  padding-bottom: 100px;
 }
 .todo-list{
   position: relative;
@@ -115,22 +123,28 @@ todo-header__left{
 .icon-add1{
   font-size: 30px;
   color: #add8e6;
-  transition: all .5s;
+  transition: all .3s;
 }
-.icon-add1.active {
-  transform: rotate(45deg);
+.icon-add1.create-todo-active {
+  transform: rotate(135deg);
 }
 .create-content{
   position: fixed;
   bottom: 95px;
   left: 20px;
   right: 20px;
+  transition: all .3s;
+  opacity: 0;
+  transform: scale(0) translateY(200%);
+}
+.create-content.create--show{
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 .create-content-box{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   bottom: 95px;
   left: 20px;
   right: 20px;

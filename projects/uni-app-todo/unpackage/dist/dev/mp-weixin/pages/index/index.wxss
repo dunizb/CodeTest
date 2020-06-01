@@ -12,6 +12,10 @@
   content: "\e704";
 }
 .todo-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -27,6 +31,7 @@
   height: 45px;
   box-shadow: -1px 1px 5px 0px rgba(0,0,0,.1);
   background-color: #FFFFFF;
+  z-index: 2;
 }
 todo-header__left{
   width: 100%;
@@ -42,13 +47,15 @@ todo-header__left{
 .active-text {
   font-size: 14px;
   color: #279abf;
-  padding-right: 10px;
+  padding: 0 5px;
 }
 .active-tab {
   color: #279abf;
 }
 .todo-content {
   position: relative;
+  padding-top: 45px;
+  padding-bottom: 100px;
 }
 .todo-list{
   position: relative;
@@ -146,18 +153,28 @@ todo-header__left{
 .icon-add1{
   font-size: 30px;
   color: #add8e6;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
-.icon-add1.active {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+.icon-add1.create-todo-active {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 .create-content{
   position: fixed;
   bottom: 95px;
   left: 20px;
   right: 20px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  opacity: 0;
+  -webkit-transform: scale(0) translateY(200%);
+          transform: scale(0) translateY(200%);
+}
+.create-content.create--show{
+  opacity: 1;
+  -webkit-transform: scale(1) translateY(0);
+          transform: scale(1) translateY(0);
 }
 .create-content-box{
   display: -webkit-box;
@@ -169,7 +186,6 @@ todo-header__left{
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  position: fixed;
   bottom: 95px;
   left: 20px;
   right: 20px;

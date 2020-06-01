@@ -211,6 +211,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 {
   components: {
     uniSwipeAction: uniSwipeAction,
@@ -221,6 +224,7 @@ __webpack_require__.r(__webpack_exports__);
       list: [], // 未完成的todo
       finishList: [], // 已完成的todo
       active: false,
+      textShow: false,
       value: "",
       activeTab: "all",
       swipeOptions: [
@@ -247,7 +251,28 @@ __webpack_require__.r(__webpack_exports__);
       this.finishList = uni.getStorageSync('todo-finish') || [];
     },
     create: function create() {
-      this.active = !this.active;
+      if (this.active) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
+    // 打开关闭动画
+    open: function open() {var _this = this;
+      this.active = true;
+      this.$nextTick(function () {
+        setTimeout(function () {
+          _this.textShow = true;
+        }, 50);
+      });
+    },
+    close: function close() {var _this2 = this;
+      this.textShow = false;
+      this.$nextTick(function () {
+        setTimeout(function () {
+          _this2.active = false;
+        }, 350);
+      });
     },
     add: function add() {
       if (this.value === "") {
@@ -265,6 +290,7 @@ __webpack_require__.r(__webpack_exports__);
       uni.setStorageSync('todo', this.list);
       uni.setStorageSync('todo-finish', this.finishList);
       this.value = '';
+      this.close();
     },
     changeFinish: function changeFinish(id, checked) {
       // debugger

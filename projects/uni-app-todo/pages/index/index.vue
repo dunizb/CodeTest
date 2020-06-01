@@ -1,10 +1,12 @@
 <template>
 	<view class="content">
+    <!-- 状态栏 -->
 		<view class="todo-header" v-if="list.length !== 0 || finishList.length !== 0">
       <!-- 状态栏左侧 -->
 		  <view class="todo-header__left">
-		    <text class="active-text">全部</text>
-        <text>{{allCount}}条</text>
+        <text>共有</text>
+		    <text class="active-text">{{allCount}}</text>
+        <text>条</text>
 		  </view>
       <!-- 状态栏右侧 -->
       <view class="todo-header__right">
@@ -15,18 +17,19 @@
 		</view>
     
     <!-- 没有数据的状态 -->
-    <view v-if="list.length === 0 && finishList.length === 0" class="default">
-      <view class="image-default">
-        <image src="../../static/default.png" mode="aspectFit"></image>
+    <scroll-view scroll-y="true">
+      <view v-if="list.length === 0 && finishList.length === 0" class="default">
+        <view class="image-default">
+          <image src="../../static/default.png" mode="aspectFit"></image>
+        </view>
+        <view class="default-info">
+          <view class="default-info__text">您还没有创建任何待办事项</view>
+          <view class="default-info__text">点击下方加号创建一个吧</view>
+        </view>
       </view>
-      <view class="default-info">
-        <view class="default-info__text">您还没有创建任何待办事项</view>
-        <view class="default-info__text">点击下方加号创建一个吧</view>
-      </view>
-    </view>
-    
-    <!-- 内容 -->
-    <view v-else class="todo-content">
+      
+      <!-- 内容 -->
+      <view v-else class="todo-content">
       <!-- 未完成的todo -->
       <uniSwipeAction>
         <uniSwipeActionItem :options="swipeOptions" show="true" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
@@ -51,14 +54,14 @@
         </uniSwipeActionItem>
       </uniSwipeAction>
     </view>
-    
+    </scroll-view>
     <!-- 创建按钮 -->
     <view class="create-todo" @click="create">
-      <text class="iconfont icon-add1" :class="{'active': active}"></text>
+      <text class="iconfont icon-add1" :class="{'create-todo-active': textShow}"></text>
     </view>
     
     <!-- 输入框 -->
-    <view class="create-content" v-if="active">
+    <view class="create-content" :class="{'create--show': textShow}" v-if="active">
       <view class="create-content-box">
         <!-- Input输入 -->
         <view class="create-input">
@@ -84,6 +87,7 @@
 				list: [],       // 未完成的todo
         finishList: [], // 已完成的todo
         active: false,
+        textShow: false,
         value: "",
         activeTab: "all",
         swipeOptions: [
@@ -110,7 +114,28 @@
         this.finishList = uni.getStorageSync('todo-finish') || [];
       },
       create() {
-        this.active = !this.active;
+        if(this.active) {
+          this.close();
+        } else {
+          this.open();
+        }
+      },
+      // 打开关闭动画
+      open() {
+        this.active = true;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.textShow = true;
+          }, 50)
+        })
+      },
+      close() {
+        this.textShow = false;
+        this.$nextTick(() => {
+          setTimeout(() => {
+            this.active = false;
+          }, 350)
+        })
       },
       add() {
         if(this.value === "") {
@@ -128,6 +153,7 @@
         uni.setStorageSync('todo', this.list);
         uni.setStorageSync('todo-finish', this.finishList);
         this.value = '';
+        this.close()
       },
       changeFinish(id, checked) {
         // debugger
