@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="todo-header">
+		<view class="todo-header" v-if="list.length !== 0">
       <!-- 状态栏左侧 -->
 		  <view class="todo-header__left">
 		    <text class="active-text">全部</text>
@@ -13,33 +13,44 @@
         <view class="todo-header__right-item">已完成</view>
       </view>
 		</view>
-    <view class="todo-content">
-      <view class="todo-list todo--finish">
-        <view class="todo-list__checkbox">
-          <view class="checkbox"></view>
-        </view>
-        <view class="todo-list__context">
-          我的待办事项
-        </view>
+    
+    <!-- 没有数据的状态 -->
+    <view v-if="list.length == 0" class="default">
+      <view class="image-default">
+        <image src="../../static/default.png" mode="aspectFit"></image>
       </view>
-      <view class="todo-list">
+      <view class="default-info">
+        <view class="default-info__text">您还没有创建任何待办事项</view>
+        <view class="default-info__text">点击下方加号创建一个吧</view>
+      </view>
+    </view>
+    
+    <!-- 内容 -->
+    <view v-else class="todo-content">
+      <view class="todo-list todo--finish" v-for="(item, index) in list" :key="index">
         <view class="todo-list__checkbox">
           <view class="checkbox"></view>
         </view>
         <view class="todo-list__context">
-          我的待办事项
+          {{item.content}}
         </view>
       </view>
     </view>
-    <view class="create-todo">
+    
+    <!-- 创建按钮 -->
+    <view class="create-todo" @click="create">
       <text class="iconfont icon-add1"></text>
     </view>
-    <view class="create-content">
+    
+    <!-- 输入框 -->
+    <view class="create-content" v-if="active">
       <view class="create-content-box">
+        <!-- Input输入 -->
         <view class="create-input">
-          <input type="text" value="" placeholder="请输入要创建的todo" />
+          <input type="text" v-model="value" placeholder="请输入要创建的todo" />
         </view>
-        <view class="create-button">创建</view>
+        <!-- 发布按钮 -->
+        <view class="create-button" @click="add">创建</view>
       </view>
     </view>
   </view>
@@ -49,199 +60,28 @@
 	export default {
 		data() {
 			return {
-				
+				list: [],
+        active: false,
+        value: ""
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+      create() {
+        this.active = true;
+      },
+      add() {
+        this.list.unshift({
+          content: this.value
+        });
+        this.value = '';
+      }
 		}
 	}
 </script>
 
 <style>
-  @import "../../common/icon.css";
-	.todo-header{
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    padding: 0 15px;
-    font-size: 12px;
-    color: #333333;
-    height: 45px;
-    box-shadow: -1px 1px 5px 0px rgba(0,0,0,.1);
-    background-color: #FFFFFF;
-  }
-  todo-header__left{
-    width: 100%;
-  }
-  .todo-header__right{
-    display: flex;
-  }
-  .todo-header__right-item {
-    padding: 0 5px;
-  }
-  .active-text {
-    font-size: 14px;
-    color: #279abf;
-    padding-right: 10px;
-  }
-  .active-tab {
-    color: #279abf;
-  }
-  .todo-content {
-    position: relative;
-  }
-  .todo-list{
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    margin: 15px;
-    color: #0c3854;
-    font-size: 14px;
-    border-radius: 10px;
-    background-color: #cfebfd;
-    box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1), -1px 2px 1px 0 rgb(255,255,255) inset;
-    overflow: hidden;
-  }
-  .todo-list::after{
-    position: absolute;
-    content: "";
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 5px;
-    background-color: #91d1e8;
-  }
-  .todo-list__checkbox{
-    padding-right: 15px;
-  }
-  .checkbox {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
-  }
-  .todo--finish .checkbox{
-    position: relative;
-    background-color: #eee;
-  }
-  .todo--finish .checkbox::after{
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: #CFEBFD;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,.2) inset;
-  }
-  .todo--finish .todo-list__context{
-    color: #999999;
-  }
-  .todo--finish.todo-list::before{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    right: 10px;
-    height: 2px;
-    margin: 0 auto;
-    transform: translateY(-50%);
-    background-color: #bdcdd8;
-  }
-  .todo--finish.todo-list::after{
-    background-color: #ccc;
-  }
-  .create-todo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background-color: #deeff5;
-    box-shadow: -1px 1px 5px 2px rgba(0,0,0,.1), 0px 0px 0px 2px #FFFFFF inset;
-  }
-  .icon-add1{
-    font-size: 30px;
-    color: #add8e6;
-  }
-  .create-content{
-    position: fixed;
-    bottom: 95px;
-    left: 20px;
-    right: 20px;
-  }
-  .create-content-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 95px;
-    left: 20px;
-    right: 20px;
-    padding: 0 15px;
-    padding-right: 0;
-    border-radius: 50px;
-    background-color: #DEEFF5;
-    box-shadow: -1px 1px 5px 2px rgba(0,0,0,.1), -1px 1px 1px 0 #FFFFFF inset;
-    z-index: 2;
-  }
-  .create-input{
-    width: 100%;
-    padding-right: 15px;
-    color: #add8e6;
-  }
-  .create-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    height: 50px;
-    width: 80px;
-    border-radius: 50px;
-    font-size: 16px;
-    color: #88d4ec;
-    box-shadow: -2px 0 2px 1px rgba(0,0,0,.1);
-  }
-  .create-content::after{
-    content: "";
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: -8px;
-    width: 20px;
-    height: 20px;
-    margin: 0 auto;
-    background-color: #DEEFF5;
-    transform: rotate(45deg);
-    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.1);
-    z-index: -1;
-  }
-  .create-content-box::after{
-    content: "";
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: -8px;
-    width: 20px;
-    height: 20px;
-    margin: 0 auto;
-    background-color: #DEEFF5;
-    transform: rotate(45deg);
-  }
+  @import "./index.css"
 </style>

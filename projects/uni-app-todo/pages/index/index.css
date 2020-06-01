@@ -1,26 +1,8 @@
-@font-face {font-family: "iconfont";
-  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKkAAsAAAAABmAAAAJWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApsgQABNgIkAwgLBgAEIAWEbQcuG6QFEdWLU7I/QDZkA7WHFNUp2DufrdygEub1CjzKWw4uoAJ+AQkAAAAAEEG1Rvbc7SMqRPkSCHwIVIRCFDYyLGTKgzBAKiyjDzZlOgzU+Nq/OGcOaFSEarfJ2ZNHNaB0wFlO7jkxw9MAErG1eucrk1g/mKFSS4Kh/QDweS6nN4EO5K76QDnuRWMOPOoFGI6lge6BUWRFEnnD9PIFDeRjApU6jImF88YBJXpVIC6WZ44xF5YklisXSmsOJvHYSnl2J3sHPAq/H384IZmSnG7YOb140v1gCvLLxR88nxABAR0vQY4xJOKgNr0Fwbhc5enpQZIEPxQFdom92gX763R1NWiDintSOtWtVmcgwekeDIxKkOrDXPH/KuvvPou48ryq4d5TcNrTrSvISrKsqWriyVk1uc7hGPZsdPpe+h1mBMWLt/k6FMFjW/5vVQIfZhgsXurnjfJ9eoJ/o+zZloRam7OjKJAn05MpkaFS+BRof6MvYy0tN5IP5Vpux1umPUWuXB+Z2DGUqDKOUuWmUWnU8vEqTS5BpAqMuAEQ6r1GptYb5Oq9JxP7GSVa/UOp+gCVjsKFVQbCKvcHplgow+SHZdp3xrplH9VeKX81MWfVIf8knsoY2soq5i7UEc+xZXrnjohBw32LZ/AcNU2PA/cVpaIKkcHV2tS9SaV9C3sxxUIZJj8s074zfnfZlz5/pfzVxNwiyuWfxFM5O9rK6kFeDF0v0b28Mr1zR8Sg4b7FM5hHTdPjUD+volRUMSI5uNp0Mn0Nan1T+3UHANjT1nmY1pxjWWYDAAAAAA==') format('woff2')
-}
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-add1:before {
-  content: "\e704";
-}
+@import "../../common/icon.css";
 .todo-header{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
-  -webkit-box-align:center;
-  -webkit-align-items:center;
-          align-items:center;
+  justify-content: space-between;
+  align-items:center;
   padding: 0 15px;
   font-size: 12px;
   color: #333333;
@@ -32,8 +14,6 @@ todo-header__left{
   width: 100%;
 }
 .todo-header__right{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
 }
 .todo-header__right-item {
@@ -52,12 +32,8 @@ todo-header__left{
 }
 .todo-list{
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
   padding: 15px;
   margin: 15px;
   color: #0c3854;
@@ -115,23 +91,16 @@ todo-header__left{
   right: 10px;
   height: 2px;
   margin: 0 auto;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   background-color: #bdcdd8;
 }
 .todo--finish.todo-list::after{
   background-color: #ccc;
 }
 .create-todo{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   bottom: 20px;
   left: 0;
@@ -154,15 +123,9 @@ todo-header__left{
   right: 20px;
 }
 .create-content-box{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   bottom: 95px;
   left: 20px;
@@ -180,17 +143,10 @@ todo-header__left{
   color: #add8e6;
 }
 .create-button{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-flex-shrink: 0;
-          flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
   height: 50px;
   width: 80px;
   border-radius: 50px;
@@ -208,8 +164,7 @@ todo-header__left{
   height: 20px;
   margin: 0 auto;
   background-color: #DEEFF5;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   box-shadow: 1px 1px 5px 2px rgba(0,0,0,.1);
   z-index: -1;
 }
@@ -223,19 +178,14 @@ todo-header__left{
   height: 20px;
   margin: 0 auto;
   background-color: #DEEFF5;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .default{
   padding-top: 100px;
 }
 .image-default{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  justify-content: center;
 }
 .image-default image {
   width: 100%;
@@ -245,4 +195,3 @@ todo-header__left{
   font-size: 14px;
   color: #CCCCCC;
 }
-

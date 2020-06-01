@@ -182,17 +182,39 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      list: [],
+      active: false,
+      value: "" };
 
   },
   onLoad: function onLoad() {
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    create: function create() {
+      this.active = true;
+    },
+    add: function add() {
+      this.list.unshift({
+        content: this.value });
+
+      this.value = '';
+    } } };exports.default = _default;
 
 /***/ }),
 /* 17 */,
