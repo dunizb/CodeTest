@@ -7,7 +7,7 @@
 + [React的新状态管理：Recoil 入门实战](https://github.com/dunizb/CodeTest/tree/master/React/recoil-test)
 + [使用JavaScript直接从前端发送电子邮件](https://github.com/dunizb/CodeTest/tree/master/projects/emailjs-demo)
 + [HTML页面生成器：使用JavaScript和Node创建CLI](https://github.com/dunizb/CodeTest/tree/master/Node/html-generator-cli)
-+ [使用TypeScript和ES模块发布Node模块](https://github.com/dunizb/CodeTest/tree/master/TypeScript/typescript-es-modules)
++ [使用TypeScript和ES模块发布Node模块](https://github.com/dunizb/CodeTest/tree/master/Typescript/typescript-es-modules)
 + [从零开始创建一个CLI](https://github.com/dunizb/CodeTest/tree/master/Node/my-cli)
 + [TypeScript Demo study](https://github.com/dunizb/CodeTest/tree/master/TypeScript/ts-study)
 + [小程序 textarea 的高层级问题演示](https://github.com/dunizb/CodeTest/tree/master/Wechat/textarea-test)
