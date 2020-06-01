@@ -222,6 +222,7 @@ __webpack_require__.r(__webpack_exports__);
       finishList: [], // 已完成的todo
       active: false,
       value: "",
+      activeTab: "all",
       swipeOptions: [
       {
         text: '删除',
@@ -233,10 +234,18 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   onLoad: function onLoad() {
-    this.list = uni.getStorageSync('todo') || [];
-    this.finishList = uni.getStorageSync('todo-finish') || [];
+    this.init();
   },
+  computed: {
+    allCount: function allCount() {
+      return this.list.length + this.finishList.length;
+    } },
+
   methods: {
+    init: function init() {
+      this.list = uni.getStorageSync('todo') || [];
+      this.finishList = uni.getStorageSync('todo-finish') || [];
+    },
     create: function create() {
       this.active = !this.active;
     },
@@ -277,6 +286,20 @@ __webpack_require__.r(__webpack_exports__);
       }
       uni.setStorageSync('todo', this.list);
       uni.setStorageSync('todo-finish', this.finishList);
+    },
+    getAllList: function getAllList() {
+      this.init();
+      this.activeTab = 'all';
+    },
+    getTodoList: function getTodoList() {
+      this.finishList = [];
+      this.list = uni.getStorageSync('todo') || [];
+      this.activeTab = 'todo';
+    },
+    getFinishList: function getFinishList() {
+      this.list = [];
+      this.finishList = uni.getStorageSync('todo-finish') || [];
+      this.activeTab = 'finish';
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

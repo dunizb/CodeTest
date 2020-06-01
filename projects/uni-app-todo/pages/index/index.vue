@@ -4,13 +4,13 @@
       <!-- 状态栏左侧 -->
 		  <view class="todo-header__left">
 		    <text class="active-text">全部</text>
-        <text>10条</text>
+        <text>{{allCount}}条</text>
 		  </view>
       <!-- 状态栏右侧 -->
       <view class="todo-header__right">
-        <view class="todo-header__right-item active-tab">全部</view>
-        <view class="todo-header__right-item">待办</view>
-        <view class="todo-header__right-item">已完成</view>
+        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部</view>
+        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办</view>
+        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'finish'}" @click="getFinishList">已完成</view>
       </view>
 		</view>
     
@@ -85,6 +85,7 @@
         finishList: [], // 已完成的todo
         active: false,
         value: "",
+        activeTab: "all",
         swipeOptions: [
           {
             text: '删除',
@@ -96,10 +97,18 @@
 			}
 		},
 		onLoad() {
-      this.list = uni.getStorageSync('todo') || [];
-      this.finishList = uni.getStorageSync('todo-finish') || [];
+      this.init();
 		},
+    computed: {
+      allCount() {
+        return this.list.length + this.finishList.length;
+      }
+    },
 		methods: {
+      init() {
+        this.list = uni.getStorageSync('todo') || [];
+        this.finishList = uni.getStorageSync('todo-finish') || [];
+      },
       create() {
         this.active = !this.active;
       },
@@ -140,6 +149,20 @@
         }
         uni.setStorageSync('todo', this.list);
         uni.setStorageSync('todo-finish', this.finishList);
+      },
+      getAllList() {
+        this.init();
+        this.activeTab = 'all';
+      },
+      getTodoList() {
+        this.finishList = [];
+        this.list = uni.getStorageSync('todo') || [];
+        this.activeTab = 'todo';
+      },
+      getFinishList() {
+        this.list = [];
+        this.finishList = uni.getStorageSync('todo-finish') || [];
+        this.activeTab = 'finish';
       }
 		}
 	}
