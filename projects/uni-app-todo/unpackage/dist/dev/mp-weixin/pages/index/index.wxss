@@ -58,7 +58,7 @@ todo-header__left{
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  padding: 15px;
+  /* padding: 15px; */
   margin: 15px;
   color: #0c3854;
   font-size: 14px;

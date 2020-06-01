@@ -28,23 +28,28 @@
     <!-- 内容 -->
     <view v-else class="todo-content">
       <!-- 未完成的todo -->
-      <view class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
-        <view class="todo-list__checkbox">
-          <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
-        </view>
-        <view class="todo-list__context">
-          {{item.content}}
-        </view>
-      </view>
+      <uniSwipeAction>
+        <uniSwipeActionItem :options="swipeOptions" show="true" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
+          <view class="todo-list__checkbox">
+            <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
+          </view>
+          <view class="todo-list__context">
+            {{item.content}}
+          </view>
+        </uniSwipeActionItem>
+      </uniSwipeAction>
+      
       <!-- 已完成的todo -->
-      <view class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
-        <view class="todo-list__checkbox">
-          <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
-        </view>
-        <view class="todo-list__context">
-          {{item.content}}
-        </view>
-      </view>
+      <uniSwipeAction>
+        <uniSwipeActionItem :options="swipeOptions" show="true" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
+          <view class="todo-list__checkbox">
+            <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
+          </view>
+          <view class="todo-list__context">
+            {{item.content}}
+          </view>
+        </uniSwipeActionItem>
+      </uniSwipeAction>
     </view>
     
     <!-- 创建按钮 -->
@@ -67,13 +72,27 @@
 </template>
 
 <script>
+  import uniSwipeAction from '@/components/uni-swipe-action/uni-swipe-action.vue'
+  import uniSwipeActionItem from '@/components/uni-swipe-action-item/uni-swipe-action-item.vue'
 	export default {
+    components: {
+      uniSwipeAction,
+      uniSwipeActionItem
+    },
 		data() {
 			return {
 				list: [],       // 未完成的todo
         finishList: [], // 已完成的todo
         active: false,
-        value: ""
+        value: "",
+        swipeOptions: [
+          {
+            text: '删除',
+            style: {
+              backgroundColor: 'red'
+            }
+          }
+        ]
 			}
 		},
 		onLoad() {

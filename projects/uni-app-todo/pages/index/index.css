@@ -34,7 +34,7 @@ todo-header__left{
   position: relative;
   display: flex;
   align-items: center;
-  padding: 15px;
+  /* padding: 15px; */
   margin: 15px;
   color: #0c3854;
   font-size: 14px;
