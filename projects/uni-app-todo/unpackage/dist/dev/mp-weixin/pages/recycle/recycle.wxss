@@ -32,4 +32,10 @@
 .item-info{
   color: #0baf0b;
 }
+.todo-header__right-item image{
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 3px;
+}
 

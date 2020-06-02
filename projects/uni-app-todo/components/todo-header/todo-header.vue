@@ -2,8 +2,10 @@
 	<view class="todo-header">
 	  <!-- 状态栏左侧 -->
 	  <view class="todo-header__left">
-	    <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部({{tabCount.all}})</view>
-	    <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办({{tabCount.todo}})</view>
+	    <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部({{tabCount.all}})
+      </view>
+	    <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办({{tabCount.todo}})
+      </view>
 	    <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'finish'}" @click="getFinishList">已完成({{tabCount.finish}})</view>
 	  </view>
 	  <!-- 状态栏右侧 -->

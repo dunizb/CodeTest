@@ -7,8 +7,8 @@
       </view>
       <!-- 状态栏右侧 -->
       <view class="todo-header__right">
-        <view class="todo-header__right-item item-danger" @click="thoroughDelete">彻底删除</view>
-        <view class="todo-header__right-item item-info" @click="allRecover">全部恢复</view>
+        <view class="todo-header__right-item item-danger" @click="thoroughDelete"><image src="../../static/huishouzhang.png" mode="aspectFit"></image>彻底删除</view>
+        <view class="todo-header__right-item item-info" @click="allRecover"><image src="../../static/ok.png" mode="aspectFit"></image>全部恢复</view>
       </view>
     </view>
 	  <scroll-view :scroll-y="true">
@@ -140,5 +140,11 @@
 }
 .item-info{
   color: #0baf0b;
+}
+.todo-header__right-item image{
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 3px;
 }
 </style>
