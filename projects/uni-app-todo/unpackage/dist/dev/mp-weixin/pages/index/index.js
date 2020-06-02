@@ -326,6 +326,28 @@ __webpack_require__.r(__webpack_exports__);
       this.list = [];
       this.finishList = uni.getStorageSync('todo-finish') || [];
       this.activeTab = 'finish';
+    },
+    delTodo: function delTodo(e, id, checked) {var _this3 = this;
+      uni.showModal({
+        title: '提示',
+        content: '确定删除该内容吗？',
+        success: function success(res) {
+          if (res.cancel) {
+            return;
+          }
+          if (res.confirm) {
+            if (checked) {
+              var index = _this3.finishList.findIndex(function (item) {return item.id === id;});
+              _this3.finishList.splice(index, 1);
+              uni.setStorageSync('todo-finish', _this3.finishList);
+            } else {
+              var _index = _this3.list.findIndex(function (item) {return item.id === id;});
+              _this3.list.splice(_index, 1);
+              uni.setStorageSync('todo', _this3.list);
+            }
+          }
+        } });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -70,7 +70,8 @@ todo-header__left{
   font-size: 14px;
   border-radius: 10px;
   background-color: #cfebfd;
-  box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1), -1px 2px 1px 0 rgb(255,255,255) inset;
+  box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1);
+  /* box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1), -1px 2px 1px 0 rgb(255,255,255) inset; */
   overflow: hidden;
 }
 .todo-list::after{

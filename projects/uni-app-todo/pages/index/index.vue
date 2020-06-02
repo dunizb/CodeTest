@@ -32,7 +32,7 @@
       <view v-else class="todo-content">
       <!-- 未完成的todo -->
       <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" :show="true" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
+        <uniSwipeActionItem :options="swipeOptions" :show="true" @click="delTodo($event, item.id, item.checked)" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
           <view class="todo-list__checkbox">
             <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
           </view>
@@ -44,7 +44,7 @@
       
       <!-- 已完成的todo -->
       <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" :show="true" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
+        <uniSwipeActionItem :options="swipeOptions" :show="true" @click="delTodo($event, item.id, item.checked)" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
           <view class="todo-list__checkbox">
             <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
           </view>
@@ -189,6 +189,28 @@
         this.list = [];
         this.finishList = uni.getStorageSync('todo-finish') || [];
         this.activeTab = 'finish';
+      },
+      delTodo(e, id, checked) {
+        uni.showModal({
+          title: '提示',
+          content: '确定删除该内容吗？',
+          success: (res) => {
+            if(res.cancel) {
+              return
+            }
+            if(res.confirm) {
+              if(checked) {
+                const index = this.finishList.findIndex(item => item.id === id);
+                this.finishList.splice(index, 1);
+                uni.setStorageSync('todo-finish', this.finishList);
+              } else {
+                const index = this.list.findIndex(item => item.id === id);
+                this.list.splice(index, 1);
+                uni.setStorageSync('todo', this.list);
+              } 
+            }
+          }
+        })
       }
 		}
 	}
