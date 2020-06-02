@@ -3,16 +3,14 @@
     <!-- 状态栏 -->
 		<view class="todo-header" v-if="list.length !== 0 || finishList.length !== 0">
       <!-- 状态栏左侧 -->
-		  <view class="todo-header__left">
-        <text>共有</text>
-		    <text class="active-text">{{allCount}}</text>
-        <text>条</text>
-		  </view>
+      <view class="todo-header__left">
+        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部({{tabCount.all}})</view>
+        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办({{tabCount.todo}})</view>
+        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'finish'}" @click="getFinishList">已完成({{tabCount.finish}})</view>
+      </view>
       <!-- 状态栏右侧 -->
       <view class="todo-header__right">
-        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部</view>
-        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办</view>
-        <view class="todo-header__right-item" :class="{'active-tab': activeTab === 'finish'}" @click="getFinishList">已完成</view>
+        <view class="todo-header__right-item">回收站</view>
       </view>
 		</view>
     
@@ -90,6 +88,11 @@
         textShow: false,
         value: "",
         activeTab: "all",
+        tabCount: {
+          all: 0,
+          todo: 0,
+          finish: 0
+        },
         swipeOptions: [
           {
             text: '删除',
@@ -100,18 +103,38 @@
         ]
 			}
 		},
+    watch:{
+      'list'(newVal) {
+        this.tabCount.all = this.tabAllCount();
+        this.tabCount.todo = this.tabTodoCount();
+        this.tabCount.finish = this.tabFinishTodoCount();
+      }
+    },
 		onLoad() {
       this.init();
 		},
-    computed: {
-      allCount() {
-        return this.list.length + this.finishList.length;
-      }
-    },
 		methods: {
       init() {
-        this.list = uni.getStorageSync('todo') || [];
-        this.finishList = uni.getStorageSync('todo-finish') || [];
+        this.list = this.getLocalStorage().todos;
+        this.finishList = this.getLocalStorage().finishTodos;
+      },
+      // 状态栏各状态计数
+      tabAllCount() {
+        const {todos} = this.getLocalStorage();
+        const {finishTodos} = this.getLocalStorage();
+        return todos.length + finishTodos.length;
+      },
+      tabTodoCount() {
+        return this.getLocalStorage().todos.length;
+      },
+      tabFinishTodoCount() {
+        return this.getLocalStorage().finishTodos.length;
+      },
+      getLocalStorage() {
+        return {
+          todos: uni.getStorageSync('todo') || [],
+          finishTodos: uni.getStorageSync('todo-finish') || []
+        }
       },
       create() {
         if(this.active) {

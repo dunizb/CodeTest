@@ -212,8 +212,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 {
   components: {
     uniSwipeAction: uniSwipeAction,
@@ -227,6 +225,11 @@ __webpack_require__.r(__webpack_exports__);
       textShow: false,
       value: "",
       activeTab: "all",
+      tabCount: {
+        all: 0,
+        todo: 0,
+        finish: 0 },
+
       swipeOptions: [
       {
         text: '删除',
@@ -237,18 +240,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
   },
+  watch: {
+    'list': function list(newVal) {
+      this.tabCount.all = this.tabAllCount();
+      this.tabCount.todo = this.tabTodoCount();
+      this.tabCount.finish = this.tabFinishTodoCount();
+    } },
+
   onLoad: function onLoad() {
     this.init();
   },
-  computed: {
-    allCount: function allCount() {
-      return this.list.length + this.finishList.length;
-    } },
-
   methods: {
     init: function init() {
-      this.list = uni.getStorageSync('todo') || [];
-      this.finishList = uni.getStorageSync('todo-finish') || [];
+      this.list = this.getLocalStorage().todos;
+      this.finishList = this.getLocalStorage().finishTodos;
+    },
+    // 状态栏各状态计数
+    tabAllCount: function tabAllCount() {var _this$getLocalStorage =
+      this.getLocalStorage(),todos = _this$getLocalStorage.todos;var _this$getLocalStorage2 =
+      this.getLocalStorage(),finishTodos = _this$getLocalStorage2.finishTodos;
+      return todos.length + finishTodos.length;
+    },
+    tabTodoCount: function tabTodoCount() {
+      return this.getLocalStorage().todos.length;
+    },
+    tabFinishTodoCount: function tabFinishTodoCount() {
+      return this.getLocalStorage().finishTodos.length;
+    },
+    getLocalStorage: function getLocalStorage() {
+      return {
+        todos: uni.getStorageSync('todo') || [],
+        finishTodos: uni.getStorageSync('todo-finish') || [] };
+
     },
     create: function create() {
       if (this.active) {
