@@ -1,0 +1,80 @@
+
+.todo-content {
+  position: relative;
+  padding-top: 45px;
+  padding-bottom: 100px;
+}
+.todo-list{
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  /* padding: 15px; */
+  margin: 15px;
+  color: #0c3854;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #cfebfd;
+  box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1);
+  /* box-shadow: -1px 1px 5px 1px rgba(0,0,0,.1), -1px 2px 1px 0 rgb(255,255,255) inset; */
+  overflow: hidden;
+}
+.todo-list::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background-color: #91d1e8;
+}
+.todo-list__checkbox{
+  padding-right: 15px;
+}
+.todo--finish .checkbox{
+  position: relative;
+  background-color: #eee;
+}
+.todo--finish .checkbox::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #CFEBFD;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.2) inset;
+}
+.todo--finish .todo-list__context{
+  color: #999999;
+}
+.todo--finish.todo-list::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 10px;
+  height: 2px;
+  margin: 0 auto;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: #bdcdd8;
+}
+.todo--finish.todo-list::after{
+  background-color: #ccc;
+}
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
+}
+

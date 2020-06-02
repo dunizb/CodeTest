@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "todo-items": "/components/todo-items/todo-items"
+  }
+}

@@ -6,7 +6,11 @@
 				"navigationBarTitleText": "todo"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/recycle/recycle",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

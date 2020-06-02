@@ -135,33 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniSwipeAction = function uniSwipeAction() {__webpack_require__.e(/*! require.ensure | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action/uni-swipe-action.vue */ 19));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeActionItem = function uniSwipeActionItem() {Promise.all(/*! require.ensure | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 24));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var todoItems = function todoItems() {__webpack_require__.e(/*! require.ensure | components/todo-items/todo-items */ "components/todo-items/todo-items").then((function () {return resolve(__webpack_require__(/*! @/components/todo-items/todo-items.vue */ 43));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var todoHeader = function todoHeader() {__webpack_require__.e(/*! require.ensure | components/todo-header/todo-header */ "components/todo-header/todo-header").then((function () {return resolve(__webpack_require__(/*! @/components/todo-header/todo-header.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -214,8 +188,8 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   components: {
-    uniSwipeAction: uniSwipeAction,
-    uniSwipeActionItem: uniSwipeActionItem },
+    todoItems: todoItems,
+    todoHeader: todoHeader },
 
   data: function data() {
     return {
@@ -228,7 +202,8 @@ __webpack_require__.r(__webpack_exports__);
       tabCount: {
         all: 0,
         todo: 0,
-        finish: 0 },
+        finish: 0,
+        recycle: 0 },
 
       swipeOptions: [
       {
@@ -245,9 +220,13 @@ __webpack_require__.r(__webpack_exports__);
       this.tabCount.all = this.tabAllCount();
       this.tabCount.todo = this.tabTodoCount();
       this.tabCount.finish = this.tabFinishTodoCount();
+      this.tabCount.recycle = this.tabRecycleTodoCount();
     } },
 
   onLoad: function onLoad() {
+    this.init();
+  },
+  onShow: function onShow() {
     this.init();
   },
   methods: {
@@ -267,10 +246,14 @@ __webpack_require__.r(__webpack_exports__);
     tabFinishTodoCount: function tabFinishTodoCount() {
       return this.getLocalStorage().finishTodos.length;
     },
+    tabRecycleTodoCount: function tabRecycleTodoCount() {
+      return this.getLocalStorage().recyclesTodos.length;
+    },
     getLocalStorage: function getLocalStorage() {
       return {
         todos: uni.getStorageSync('todo') || [],
-        finishTodos: uni.getStorageSync('todo-finish') || [] };
+        finishTodos: uni.getStorageSync('todo-finish') || [],
+        recyclesTodos: uni.getStorageSync('recycles') || [] };
 
     },
     create: function create() {
@@ -315,62 +298,9 @@ __webpack_require__.r(__webpack_exports__);
       this.value = '';
       this.close();
     },
-    changeFinish: function changeFinish(id, checked) {
-      // debugger
-      var todo = null;
-      var index = null;
-      // 状态已完成，从finishList中移出，再插入list中
-      if (checked) {
-        todo = this.finishList.find(function (item) {return id === item.id;});
-        index = this.finishList.findIndex(function (item) {return id === item.id;});
-        todo.checked = !todo.checked;
-        this.list.unshift(todo);
-        this.finishList.splice(index, 1);
-      } else {
-        todo = this.list.find(function (item) {return id === item.id;});
-        index = this.list.findIndex(function (item) {return id === item.id;});
-        todo.checked = !todo.checked;
-        this.finishList.unshift(todo);
-        this.list.splice(index, 1);
-      }
-      uni.setStorageSync('todo', this.list);
-      uni.setStorageSync('todo-finish', this.finishList);
-    },
-    getAllList: function getAllList() {
-      this.init();
-      this.activeTab = 'all';
-    },
-    getTodoList: function getTodoList() {
-      this.finishList = [];
-      this.list = uni.getStorageSync('todo') || [];
-      this.activeTab = 'todo';
-    },
-    getFinishList: function getFinishList() {
-      this.list = [];
-      this.finishList = uni.getStorageSync('todo-finish') || [];
-      this.activeTab = 'finish';
-    },
-    delTodo: function delTodo(e, id, checked) {var _this3 = this;
-      uni.showModal({
-        title: '提示',
-        content: '确定删除该内容吗？',
-        success: function success(res) {
-          if (res.cancel) {
-            return;
-          }
-          if (res.confirm) {
-            if (checked) {
-              var index = _this3.finishList.findIndex(function (item) {return item.id === id;});
-              _this3.finishList.splice(index, 1);
-              uni.setStorageSync('todo-finish', _this3.finishList);
-            } else {
-              var _index = _this3.list.findIndex(function (item) {return item.id === id;});
-              _this3.list.splice(_index, 1);
-              uni.setStorageSync('todo', _this3.list);
-            }
-          }
-        } });
-
+    onTab: function onTab(data) {
+      this.list = data.list;
+      this.finishList = data.finishList;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

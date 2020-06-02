@@ -1,21 +1,15 @@
 <template>
 	<view class="content">
     <!-- 状态栏 -->
-		<view class="todo-header" v-if="list.length !== 0 || finishList.length !== 0">
-      <!-- 状态栏左侧 -->
-      <view class="todo-header__left">
-        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'all'}" @click="getAllList">全部({{tabCount.all}})</view>
-        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'todo'}" @click="getTodoList">待办({{tabCount.todo}})</view>
-        <view class="todo-header__left-item" :class="{'active-tab': activeTab === 'finish'}" @click="getFinishList">已完成({{tabCount.finish}})</view>
-      </view>
-      <!-- 状态栏右侧 -->
-      <view class="todo-header__right">
-        <view class="todo-header__right-item">回收站</view>
-      </view>
-		</view>
+		<todoHeader 
+      v-if="list.length !== 0 || finishList.length !== 0"
+      :tabCount="tabCount"
+      @onChange="init"
+      @onTab="onTab">
+		</todoHeader>
     
-    <!-- 没有数据的状态 -->
     <scroll-view :scroll-y="true">
+      <!-- 没有数据的状态 -->
       <view v-if="list.length === 0 && finishList.length === 0" class="default">
         <view class="image-default">
           <image src="../../static/default.png" mode="aspectFit"></image>
@@ -25,33 +19,13 @@
           <view class="default-info__text">点击下方加号创建一个吧</view>
         </view>
       </view>
-      
       <!-- 内容 -->
-      <view v-else class="todo-content">
-      <!-- 未完成的todo -->
-      <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" :show="true" @click="delTodo($event, item.id, item.checked)" class="todo-list" :class="{'todo--finish': item.checked}" v-for="item in list" :key="item.id">
-          <view class="todo-list__checkbox">
-            <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
-          </view>
-          <view class="todo-list__context">
-            {{item.content}}
-          </view>
-        </uniSwipeActionItem>
-      </uniSwipeAction>
-      
-      <!-- 已完成的todo -->
-      <uniSwipeAction>
-        <uniSwipeActionItem :options="swipeOptions" :show="true" @click="delTodo($event, item.id, item.checked)" class="todo-list todo--finish" v-for="item in finishList" :key="item.id">
-          <view class="todo-list__checkbox">
-            <view class="checkbox" @click="changeFinish(item.id, item.checked)"></view>
-          </view>
-          <view class="todo-list__context">
-            {{item.content}}
-          </view>
-        </uniSwipeActionItem>
-      </uniSwipeAction>
-    </view>
+      <todoItems v-else 
+        :list="list" 
+        :finishList="finishList" 
+        :swipeOptions="swipeOptions"
+        @onChange="init" 
+        @onSwipe="init"></todoItems>
     </scroll-view>
     <!-- 创建按钮 -->
     <view class="create-todo" @click="create">
@@ -73,16 +47,16 @@
 </template>
 
 <script>
-  import uniSwipeAction from '@/components/uni-swipe-action/uni-swipe-action.vue'
-  import uniSwipeActionItem from '@/components/uni-swipe-action-item/uni-swipe-action-item.vue'
+  import todoItems from '@/components/todo-items/todo-items.vue'
+  import todoHeader from '@/components/todo-header/todo-header.vue'
 	export default {
     components: {
-      uniSwipeAction,
-      uniSwipeActionItem
+      todoItems,
+      todoHeader
     },
 		data() {
 			return {
-				list: [],       // 未完成的todo
+        list: [],       // 未完成的todo
         finishList: [], // 已完成的todo
         active: false,
         textShow: false,
@@ -91,7 +65,8 @@
         tabCount: {
           all: 0,
           todo: 0,
-          finish: 0
+          finish: 0,
+          recycle: 0
         },
         swipeOptions: [
           {
@@ -108,11 +83,15 @@
         this.tabCount.all = this.tabAllCount();
         this.tabCount.todo = this.tabTodoCount();
         this.tabCount.finish = this.tabFinishTodoCount();
+        this.tabCount.recycle = this.tabRecycleTodoCount();
       }
     },
 		onLoad() {
       this.init();
 		},
+    onShow() {
+      this.init();
+    },
 		methods: {
       init() {
         this.list = this.getLocalStorage().todos;
@@ -130,10 +109,14 @@
       tabFinishTodoCount() {
         return this.getLocalStorage().finishTodos.length;
       },
+      tabRecycleTodoCount() {
+        return this.getLocalStorage().recyclesTodos.length;
+      },
       getLocalStorage() {
         return {
           todos: uni.getStorageSync('todo') || [],
-          finishTodos: uni.getStorageSync('todo-finish') || []
+          finishTodos: uni.getStorageSync('todo-finish') || [],
+          recyclesTodos: uni.getStorageSync('recycles') || []
         }
       },
       create() {
@@ -178,62 +161,9 @@
         this.value = '';
         this.close()
       },
-      changeFinish(id, checked) {
-        // debugger
-        let todo = null
-        let index = null
-        // 状态已完成，从finishList中移出，再插入list中
-        if(checked) {
-          todo = this.finishList.find(item => id === item.id);
-          index = this.finishList.findIndex(item => id === item.id);
-          todo.checked = !todo.checked
-          this.list.unshift(todo);
-          this.finishList.splice(index, 1);
-        } else {
-          todo = this.list.find(item => id === item.id);
-          index = this.list.findIndex(item => id === item.id);
-          todo.checked = !todo.checked
-          this.finishList.unshift(todo);
-          this.list.splice(index, 1);
-        }
-        uni.setStorageSync('todo', this.list);
-        uni.setStorageSync('todo-finish', this.finishList);
-      },
-      getAllList() {
-        this.init();
-        this.activeTab = 'all';
-      },
-      getTodoList() {
-        this.finishList = [];
-        this.list = uni.getStorageSync('todo') || [];
-        this.activeTab = 'todo';
-      },
-      getFinishList() {
-        this.list = [];
-        this.finishList = uni.getStorageSync('todo-finish') || [];
-        this.activeTab = 'finish';
-      },
-      delTodo(e, id, checked) {
-        uni.showModal({
-          title: '提示',
-          content: '确定删除该内容吗？',
-          success: (res) => {
-            if(res.cancel) {
-              return
-            }
-            if(res.confirm) {
-              if(checked) {
-                const index = this.finishList.findIndex(item => item.id === id);
-                this.finishList.splice(index, 1);
-                uni.setStorageSync('todo-finish', this.finishList);
-              } else {
-                const index = this.list.findIndex(item => item.id === id);
-                this.list.splice(index, 1);
-                uni.setStorageSync('todo', this.list);
-              } 
-            }
-          }
-        })
+      onTab(data) {
+        this.list = data.list;
+        this.finishList = data.finishList;
       }
 		}
 	}
