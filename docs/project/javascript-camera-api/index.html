@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何使用JavaScript访问设备摄像头（前后）</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1856562_iahtxqlpkh.css">
+  <style>
+    #video {
+      width: 100%;
+    }
+
+    .is-hidden {
+      display: none;
+    }
+
+    .iconfont {
+      font-size: 24px;
+    }
+
+    .btns {
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 8px 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .video-screenshot {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>如何使用JavaScript访问设备摄像头（前后）</h1>
+  <div class="btns">
+    <button class="button is-hidden" id="btnPlay">
+      <i class="iconfont icon-play"></i>
+    </button>
+    <button class="button" id="btnPause">
+      <i class="iconfont icon-stop"></i>
+    </button>
+    <button class="button" id="btnScreenshot">
+      <i class="iconfont icon-camera"></i>
+    </button>
+    <button class="button" id="btnChangeCamera" style="padding: 6px 10px;">
+      <i class="iconfont icon-switch1"></i>
+      切换摄像头
+    </button>
+  </div>
+  <div class="video-screenshot">
+    <video autoplay id="video"></video>
+    <div>
+      <div id="screenshotsContainer">
+        <canvas id="canvas" class="is-hidden"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = async function () {
+      if (
+        !"mediaDevices" in navigator ||
+        !"getUserMedia" in navigator.mediaDevices
+      ) {
+        document.write('当前浏览器不支持Camera API，请更新浏览器。')
+        return;
+      }
+
+      const video = document.querySelector("#video");
+      const canvas = document.querySelector("#canvas");
+      const screenshotsContainer = document.querySelector("#screenshotsContainer");
+      let videoStream = null
+      let useFrontCamera = true; // 前置摄像头
+      const constraints = {
+        video: {
+          width: {
+            min: 1280,
+            ideal: 1920,
+            max: 2560,
+          },
+          height: {
+            min: 720,
+            ideal: 1080,
+            max: 1440,
+          }
+        },
+      };
+
+      // play
+      btnPlay.addEventListener("click", function () {
+        video.play();
+        btnPlay.classList.add("is-hidden");
+        btnPause.classList.remove("is-hidden");
+      });
+
+      // pause
+      btnPause.addEventListener("click", function () {
+        video.pause();
+        btnPause.classList.add("is-hidden");
+        btnPlay.classList.remove("is-hidden");
+      });
+
+      // 切换摄像头
+      btnChangeCamera.addEventListener("click", function () {
+        useFrontCamera = !useFrontCamera;
+        init();
+      });
+
+
+      // 停止视频流
+      function stopVideoStream() {
+        if (videoStream) {
+          videoStream.getTracks().forEach((track) => {
+            track.stop();
+          });
+        }
+      }
+
+      // 截图
+      btnScreenshot.addEventListener("click", function () {
+        let img = document.getElementById('screenshot');
+        if (!img) {
+          img = document.createElement("img");
+          img.id = 'screenshot';
+          img.style.width = '100%';
+        }
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext("2d").drawImage(video, 0, 0);
+        img.src = canvas.toDataURL("image/png");
+        screenshotsContainer.prepend(img);
+      });
+
+      async function init() {
+        stopVideoStream();
+        constraints.video.facingMode = useFrontCamera ? "user" : "environment";
+        try {
+          videoStream = await navigator.mediaDevices.getUserMedia(constraints);
+          video.srcObject = videoStream;
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      init();
+    }
+  </script>
+</body>
+
+</html>
