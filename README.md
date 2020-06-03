@@ -3,6 +3,7 @@
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
 
 更新：
++ [仅3行核心CSS代码的rate评分组件](https://coding.zhangbing.site/view.html?url=./list/css-hover-star/index.html)
 + [如何使用JavaScript访问设备摄像头（前后）](https://coding.zhangbing.site/view.html?url=./list/camera-api/index.html)
 + [uni-app开发todo，uni-app入门小应用](https://github.com/dunizb/CodeTest/tree/master/projects/uni-app-todo)
 + [React的新状态管理：Recoil 入门实战](https://github.com/dunizb/CodeTest/tree/master/React/recoil-test)
