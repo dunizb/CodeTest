@@ -1,0 +1,68 @@
+/**index.wxss**/
+.container {
+  padding: 20px;
+  background-color: #fff;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 4rpx solid #ccc;
+  border-radius: 5px;
+  height: 60px;
+  padding: 0 5px 0 10px;
+}
+
+.input-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 220px;
+}
+.input-box picker {
+  /* width: 130px; */
+}
+
+.btns {
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 8px;
+}
+.icon-sanjiao {
+  margin-right: 16px;
+}
+
+.textarea-box {
+  margin-top: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.textarea-box textarea{
+  font-size: 16px;
+  padding: 5px;
+  width: 280px;
+}
+
+.start-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1989fa;
+  color: #fff;
+  padding: 15px 26px 15px 20px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px 3px #e4e3e3;
+  font-size: 18px;
+}
+
+.content {
+  margin: 10px 20px;
+}
