@@ -6,8 +6,9 @@
         <view class="picker">
           {{range[index]}}
         </view>
+        <image src="../../images/sanjiao.svg" class="icon icon-sanjiao"></image>
       </picker>
-      <image src="../../images/sanjiao.svg" class="icon icon-sanjiao"></image>
+      <!-- <image src="../../images/sanjiao.svg" class="icon icon-sanjiao"></image> -->
     </view>
     <view class="btns">
       <image src="../../images/plus.svg" class="icon" bindtap="add"></image>
@@ -34,6 +35,7 @@
     show-cancel-button
     bind:confirm="createAndEditItem">
     <view class="content">
+      <view>中文建议不超过10个字，英文不超过16个字符</view>
       <input class="input" value="{{value}}" bindinput="handlerBindInput" placeholder="如：今天吃什么"/>
     </view>
   </van-dialog>  

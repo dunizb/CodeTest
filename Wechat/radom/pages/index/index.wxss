@@ -17,10 +17,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 220px;
+  overflow: hidden;
 }
-.input-box picker {
-  /* width: 130px; */
+.input-box picker .picker {
+  display: inline-block;
+  width: 200px;
 }
 
 .btns {
@@ -35,6 +36,9 @@
 }
 .icon-sanjiao {
   margin-right: 16px;
+  position: absolute;
+  right: 140px;
+  margin-top: 4px;
 }
 
 .textarea-box {

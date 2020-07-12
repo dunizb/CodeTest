@@ -62,7 +62,15 @@ Page({
    */
   createAndEditItem() {
     const list = wx.getStorageSync(SRORAGE_KEY);
+    const value = this.data.value;
     let index = this.data.index;
+    if(value.length === 0) {
+      wx.showToast({
+        title: '请输入',
+        icon: 'none'
+      })
+      return;
+    }
     if(this.data.isCreate) { // 创建新列表
       index = list.length;
       this.data.range.push(this.data.value)
@@ -70,19 +78,21 @@ Page({
         key: this.data.value,
         list: []
       })
+      this.setData({
+        range: this.data.range,
+        textarea: '',
+        index
+      });
     } else {  // 编辑
-      // 值相同，没修改
-      if(this.data.range[index] === this.data.value) {
+      if(this.data.range[index] === value) { // 值相同，没修改
         return;
       }
-      this.data.range[index] = this.data.value;
-      list[index]['key'] = this.data.value;    
+      this.data.range[index] = value;
+      list[index]['key'] = value;  
+      this.setData({
+        range: this.data.range
+      });  
     }
-    this.setData({
-      range: this.data.range,
-      textarea: '',
-      index
-    });
     wx.setStorageSync(SRORAGE_KEY, list);
   },
 
@@ -111,7 +121,8 @@ Page({
     this.setData({ 
       show: true,
       value: '',
-      isCreate: true 
+      isCreate: true,
+      dialogTitle: '新列表'
     })
   },
 
@@ -127,12 +138,14 @@ Page({
     wx.showModal({
       title: '提示',
       content: '确定删除吗？',
-      success: () => {
-        this.data.range.splice(index, 1);
-        const list = wx.getStorageSync(SRORAGE_KEY);
-        this.resetFirst(list);
-        list.splice(index, 1);
-        wx.setStorageSync(SRORAGE_KEY, list);
+      success: (confirm) => {
+        if(confirm) {
+          this.data.range.splice(index, 1);
+          const list = wx.getStorageSync(SRORAGE_KEY);
+          this.resetFirst(list);
+          list.splice(index, 1);
+          wx.setStorageSync(SRORAGE_KEY, list);
+        }
       }
     })
   },
