@@ -4,6 +4,7 @@
 
 ## 2020
 
+- [《抽个啥》微信小程序](https://github.com/dunizb/Radom-weapp)
 - [仅 3 行核心 CSS 代码的 rate 评分组件](https://coding.zhangbing.site/view.html?url=./list/css-hover-star/index.html)
 - [如何使用 JavaScript 访问设备摄像头（前后）](https://coding.zhangbing.site/view.html?url=./list/camera-api/index.html)
 - [uni-app 开发 todo，uni-app 入门小应用](https://github.com/dunizb/CodeTest/tree/master/Wechat/uni-app-todo)
