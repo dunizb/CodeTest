@@ -1,0 +1,93 @@
+.container {
+  /* 页面上下左右留出20px的空白 */
+  padding: 20px;
+  background-color: #fff;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 60px;
+}
+
+/* picker */
+.box .input-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.box .input-box picker .picker {
+  display: inline-block;
+  width: 190px;
+  padding-left: 8px;
+}
+
+.box .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
+}
+
+
+/* 图标样式 */
+.icon {
+  width: 16px;
+  height: 16px;
+  margin:0 8px;
+}
+.icon-sanjiao {
+  position: absolute;
+  right: 140px; 
+  margin-top: 4px;
+  margin-right: 16px;
+}
+
+/*textarea输入框样式*/
+.textarea-box {
+  margin-top: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.textarea-box textarea {
+  font-size: 16px;
+  padding: 5px;
+  width: 280px;
+}
+
+/* 开始按钮 */
+.start-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1989fa;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px 3px #e4e3e3;
+}
+
+
+/* Dialog */
+.content {
+  margin: 10px 20px;
+}
+.content .tip {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #888888;
+}
+.content .input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

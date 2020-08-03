@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index"
+  }
+}

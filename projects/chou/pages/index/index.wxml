@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="box">
+    <view class="input-box">
+      <picker value="{{index}}" range="{{range}}" bindchange="bindPickerChange">
+        <view class="picker">
+          {{range[index]}}
+        </view>
+        <image src="../../images/sanjiao.svg" class="icon icon-sanjiao"></image>
+      </picker>
+    </view>
+    <view class="btns">
+      <image src="../../images/plus.svg" class="icon" bindtap="add"></image>
+      <image src="../../images/delete.svg" class="icon" bindtap="delete"></image>
+      <image src="../../images/edit.svg" class="icon" bindtap="edit"></image>
+    </view>
+  </view>
+  <view class="textarea-box">
+    <textarea auto-height 
+      value="{{textarea}}" 
+      bindinput="bindTextAreaInput"
+      placeholder="请用逗号隔开数据，如：张三，李四" />
+  </view>
+  <view class="start-btn" bindtap="start">
+    <image src="../../images/radom_play.svg" class="icon icon-radom"></image>
+  </view>
+  <van-dialog id="van-dialog" />
+
+  <van-dialog 
+    use-slot 
+    show-cancel-button
+    title="{{dialogTitle}}" 
+    show="{{ show }}"
+    bindconfirm="createAndEditItem">
+    <view class="content">
+      <view class="tip">建议中文不超过10个、英文不超过16个字符</view>
+      <input class="input" model:value="{{value}}" placeholder="如：今天吃什么" />
+    </view>
+  </van-dialog>
+</view>

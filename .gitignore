@@ -10,6 +10,7 @@ Typescript/**/node_modules/
 island/node_modules/
 Node/**/node_modules/
 projects/**/node_modules/
+projects/**/miniprogram_npm/
 Wechat/**/node_modules/
 Wechat/**/miniprogram_npm/
 **.DS_Store
