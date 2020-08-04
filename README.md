@@ -1,6 +1,6 @@
 # 个人平时学习、练习代码
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=dunizb)](https://github.com/anuraghazra/github-readme-stats)
+[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=dunizb&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
 
 
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
