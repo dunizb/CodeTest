@@ -4,11 +4,11 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dunizb&layout=compact)](https://github.com/dunizb/CodeTest)
 
-
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
 
 ## 2020
 
+- [MyClock 我的时钟，我的第一个 Chrome 扩展程序](https://github.com/dunizb/CodeTest/tree/master/ChromeExtensions/MyClock)
 - [《抽个啥》微信小程序](https://github.com/dunizb/Radom-weapp)
 - [仅 3 行核心 CSS 代码的 rate 评分组件](https://coding.zhangbing.site/view.html?url=./list/css-hover-star/index.html)
 - [如何使用 JavaScript 访问设备摄像头（前后）](https://coding.zhangbing.site/view.html?url=./list/camera-api/index.html)
