@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "我的时钟",
+  "version": "1.0.0",
+  "description": "我的第一个Chrome扩展",
+  "icons": {
+    "16": "images/clock_16.png",
+    "48": "images/clock_48.png",
+    "128": "images/clock_128.png"
+  },
+  "browser_action": {
+    "default_icon": "images/clock_128.png",
+    "default_title": "我的时钟",
+    "default_popup": "popup.html"
+  }
+}
