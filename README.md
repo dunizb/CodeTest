@@ -1,9 +1,5 @@
 # 个人平时学习、练习代码
 
-[![dunizb github stats](https://github-readme-stats.vercel.app/api?username=dunizb&show_icons=true)](https://github.com/dunizb/CodeTest)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dunizb&layout=compact)](https://github.com/dunizb/CodeTest)
-
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
 
 ## 2020
