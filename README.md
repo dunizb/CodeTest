@@ -8,6 +8,7 @@
 
 ## 2020
 
+- [在 React 中使用 React Router v6 的指南](https://github.com/dunizb/CodeTest/tree/master/React/react-router-v6-example)
 - [MyClock 我的时钟，我的第一个 Chrome 扩展程序](https://github.com/dunizb/CodeTest/tree/master/ChromeExtensions/MyClock)
 - [《抽个啥》微信小程序](https://github.com/dunizb/Radom-weapp)
 - [仅 3 行核心 CSS 代码的 rate 评分组件](https://coding.zhangbing.site/view.html?url=./list/css-hover-star/index.html)
