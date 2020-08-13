@@ -4,6 +4,7 @@
 
 ## 2020
 
+- [使用 Deno 构建的命令行天气预报程序](https://github.com/dunizb/CodeTest/tree/master/Deno/weather-app)
 - [在 React 中使用 React Router v6 的指南](https://github.com/dunizb/CodeTest/tree/master/React/react-router-v6-example)
 - [MyClock 我的时钟，我的第一个 Chrome 扩展程序](https://github.com/dunizb/CodeTest/tree/master/ChromeExtensions/MyClock)
 - [《抽个啥》微信小程序](https://github.com/dunizb/Radom-weapp)
