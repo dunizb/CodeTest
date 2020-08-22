@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "我的天气2",
   "version": "1.0.0",
-  "description": "我的第一个Chrome扩展",
+  "description": "我的第2个Chrome扩展",
   "homepage_url": "https://zhangbing.site",
   "icons": {
     "16": "images/weather.png",
