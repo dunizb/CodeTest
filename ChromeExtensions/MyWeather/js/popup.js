@@ -30,6 +30,7 @@ function init() {
 
 function getWeather(cityName) {
   pFetch(cityName).then((data) => {
+    console.log(data);
     const forecast = data.forecast;
     let trHtml = "";
     forecast.forEach((item) => {

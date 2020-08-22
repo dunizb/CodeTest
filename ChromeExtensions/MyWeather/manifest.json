@@ -3,6 +3,7 @@
   "name": "我的天气",
   "version": "1.0.0",
   "description": "我的第一个Chrome扩展",
+  "homepage_url": "https://zhangbing.site",
   "icons": {
     "16": "images/weather.png",
     "48": "images/weather.png",
@@ -13,5 +14,9 @@
     "default_title": "我的天气",
     "default_popup": "popup.html"
   },
-  "permissions": ["*://wthrcdn.etouch.cn/*"]
+  "permissions": ["*://wthrcdn.etouch.cn/*", "notifications"],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "web_accessible_resources": ["images/*.png"]
 }
