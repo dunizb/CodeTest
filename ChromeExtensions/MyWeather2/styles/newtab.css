@@ -36,11 +36,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1em;
 }
 
 .weather .weather_text {
   padding: 20px;
+  font-size: .8em;
 }
 
 .weather .weather_text img {
@@ -56,6 +56,10 @@ body {
 .weather .weather_wendu .current {
   font-size: 3.5em;
   margin-bottom: 8px;
+}
+
+.weather .weather_wendu .range {
+  font-size: .8em;
 }
 
 .badge {
