@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Compressor</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      body {
+        background: #ccc !important;
+      }
+      .wrapper {
+        width: 350px;
+        height: 350px;
+        border: 2px dotted gray;
+      }
+      .wrapper h4 {
+        text-align: center;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div
+              class="wrapper mt-5 p-3"
+              v-cloak
+              @drop="addFile"
+              @dragover.prevent
+            >
+              <h4>在这里拖放</h4>
+              <ul class="list-group mt-5">
+                <li
+                  v-for="(file,id) in files"
+                  :key="id"
+                  class="list-group-item"
+                >
+                  {{ file.name }}-{{ file.size | kb }} kb
+                  <button
+                    class="btn btn-sm btn-danger"
+                    @click="removeFile(file)"
+                  >
+                    X
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <button class="btn btn-primary my-4" @click="compressFile">
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                v-if="loading"
+                aria-hidden="true"
+              ></span>
+              压缩
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

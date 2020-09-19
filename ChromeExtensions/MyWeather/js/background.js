@@ -62,7 +62,7 @@ function init() {
       // 修改扩展图标
       setIcon(data.wea_img);
     });
-  }, 1000 * 60);
+  }, (1000 * 60 * 60) * 3); // 3个小时
 }
 
 init();
