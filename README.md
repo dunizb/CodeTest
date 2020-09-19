@@ -20,6 +20,7 @@
 
 ## Node & Deno
 
+- [Vue2.x + Express 文件压缩功能](https://github.com/dunizb/CodeTest/tree/master/Node/compressor)
 - [使用 Deno 构建的命令行天气预报程序](https://github.com/dunizb/CodeTest/tree/master/Deno/weather-app)
 - [HTML 页面生成器：使用 JavaScript 和 Node 创建 CLI](https://github.com/dunizb/CodeTest/tree/master/Node/html-generator-cli)
 - [使用 TypeScript 和 ES 模块发布 Node 模块](https://github.com/dunizb/CodeTest/tree/master/Typescript/typescript-es-modules)
