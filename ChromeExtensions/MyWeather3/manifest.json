@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "我的天气3",
+  "version": "1.0.0",
+  "description": "我的第3个Chrome扩展",
+  "homepage_url": "https://zhangbing.site",
+  "icons": {
+    "16": "images/weather.png",
+    "48": "images/weather.png",
+    "128": "images/weather.png"
+  },
+  "browser_action": {
+    "default_icon": "images/weather.png",
+    "default_title": "我的天气3",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["*://wthrcdn.etouch.cn/*", "notifications"],
+  "web_accessible_resources": ["images/*.png"],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}

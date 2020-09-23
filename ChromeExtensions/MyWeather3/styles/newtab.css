@@ -1,0 +1,108 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  background-image: url(http://img.netbian.com/file/2020/0811/smalla57f1647f17b5d7f09f87b58f171f6a11597152434.jpg);
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.datetime {
+  font-size: 10em;
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather .weather-info {
+  padding: 20px;
+  font-size: 0.8em;
+  width: 100px;
+}
+
+.weather .weather-img {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 10px;
+}
+
+.weather .weather-wendu {
+  padding: 20px;
+}
+
+.weather .weather-wendu .current {
+  font-size: 3.5em;
+  margin-bottom: 8px;
+}
+
+.weather .weather-wendu .range {
+  font-size: 0.8em;
+}
+
+.badge {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #ccc;
+  font-size: 0.5em;
+  padding: 10px 20px;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer .changeImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+footer .changeImg img {
+  width: 15px;
+  transition: all 0.5s;
+}
+
+.changeImg:hover {
+  transform: rotate(45deg);
+  background-color: rgba(255, 255, 255, 0.5);
+}
