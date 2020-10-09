@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "PageStyle",
+  "version": "1.0.0",
+  "description": "我的第4个Chrome扩展，清除百度首页广告",
+  "homepage_url": "https://zhangbing.site",
+  "icons": {
+    "16": "images/baidu.png",
+    "48": "images/baidu.png",
+    "128": "images/baidu.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.baidu.com/*"],
+      "run_at": "document_idle",
+      "css": ["myStyles.css"]
+    }
+  ]
+}

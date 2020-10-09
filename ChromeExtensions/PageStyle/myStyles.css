@@ -1,0 +1,11 @@
+/* 隐藏首页，结果页广告内容 */
+
+#s-top-left, #u1, #bottom_layer, #s-hotsearch-wrapper, #s_side_wrapper, #content_right {
+  display: none;
+}
+
+/* 修改搜索结果页的内容宽度 */
+
+.nums, .new-pmd.c-container, #container.sam_newgrid #content_left {
+  width: 100% !important;
+}
