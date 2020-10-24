@@ -40,7 +40,7 @@
 
 ## 小程序
 
-- [《抽个啥》微信小程序](https://github.com/dunizb/CodeTest/tree/master/Wechat/Radom-weapp)
+- [《抽个啥》微信小程序](https://github.com/dunizb/Radom-weapp)
 - [《看什么好》微信小程序](https://github.com/dunizb/what-to-see-wxapp)
 - [uni-app 开发 todo，uni-app 入门小应用](https://github.com/dunizb/CodeTest/tree/master/uni-app/uni-app-todo)
 - [小程序 textarea 的高层级问题演示](https://github.com/dunizb/CodeTest/tree/master/Wechat/textarea-test)
