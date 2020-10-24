@@ -7,6 +7,7 @@ React/**/node_modules/
 Vue/**/node_modules/
 Webpack/**/node_modules/
 Typescript/**/node_modules/
+Typescript/**/.idea/
 island/node_modules/
 Node/**/node_modules/
 projects/**/node_modules/
