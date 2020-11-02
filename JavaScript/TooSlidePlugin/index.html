@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试幻灯片</title>
+  <link rel="stylesheet" href="tooSlide.css">
+</head>
+<body>
+  <div class="contaoner">
+    <div class="slideContainer">
+      <div class="singleSlide"><img src="https://via.placeholder.com/1200x400.png?text=Slide One" alt="slide1" class="slideImage"></div>
+      <div class="singleSlide"><img src="https://via.placeholder.com/1200x400.png?text=Slide Two" alt="slide2" class="slideImage"></div>
+      <div class="singleSlide"><img src="https://via.placeholder.com/1200x400.png?text=Slide Three" alt="slide3" class="slideImage"></div>
+      <div class="singleSlide"><img src="https://via.placeholder.com/1200x400.png?text=Slide Four" alt="slide4" class="slideImage"></div>
+    </div>
+  </div>
+
+  <script src="tooSlide.js"></script>
+  <script>
+    var slider = new ToolSidePlugin({
+      slideClass: ".singleSlide",
+      container: ".slideContainer",
+      nextButton: ".next",
+      previousButton: ".prev"
+    })
+  </script>
+</body>
+</html>

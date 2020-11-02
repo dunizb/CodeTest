@@ -4,6 +4,7 @@
 
 ## JavaScript & TypeScript
 
+- [如何创建与框架无关的 JavaScript 插件](https://dunizb.github.io/CodeTest/JavaScript/TooSlidePlugin)
 - [使用 JavaScript 直接从前端发送电子邮件](https://github.com/dunizb/CodeTest/tree/master/projects/emailjs-demo)
 - [如何使用 JavaScript 访问设备摄像头（前后）](https://coding.zhangbing.site/view.html?url=./list/camera-api/index.html)
 - [TypeScript Demo study](https://github.com/dunizb/CodeTest/tree/master/TypeScript/ts-study)
