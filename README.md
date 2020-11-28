@@ -1,4 +1,4 @@
-# 个人平时学习、练习代码
+![CodeTest](https://socialify.git.ci/dunizb/CodeTest/image?description=1&font=Rokkitt&forks=1&language=1&owner=1&pattern=Signal&stargazers=1&theme=Light)
 
 部分代码效果预览：[https://dunizb.github.io/CodeTest/](https://dunizb.github.io/CodeTest/)
 
