@@ -1,6 +1,7 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const sanitizeHtml = require('sanitize-html');
 
 class MainController extends Controller {
 
@@ -37,6 +38,9 @@ class MainController extends Controller {
   // 添加文章
   async addArticle() {
     const tmpArticle = this.ctx.request.body;
+    if (tmpArticle.content) {
+      tmpArticle.content = sanitizeHtml(tmpArticle.content);
+    }
     const result = await this.app.mysql.insert('article', tmpArticle);
     const isSuccess = result.affectedRows === 1;
     const insertId = result.insertId;
