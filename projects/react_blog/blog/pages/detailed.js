@@ -15,6 +15,7 @@ import 'markdown-navbar/dist/navbar.css'
 import 'highlight.js/styles/monokai-sublime.css'
 import Tocify from '../components/tocify.tsx'
 import servicePath from '../config/apiConfig'
+import DOMPurify from 'dompurify';
 
 const Detailed = (props) => {
   const tocify = new Tocify()
@@ -35,7 +36,10 @@ const Detailed = (props) => {
     smartypants: false,
     highlight: code => highlight.highlightAuto(code).value
   });
-  let html = marked(props.content);
+
+  const sanitizedContent = DOMPurify.sanitize(props.content);
+
+  let html = marked(sanitizedContent);
   return (
     <>
       <Head>

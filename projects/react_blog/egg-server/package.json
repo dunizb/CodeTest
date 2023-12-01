@@ -10,7 +10,8 @@
     "egg": "^2.15.1",
     "egg-cors": "^2.2.3",
     "egg-mysql": "^3.0.0",
-    "egg-scripts": "^2.11.0"
+    "egg-scripts": "^2.11.0",
+    "sanitize-html": "^2.11.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
